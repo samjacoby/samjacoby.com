@@ -1,4 +1,3 @@
-mode: learning
 media_root: media
 media_url: /media
 base_url: /
@@ -11,6 +10,7 @@ template: hyde.ext.templates.jinja.Jinja2Template
 plugins:
     - hyde.ext.plugins.meta.MetaPlugin
     - hyde.ext.plugins.auto_extend.AutoExtendPlugin
+    - hyde.ext.plugins.urls.UrlCleanerPlugin
     # Plugins needed for the advances section.
     - hyde.ext.plugins.sorter.SorterPlugin
     - hyde.ext.plugins.grouper.GrouperPlugin
@@ -18,8 +18,8 @@ plugins:
 context:
     data:
         author:
-            name: Merlin Rebrović
-            url: "http://merlin.rebrovic.net"
+            name: Sam Jacoby
+            url: "http://samjacoby.com"
         layout:
             name: Hyde Starter Kit
             url: "https://github.com/merlinrebrovic/hyde-starter-kit"
@@ -47,6 +47,19 @@ meta:
     # number of files.
     nodemeta: meta.yaml
     ga_tracking_code: XX-XXXXXXXX-X
+
+urlcleaner:
+    index_file_names:
+        # Identifies the files that represents a directory listing.
+        # These file names are automatically stripped away when
+        # the content_url function is called.
+        - index.html
+    strip_extensions:
+        # The following extensions are automatically removed when
+        # generating the urls using content_url function.
+        - html
+    # This option will append a slash to the end of directory paths
+    append_slash: true
 
 sorter:
     name: # the name of the sorter (no pun intended)
