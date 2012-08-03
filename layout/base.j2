@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <link href="http://fonts.googleapis.com/css?family=Anton" rel="stylesheet" type="text/css">
-        <title>Yo.{{ resource.meta.title_ending }}</title>
+        <title>{{ this_site.title }}{{ resource.meta.title_ending }}</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="{{ media_url('css/reset.css') }}">
+        <link rel="stylesheet" href="{{ media_url('css/resets.css') }}">
         <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
         </script>
@@ -12,10 +12,7 @@
     </head>
     <body>
         <header>
-            <hgroup>
-            <h1><span>Hyde</span> Starter Kit</h1>
-            <h2>Know your tool</h2>
-            </hgroup>
+            <h1>{{ this_site.title }}<h1>
         </header>
         <nav>
         {# Move main menu rendering away from the base layout. This
@@ -36,7 +33,7 @@
         </article>
         <aside>
             <p>Created by <a href="{{ author.url}}">{{ author.name}}</a>
-            for <a href="{{ project.url }}">{{ project.name }}</a></p>
+            using <a href="{{ project.url }}">{{ project.name }}</a></p>
         </aside>
 
         {# Some parts of the web are not needed for development and can

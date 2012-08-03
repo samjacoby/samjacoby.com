@@ -1,3 +1,4 @@
+mode: development
 media_root: media
 media_url: /media
 base_url: /
@@ -20,22 +21,26 @@ context:
         author:
             name: Sam Jacoby
             url: "http://samjacoby.com"
+        this_site:
+            title: Sam Jacoby 
         layout:
-            name: Hyde Starter Kit
-            url: "https://github.com/merlinrebrovic/hyde-starter-kit"
+            name: Sam Jacoby 
+            url: "http://samjacoby.com"
         project:
             name: Hyde
             url: "http://hyde.github.com"
             install: "http://hyde.github.com/install.html"
         menu:
           - title: Home
-            url: index.html
-          - title: First steps
-            url: first-steps.html
-          - title: Advanced topics
-            url: advanced/overview.html
+            url: /
+          - title: Posts 
+            url: posts.html
+          - title: Projects 
+            url: projects.html 
+          - title: Printing
+            url: printing.html 
           - title: About
-            url: about.html
+            url: about.html 
 
 ### Advanced part ###
 
@@ -83,14 +88,17 @@ sorter:
             source_file.kind: html
 
 grouper:
-    level:
+    category:
         sorter: name
-        description: Difficulty levels
+        description: Various categories that items belong to.  
         groups:
-            - name: basic
-              description: Basic
-            - name: advanced
-              description: Advanced
+            - name: blog
+              description:  Blog
+            - name: printing
+              description: Printing  
+            - name: projects
+              description: Projects
+
     # You can have more than one group section, depending on your needs.
     # For example: "categories", "menu sections", etc.
     #category:

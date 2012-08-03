@@ -2,8 +2,8 @@
 index: 3
 title_ending: "| Grouping"
 tags:
-    - sort
-    - group
+    - printing
+    - silver
 learning_order: 2
 ---
 
@@ -19,7 +19,10 @@ Walking all groups and subgroups
 
 {# Resources are sorted by defining a sorter in the configuration file. #}
 
-{% for grp, res_walker in site.content.walk_level_groups() %}
+{% for grp, res_walker in site.content.walk_category_groups() %}
+
+goo
+
 *{{ grp.description }}*
 
 {% for res in res_walker %}
@@ -36,7 +39,7 @@ Walking all groups and subgroups
 Listing only the specific (sub)group
 ------------------------------------
 
-{% for res in site.content.walk_resources_grouped_by_advanced() %}
+{% for res in site.content.walk_resources_grouped_by_printing() %}
   * [{{ res.slug|capitalize|replace("-"," ") }}]({{ res.full_url }}) \
     ({{ res.name }})
 {% endfor %}
