@@ -1,0 +1,123 @@
+mode: development
+media_root: media
+media_url: /media
+base_url: /
+# If your site is nested inside of a bigger one, you can use media_url and
+# base_url to properly generate links on your site. For example, if your URL
+# will be some.domain.com/starter/, use:
+#   media_url: /starter/media
+#   base_url: /starter/
+template: hyde.ext.templates.jinja.Jinja2Template
+plugins:
+    - hyde.ext.plugins.meta.MetaPlugin
+    - hyde.ext.plugins.auto_extend.AutoExtendPlugin
+    - hyde.ext.plugins.urls.UrlCleanerPlugin
+    - hyde.ext.plugins.less.LessCSSPlugin
+    # Plugins needed for the advances section.
+    - hyde.ext.plugins.sorter.SorterPlugin
+    - hyde.ext.plugins.grouper.GrouperPlugin
+    - hyde.ext.plugins.tagger.TaggerPlugin
+context:
+    data:
+        author:
+            name: Sam Jacoby
+            url: "http://samjacoby.com"
+            email: sjacoby@mit.com
+        this_site:
+            title: Sam Jacoby 
+        layout:
+            name: Sam Jacoby 
+            url: "http://samjacoby.com"
+        project:
+            name: Hyde
+            url: "http://hyde.github.com"
+            install: "http://hyde.github.com/install.html"
+        menu:
+          - title: Posts 
+            url: posts.html
+          - title: Projects 
+            url: projects.html 
+          - title: About
+            url: about.html 
+
+### Advanced part ###
+
+# This defines meta data on the whole site.
+meta:
+    # 'nodemeta' will tell Hyde what file to look for inside a folder from
+    # which to apply meta data to all files (resources) inside it. This is
+    # a great way of simply adding or modifying properties of a very large
+    # number of files.
+    nodemeta: meta.yaml
+    ga_tracking_code: XX-XXXXXXXX-X
+
+urlcleaner:
+    index_file_names:
+        # Identifies the files that represents a directory listing.
+        # These file names are automatically stripped away when
+        # the content_url function is called.
+        - index.html
+    strip_extensions:
+        # The following extensions are automatically removed when
+        # generating the urls using content_url function.
+        - html
+    # This option will append a slash to the end of directory paths
+    append_slash: true
+
+sorter:
+    name: # the name of the sorter (no pun intended)
+        attr: name # by which attributes will resources be sorted
+        filters:
+            source_file.kind: html
+            # You can include only files from a certain folder.
+            #resource.node: (name of the folder)
+        reverse: True # if you need the list backwards
+    order:
+        attr: order
+        filters:
+            source_file.kind html
+    file_type:
+        attr: 
+            - source_file.kind
+            - source_file.size
+    index:
+        attr: meta.index
+        filters:
+            source_file.kind: html
+    learning_order:
+        attr: meta.learning_order
+        filters:
+            source_file.kind: html
+
+grouper:
+    category:
+        sorter: name
+        description: Various categories that items belong to.  
+        groups:
+            - name: blog
+              description:  Blog
+              order: 2
+            - name: printing
+              description: Printing  
+              order: 1
+            - name: projects
+              description: Projects
+              order: 0
+
+    # You can have more than one group section, depending on your needs.
+    # For example: "categories", "menu sections", etc.
+    #category:
+    #    description: To which category a blog post belongs to.
+    #    groups:
+    #        - name: software
+    #          description: Software engineering
+    #        - name: web
+    #          description: Web technologies
+    #        - name: seo
+    #          description: Search Engine Optimization
+
+tagger:
+    sorter: name
+#less:
+#    app: lessc
+
