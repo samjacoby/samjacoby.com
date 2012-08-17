@@ -1,0 +1,3 @@
+extends: base.j2
+category: printing
+default_block: article

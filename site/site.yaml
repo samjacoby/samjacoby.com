@@ -1,4 +1,6 @@
 mode: development
+logger:
+    level: debug
 media_root: media
 media_url: /media
 base_url: /
@@ -95,13 +97,13 @@ grouper:
         description: Various categories that items belong to.  
         groups:
             - name: blog
-              description:  Blog
+              description:  This is where blog posts are
               order: 2
             - name: printing
-              description: Printing  
+              description: "These are things I've printed" 
               order: 1
             - name: projects
-              description: Projects
+              description: There are projects 
               order: 0
 
     # You can have more than one group section, depending on your needs.
@@ -120,4 +122,5 @@ tagger:
     sorter: name
 #less:
 #    app: lessc
-
+#                  propagate: no
+#

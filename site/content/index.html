@@ -3,11 +3,13 @@
 {% block content %}
 
 {% for grp, res_walker in site.content.walk_category_groups() %}
-
 {{ grp.description }}
 
 {% for res in res_walker %}
+{% if not res.meta.exclude %}
+[{{ res.meta.title }}]({{ res.full_url }})
 [{{ res.slug|capitalize|replace("-"," ") }}]({{ res.full_url }})
+{% endif %}
 {% endfor %}
 
 {% endfor %}
