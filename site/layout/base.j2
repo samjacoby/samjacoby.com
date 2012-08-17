@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link href="http://fonts.googleapis.com/css?family=Anton" rel="stylesheet" type="text/css">
+        <title>{{ this_site.title }}{{ resource.meta.title_ending }}</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{{ media_url('css/reset.css') }}">
+        <link rel="stylesheet" href="{{ media_url('css/style.css') }}">
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">{{ this_site.title }}</a><h1>
+        </header>
+        <nav>
+            {% import "macros.j2" as macros with context %}
+            {{ macros.render_main_menu() }}
+        </nav>
+        <div id="content">
+            {% filter markdown -%}
+            {% block content %}{% endblock %}
+            {%- endfilter %}
+        </div>
+        <aside>
+            <p>{{ author.email}}</p>
+        </aside>
+
+        {# Some parts of the web are not needed for development and can
+           wait for production (ex. analytics). They can be included in
+           the final production build. Create a new config file, extend
+           the original one and override the "mode" property; then build
+           the site with the new "production configuration".
+        #}
+        {% if site.config.mode == "production" -%}
+            {% include "ga.j2" %}
+        {%- endif %}
+    </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "base.j2" %}
+{% block content %}
+{% for grp, res_walker in site.content.walk_category_groups_sorted_by_order() %}
+
+{{ grp.description }}*
+
+    {% for res in res_walker %}
+      * [{{ res.slug|capitalize|replace("-"," ") }}]({{ res.full_url }}) \
+        ({{ res.name }})
+    {% endfor %}
+
+{% endfor %}
+
+{% endblock %}
