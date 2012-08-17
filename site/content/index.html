@@ -1,0 +1,15 @@
+{% extends "base.j2" %}
+{# Markdown main content block. #}
+{% block content %}
+
+{% for grp, res_walker in site.content.walk_category_groups() %}
+
+{{ grp.description }}
+
+{% for res in res_walker %}
+[{{ res.slug|capitalize|replace("-"," ") }}]({{ res.full_url }})
+{% endfor %}
+
+{% endfor %}
+
+{% endblock %}

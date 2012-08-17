@@ -1,0 +1,27 @@
+---
+extends: base.j2
+title_ending: "| About"
+default_block: content
+---
+
+About
+=====
+Hello, I'm a printer, publisher, and programmer in Cambridge, Massachusetts. I studied computer science at Harvard.
+    
+I'm a student in the [High-Low Tech Research Group](http://hlt.media.mit.edu) at the [MIT Media Lab](http://media.mit.edu). 
+
+This is a picture of me. 
+<div class="gallery">
+        <img src="{{ site.url }}/media/images/about/portrait.jpg" />
+</div>
+
+
+
+{# You can use Jinja tags in Markdown content also; they get processed
+   before the content gets to the Markdown filter.
+#}
+[0]: {{ author.url }}
+[1]: {{ project.url }}
+[2]: {{ project.install }}
+[3]: {{ layout.url }}
+[4]: http://www.flickr.com/photos/batintherain/5613841957/
