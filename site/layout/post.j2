@@ -6,7 +6,9 @@
         <h3>{{ resource.meta.title }}</h3>
     </header>
     <section>
-        {% block post %}{% endblock %}j
+        {% filter markdown %}
+        {% block post %}{% endblock %}
+        {% endfilter %}
     </section>
 </article>
 {% endblock %}
