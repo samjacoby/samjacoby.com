@@ -7,8 +7,11 @@
 
 {% for res in res_walker %}
 {% if not res.meta.exclude %}
+{% if res.meta.title %}
 [{{ res.meta.title }}]({{ res.full_url }})
+{% else %}
 [{{ res.slug|capitalize|replace("-"," ") }}]({{ res.full_url }})
+{% endif %}
 {% endif %}
 {% endfor %}
 
