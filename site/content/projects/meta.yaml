@@ -1,2 +1,4 @@
 extends: base.j2
+category: projects
 default_block: content
+

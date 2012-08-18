@@ -5,16 +5,31 @@
 {% endblock %}
 
 {% block content %}
-{% for grp, res_walker in site.content.walk_category_groups() %}
 
-    <section class="wrapper">
-gum
-    {% for res in res_walker %}
-        <div>{% include "assets/render_title.j2" %}</div>
-
-            {% if loop.last %}
-</section>
-            {% endif %}
-    {% endfor %}
+<section class="wrapper">
+    <div><h2>POSTS</h2></div>
+{% for res in site.content.walk_resources_grouped_by_blog() %}
+    <div>
+        {% include "assets/render_title.j2" %}
+        {% include "assets/render_date.j2" %}
+    <p class="summary">{{ res.meta.summary }}</p>
+    <p class="date">{{ res.meta.date }}</p>
 {% endfor %}
+</section>
+
+<section class="wrapper">
+    <div><h2>PROJECTS</h2></div>
+{% for res in site.content.walk_resources_grouped_by_projects() %}
+    <div>{% include "assets/render_title.j2" %}</div>
+{% endfor %}
+</section>
+
+<section class="wrapper">
+    <div><h2>WORK</h2></div>
+{% for res in site.content.walk_resources_grouped_by_work() %}
+    <div>{% include "assets/render_title.j2" %}</div>
+    <p>{{ res.meta.summary }}</p>
+{% endfor %}
+</section>
+
 {% endblock %}
