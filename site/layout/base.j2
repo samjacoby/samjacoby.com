@@ -6,8 +6,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 
-        <link rel="stylesheet" href="{{ media_url('css/reset.css') }}">
-        <link rel="stylesheet" href="{{ media_url('css/style.css') }}">
+        <link rel="stylesheet" href="{{ media_url('css/GGS.css') }}">
+
+
+        <script src="{{ media_url('js/GGS.js') }}"></script>
 
         <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
@@ -16,20 +18,27 @@
     </head>
     <body lang="en">
         <header>
+            <div class="wrapper">
+            {% block splash %}{% endblock %} 
             <h1><a href="/">{{ this_site.title }}</a><h1>
+            </div>
+            <nav>
+                <div class="wrapper">
+                {% import "macros.j2" as macros with context %}
+                {{ macros.render_main_menu() }}
+                </div>
+            </nav>
         </header>
-        <nav>
-            {% import "macros.j2" as macros with context %}
-            {{ macros.render_main_menu() }}
-        </nav>
-        <div id="content">
-            {% filter markdown -%}
+        <article id="twoway"> 
+            <div class="wrapper">
             {% block content %}{% endblock %}
-            {%- endfilter %}
-        </div>
-        <aside>
+            </div>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
             <p>{{ author.email}}</p>
-        </aside>
+            </div>
+        </footer>
 
         {# Some parts of the web are not needed for development and can
            wait for production (ex. analytics). They can be included in

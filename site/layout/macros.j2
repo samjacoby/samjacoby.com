@@ -1,3 +1,13 @@
+{% macro render_title() %}
+{% if not res.meta.exclude %}
+{% if res.meta.title %}
+[{{ res.meta.title }}]({{ res.full_url }})
+{% else %}
+[{{ res.slug|capitalize|replace("-"," ") }}]({{ res.full_url }})
+{% endif %}
+{% endif %}
+{% endmacro %}
+
 {% macro render_date() %}
 <h3>DATE GOES HERE</h3>
 {% endmacro %}
@@ -18,7 +28,6 @@
 {%- endfor %}
 </ul>
 {%- endmacro %}
-
 
 {# Advanced topics macro. Renders navigation at the end of the article. #}
 
