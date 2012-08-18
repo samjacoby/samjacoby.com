@@ -78,6 +78,7 @@ body {
 	min-height: 100%; 
 	font-size: 100%;
 }
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, nav, section, audio, canvas, video {
 	display: block;
@@ -134,6 +135,11 @@ table {
     border-spacing: 0;
 }
 
+
+#colophon {
+    clear: both;
+    padding: 24/@em 0 0;
+}
 
 /*
 *
@@ -202,6 +208,101 @@ body {
 	font-size: 110 / @em;
 	line-height: (@line*5) / 110 * 1em;
 }
+/*
+*
+*   Typography
+*
+*/
+
+body, input, textarea, button, select {
+    font-family: arial, sans-serif;
+}
+
+pre, code {
+    font-family: Menlo, Monaco, monospace;
+}
+
+article p, #content figure, #content header p {
+    margin-bottom: 24/@em;
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+            hyphens: auto;
+}
+
+article p:last-child {
+    margin-bottom: 0;
+}
+
+#content header p {
+    padding-bottom: 23/@em;
+    border-bottom: 1/@em dotted @body;
+    margin: 0;
+}
+
+h2 {
+    margin-bottom: 12 / 26*1em;
+}
+
+h3 {
+    margin: 48/@em 0 24/@em;
+}
+
+
+/*
+*
+*   Colors
+*
+*/
+
+@background:    rgb(255,254,250);
+
+@body:          rgb(61,60,56);
+@emphasis:      rgb(23,20,9);
+@aside:         rgb(158,156,149);
+
+@link:          rgb(255,0,17);
+@red:          rgb(255,0,100);
+
+h1, h2, h3, strong, code {
+    color: @emphasis;
+}
+
+#colophon {
+    color: @aside;
+}
+
+    #follow p, #colophon h3 {
+        color: @background;
+    }
+
+a {
+    text-decoration: none;
+    color: @emphasis;
+}
+
+a:hover {
+    color: @link;
+}
+
+#colophon a:hover {
+    border-bottom-color: @red;
+}
+
+a:active {
+    border-bottom-color: @red;
+    color: @red;
+}
+
+#colophon a:active {
+    border-bottom-color: @background;
+    color: @background;
+}
+
+::selection         {background: @red; color: @emphasis;}
+::-moz-selection    {background: @red; color: @emphasis;}
+img::selection      {background: transparent;}
+img::-moz-selection {background: transparent;}
+body {-webkit-tap-highlight-color: @red;}
 
 
 /*
@@ -213,7 +314,7 @@ body {
 *
 */
 
-header, #twoway {
+header, footer, #twoway {
 	margin: 0 @column;
 }
 
@@ -267,6 +368,15 @@ h3 {
 		/* Zoom baseline grid to 17/16 = 1.0625 */
 		font-size: (@font-size + 1) / @em;
 	}
+
+    #colophon:after {
+            content: " ";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+    }
+
 	
 	h1 {
 		.huge();
@@ -320,7 +430,7 @@ h3 {
 		font-size: (@font-size) / @em; 
 	}
 	
-	header, #twoway {
+	header, footer, #twoway {
 		margin: 0 @column*3;
 	}
 
@@ -346,7 +456,7 @@ h3 {
 		font-size: (@font-size) / @em;
 	}
 	
-	header, #twoway {
+	header, footer, #twoway {
 		margin: 0 @column*5;
 	}
 	
@@ -376,8 +486,8 @@ h3 {
 
 /* @media screen and (min-width: 1872px) */
 @media screen and (min-width: 117em) {
-	
-	header, #twoway {
+
+	header, footer, #twoway {
 		margin: 0 @column*1;
 	}
 	
@@ -405,5 +515,4 @@ h3 {
 		font-size: (@font-size + 2) / @em;
 		max-width: 2560/@em;
 	}
-	
 }

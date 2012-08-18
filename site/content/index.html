@@ -1,20 +1,13 @@
 {% extends "base.j2" %}
-{# Markdown main content block. #}
+
+{% block splash %}
+    <h1>BEHOLD, MY INTERNET IDENTITY</h1>
+{% endblock %}
+
 {% block content %}
-
 {% for grp, res_walker in site.content.walk_category_groups() %}
-{{ grp.description }}
-
-{% for res in res_walker %}
-{% if not res.meta.exclude %}
-{% if res.meta.title %}
-[{{ res.meta.title }}]({{ res.full_url }})
-{% else %}
-[{{ res.slug|capitalize|replace("-"," ") }}]({{ res.full_url }})
-{% endif %}
-{% endif %}
+    {% for res in res_walker %}
+        {% include "assets/render_title.j2" %}
+    {% endfor %}
 {% endfor %}
-
-{% endfor %}
-
 {% endblock %}
