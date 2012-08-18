@@ -6,8 +6,15 @@
 
 {% block content %}
 {% for grp, res_walker in site.content.walk_category_groups() %}
+
+    <section class="wrapper">
+gum
     {% for res in res_walker %}
-        {% include "assets/render_title.j2" %}
+        <div>{% include "assets/render_title.j2" %}</div>
+
+            {% if loop.last %}
+</section>
+            {% endif %}
     {% endfor %}
 {% endfor %}
 {% endblock %}
