@@ -18,6 +18,7 @@
    site's config file or set "Advanced topics" selected for any resources
    that have the "advanced" folder as their parent.
 #}
+
 {% for menu_item in menu -%}
     <div class="wrapper"><h2><a {% if (menu_item.url == resource.meta.title) or
                  (menu_item.title == "Advanced topics"

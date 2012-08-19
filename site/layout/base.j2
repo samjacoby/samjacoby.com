@@ -24,12 +24,12 @@
     <body lang="en">
         <header>
             <div>
-            {% block splash %}{% endblock %} 
-            <h1><a href="/">{{ this_site.title }}</a><h1>
+                {% block splash %}{% endblock %} 
+                <h1><a href="/">{{ this_site.title }}</a><h1>
             </div>
             <nav>
                 {% import "macros.j2" as macros with context %}
-                {{ macros.render_main_menu() }}
+                {% block menu %}{% endblock %}
             </nav>
         </header>
         <article id="twoway"> 
@@ -37,7 +37,7 @@
         </article>
         <footer id="colophon">
             <div class="inner">
-            <p>{{ author.email}}</p>
+                <h3>{{ author.email}}</h3>
             </div>
         </footer>
 
