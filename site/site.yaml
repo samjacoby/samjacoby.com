@@ -37,11 +37,11 @@ context:
             install: "http://hyde.github.com/install.html"
         menu:
           - title: Posts 
-            url: posts.html
+            url: /posts/
           - title: Projects 
-            url: projects.html 
-          - title: About
-            url: about.html 
+            url: /projects/
+          - title: Work
+            url: /work/ 
 
 ### Advanced part ###
 
