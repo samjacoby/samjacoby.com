@@ -29,16 +29,7 @@
             </div>
             <nav>
                 {% import "macros.j2" as macros with context %}
-                {{ macros.srender_main_menu() }}
-                <div class="wrapper">
-                    one
-                </div>
-                <div class="wrapper">
-                    two
-                </div>
-                <div class="wrapper">
-                    three
-                </div>
+                {{ macros.render_main_menu() }}
             </nav>
         </header>
         <article id="twoway"> 

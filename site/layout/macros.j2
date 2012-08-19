@@ -19,11 +19,11 @@
    that have the "advanced" folder as their parent.
 #}
 {% for menu_item in menu -%}
-    <div class="wrapper"><a {% if (menu_item.url == resource.meta.title) or
+    <div class="wrapper"><h2><a {% if (menu_item.url == resource.meta.title) or
                  (menu_item.title == "Advanced topics"
                   and resource.node.name == "advanced")
             %}class="selected"{% endif -%}
-            href="{{ content_url(menu_item.url) }}">{{ menu_item.title }}</a></div>
+            href="{{ content_url(menu_item.url) }}">{{ menu_item.title }}</a></h2></div>
 {%- endfor %}
 {%- endmacro %}
 
