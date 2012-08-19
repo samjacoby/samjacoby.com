@@ -15,7 +15,8 @@ plugins:
     - hyde.ext.plugins.auto_extend.AutoExtendPlugin
     - hyde.ext.plugins.urls.UrlCleanerPlugin
     - hyde.ext.plugins.less.LessCSSPlugin
-    # Plugins needed for the advances section.
+    - hyde.ext.plugins.images.ImageThumbnailsPlugin
+    - hyde.ext.plugins.images.ImageSizerPlugin
     - hyde.ext.plugins.sorter.SorterPlugin
     - hyde.ext.plugins.grouper.GrouperPlugin
     - hyde.ext.plugins.tagger.TaggerPlugin
@@ -74,6 +75,11 @@ sorter:
             # You can include only files from a certain folder.
             #resource.node: (name of the folder)
         reverse: True # if you need the list backwards
+    date:
+        attr: meta.date
+        filters: 
+            source_file.kind: html
+        reverse: True
     order:
         attr: order
         filters:
@@ -97,14 +103,12 @@ grouper:
         description: Various categories that items belong to.  
         groups:
             - name: blog
+              sorter: date
               description:  This is where blog posts are
-              order: 2
-            - name: printing
-              description: "These are things I've printed" 
-              order: 1
             - name: projects
-              description: There are projects 
-              order: 0
+              description: These are projects
+            - name: work
+              description: This is work 
 
     # You can have more than one group section, depending on your needs.
     # For example: "categories", "menu sections", etc.
@@ -124,3 +128,6 @@ tagger:
 #    app: lessc
 #                  propagate: no
 #
+thumbnails:
+    width: 459 
+    prefix: thumbs_

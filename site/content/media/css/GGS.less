@@ -247,6 +247,13 @@ h3 {
     margin: 48/@em 0 24/@em;
 }
 
+.timeago {
+    font-style: italic;
+}
+
+.summary {
+    font-style: italic;
+}
 
 /*
 *
@@ -262,6 +269,8 @@ h3 {
 
 @link:          rgb(255,0,17);
 @red:          rgb(255,0,100);
+
+@gray:          rgb(204, 204, 204);
 
 h1, h2, h3, strong, code {
     color: @emphasis;
@@ -297,6 +306,10 @@ a:active {
     border-bottom-color: @background;
     color: @background;
 }
+
+.gallery img {
+    border: 1px solid @gray;
+    }
 /*
 ::selection         {background: @red; color: @emphasis;}
 ::-moz-selection    {background: @red; color: @emphasis;}
@@ -305,6 +318,14 @@ img::-moz-selection {background: transparent;}
 body {-webkit-tap-highlight-color: @red;}
 */
 
+/*
+ *
+ *
+ */
+
+.post header {
+    margin: 0;
+}
 
 /*
 *
@@ -320,7 +341,7 @@ header, footer, #twoway {
 }
 
 h1, h2 {
-	margin: (24/26*1em) 0 (36/26*1em);
+//	margin: (24/26*1em) 0 (36/26*1em);
 }
 
 h2 {
@@ -405,7 +426,7 @@ h3 {
 		font-size: (@font-size) / @em;
 	}
 	
-	#twoway .wrapper {
+	.wrapper, #twoway .wrapper {
 		float: left;
 		width: 6 * @column;
 	}
@@ -497,11 +518,11 @@ h3 {
 		margin-left: 25%;
 	}
 	
-	#twoway .wrapper {
+	.wrapper, #twoway .wrapper {
 		width: 25%;
 	}
 	
-	#twoway .wrapper:first-child {
+	.wrapper:first-child, #twoway .wrapper:first-child {
 		margin-left: 25%;
 	}
 	

@@ -1,14 +1,14 @@
 {% extends "base.j2" %}
 
 {% block content %}
+{% mark content -%}
 <article class="post">
     <header>
         <h3>{{ resource.meta.title }}</h3>
+        {{ macros.render_date( resource.meta.date ) }}
     </header>
     <section>
-        {% filter markdown %}
         {% block post %}{% endblock %}
-        {% endfilter %}
-    </section>
-</article>
+    </section> </article>
+{%- endmark %}
 {% endblock %}

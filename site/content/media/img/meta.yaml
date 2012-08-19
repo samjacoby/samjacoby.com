@@ -1,6 +1,12 @@
 thumbnails:
-  - width: 450
+  - width: 550
     prefix: scaled_
     include:
     - '*.png'
     - '*.jpg'
+  - width: 100
+    prefix: thumb_
+    include:
+    - '*.png'
+    - '*.jpg'
+    

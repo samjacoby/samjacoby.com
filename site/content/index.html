@@ -7,28 +7,27 @@
 {% block content %}
 
 <section class="wrapper">
-    <div><h2>POSTS</h2></div>
 {% for res in site.content.walk_resources_grouped_by_blog() %}
     <div>
         {% include "assets/render_title.j2" %}
-        {% include "assets/render_date.j2" %}
+        {{ macros.render_date(res.meta.date) }}
     <p class="summary">{{ res.meta.summary }}</p>
-    <p class="date">{{ res.meta.date }}</p>
 {% endfor %}
 </section>
 
 <section class="wrapper">
-    <div><h2>PROJECTS</h2></div>
 {% for res in site.content.walk_resources_grouped_by_projects() %}
     <div>{% include "assets/render_title.j2" %}</div>
 {% endfor %}
 </section>
 
 <section class="wrapper">
-    <div><h2>WORK</h2></div>
 {% for res in site.content.walk_resources_grouped_by_work() %}
+    {% if res.meta.thumbnail %}
+        <!--<a href="{{ res.full_url }}"><img src="{{ media_url( res.meta.thumbnail) }}" /></a>-->
+     {% endif %}
     <div>{% include "assets/render_title.j2" %}</div>
-    <p>{{ res.meta.summary }}</p>
+    <p class="summary">{{ res.meta.summary }}</p>
 {% endfor %}
 </section>
 

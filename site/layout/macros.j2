@@ -8,8 +8,8 @@
 {% endif %}
 {% endmacro %}
 
-{% macro render_date() %}
-<h3>DATE GOES HERE</h3>
+{% macro render_date(date) -%}
+    <time class="timeago" datetime="{{ date }}" pubdate>{{ date }}</time>
 {% endmacro %}
 
 {% macro render_main_menu() -%}
@@ -18,15 +18,13 @@
    site's config file or set "Advanced topics" selected for any resources
    that have the "advanced" folder as their parent.
 #}
-<ul>
 {% for menu_item in menu -%}
-    <li><a {% if (menu_item.url == resource.meta.title) or
+    <div class="wrapper"><a {% if (menu_item.url == resource.meta.title) or
                  (menu_item.title == "Advanced topics"
                   and resource.node.name == "advanced")
             %}class="selected"{% endif -%}
-            href="{{ content_url(menu_item.url) }}">{{ menu_item.title }}</a></li>
+            href="{{ content_url(menu_item.url) }}">{{ menu_item.title }}</a></div>
 {%- endfor %}
-</ul>
 {%- endmacro %}
 
 {# Advanced topics macro. Renders navigation at the end of the article. #}
