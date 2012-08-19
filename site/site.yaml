@@ -53,6 +53,7 @@ meta:
     # number of files.
     nodemeta: meta.yaml
     ga_tracking_code: XX-XXXXXXXX-X
+    created: !!timestamp '1978-01-01 00:00:00'
 
 urlcleaner:
     index_file_names:
@@ -75,6 +76,10 @@ sorter:
             # You can include only files from a certain folder.
             #resource.node: (name of the folder)
         reverse: True # if you need the list backwards
+    multi:
+        attr:
+            - meta.date 
+            - name
     date:
         attr: meta.date
         filters: 
