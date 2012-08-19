@@ -7,6 +7,7 @@
 {% block content %}
 
 <section class="wrapper">
+    <h2><a href="/posts/">POSTS</a></h2> 
 {% for res in site.content.walk_resources_grouped_by_blog() %}
     <div>
         {% include "assets/render_title.j2" %}
@@ -16,12 +17,14 @@
 </section>
 
 <section class="wrapper">
+    <h2><a href="/posts/">PROJECTS</a></h2> 
 {% for res in site.content.walk_resources_grouped_by_projects() %}
     <div>{% include "assets/render_title.j2" %}</div>
 {% endfor %}
 </section>
 
 <section class="wrapper">
+    <h2><a href="/posts/">WORK</a></h2> 
 {% for res in site.content.walk_resources_grouped_by_work() %}
     {% if res.meta.thumbnail %}
         <!--<a href="{{ res.full_url }}"><img src="{{ media_url( res.meta.thumbnail) }}" /></a>-->

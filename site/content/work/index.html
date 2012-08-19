@@ -2,3 +2,15 @@
 exclude: True
 ---
 {% extends "listing.j2" %}
+
+{% block content %}
+
+{% for res in resource.node.walk_resources() %}
+    {% if not res.meta.exclude %} 
+    [{{ res.slug|capitalize }}]({{ res.full_url }})
+    {% refer to res.relative_path as post %} 
+    {{ post.content }}
+    {% endif %}
+{% endfor %}
+
+{% endblock %}

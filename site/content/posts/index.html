@@ -2,3 +2,17 @@
 exclude: True
 ---
 {% extends "listing.j2" %}
+
+{% block content %}
+
+{% for res in resource.node.walk_resources_sorted_by_date() %}
+    {% if not res.meta.exclude %} 
+    <h3><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h3>
+    {{ macros.render_date(res.meta.date) }}
+    {% refer to res.relative_path as post %} 
+    {{ post.content }}
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
+
