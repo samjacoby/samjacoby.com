@@ -11,7 +11,7 @@
     </header>
     <section>
         {% mark content -%}
-        {% filter markdown -%}
+        {% filter markdown|typogrify -%}
         {% block post %}{% endblock %}
         {%- endfilter %}
         {%- endmark %}

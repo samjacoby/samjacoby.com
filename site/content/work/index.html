@@ -3,13 +3,20 @@ exclude: True
 ---
 {% extends "listing.j2" %}
 
+{% block class%}
+    {{ macros.render_class(resource.meta.class) }}
+{% endblock %}
+
 {% block content %}
 
-{% for res in resource.node.walk_resources() %}
+{% for res in resource.node.walk_resources_sorted_by_name() %}
     {% if not res.meta.exclude %} 
-    [{{ res.slug|capitalize }}]({{ res.full_url }})
+    <h3><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h3>
     {% refer to res.relative_path as post %} 
-    {{ post.content }}
+
+    {{ post.html('article>section>p:nth-child(1)') }}
+
+    <h4><a href="{{ res.full_url }}">read on &raquo;</a></h4>
     {% endif %}
 {% endfor %}
 

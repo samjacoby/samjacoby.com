@@ -83,6 +83,10 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, nav, section, audio, canvas, video {
 	display: block;
 }
+.listing {
+    margin:0 0 25/@em 0;
+}
+
 sub, sup {
 	font-size: 75%; 
 	line-height: 0; 
@@ -224,8 +228,23 @@ pre, code {
     font-family: Menlo, Monaco, monospace;
 }
 
-article p, #content figure, #content header p {
+header {
+    h1 {
+        a {
+            color: @red;
+        }
+        a:hover{
+            color: @link;
+        }
+       }
+}
+
+article {
     margin-bottom: 24/@em;
+}
+
+article p, #content figure, #content header p {
+    margin-bottom: 8/@em;
     -webkit-hyphens: auto;
        -moz-hyphens: auto;
             hyphens: auto;
@@ -246,10 +265,16 @@ h2 {
 }
 
 h3 {
-    margin: 48/@em 0 24/@em;
+    margin: 16/@em 0 16/@em;
 }
 
-.timeago {
+.posts h3 {
+    margin: 0;
+}
+
+
+.datetime {
+    margin: 0;
     font-style: italic;
 }
 
@@ -270,7 +295,7 @@ h3 {
 @aside:         rgb(158,156,149);
 
 @link:          rgb(255,0,17);
-@red:          rgb(255,0,100);
+@red:          rgb(255,0,17);
 
 @gray:          rgb(204, 204, 204);
 
@@ -291,16 +316,18 @@ a {
     color: @emphasis;
 }
 
+.posts a, .listing a {
+    color: @red;
+}
+
 a:hover {
     color: @link;
 }
 
 #colophon a:hover {
-    border-bottom-color: @red;
 }
 
 a:active {
-    border-bottom-color: @red;
     color: @red;
 }
 
@@ -311,7 +338,7 @@ a:active {
 
 .gallery img {
     border: 1px solid @gray;
-    }
+}
 /*
 ::selection         {background: @red; color: @emphasis;}
 ::-moz-selection    {background: @red; color: @emphasis;}
@@ -351,7 +378,7 @@ h2 {
 }
 
 h3 {
-	margin: (24/@em) 0 (24/@em);
+	margin: (16/@em) 0 (16/@em);
 }
 
 /*
@@ -360,7 +387,7 @@ h3 {
 */
 
 header, footer, .wrapper {
-	//padding: 0 (@line/2)/@em;
+	padding: 0 (@line/2)/@em 0 0;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 			box-sizing: border-box;

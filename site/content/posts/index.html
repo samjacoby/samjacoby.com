@@ -3,15 +3,22 @@ exclude: True
 ---
 {% extends "listing.j2" %}
 
+
+{% block class %}
+    {{ macros.render_class(resource.meta.class) }}
+{% endblock %}
+
 {% block content %}
 
 {% for res in resource.node.walk_resources_sorted_by_date() %}
     {% if not res.meta.exclude %} 
+    <article>
     <h3><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h3>
-    {{ macros.render_date(res.meta.date) }}
+    <p class="datetime">{{ macros.render_date(res.meta.date) }}</p>
     {% refer to res.relative_path as post %} 
     {{ post.content }}
     {% endif %}
+    </article>
 {% endfor %}
 
 {% endblock %}

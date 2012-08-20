@@ -1,3 +1,4 @@
 extends: post.j2
 category: work 
 default_block: post
+class: listing

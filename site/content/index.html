@@ -1,7 +1,8 @@
 {% extends "base.j2" %}
 
 {% block splash %}
-    <h1>BEHOLD, MY INTERNET IDENTITY</h1>
+    <h1>Hello, I'm a printer, programmer, builder. I'm a student at <a href="hlt.mit.media.edu">High-Low Tech</a> at the <a href="media.mit.edu">MIT Media Lab</a>.</h1> 
+    <h1>This is my website.</h1>
 {% endblock %}
 
 {% block content %}
@@ -9,17 +10,16 @@
 <section class="wrapper">
     <h2><a href="/posts/">POSTS</a></h2> 
 {% for res in site.content.walk_resources_grouped_by_blog() %}
-    <div>
-        {% include "assets/render_title.j2" %}
-        {{ macros.render_date(res.meta.date) }}
+    <div class="listing">{% include "assets/render_title.j2" %}
     <p class="summary">{{ res.meta.summary }}</p>
+    </div>
 {% endfor %}
 </section>
 
 <section class="wrapper">
     <h2><a href="/posts/">PROJECTS</a></h2> 
 {% for res in site.content.walk_resources_grouped_by_projects() %}
-    <div>{% include "assets/render_title.j2" %}</div>
+    <div class="listing">{% include "assets/render_title.j2" %}</div>
 {% endfor %}
 </section>
 
@@ -29,8 +29,8 @@
     {% if res.meta.thumbnail %}
         <!--<a href="{{ res.full_url }}"><img src="{{ media_url( res.meta.thumbnail) }}" /></a>-->
      {% endif %}
-    <div>{% include "assets/render_title.j2" %}</div>
-    <p class="summary">{{ res.meta.summary }}</p>
+    <div class="listing">{% include "assets/render_title.j2" %}
+    <p class="summary">{{ res.meta.summary }}</p></div>
 {% endfor %}
 </section>
 

@@ -24,15 +24,15 @@
     <body lang="en">
         <header>
             <div>
-                {% block splash %}{% endblock %} 
                 <h1><a href="/">{{ this_site.title }}</a><h1>
+                {% block splash %}{% endblock %} 
             </div>
             <nav>
                 {% import "macros.j2" as macros with context %}
                 {% block menu %}{% endblock %}
             </nav>
         </header>
-        <article id="twoway"> 
+        <article {% block class %}{% endblock %} id="twoway"> 
             {% block content %}{% endblock %}
         </article>
         <footer id="colophon">

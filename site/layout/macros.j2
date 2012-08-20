@@ -1,3 +1,7 @@
+{% macro render_class(class='') %}
+class="{{ class }}"
+{% endmacro %}
+
 {% macro render_title() %}
 {% if not res.meta.exclude %}
 {% if res.meta.title %}
@@ -8,8 +12,10 @@
 {% endif %}
 {% endmacro %}
 
-{% macro render_date(date) -%}
-    <time class="timeago" datetime="{{ date }}" pubdate>{{ date }}</time>
+{% macro render_date(date=false) -%}
+    {% if date %}
+    Posted <time class="timeago" datetime="{{ date }}" pubdate>{{ date }}</time>.
+    {% endif %} 
 {% endmacro %}
 
 {% macro render_main_menu() -%}
