@@ -40,7 +40,7 @@ context:
             url: /posts/
           - title: Projects 
             url: /projects/
-          - title: Work
+          - title: Printing
             url: /work/ 
 
 ### Advanced part ###

@@ -5,7 +5,9 @@ thumbnails:
     - '*.png'
     - '*.jpg'
   - width: 240
+    height: 240
     prefix: thumb_
+    crop_type: center
     include:
     - '*.png'
     - '*.jpg'
