@@ -1,4 +1,4 @@
 extends: post.j2
-category: work 
+category: printing 
 default_block: post
 class: listing

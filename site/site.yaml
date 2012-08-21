@@ -41,7 +41,7 @@ context:
           - title: Projects 
             url: /projects/
           - title: Printing
-            url: /work/ 
+            url: /printing/ 
 
 ### Advanced part ###
 
