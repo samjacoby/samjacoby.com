@@ -1,4 +1,4 @@
-extends: base.j2
+extends: post.j2
+class: listing
 category: projects
 default_block: content
-

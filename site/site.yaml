@@ -111,8 +111,9 @@ grouper:
               sorter: date
               description:  This is where blog posts are
             - name: projects
+              sorter: date
               description: These are projects
-            - name: work
+            - name: printing
               description: This is work 
 
     # You can have more than one group section, depending on your needs.
