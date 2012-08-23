@@ -37,10 +37,13 @@ context:
             install: "http://hyde.github.com/install.html"
         menu:
           - title: Posts 
+            key: posts 
             url: /posts/
           - title: Projects 
+            key: projects
             url: /projects/
           - title: Printing
+            key: printing
             url: /printing/ 
 
 ### Advanced part ###
@@ -107,14 +110,14 @@ grouper:
         sorter: name
         description: Various categories that items belong to.  
         groups:
-            - name: blog
+            - name: posts
               sorter: date
               description:  This is where blog posts are
             - name: projects
               sorter: date
               description: These are projects
             - name: printing
-              description: This is work 
+              description: This is printing 
 
     # You can have more than one group section, depending on your needs.
     # For example: "categories", "menu sections", etc.

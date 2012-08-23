@@ -7,8 +7,8 @@
 {% block content %}
 
 <section class="wrapper">
-    <h2><a href="/posts/">POSTS</a></h2> 
-{% for res in site.content.walk_resources_grouped_by_blog() %}
+    <nav><h2><a href="/posts/">POSTS</a></h2></nav> 
+{% for res in site.content.walk_resources_grouped_by_posts() %}
     <div class="listing">{% include "assets/render_title.j2" %}
     <p class="summary">{{ res.meta.summary }}</p>
     </div>
@@ -16,7 +16,7 @@
 </section>
 
 <section class="wrapper">
-    <h2><a href="/projects/">PROJECTS</a></h2> 
+    <nav><h2><a href="/projects/">PROJECTS</a></h2></nav> 
 {% for res in site.content.walk_resources_grouped_by_projects() %}
     <div class="listing">{% include "assets/render_title.j2" %}
     {% if res.meta.summary %}
@@ -27,7 +27,7 @@
 </section>
 
 <section class="wrapper">
-    <h2><a href="/printing/">PRINTING</a></h2> 
+    <nav><h2><a href="/printing/">PRINTING</a></h2></nav> 
 {% for res in site.content.walk_resources_grouped_by_printing() %}
     <div class="listing">
     {% if res.meta.thumbnail %}

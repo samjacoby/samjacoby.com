@@ -26,7 +26,7 @@ class="{{ class }}"
 #}
 
 {% for menu_item in menu -%}
-    <div class="wrapper"><h2><a {% if (menu_item.url == resource.meta.title) or
+    <div class="wrapper"><h2><a {% if (menu_item.key == resource.meta.category) or
                  (menu_item.title == "Advanced topics"
                   and resource.node.name == "advanced")
             %}class="selected"{% endif -%}

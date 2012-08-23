@@ -1,4 +1,4 @@
 extends: post.j2
 default_block: post
-category: blog
+category: posts
 class: posts

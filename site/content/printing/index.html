@@ -12,7 +12,7 @@ exclude: True
 {% for res in resource.node.walk_resources_sorted_by_name() %}
 {% if not res.meta.exclude %} 
 <section>
-    <h3><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h3>
+    <h2><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h2>
     {% refer to res.relative_path as post %} 
 
     <p>{{ post.html('article>section>p:nth-child(1)') }}</p>

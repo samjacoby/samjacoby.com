@@ -7,8 +7,10 @@
 {% block content %}
 <article class="post">
     <header>
-        <h3>{{ resource.meta.title }}</h3> 
+        <h2>{{ resource.meta.title }}</h2> 
+        {% if resource.meta.date %}
         <p class="datetime">{{ macros.render_date( resource.meta.date ) }}</p>
+        {% endif %}
     </header>
     <section>
         {% mark content -%}
