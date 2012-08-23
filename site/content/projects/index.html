@@ -11,8 +11,10 @@ exclude: True
 
 {% for res in resource.node.walk_resources_sorted_by_date() %}
 {% if not res.meta.exclude %} 
-<section>
+<article>
+    <header>
     <h2><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h2>
+</header>
     {% refer to res.relative_path as post %} 
 
     <p>{{ post.html('article>section>p:nth-child(1)') }}</p>
@@ -22,7 +24,7 @@ exclude: True
     {% endif %}
     
     <p><a href="{{ res.full_url }}">read on &raquo;</a></h4>
-</section>
+</article>
 {% endif %}
 {% endfor %}
 
