@@ -7,7 +7,8 @@
 {% block content %}
 <article class="post">
     <header>
-        <h3>{{ resource.meta.title }}</h3> {{ macros.render_date( resource.meta.date ) }}
+        <h3>{{ resource.meta.title }}</h3> 
+        <p class="datetime">{{ macros.render_date( resource.meta.date ) }}</p>
     </header>
     <section>
         {% mark content -%}

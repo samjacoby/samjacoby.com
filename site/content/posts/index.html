@@ -16,7 +16,6 @@ exclude: True
     <h3><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h3>
     <p class="datetime">{{ macros.render_date(res.meta.date) }}</p>
     {% refer to res.relative_path as post %} 
-    {% comment %}<p>{{ post.html('article>section>p:nth-child(1)') }}</p>{%endcomment%}
     {{ post.content }}
     </article>
     {% endif %}

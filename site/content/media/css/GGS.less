@@ -16,7 +16,6 @@
 @font-size: 16;
 @em:@font-size*1em;
 
-
 /*
 *
 *  Margin, padding, and border resets
@@ -38,9 +37,6 @@ pre,
 dl,
 dt,
 dd,
-ol,
-ul,
-li,
 fieldset,
 form,
 label,
@@ -86,7 +82,6 @@ footer, header, hgroup, nav, section, audio, canvas, video {
 .listing {
     margin:0 0 25/@em 0;
     img {
-        max-width: 100%;
         padding: .5em 0 .5em;
     }
 }
@@ -165,7 +160,8 @@ figure img, figure object, figure embed, figure video {
 img {
 	max-width: 100%; 
 	display: block;
-	border: 0; 
+	border: 1px solid @gray; 
+    margin: .5em 0 .5em 0;
 	-ms-interpolation-mode: bicubic;
 }
 
@@ -225,7 +221,7 @@ body {
 */
 
 body, input, textarea, button, select {
-    font-family: arial, sans-serif;
+    font-family: 'MuseoSlab500', arial, sans-serif;
 }
 
 pre, code {
@@ -293,6 +289,11 @@ h3 {
     font-style: italic;
 }
 
+ul {
+    //padding: 0 0 0 1em;
+    //margin: 0 0 0 1em;
+}
+
 /*
 *
 *   Colors
@@ -324,7 +325,7 @@ h1, h2, h3, strong, code {
 
 a {
     text-decoration: none;
-    color: @emphasis;
+    color: @red;
 }
 
 .posts a, .listing a {
@@ -348,6 +349,7 @@ a:active {
 }
 
 .gallery img {
+    margin: .5em 0 .5em 0;
     border: 1px solid @gray;
 }
 /*
@@ -381,7 +383,11 @@ header, footer, #twoway {
 }
 
 h1, h2 {
-//	margin: (24/26*1em) 0 (36/26*1em);
+	margin: (24/26*1em)/@em 0 (36/26*1em)/@em;
+}
+
+.post h1, h2 {
+	margin: (36/26*12em)/@em 0 (36/26*3em)/@em;
 }
 
 h2 {
@@ -431,22 +437,19 @@ header, footer, .wrapper {
 		font-size: (@font-size + 1) / @em;
 	}
 
-    #colophon:after {
-            content: " ";
-            display: block;
-            height: 0;
-            visibility: hidden;
-            clear: both;
-    }
-
-	
 	h1 {
 		.huge();
 		margin: (48/42*1em) 0 (24/42*1em);
 	}
-	
-}
 
+    #colophon:after {
+        content: " ";
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+    }
+}
 
 /*
 *
@@ -464,12 +467,28 @@ header, footer, .wrapper {
 	body {
 		/* Reset baseline grid to 16/16 = 1 */
 		font-size: (@font-size) / @em;
+        nav {
+            .wrapper {
+            margin: 0 0 1em 0;
+            }
+        }
 	}
 	
 	.wrapper, #twoway .wrapper {
 		float: left;
 		width: 6 * @column;
 	}
+
+    .side-by-side {
+       float: left; 
+       width: 45%;
+       margin: .5em 0 1em 0;
+       &:first-child {
+           margin-right: 1em;
+       }
+    }
+    
+    /// Overall text width
     .listing > section, .posts > article, .post > section {
         width: 70%;
     }

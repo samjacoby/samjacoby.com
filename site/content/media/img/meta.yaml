@@ -4,6 +4,11 @@ thumbnails:
     include:
     - '*.png'
     - '*.jpg'
+  - width: 550
+    height: 200
+    prefix: listing_
+    crop_type: center
+    include: '*.jpg'
   - width: 240
     height: 240
     prefix: thumb_
