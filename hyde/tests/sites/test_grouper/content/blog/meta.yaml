@@ -1,3 +1,0 @@
-extends: base.html
-default_block: main
-section: start
