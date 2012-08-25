@@ -1,5 +1,3 @@
-{% if not resource.meta.exclude %}
-    {% if resource.meta.summary %}
-        <p>{{ resource.meta.date }}</p>
-    {% endif %}
+{% if res.meta.summary %}
+    <p class="summary">{{ res.meta.summary }}</p>
 {% endif %}

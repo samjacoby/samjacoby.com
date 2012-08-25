@@ -1,0 +1,16 @@
+---
+title: Using Arscons
+summary: Free'd from the tyranny of an IDE.
+date: 2012-08-24 14:10:22
+---
+I've used Arch Linux for years -- always a bit ineptly, I must admit -- and a while back, mostly because of Adobe CS, I switched to Mac. I've been pretty happy since, but there's something about coding in Snow Leopard or Lion or Cat or whatever we're on, that I've never really liked.
+
+I've always had another machine around--a Thinkpad X40--which accompanied me on a six month jaunt in Central America and has earned my devoted trust and affection since. I've since amassed a small collection of the things--you can get one in working-order on Ebay for around $65 bucks, last I checked. I'm presently running Arch off've a 4GB USB stick (the ones on Ebay almost never have drives). I couldn't be happier.
+
+One raw spot has been the Arduino IDE. I've been using [Brian Mayton's](http://bdm.cc) Makefile to compile my programs there--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they're anethma to Assembly Cowboy's.
+
+So -- can you have it all? Vim, an X40, a tiling WM (Awesome and Xmonad) + Arduino? Sure. Doesn't mean it's particularly easy, but [Arscons](https://github.com/suapapa/arscons) makes the process relatively painless. Install the necessaries: 
+
+    sudo pacman -S install python-pyserial scons  
+
+Then copy the SConstruct file into your sketch folder, and let the magic unfold. Well, I should say, magic never comes easily. In my install--which had a version of avr-g++--a conflict prevented programs from compiling correctly. Don't be shy of editing the SConstruct file to make it work right for you--in my case, I just modified the AVR_BIN_PREFIX setting to point to the actual Arduino install of avr-gcc. I don't know exactly what was amiss, but it seemed to have worked fine.

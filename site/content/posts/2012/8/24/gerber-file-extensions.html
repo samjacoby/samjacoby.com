@@ -1,0 +1,26 @@
+---
+title: Gerber File Extensions 
+summary: For I understand them not. 
+date: 2012-08-24 22:42:58
+---
+Every time I send off Gerbers for production, I am baffled by the array of files that the CAM job in Eagle generates. I've culled these from the Internet. 
+
+To the best of my knowledge--using [Advanced Circuits](www.4mypcb.com), these are the file extension mappings using the Eagle Gerber RS274X cam file. I may have once changed the default extensions randomly a few months ago--so handle with care. There are some inconsistiencies as detailed [here](http://www.protoexpress.com/content/gerber_extensions.jsp). A nice summary [here](http://www.cs.uml.edu/~fredm/courses/91.548-spr03/eagle-gerber-output.shtml) as well. Thanks, Fred.
+
+At any rate, we'll see how the boards come out:
+
+- **.cmp** / top copper
+
+- **.drd** / NC drill from excellon.com
+
+- **.dri** / *also* an NC drill file. Do we need both? I don't know. Probably not. But someone told me to generate the excellon paths once, so I do. 
+
+- **.plc** / top silkscreen
+
+- **.sol** / bottom copper
+
+- **.stc** / top solder mask
+
+- **.sts** / bottom solder mask
+
+- **.gpi** / screw this one. General board info. Not needed.

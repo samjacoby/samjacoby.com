@@ -9,20 +9,24 @@
 <section class="wrapper">
     <nav><h2><a href="/posts/">POSTS</a></h2></nav> 
 {% for res in site.content.walk_resources_grouped_by_posts() %}
-    <div class="listing">{% include "assets/render_title.j2" %}
-    <p class="summary">{{ res.meta.summary }}</p>
+    {% if not res.meta.exclude %}
+    <div class="listing">
+            {% include "assets/render_title.j2" %}
+            {% include "assets/render_summary.j2" %}
     </div>
+    {% endif %}
 {% endfor %}
 </section>
 
 <section class="wrapper">
     <nav><h2><a href="/projects/">PROJECTS</a></h2></nav> 
 {% for res in site.content.walk_resources_grouped_by_projects() %}
-    <div class="listing">{% include "assets/render_title.j2" %}
-    {% if res.meta.summary %}
-    <p class="summary">{{ res.meta.summary }}</p>
+    {% if not res.meta.exclude %}
+        <div class="listing">
+            {% include "assets/render_title.j2" %}
+            {% include "assets/render_summary.j2" %}
+        </div>
     {% endif %}
-    </div>
 {% endfor %}
 </section>
 
@@ -35,6 +39,7 @@
         <a href="{{ res.full_url }}"><img src="{{ media_url( image ) }}" /></a>
     {% endif %}
     {% include "assets/render_title.j2" %}
+    {% include "assets/render_summary.j2" %}
     <p class="summary">{{ res.meta.summary }}</p></div>
 {% endfor %}
 </section>
