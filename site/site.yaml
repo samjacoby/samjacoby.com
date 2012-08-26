@@ -133,10 +133,7 @@ grouper:
 
 tagger:
     sorter: name
-#less:
-#    app: lessc
-#                  propagate: no
-#
-thumbnails:
-    width: 459 
-    prefix: thumbs_
+publisher:
+    sftp:
+        type: hyde.ext.publishers.pyfs.PyFS
+        url: shackman@shackmanpress.com:public_html/samjacoby.com

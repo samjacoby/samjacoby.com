@@ -14,7 +14,9 @@
         <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+        {% if site.config.mode=='development'%}
         <script src="{{ media_url('js/GGS.js') }}"></script>
+        {% endif %}
 
         <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
