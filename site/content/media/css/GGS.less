@@ -80,7 +80,7 @@ footer, header, hgroup, nav, section, audio, canvas, video {
 	display: block;
 }
 .listing {
-    margin:0 0 25/@em 0;
+    margin:0 0 50/@em 0;
     img {
         margin: .5em 0 .5em;
     }
@@ -231,7 +231,6 @@ pre, code {
 header {
     h1 {
         &.splash {
-            padding-bottom: .5em;
             margin-bottom: .5em;
             a {
                 color: black;
@@ -261,6 +260,12 @@ article p:last-child {
     margin-bottom: 0;
 }
 
+#index {
+    nav {
+        margin-bottom: 24/@em;
+    }
+}
+
 #content header p {
     padding-bottom: 23/@em;
     border-bottom: 1/@em dotted @body;
@@ -286,8 +291,7 @@ h3 {
 }
 
 .summary {
-    margin-top: 1em;
-    padding-top: .5em;
+    margin-top: .5em;
 }
 
 ul {
@@ -489,7 +493,8 @@ header, footer, .wrapper {
 	
 	.wrapper, #twoway .wrapper {
 		float: left;
-		width: 6 * @column;
+		width: 5 * @column;
+        margin-right: @column;
 	}
 
     .side-by-side {

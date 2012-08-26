@@ -7,8 +7,10 @@
 {% block content %}
 
 <section class="wrapper">
-    <nav><h2><a href="/posts/">POSTS</a></h2></nav> 
 {% for res in site.content.walk_resources_grouped_by_posts() %}
+    {% if loop.first %}
+        <nav><h2><a href="/posts/">POSTS</a></h2></nav> 
+    {% endif %}
     {% if not res.meta.exclude %}
     <div class="listing">
             {% include "assets/render_title.j2" %}
@@ -19,10 +21,16 @@
 </section>
 
 <section class="wrapper">
-    <nav><h2><a href="/projects/">PROJECTS</a></h2></nav> 
 {% for res in site.content.walk_resources_grouped_by_projects() %}
+    {% if loop.first %}
+    <nav><h2><a href="/projects/">PROJECTS</a></h2></nav> 
+    {% endif %}
     {% if not res.meta.exclude %}
         <div class="listing">
+        {% if res.meta.thumbnail %}
+            {% set image='img/thumb_' + res.meta.thumbnail %}
+            <a href="{{ res.full_url }}"><img src="{{ media_url( image ) }}" /></a>
+        {% endif %}
             {% include "assets/render_title.j2" %}
             {% include "assets/render_summary.j2" %}
         </div>
@@ -31,8 +39,12 @@
 </section>
 
 <section class="wrapper">
-    <nav><h2><a href="/printing/">PRINTING</a></h2></nav> 
 {% for res in site.content.walk_resources_grouped_by_printing() %}
+    {% if loop.first %}
+        <nav><h2><a href="/printing/">PRINTING</a></h2></nav> 
+    {% endif %}
+
+    {% if not res.meta.exclude %}
     <div class="listing">
     {% if res.meta.thumbnail %}
         {% set image='img/thumb_' + res.meta.thumbnail %}
@@ -40,6 +52,8 @@
     {% endif %}
     {% include "assets/render_title.j2" %}
     {% include "assets/render_summary.j2" %}
+    </div>
+    {% endif %}
 {% endfor %}
 </section>
 
