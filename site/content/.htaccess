@@ -1,7 +1,6 @@
 RewriteEngine on 
 RewriteBase / 
 
-
 # Don't fix direct file links
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

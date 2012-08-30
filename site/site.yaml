@@ -84,8 +84,8 @@ sorter:
         reverse: True # if you need the list backwards
     multi:
         attr:
-            - meta.date 
-            - name
+            - meta.weight
+            - meta.date
     date:
         attr: meta.date
         filters: 
