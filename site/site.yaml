@@ -83,9 +83,8 @@ sorter:
             #resource.node: (name of the folder)
         reverse: True # if you need the list backwards
     multi:
-        attr:
-            - meta.weight
-            - meta.date
+        attr: meta.weight
+        reverse: True
     date:
         attr: meta.date
         filters: 
@@ -120,6 +119,7 @@ grouper:
               sorter: date
               description: These are projects
             - name: printing
+              sorter: multi
               description: This is printing 
 
     # You can have more than one group section, depending on your needs.
