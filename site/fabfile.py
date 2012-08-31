@@ -31,6 +31,7 @@ def smush():
 
 @hosts(PROD)
 def publish():
+    local('git push')
     regen(PROD_CONFIG)
     project.rsync_project(
         remote_dir=DEST_PATH,
