@@ -9,7 +9,7 @@ exclude: True
 
 {% block content %}
 
-{% for res in resource.node.walk_resources_sorted_by_name() %}
+{% for res in resource.node.walk_resources_sorted_by_multi() %}
 {% if not res.meta.exclude %} 
 <article>
     <header>
