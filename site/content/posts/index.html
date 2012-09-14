@@ -13,8 +13,10 @@ exclude: True
 {% for res in resource.node.walk_resources_sorted_by_date() %}
     {% if not res.meta.exclude %} 
     <article>
-    <h2><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h3>
-    <p class="datetime">{{ macros.render_date(res.meta.date) }}</p>
+        <header>
+            <h2><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h3>
+            <p class="datetime">{{ macros.render_date(res.meta.date) }}</p>
+        </header>
     {% refer to res.relative_path as post %} 
     {{ post.content }}
     </article>
