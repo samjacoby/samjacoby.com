@@ -20,6 +20,7 @@ plugins:
     - hyde.ext.plugins.sorter.SorterPlugin
     - hyde.ext.plugins.grouper.GrouperPlugin
     - hyde.ext.plugins.tagger.TaggerPlugin
+    - hyde.ext.plugins.unflattener.UnflattenerPlugin
 context:
     data:
         author:
@@ -140,3 +141,6 @@ publisher:
     sftp:
         type: hyde.ext.publishers.pyfs.PyFS
         url: shackman@shackmanpress.com:public_html/samjacoby.com
+unflattener:
+    folders:
+         - posts 
