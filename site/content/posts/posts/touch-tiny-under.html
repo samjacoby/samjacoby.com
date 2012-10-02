@@ -1,0 +1,29 @@
+---
+title: Touch Tiny v.1
+date: 2012-08-21 20:49:40
+summary: Playing w/ capacitive sensing. 
+---
+###Parts:
+
+- Atmega32u4
+- AT42QT1070
+- AT42QT11110
+
+I'm going to be doing a quick layout to test out the various QTouch chips--which Leah has warned me, work little-better than the code we've got running on plain old ATtinys (which is what the QTouch chips are, basically). 
+
+I'll also have some pads straight to the 32u4 to test out the CapSense library--and our custom code, as well. 
+
+I'm also going to do a smaller version with an ATtiny44--actually, I think I'll do that one first, just so I can quickly mill out a board and see how the alligator clips behave with the conductive ink and all the rest.
+
+###Parts:
+
+- ATtiny44
+- AVR ISP Header
+- FTDI 6-pin header
+- Six toothless alligator clips
+
+####UPDATE
+
+I decided to scrap all that, and make a version that uses an Atmega 168--like an Arduino--as that's the version that I'm most familiar with. Here's the board layout I scrapped together. Works ok, though I ultimately ended up milling one with a resonator.
+<a href="http://www.flickr.com/photos/40358770@N00/7851854616/" title="TapClip v.1 by s_jacoby, on Flickr"><img src="http://farm8.staticflickr.com/7118/7851854616_89997de2df.jpg" width="500" height="389" alt="TapClip v.1"></a>
+<a href="http://www.flickr.com/photos/40358770@N00/7854691568/" title="TapClip v.1 in action, by s_jacoby, on Flickr"><img src="http://farm8.staticflickr.com/7275/7854691568_7b0a4e936b.jpg" width="500" height="333" alt="DSC_0328"></a>
