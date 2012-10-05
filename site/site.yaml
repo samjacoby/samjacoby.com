@@ -56,7 +56,7 @@ meta:
     # a great way of simply adding or modifying properties of a very large
     # number of files.
     nodemeta: meta.yaml
-    title: "Explorer"
+    title: "Printer, Programmer, Explorer"
     language: en
     ga_tracking_code: UA-34337252-1
     keywords: "mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby"

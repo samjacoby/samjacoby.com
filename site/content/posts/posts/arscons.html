@@ -3,17 +3,23 @@ title: Using Arscons
 summary: Free'd from the kind tyranny of the Arduino IDE. 
 date: 2012-08-24 14:10:22
 ---
-I've used Arch Linux for years -- always a bit ineptly, I must admit -- and a while back, mostly because of a new job (and the allure of ditching my open-source sensibilities and transitioning to Adobe CS, I switched to a Mac. I've been happy enough since, but there's something about coding in Snow Leopard or Lion or Cat or whatever we're on, that I've never really liked. Too slick, maybe? I find I work better in heavily constrained environments. 
 
-So I've always had another machine around for my "real" coding work, taking up the slack. My machine of choice is I've gone through a number of these durable guys. One X40 accompanied me on a six-month jaunt in Central America, earning my devoted trust and affection. Over the years, I've amassed a small collection of them: you can get one in working-order on Ebay for around $65 bucks, last I checked. 
+## Arch Linux & Thinkpad X40: A love story
+I've used Arch Linux for years -- always a bit ineptly, I must admit -- and a while back, mostly because of a new job (and the allure of ditching my open-source sensibilities and using Adobe CS), I switched to a Mac. I've been happy enough, but there's something about coding in Snow Leopard or Lion or Cat or whatever we're on, that I've never really liked. Too slick, maybe. I find I work better in heavily constrained environments. 
 
-I'm presently running Arch off've a 4GB USB stick (the ones on Ebay almost never have drives). I couldn't be happier. I'm not the only one. Mako has a [great post](http://mako.cc/copyrighteous/20111207-00) on the travesty that is the 16:9 screen ratio --which makes my little, cranky skull-bucket thinkpad feel roomier than the glossy MacBook Pro I work on.
+So I've always had another machine around for my "real" coding work. My machine of choice is an old Thinkpad X40 that I hauled on a six-month jaunt in Nicaragua some years ago. It earned my devoted trust and affection. The original is still going, but over the years, I've amassed a small collection of them: you can get one in working-order on Ebay for around $65 bucks.
 
-At any rate, all of that doesn't change the fact that it's an antiquated machine--and I use it primarily for text editing. I like coding on it--but in vim with my own config. Not in an unwieldy and poorly-rendered Java app. The Arduino IDE--as fantastic as it is--has been a raw spot on my Arch machine. I've been using [Brian Mayton's](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian)) to compile my avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they're anathema to Assembly Cowboy's. Not growing up on embedded programming, the whole `(1 << PB4)`, alas, does not quite feel like first nature.  
+That's all a long way of saying the I _like_ to use my X40 + vim, even when there's no good reason for doing so.
 
-So -- can you have it all? Vim, an X40, a tiling WM (Awesome and Xmonad) + Arduino? Sure. Doesn't mean it's particularly easy, but [Arscons](https://github.com/suapapa/arscons) makes the process relatively painless. 
+## Arch + Arduino 
 
-First, install the necessaries: 
+I'm presently running Arch off've a 4GB USB stick (the X40s on Ebay are almost always stripped of their hard-drives). I couldn't be happier. Mako has a [great post](http://mako.cc/copyrighteous/20111207-00) on the travesty that is the 16:9 screen ratio --which makes my little, cranky skull-bucket thinkpad virtually as roomy as the glossy MacBook 13'' Pro I typically work on.
+
+At any rate, all of that doesn't change the fact that it's an antiquated machine and I use it primarily for text editing. I like coding on it--but in vim with my own config. Not in an unwieldy and poorly-rendered Java app. The Arduino IDE--as fantastic as it is--has been a raw spot on my Arch machine. I've been using [Brian Mayton's](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian)) to compile my avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they're anathema to Assembly Cowboy's. Not growing up on embedded programming, the whole `(1 << PB4)`, alas, does not quite feel like first nature.  
+
+What we got: vim, an X40, a tiling WM (Awesome and Xmonad) + Arduino? Doable? Sure. Doesn't mean it's particularly easy, but [Arscons](https://github.com/suapapa/arscons) makes the process relatively painless. 
+
+### First, install the necessaries: 
 
     sudo pacman -S install python-pyserial scons  
 
