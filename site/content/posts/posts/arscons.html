@@ -7,25 +7,27 @@ date: 2012-08-24 14:10:22
 ## Arch Linux & Thinkpad X40: A love story
 I've used Arch Linux for years -- always a bit ineptly, I must admit -- and a while back, mostly because of a new job (and the allure of ditching my open-source sensibilities and using Adobe CS), I switched to a Mac. I've been happy enough, but there's something about coding in Snow Leopard or Lion or Cat or whatever we're on, that I've never really liked. Too slick, maybe. I find I work better in heavily constrained environments. 
 
-So I've always had another machine around for my "real" coding work. My machine of choice is an old Thinkpad X40 that I hauled on a six-month jaunt in Nicaragua some years ago. It earned my devoted trust and affection. The original is still going, but over the years, I've amassed a small collection of them: you can get one in working-order on Ebay for around $65 bucks.
-
-That's all a long way of saying the I _like_ to use my X40 + vim, even when there's no good reason for doing so.
+So I've always had another machine around for my "real" coding work. That lot falls to an old Thinkpad X40 that I hauled on a six-month jaunt in Nicaragua, taking some time off from college. It was like rock and still going strong to this day. Over the years, though, for one reason or another, I've amassed a small collection of X40s: you can get one in working-order on Ebay for around $65 bucks. How can you resist?
 
 ## Arch + Arduino 
 
-I'm presently running Arch off've a 4GB USB stick (the X40s on Ebay are almost always stripped of their hard-drives). I couldn't be happier. Mako has a [great post](http://mako.cc/copyrighteous/20111207-00) on the travesty that is the 16:9 screen ratio --which makes my little, cranky skull-bucket thinkpad virtually as roomy as the glossy MacBook 13'' Pro I typically work on.
+On my latest X40, I'm running Arch off've a 4GB USB stick (the X40s on Ebay are almost always stripped of their hard-drives a). I couldn't be happier. My little, cranky, skull-bucket of a Thinkpad feels as roomy as the glossy 13" MacBook Pro I usually work, and the keyboard has none of the mushy play. (Read up on Mako's [great post](http://mako.cc/copyrighteous/20111207-00) on the travesty that is the 16:9 screen ratio -- which is why the X40 _is_ actually as large as the MBP).
 
-At any rate, all of that doesn't change the fact that it's an antiquated machine and I use it primarily for text editing. I like coding on it--but in vim with my own config. Not in an unwieldy and poorly-rendered Java app. The Arduino IDE--as fantastic as it is--has been a raw spot on my Arch machine. I've been using [Brian Mayton's](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian)) to compile my avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they're anathema to Assembly Cowboy's. Not growing up on embedded programming, the whole `(1 << PB4)`, alas, does not quite feel like first nature.  
+At any rate, all of that doesn't change the fact that it's an antiquated machine and I use it primarily for text editing. Not much else. I like coding on it--there's no electro-peace like a tiling windows manager (Awesome) and someone else's fantastic .vimrc. I've been using [Brian Mayton's](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian)) to compile my avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they're anathema to Assembly Cowboys. Not growing up on embedded programming, the whole `(1 << PB4)`, alas, does not quite feel like first nature. One sore spot has been the Arduino IDE, which in all its muscular Java-ness, is a bit much for the X40 to handle. 
 
-What we got: vim, an X40, a tiling WM (Awesome and Xmonad) + Arduino? Doable? Sure. Doesn't mean it's particularly easy, but [Arscons](https://github.com/suapapa/arscons) makes the process relatively painless. 
+So--how do you use the Arduino libraries in the comfort of your own `vim` config? There are a couple of ways. I use [Arscons](https://github.com/suapapa/arscons), a python build script, that makes the process relatively painless. 
 
-### First, install the necessaries: 
+First, install the necessaries: 
 
     sudo pacman -S install python-pyserial scons  
 
-Then grab the SContstruct file and copy it into your sketch folder, type `scons`, and let the magic unfold. Maybe. Didn't work for me outt've the box. Because I have several versions of avr-gcc, a conflict prevented programs from compiling correctly. I edited the SConstruct file to make it work right--in my case, I just modified the `AVR_BIN_PREFIX` setting to point to the actual Arduino install of `avr-gcc`. That broke `avrdude`, but such is life. I don't know exactly what was amiss, but it seemed to have worked fine.
+    Then grab the [SConstruct](https://github.com/suapapa/arscons) file and copy it into your sketch folder. Run `scons`, and let the magic unfold. Maybe. Didn't work for me outt've the box. Because I have several versions of avr-gcc, a conflict prevented programs from compiling correctly. I edited the SConstruct file to make it work right--in my case, I just modified the `AVR_BIN_PREFIX` setting to point to the actual Arduino install of `avr-gcc`. That broke `avrdude`, but such is life. I don't know exactly what was amiss, but it seemed to have worked fine.
+    
+So that's that--not so grand. Scons is basically Make--or does the same things, at least--and lets you use Python rather than all of that gibberish. There *are* `Makefiles` for Arduino that do the exact same thing--but they are even more of a code soup.  
 
-Now I can work on mac, quickly compiling Arduino programs and such--sync them up through GitHub--and work on my X40 with Scons, without having to stop using vim.
+*UPDATE*
+I checked in with Dave and Arduino ships with its own version of avr-gcc with a number of necessary tweaks.
 
-Yes, yes, I know I can use an external editor with Arduino, but I don't like doing that for some reason. I end up being confused about where I should be editing. So that's that--not so grand. Scons is basically Make--or does the same things, at least--and lets you use Python rather than all of that gibberish. There *are* `Makefiles` for Arduino that do the exact same thing--but they are even more of a code soup.  
+*Note*
+Yes, yes, I know I can use an external editor with Arduino, but I don't like doing that for some reason. I end up being confused about where I should be editing. 
 
