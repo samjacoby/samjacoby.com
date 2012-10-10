@@ -1,3 +1,10 @@
+{% macro render_figure(image, caption) %}
+<figure class="with-caption">
+    {{ image }} 
+    <figcaption>{{ caption }}</figcaption>
+</figure>
+{% endmacro %}
+
 {% macro render_class(class='') %}
 class="{{ class }}"
 {% endmacro %}
