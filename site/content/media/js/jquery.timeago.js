@@ -5,6 +5,7 @@
  * @name timeago
  * @version 0.11.4
  * @requires jQuery v1.2.3+
+ * @requires jQuery UI (only for cutoff formatting)
  * @author Ryan McGeary
  * @license MIT License - http://www.opensource.org/licenses/mit-license.php
  *
@@ -31,6 +32,8 @@
     settings: {
       refreshMillis: 60000,
       allowFuture: false,
+      cutoff: 40, // after how many days should you stop timeago'ing
+      cutoff_format: "MM d, yy", 
       strings: {
         prefixAgo: null,
         prefixFromNow: null,
@@ -85,6 +88,12 @@
         days < 365 && substitute($l.months, Math.round(days / 30)) ||
         years < 1.5 && substitute($l.year, 1) ||
         substitute($l.years, Math.round(years));
+
+      if(days > this.settings.cutoff) {
+        prefix = "on";
+        words = $.datepicker.formatDate(this.settings.cutoff_format, this.date); 
+        suffix = "";
+      }
 
       var separator = $l.wordSeparator === undefined ?  " " : $l.wordSeparator;
       return $.trim([prefix, words, suffix].join(separator));
@@ -143,6 +152,10 @@
   }
 
   function distance(date) {
+      // Just keep track of this to use it later
+      $.extend($.timeago, {
+        date: date 
+      });
     return (new Date().getTime() - date.getTime());
   }
 
