@@ -136,7 +136,8 @@ grouper:
     #          description: Search Engine Optimization
 
 tagger:
-    sorter: name
+    sorter: date
+    reverse: True
 publisher:
     sftp:
         type: hyde.ext.publishers.pyfs.PyFS
