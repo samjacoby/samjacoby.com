@@ -21,6 +21,19 @@
         {%- endfilter %}
         {%- endmark %}
     </section>
+    <section class="tags">
+{% filter markdown|typogrify -%}
+    {% for res in resource.node.walk_resources_tagged_with(resource.meta.tags.0) %}
+{%- if loop.first %}
+####Related posts: 
+{% endif -%}
+[{{ res.meta.title }}]({{ res.full_url }})
+        {%- if not loop.last %}
+, 
+        {% endif -%}
+    {%- endfor -%}
+{%- endfilter %}
+    </section>
  </article>
 {% if site.config.mode == "development" %}
 {% include media_url('js/disqus.js') %}
