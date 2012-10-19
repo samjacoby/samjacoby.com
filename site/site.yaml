@@ -29,6 +29,7 @@ context:
             email: sjacoby@mit.com
         this_site:
             title: Sam Jacoby 
+            url: "http://samjacoby.com"
         layout:
             name: Sam Jacoby 
             url: "http://samjacoby.com"

@@ -16,4 +16,11 @@ thumbnails:
     include:
     - '*.png'
     - '*.jpg'
+  - width: 240
+    height: 120
+    prefix: thumb_narrow_
+    crop_type: center
+    include:
+        - '*.png'
+        - '*.jpg'
     
