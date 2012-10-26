@@ -1,0 +1,13 @@
+<section class="tags">
+{% filter markdown|typogrify -%}
+{% for res in site.content.walk_resources_tagged_with(resource.meta.tags.0) %}
+{%- if loop.first %}
+####Related posts: 
+{% endif -%}
+{% if resource.full_url != res.full_url %}
+- [{{ res.meta.title }}]({{ res.full_url }})
+{% endif %}
+
+{%- endfor -%}
+{%- endfilter %}
+</section>
