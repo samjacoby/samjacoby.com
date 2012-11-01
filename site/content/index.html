@@ -16,6 +16,10 @@
     <div class="listing">
             {% include "assets/render_title.j2" %}
             {% include "assets/render_summary.j2" %}
+    {% if res.meta.thumbnail %}
+        {% set image='img/thumb_narrow_' + res.meta.thumbnail %}
+        <a href="{{ res.full_url }}"><img src="{{ media_url( image ) }}" /></a>
+    {% endif %}
     </div>
     {% endif %}
 {% endfor %}
