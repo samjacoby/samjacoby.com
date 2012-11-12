@@ -1,11 +1,12 @@
 ---
 title: PaperClip 
-summary: Touch-sensitive circuit board + sound-sample recording software.
+summary: Designing a touch-sensitive sensor + sound-sample recording software.
 date: 2012-08-29 11:37:24
 thumbnail: paperclip-processing.jpg
 tags:
     - SenseClip
 ---
+
 I've been working on the software for TapClip--which is rolling along, in preparation for a workshop next week. So far, it's working pretty well, though the `minim` library is causing me some grief. There appears to be a noticeable lag-time when using `loadSample` to queue a `.wav` file in memory. 
 
 I think it has something to do with this `buffer underrun` error I've been seeing a lot of (see below). It's thrown somewhere in the `javasound` library, and I haven't tracked it down yet, so that's all I've got. At any rate, it's probably not that important (the error, I mean)--but if I can't get it resolved, I may give the [Ess](http://www.tree-axis.com/Ess/) library a try (thanks to Nick Gillian of [NickGillian.com](http://nickgillian.com) for the suggestion.
