@@ -6,7 +6,8 @@
     </nav>
 {% endblock %}
 
-{% block content %}
+{%- block content -%}
+{% mark post -%}
 <article class="post">
     <header>
         <h2>{{ resource.meta.title }}</h2> 
@@ -26,4 +27,5 @@
 {% if site.config.mode == "development" %}
 {% include media_url('js/disqus.js') %}
 {% endif %}
-{% endblock %}
+{%- endmark -%}
+{% endblock -%}
