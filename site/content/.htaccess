@@ -22,3 +22,6 @@ RewriteRule ([^/]*)/$ %{REQUEST_FILENAME}/$1.html
 RewriteCond %{REQUEST_FILENAME}.html -f 
 RewriteRule ^.*$ %{REQUEST_FILENAME}.html 
 
+RewriteCond %{REQUEST_FILENAME}/$1.xml -f 
+RewriteRule ([^/]*)/$ %{REQUEST_FILENAME}/$1.xml 
+
