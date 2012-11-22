@@ -1,3 +1,7 @@
+---
+description: Hello, I'm a printer, programmer and student at the MIT Media Lab. This is a collection of odds & ends I've worked on, and things I'm interested in.
+---
+
 {% extends "base.j2" %}
 
 {% block splash %}
@@ -5,10 +9,10 @@
         Hello, I am a printer, programmer, and a student at <a href="http://hlt.mit.media.edu">High-Low Tech</a> at the <a href="http://media.mit.edu">MIT Media Lab</a>. Here's a bit more <a href="/me/">about me</a>.</h1> 
 {% endblock %}
 
-{% block content %}
+{% block content -%}
 
 <section class="wrapper">
-{% for res in site.content.walk_resources_grouped_by_posts() %}
+{% for res in site.content.walk_resources_grouped_by_posts() -%}
     {% if loop.first %}
         <nav><h2><a href="/posts/">POSTS</a></h2></nav> 
     {% endif %}
@@ -22,11 +26,11 @@
     {% endif %}
     </div>
     {% endif %}
-{% endfor %}
+{%- endfor %}
 </section>
 
 <section class="wrapper">
-{% for res in site.content.walk_resources_grouped_by_projects() %}
+{% for res in site.content.walk_resources_grouped_by_projects() -%}
     {% if loop.first %}
     <nav><h2><a href="/projects/">PROJECTS</a></h2></nav> 
     {% endif %}
@@ -36,11 +40,11 @@
             {% include "assets/render_summary.j2" %}
         </div>
     {% endif %}
-{% endfor %}
+{%- endfor %}
 </section>
 
 <section class="wrapper">
-{% for res in site.content.walk_resources_grouped_by_printing() %}
+{% for res in site.content.walk_resources_grouped_by_printing() -%}
     {% if loop.first %}
         <nav><h2><a href="/printing/">PRINTING</a></h2></nav> 
     {% endif %}
@@ -55,7 +59,7 @@
     {% endif %}
     </div>
     {% endif %}
-{% endfor %}
+{%- endfor %}
 </section>
 
-{% endblock %}
+{%- endblock %}
