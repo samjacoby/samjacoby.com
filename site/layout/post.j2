@@ -10,6 +10,9 @@
 {% mark post -%}
 <article class="post">
     <header>
+        <h2>updated {{ resource.meta.created }}</h2>
+        <h2>updated {{ resource.meta.modified }}</h2>
+
         <h2>{{ resource.meta.title }}</h2> 
         {% if resource.meta.date %}
         <p class="datetime">{{ macros.render_date( resource.meta.date ) }}</p>
