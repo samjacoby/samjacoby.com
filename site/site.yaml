@@ -1,6 +1,6 @@
 mode: development
 logger:
-    level: debug
+    level: warning 
 media_root: media
 media_url: /media
 base_url: /
