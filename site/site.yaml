@@ -62,7 +62,8 @@ meta:
     language: en
     ga_tracking_code: UA-34337252-1
     keywords: "mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby"
-    
+    created: git
+    modified: git
 
 urlcleaner:
     index_file_names:

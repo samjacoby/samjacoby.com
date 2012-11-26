@@ -25,6 +25,14 @@ class="{{ class }}"
     {% endif %} 
 {% endmacro %}
 
+{% macro render_updated(date=false, updated) -%}
+    {% if date != updated %}
+    <p class="datetime">
+    Last updated <time class="timeago" datetime="{{ updated }}" pubdate>{{ updated }}</time>.
+    </p>
+    {% endif %} 
+{% endmacro %}
+
 {% macro render_main_menu() -%}
 
 {# Set menu item selected if the current resource matches the item in the

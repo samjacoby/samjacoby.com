@@ -22,7 +22,10 @@
         {%- endfilter %}
         {%- endmark %}
     </section>
+    <footer>
     {% include "assets/render_related_posts.j2" %}
+    {{ macros.render_updated( resource.meta.created, resource.meta.modified ) }}
+    </footer>
  </article>
 {% if site.config.mode == "development" %}
 {% include media_url('js/disqus.js') %}
