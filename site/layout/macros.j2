@@ -26,7 +26,7 @@ class="{{ class }}"
 {% endmacro %}
 
 {% macro render_updated(date=false, updated) -%}
-    {% if date != updated %}
+    {% if updated and date != updated %}
     <p class="datetime">
     Last updated <time class="timeago" datetime="{{ updated }}" pubdate>{{ updated }}</time>.
     </p>

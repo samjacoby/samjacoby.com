@@ -1,6 +1,6 @@
 ---
 title: Hidden Layers
-summary: In which I learn to treat my tools with wary respect.  
+summary: In which I am screwed by layers in Eagle.  
 date: 2012-11-15 18:37:09
 tags:
     - SenseClip
@@ -18,9 +18,11 @@ So naturally, I sent off the gerber files, and had another board made by the goo
 The finished board, bristling with muxes and PGAs and all the rest. Looks pretty good. 
 
 {{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/8232901503/" title="IMG_2299 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8350/8232901503_68b725bb1b.jpg" width="500" height="375" alt="IMG_2299"></a>', "")}}
-Now, some of the savvier among you may note that there are substantial errors in this circuit. To you, I say, I care not--for I forge ahead like a train in the night. At any rate, that discovery is yet to come. At the moment, our hero is plugging the board into his computer, ready to bask in the mild radiance of its green, power LED.
+Now, some of the savvier among you may note that there are substantial errors in this circuit. To you, I tip my hat. But such a realiziation is still ahead of me. The train rushes forward, splitting the night. The misthrown switch is still miles ahead in the darkness, its discovery yet to come.   
 
-Nothing. Poke around a bit. Nothing. Pull out the multimeter. 5V streaming in. But streaming out? Ah...well, not so much. And then I see it. 
+At the moment, our hero is plugging the board into his computer, ready to bask in the mild radiance of its green, power LED.
+
+Nothing. Poke around a bit. Nothing. Pull out the multimeter. Could there be a bridge in thin traces of the mini-USB connectior? No. 5V streaming in. That looks good. But, hmm, streaming out? Ah...well, not so much. And then I see it. None of the grounds are connected. Only one half of my circuits are routed.  
 
 Here's the story. It's not so grand. At some point in the development process, I did something bad. To simplify my design, I used a ground plane--a single sheet of copper that the ground of all of the traces plugged into. After "pouring" the ground (kind've like the fill tool in paint, or something), the screen was looking a little crowded. I turned off its display. Great. In so doing, though, I also turned off the airwires{{ macros.renderfootnote("footnote-fail-1", "1")}} that it came with. Naturally, I then promptly forgot I did any such thing and proceeded on my merry way. Getting the board made and all the rest.  
 
@@ -28,9 +30,8 @@ It turns out, though, the job wasn't really done. The pouring algorithm had done
 
 This is what happened to me, albeit, on a kind of tiny, bemused scale: shock, grief, denial, self-doubt, irritation, annoyance &amp;c. The stages of the technical oversight.  
 
+At any rate, lesson learned. Don't switch off views and think you've solved any problems. You haven't.  
 
-At any rate, lesson learned. Don't switch off views and think you've solved the problems they showed. You haven't. 
-
-And so ends this mild saga in workplace-challenges.  
+And so ends this mild saga of workplace-challenges. 
 
 
