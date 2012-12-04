@@ -4,33 +4,18 @@ summary: Whipping together some quick prototype circuit boards.
 date: 2012-08-31 10:33:23 
 ---
 My circuit board order came in -- it's always astonishing how tiny the things are, these boards are about the size of two postage stamps, side-by-side. The "barebones" option from Advanced Circuits is a pretty good deal too. These cost $8.90 apiece, which is pretty reasonable. I know that [APC Circuits](http://apccircuits.com) has really quick turn-around for boards with solder mask and such, but I didn't need it. I'm mostly proud for remembering not to pour a groundplane, as it makes it a pain to solder. 
-<figure>
-<a href="http://www.flickr.com/photos/40358770@N00/7900310464/" title="DSC_0359 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8318/7900310464_5bf3a2cd41.jpg" width="500" height="333" alt="DSC_0359"></a>
-<figcaption>Nice & pretty like.</figcaption>
-</figure>
+{{ macros.render_figure("<a href="http://www.flickr.com/photos/samjacoby/7900310464/" title="DSC_0359 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8318/7900310464_b9102dd273.jpg" width="500" height="333" alt="DSC_0359"></a>","Nice & pretty like.") }}
 
 I used a bunch of `0603` resistors to provide the loads on the capacitive pads (those rectangles along the top). Those suckers are small. What's all the more astonishing, is that there is yet a *smaller* size, 0402, which is about the size of a grain of sand. And Brian was telling me that some special-purpose boards can have the passive elements like those baked right into the various layers. 
 
-<figure>
-    <a href="http://www.flickr.com/photos/40358770@N00/7900311646/" title="0603 Resistor by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8310/7900311646_c4ec76ea47.jpg" width="500" height="333" alt="0603 Resistor"></a>
-    <figcaption>Resistor + Finger. Mostly finger.</figcaption>
-</figure>
+{{ macros.render_figure("<a href="http://www.flickr.com/photos/samjacoby/7900311646/" title="0603 Resistor by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8310/7900311646_930af5efac.jpg" width="500" height="333" alt="0603 Resistor"></a>", Resister + Finger. Mostly finger." }}
 
 I had to catch a flight out to LA--though it was delayed 2 hours--but I managed to throw together a board to bring with, so I could do some work on the plane (of course, I ended up not doing any). After puzzling for a minute why the `FTDI` programming only worked the first time after burning the Arduino bootloader, I realized that I hadn't put in the auto-reset capacitor between the `DTS` pin of and the `RST` line. It works the first, because the bootloader itself holds the chip in reset (thanks, [Dave](http://web.media.mit.edu/~mellis/)). 
-<figure>
-    <a href="http://www.flickr.com/photos/40358770@N00/7900312620/" title="TapClip v.2 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8321/7900312620_52835de79f.jpg" width="500" height="333" alt="TapClip v.2"></a>
-    <figcaption>I am still learning about fstops.</figcaption> 
-</figure>
+
+{{ macros.render_figure("<a href="http://www.flickr.com/photos/samjacoby/7900312620/" title="TapClip v.2 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8321/7900312620_42e83107db.jpg" width="500" height="333" alt="TapClip v.2"></a>", "I am still learning about f-stops.") }}
 
 **Update**
 
 I soldered on the toothless alligator clips today (what gems! [[Newark](http://www.newark.com/silvertronic/502008/toothless-steel-alligator-clip/dp/82R5349)]) and drew up an aquatic sketch to have some examples to show folks for the workshop I'll be doing.
 
-<figure>
-    <a href="http://www.flickr.com/photos/40358770@N00/7929989432/" title="DSC_0426 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8451/7929989432_ca8d84db5b.jpg" width="500" height="333" alt="DSC_0426"></a>
-    <figcaption>Under the sea.</figcaption>
-
-</figure>
-
-
-
+{{ macros.render_figure("<a href="http://www.flickr.com/photos/samjacoby/7929989432/" title="DSC_0426 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8451/7929989432_54a77a2a56.jpg" width="500" height="333" alt="DSC_0426"></a>", "Under the sea.") }}
