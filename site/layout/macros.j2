@@ -1,7 +1,7 @@
 {% macro render_figure(image, caption) %}
 <figure class="with-caption">
     {{ image }} 
-    <figcaption>{{ caption }}</figcaption>
+    <figcaption>{{ caption | markdown }}</figcaption>
 </figure>
 {% endmacro %}
 

@@ -3,9 +3,12 @@ import os
 import fabric.contrib.project as project
 
 PROD = 'shackman@shackmanpress.com'
+PROD2 = 'sjacoby@107.20.217.206'
+KEY = '.ssh/orville.pem'
 SITE_CONFIG = 'site.yaml'
 PROD_CONFIG = 'prod.yaml'
 DEST_PATH = '/home/shackman/public_html/samjacoby.com/'
+DEST_PATH2 = '/srv/http/samjacoby.com/'
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 DEPLOY_PATH = os.path.join(ROOT_PATH, 'deploy')
 
@@ -35,6 +38,16 @@ def publish():
     regen(PROD_CONFIG)
     project.rsync_project(
         remote_dir=DEST_PATH,
+        local_dir=DEPLOY_PATH.rstrip('/') + '/',
+        delete=True
+    )
+
+@hosts(PROD2)
+def publish_ecs():
+    regen(PROD_CONFIG)
+    project.rsync_project(
+        key=KEY, 
+        remote_dir=DEST_PATH2,
         local_dir=DEPLOY_PATH.rstrip('/') + '/',
         delete=True
     )
