@@ -5,8 +5,14 @@
 </figure>
 {% endmacro %}
 
-{% macro render_footnote(target, identifier)%}
-<sup><a href="{{ target }}">{{ identifier }}</a></sup>
+{% macro render_footnote(target, identifier, content)%}
+{% if not content %}
+<sup><a id="{{ target }}-mark" href="#{{ target }}-note">{{ identifier }}</a></sup>
+{% else %}
+{% markdown %}
+<div id="{{ target }}-note" class="footnote"><a class="footnote-note-number" href="#{{ target }}-mark">{{ identifier }}.</a> {{ content }}
+{% endmarkdown %}
+{% endif %}
 {% endmacro %}
 
 {% macro render_class(class='') %}
