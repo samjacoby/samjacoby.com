@@ -5,6 +5,10 @@
 </figure>
 {% endmacro %}
 
+{% macro render_footnote(target, identifier)%}
+<sup><a href="{{ target }}">{{ identifier }}</a></sup>
+{% endmacro %}
+
 {% macro render_class(class='') %}
 class="{{ class }}"
 {% endmacro %}
