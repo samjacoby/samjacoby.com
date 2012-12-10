@@ -24,7 +24,7 @@ At the moment, our hero is plugging the board into his computer, ready to bask i
 
 Nothing. Poke around a bit. Nothing. Pull out the multimeter. Could there be a bridge in thin traces of the mini-USB connectior? No. 5V streaming in. That looks good. But, hmm, streaming out? Ah...well, not so much. And then I see it. None of the grounds are connected. Only one half of my circuits are routed.  
 
-Here's the story. It's not so grand. At some point in the development process, I did something bad. To simplify my design, I used a ground plane--a single sheet of copper that the ground of all of the traces plugged into. After "pouring" the ground (kind've like the fill tool in paint, or something), the screen was looking a little crowded. I turned off its display. Great. In so doing, though, I also turned off the airwires{{ macros.renderfootnote("footnote-fail-1", "1")}} that it came with. Naturally, I then promptly forgot I did any such thing and proceeded on my merry way. Getting the board made and all the rest.  
+Here's the story. It's not so grand. At some point in the development process, I did something bad. To simplify my design, I used a ground plane--a single sheet of copper that the ground of all of the traces plugged into. After "pouring" the ground (kind've like the fill tool in paint, or something), the screen was looking a little crowded. I turned off its display. Great. In so doing, though, I also turned off the airwires{{ macros.render_footnote("airwires", "1")}} that it came with. Naturally, I then promptly forgot I did any such thing and proceeded on my merry way. Getting the board made and all the rest.  
 
 It turns out, though, the job wasn't really done. The pouring algorithm had done its job, sure--but it had left a number of sections for me, it's human-companion to resolve. The groundplane needed a number of additional airwires that I never added back in. My circuits, then, were a series of orphans, plugged into nothing but themselves! I needed _17_ additional wires. I was crushed. 
 
@@ -33,5 +33,11 @@ This is what happened to me, albeit, on a kind of tiny, bemused scale: shock, gr
 At any rate, lesson learned. Don't switch off views and think you've solved any problems. You haven't.  
 
 And so ends this mild saga of workplace-challenges. 
+
+{{ macros.render_footnote("airwires", "1", "Airwires are just a wire that you're supposed to solder on later, so it's displayed as a single line in Eagle. That's all well and good and sometimes a well-placed airwire can take care of a number of problems--but they're difficult and tedious to solder, and really, if you're having a custom-board made, you should take care not to have any.")}} 
+
+
+
+
 
 
