@@ -9,7 +9,7 @@ My circuit board order came in -- it's always astonishing how tiny the things ar
 
 I used a bunch of `0603` resistors to provide the loads on the capacitive pads (those rectangles along the top). Those suckers are small. What's all the more astonishing, is that there is yet a *smaller* size, 0402, which is about the size of a grain of sand. And Brian was telling me that some special-purpose boards can have the passive elements like those baked right into the various layers. 
 
-{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/7900311646/" title="0603 Resistor by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8310/7900311646_930af5efac.jpg" width="500" height="333" alt="0603 Resistor"></a>', "Resister + Finger. Mostly finger.") }}
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/7900311646/" title="0603 Resistor by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8310/7900311646_930af5efac.jpg" width="500" height="333" alt="0603 Resistor"></a>', "Resistor + Finger. Mostly finger.") }}
 
 I had to catch a flight out to LA--though it was delayed 2 hours--but I managed to throw together a board to bring with, so I could do some work on the plane (of course, I ended up not doing any). After puzzling for a minute why the `FTDI` programming only worked the first time after burning the Arduino bootloader, I realized that I hadn't put in the auto-reset capacitor between the `DTS` pin of and the `RST` line. It works the first, because the bootloader itself holds the chip in reset (thanks, [Dave](http://web.media.mit.edu/~mellis/)). 
 
