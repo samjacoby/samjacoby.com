@@ -42,7 +42,9 @@ At any rate, they're dead simple. These are what mine look like.
 Exciting stuff, eh? Never done anything easier. Now, I'm not doing any of the fancy load-balancing or the various bells and whistles that real people probably do, but it's been a pleasant introduction. The Apache docs give the rather stern warning: make sure you don't inadvertently turn your server into a _forward_ server, in which case it can be easily hijacked and redirected to all sorts of nefarious ends. 
 
 
+{% spaceless %}
 {{ macros.render_footnote("service", "1", "Granted, this isn't ASO's problem. They've been absolutely wonderful. I have never interacted with a company--not in tech, not anywhere, with more respnsive customer service. I don't think I've had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the privilege.") }}
 {{ macros.render_footnote("X40", "2", "At any rate, after realizing that it would be a royal pain-in-the-ass to have mod_wsgi compiled against python3, while having some virtualenvs that were still using Django 1.3 & Python 2.6 and so on...absolute misery.")}} 
 {{ macros.render_footnote("option", "3", "There are surely some clever ways around this, perhaps using RewriteRule and permanent redirects. I'm concerned what that experience looks like from the client, however. Haven't tried.") }}
+{% endspaceless %}
 
