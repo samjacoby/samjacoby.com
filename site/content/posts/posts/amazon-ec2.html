@@ -7,20 +7,25 @@ tags:
     - amazon
     - ec2
     - website
-exclude: True
 ---
-Over the past few days, I've been playing around with [Amazon Web Services](http://aws.amazon.com) [AWS]. I've been a spectacularly satisfied customer of [A Small Orange](http://asmallorange.com), but have been lately frustrated by shared hosting (though they provide a nice restriced `shell`), and have recently migrated my sites over to play around with the twelve-months free access provided for `microinstances`.  
+## To that have much, yet more. 
+Over the past few days, I've been playing around with Amazon Web Services [AWS](http://aws.amazon.com). Now, I've been a spectacularly satisfied customer of [A Small Orange](http://asmallorange.com) for years,  but I've been lately frustrated by the limitations of shared hosting. As I play around with different application platforms (rails, django), and work on developing this site, its clear that I need a bit more than 250MB of space and a restricted shell{{ macros.render_footnote("service", "1") }}. 
 
-Some part of me--or well, most of me--inherently dislikes this cloud. There is something striking about connecting a run-down beige box to an ethernet port in the corner of a room and having it flash its small payload across the waves. This _cloud_, for all the hoopla--is just better word for _having-your stuff-elsewhere_. Convenient, sure. But it performs the same calculation as `gmail`, which trades you convenience for freedom. As much as `AWS` is convenient, it's also inherently less-free.  
+So, over this weekend, I migrated my sites over to play around with the twelve-months free access provided for AWS `micro-instances`. It's been reasonably enlightening. I've built up a couple of `Arch Linux` images, my preferred distribution, and played with getting environments spinning up for some [applications]({{content_url("/projects/monotype-app.html")}}) that haven't seen the light of day in some time.
+
+## To Cloud. Or not to Cloud?
+
+Some part of me--or well, most of me--dislikes the cloud. Yes, it's convenient. Yes, Amazon, Rackspace, and all the rest do a damn-good job of things. Yes, it's the future. Virtual machines are great, make sense, are cheap, effecient, and all the rest. In some way, though, it's equal parts exciting and depressing--there is something lost and something gained, when you spin up an instance from yet-another `dashboard`.  
+I've always found something striking about that bit of magic that comes with connecting a run-down beige box to an ethernet port in the corner of a room, configuring its permissions, and having it flash its small payload across the waves. This _cloud_, for all the hoopla--is just better word for _having-your stuff-elsewhere_. Convenient, sure. But it performs the same calculation as `gmail`, which trades you convenience for freedom. As much as `AWS` is convenient, it's also inherently less-free.  
 
 Nevertheless, I am a pragmatist--and even if I won't remain with them forever, I thought I should start figuring out how some their systems work. And what can I say? Right now, I have an insanely-fast, scalable, reliable, customizable server, with root access. I can't really complain.  
 
 At the moment I've got two micro-instances running--one is serving the static pages, the other, a little [typography training app]({{ content_url("/projects/monotype-app.html/") }} I wrote a few years ago. That won't last long, because you only get one instance free--but I'll switch the nameservers back to `A Small Orange` soon, while continuing to serve the dynamic content from AWS. 
 
 ## Reverse Proxies
-Now, I've long heard preached that fine practice--the prudent splitting of dynamic and static content. That makes plenty of sense, really. Or plenty of sense if I ever had much content to serve. In practice, though, It's not something I've ever needed. As someone who has only ever placed things online from some reptilian instinct to share, I have never had any problems with server performance--to say the least. For some time, I ran my personal website from an {{ content_url("/posts/arscons.html") }}. Didn't break a sweat. {{ macros.render_footnote("X40", "1") }}
+Now, I've long heard preached that fine practice--the prudent splitting of dynamic and static content. That makes plenty of sense, really. Or plenty of sense if I ever had much content to serve. In practice, though, It's not something I've ever needed. As someone who has only ever placed things online from some reptilian instinct to share, I have never had any problems with server performance--to say the least. For some time, I ran my personal website from an {{ content_url("/posts/arscons.html") }}. Didn't break a sweat. {{ macros.render_footnote("X40", "2") }}
 
 There are a million-and-one ingenious ways to do this and I don't understand half of them. All I wanted was a nice, static server that put pages that I made on the internet, and two, have another set of instances  
 
-
-{{ macros.render_footnote("X40", "1", "At any rate, after realizing that it would be a royal pain-in-the-ass to have `mod_wsgi` compiled against `python3`, while having some virtualenvs that were still using Django 1.3 & Python 2.6 and so on...absolute misery.")}} 
+{{ macros.render_footnote("service", "1", "Granted, this isn't ASO's problem. They've been absolutely wonderful. I have never interacted with a company--not in tech, not anywhere, with more respnsive customer service. I don't think I've had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the privilege." }}
+{{ macros.render_footnote("X40", "2", "At any rate, after realizing that it would be a royal pain-in-the-ass to have `mod_wsgi` compiled against `python3`, while having some virtualenvs that were still using Django 1.3 & Python 2.6 and so on...absolute misery.")}} 
