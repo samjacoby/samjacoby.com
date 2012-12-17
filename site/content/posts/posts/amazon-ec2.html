@@ -1,5 +1,5 @@
 ---
-title: Amazon EC2
+title: Amazon EC2 Microinstances
 summary: Succumbing to the siren song of the cloud.
 date: 2012-12-09 19:36:01
 keywords: amazon, ec2, system administration, web hosting
@@ -9,4 +9,18 @@ tags:
     - website
 exclude: True
 ---
-Over the past few days, I've been playing around with [Amazon Web Services](http://aws.amazon.com). As happy as I've been with my current web-host--[A Small Orange](http://asmallorange.com)
+Over the past few days, I've been playing around with [Amazon Web Services](http://aws.amazon.com) [AWS]. I've been a spectacularly satisfied customer of [A Small Orange](http://asmallorange.com), but have been lately frustrated by shared hosting (though they provide a nice restriced `shell`), and have recently migrated my sites over to play around with the twelve-months free access provided for `microinstances`.  
+
+Some part of me--or well, most of me--inherently dislikes this cloud. There is something striking about connecting a run-down beige box to an ethernet port in the corner of a room and having it flash its small payload across the waves. This _cloud_, for all the hoopla--is just better word for _having-your stuff-elsewhere_. Convenient, sure. But it performs the same calculation as `gmail`, which trades you convenience for freedom. As much as `AWS` is convenient, it's also inherently less-free.  
+
+Nevertheless, I am a pragmatist--and even if I won't remain with them forever, I thought I should start figuring out how some their systems work. And what can I say? Right now, I have an insanely-fast, scalable, reliable, customizable server, with root access. I can't really complain.  
+
+At the moment I've got two micro-instances running--one is serving the static pages, the other, a little [typography training app]({{ content_url("/projects/monotype-app.html/") }} I wrote a few years ago. That won't last long, because you only get one instance free--but I'll switch the nameservers back to `A Small Orange` soon, while continuing to serve the dynamic content from AWS. 
+
+## Reverse Proxies
+Now, I've long heard preached that fine practice--the prudent splitting of dynamic and static content. That makes plenty of sense, really. Or plenty of sense if I ever had much content to serve. In practice, though, It's not something I've ever needed. As someone who has only ever placed things online from some reptilian instinct to share, I have never had any problems with server performance--to say the least. For some time, I ran my personal website from an {{ content_url("/posts/arscons.html") }}. Didn't break a sweat. {{ macros.render_footnote("X40", "1") }}
+
+There are a million-and-one ingenious ways to do this and I don't understand half of them. All I wanted was a nice, static server that put pages that I made on the internet, and two, have another set of instances  
+
+
+{{ macros.render_footnote("X40", "1", "At any rate, after realizing that it would be a royal pain-in-the-ass to have `mod_wsgi` compiled against `python3`, while having some virtualenvs that were still using Django 1.3 & Python 2.6 and so on...absolute misery.")}} 
