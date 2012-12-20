@@ -44,6 +44,7 @@ def publish():
         local_dir=DEPLOY_PATH.rstrip('/') + '/',
         delete=True
     )
+    run('ln -s ~/public_html/static ~/public_html/samjacoby.com/')
 
 @hosts(PROD_AWS)
 def publish_aws():
@@ -54,4 +55,6 @@ def publish_aws():
         local_dir=DEPLOY_PATH.rstrip('/') + '/',
         delete=True
     )
+    run('cd public_html/samjacoby.com/')
+    run('ln -s ~/public_html/static ~/public_html/samjacoby.com/')
 
