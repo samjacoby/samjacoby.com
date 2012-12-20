@@ -10,7 +10,7 @@
 <sup><a id="{{ target }}-mark" href="#{{ target }}-note">{{ identifier }}</a></sup>
 {% else %}
 {% markdown %}
-<div id="{{ target }}-note" class="footnote"><a class="footnote-note-number" href="#{{ target }}-mark">{{ identifier }}.</a> {{ content|markdown }}</div>
+<div id="{{ target }}-note" class="footnote"><a class="footnote-note-number" href="#{{ target }}-mark">{{ identifier }}. </a> {{ content|markdown }}</div>
 {% endmarkdown %}
 {% endif %}
 {% endmacro %}

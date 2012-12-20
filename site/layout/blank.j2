@@ -1,0 +1,24 @@
+{% extends "base.j2" %}
+
+{% block menu %}
+    <nav>
+    {{ macros.render_main_menu() }}
+    </nav>
+{% endblock %}
+
+{%- block content -%}
+{% mark post -%}
+<article class="post">
+    <section>
+        {% mark content -%}
+        {% filter markdown|typogrify -%}
+        {% block post %}{% endblock %}
+        {%- endfilter %}
+        {%- endmark %}
+    </section>
+ </article>
+{% if site.config.mode == "development" %}
+{% include media_url('js/disqus.js') %}
+{% endif %}
+{%- endmark -%}
+{% endblock -%}
