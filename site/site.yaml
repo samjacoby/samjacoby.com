@@ -17,7 +17,7 @@ plugins:
     - hyde.ext.plugins.urls.UrlCleanerPlugin
     - hyde.ext.plugins.less.LessCSSPlugin
     - hyde.ext.plugins.images.ImageThumbnailsPlugin
-    - hyde.ext.plugins.images.ImageSizerPlugin
+#    - hyde.ext.plugins.images.ImageSizerPlugin
     - hyde.ext.plugins.sorter.SorterPlugin
     - hyde.ext.plugins.grouper.GrouperPlugin
     - hyde.ext.plugins.tagger.TaggerPlugin
