@@ -3,9 +3,12 @@ RewriteBase /
 
 ErrorDocument 404 /404.html
 
+RewriteRule ^apps/monotype(.*)/$ http://ec2-107-21-76-31.compute-1.amazonaws.com/monotype [P]
+
 # Don't fix direct file links
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+
 
 RewriteCond %{REQUEST_URI} !(.*)/$
 RewriteRule ^(.*)$ $1/ [L,R=301]
