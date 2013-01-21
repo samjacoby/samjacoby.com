@@ -235,8 +235,13 @@ body, input, textarea, button, select {
     font-family: arial, sans-serif;
 }
 
-pre, code {
+pre, code, blockquote {
     font-family: Menlo, Monaco, monospace;
+}
+
+blockquote {
+   font-size: small; 
+
 }
 
 /*
@@ -501,6 +506,10 @@ header, footer, .wrapper {
 		/* Zoom baseline grid to 17/16 = 1.0625 */
 		font-size: (@font-size + 1) / @em;
 	}
+
+    blockquote {
+        padding: 0 0 0 1em;
+    }
 
 	h1 {
 		.huge();
