@@ -13,6 +13,7 @@ template: hyde.ext.templates.jinja.Jinja2Template
 plugins:
     - hyde.ext.plugins.meta.MetaPlugin
     - hyde.ext.plugins.git.GitDatesPlugin
+    - hyde.ext.plugins.git.GitTrackerPlugin
     - hyde.ext.plugins.auto_extend.AutoExtendPlugin
     - hyde.ext.plugins.urls.UrlCleanerPlugin
     - hyde.ext.plugins.less.LessCSSPlugin
@@ -145,4 +146,7 @@ publisher:
         url: shackman@shackmanpress.com:public_html/samjacoby.com
 unflattener:
     folders:
-         - posts 
+        - posts 
+gittracker:
+    extensions:
+        - html
