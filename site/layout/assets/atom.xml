@@ -12,7 +12,6 @@
     </author>
 
     <updated>{{ time_now|xmldatetime }}</updated>
-
     {% for post in site.content.walk_resources_sorted_by_date() %}
     {% if not post.meta.exclude %}
     <entry>

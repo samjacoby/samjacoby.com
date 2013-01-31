@@ -241,7 +241,29 @@ pre, code, blockquote {
 
 blockquote {
    font-size: small; 
+}
 
+#commit-log {
+    font-family: Menlo, Monaco, monospace;
+    font-size: small;
+    h4 {
+        cursor: pointer;
+        .timeago {
+            color: gray;
+            font-style: italic;
+        }
+        
+
+    }
+    pre {
+        font-size: small; 
+        ins {
+            color: blue;
+        }
+        del {
+            color: red;
+        }
+    }
 }
 
 /*

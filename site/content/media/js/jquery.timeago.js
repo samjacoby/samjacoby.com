@@ -90,7 +90,6 @@
         substitute($l.years, Math.round(years));
 
       if(days > this.settings.cutoff) {
-        prefix = "on";
         words = $.datepicker.formatDate(this.settings.cutoff_format, this.date); 
         suffix = "";
       }

@@ -1,5 +1,16 @@
 {% extends "base.j2" %}
 
+{% block scripts_off %}
+<script type="text/javascript" src="{{ media_url('js/sh/shCore.js') }}"></script>
+<script type="text/javascript" src="{{ media_url('js/sh/shBrushDiff.js') }}"></script>
+<link type="text/css" rel="stylesheet" href="{{ media_url('css/shCoreDefault.css') }}"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ media_url('js/app.js') }}"></script>
+{% endblock %}
+
 {% block menu %}
     <nav>
     {{ macros.render_main_menu() }}
@@ -25,9 +36,10 @@
     <footer>
     {% include "assets/render_related_posts.j2" %}
     {{ macros.render_updated( resource.meta.created, resource.meta.modified ) }}
+    {% include "assets/render_gittracker.j2" %}
     </footer>
  </article>
-{% if site.config.mode == "development" %}
+{% if site.config.mode == "nuthin" %}
 {% include media_url('js/disqus.js') %}
 {% endif %}
 {%- endmark -%}

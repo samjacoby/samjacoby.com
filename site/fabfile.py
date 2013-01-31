@@ -18,6 +18,9 @@ DEST_PATH_AWS= '/home/sjacoby/public_html/samjacoby.com/'
 def clean():
     local('rm -rf ./deploy')
 
+def gen(config=SITE_CONFIG):
+    generate(config)
+
 def generate(config=SITE_CONFIG):
     local('hyde gen -c %s' % config)
 
