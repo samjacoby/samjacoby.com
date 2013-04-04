@@ -1,41 +1,62 @@
 ---
 title: Drawing the Electric Synth
-summary: A workshop at SparkFun Electroncs
+summary: A workshop at SparkFun Electronics.
 date: 2013-04-02 12:19:50
 ---
 *This is a compendium of resources assembled for a workshop over the weekend of April 6 and 7 at SparkFun Electronics in Boulder, Colorado.*
 
-### Workshop Description
+## Workshop Description
 We’ll explore conductive inks and other materials to create unique, interactive musical instruments. Learn the basics of embedded microcontroller programming and circuit design, while crafting miniature synthesizers using a combination of electronics, programming, and art materials. For those interested, we can delve into the mysteries of FM sound generation and work on creating structed, pictorial representations of sound. No experience necessary—but you’ve got to love crafts, drawing, sound, and learning new ways of making electronics.
 
-### Surveys
-For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled out: 
+## Surveys
+For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled out. There'll be paper copies available, but filling it out online is quicker and easier! 
 
 - [Pre-Workshop Survey](http://#)
 - [Post-Workshop Survey](http://#)
+
+## Paper Speakers
+
+I've written up the basics, gleaned from many-a-resource, here: 
+
+- [Speakers Paperish](http://localhost:8080/posts/2013/4/1/speaker-paperish)
+
+[Hannah Perner-Wilson](http://plusea.at) is a one-person armada. She has done a variety of gorgeous pieces:
+
+- [Paper Speaker Tutorial](http://hlt.media.mit.edu/?p=1372) at High-Low Tech. 
+- [Sea-shell Headphones](http://www.plusea.at/?p=4596)
+
+[Marcelo Coelho](http://www.cmarcelo.com/#/pulp-based-computing/) put together some particularly striking, insprirational examples, if a bit more involved than what we'll be making.
+
+## TinySynth
+
+The TinySynth is an eight-bit microcontroller that makes sounds. We'll need:
+- TinyProgrammer
+- Tiny45V
+- Coin Cell
+- [Paper Speaker](/posts/2013/4/1/speaker-paperish/)
+- Conductive Ink
+
+Getting up and playing with the Tiny is simple enough. Most of the default Arduino sketches work with the ATTIny outt've of the box. Some things will have to be tweaked, though, as the default Arduino pins don't necessarily map to anything useful on the Tiny--pin 13, which by default is connected to an LED on an Arduino board doesn't go anywhere on a Tiny:
+
+{{ macros.render_figure('<img class="no-border" src="/media/img/attiny45_85pinout.png"/>', "Arduino-compatible pinout for Tiny45 (image courtesy of [David Mellis](http://hlt.media.mit.edu/?p=1695)).") }} 
+
+The program that we'll be loading onto our Tiny's is a basic sound generation library I've written. You can peruse the source over on [GitHub](https://github.com/samjacoby/tinysynth), and down a .zip of the necessary files here: [zip archive](https://github.com/samjacoby/tinysynth/archive/master.zip).  
+
+To use, simply unzip the folder and open the "tinysynth.ino" file (you need to have Arduino installed). 
+
+TinySynth has been preconfigured to have two touch-sensitive capacitive sensors and two LEDs, as well as a speaker output. See below:
+
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/8616341819/" title="IMG_4275 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8542/8616341819_38f4b4a9c7.jpg" width="500" height="375" alt="IMG_4275"></a>', "`TOUCH1` triggers `LED1`, `TOUCH2` triggers `LED2`") }}
+
+The `RESET` pin is only used while the chip is being programmed. We could disable it, but it means that you'd need some special hardware to ever program the chip again. `POWER` and `GND`, naturally enough, are connected to the positive and negative terminals of your power supply--in our case, a coin-cell battery.  
 
 ### TinyProgrammer
 
 - TinyProgrammer ([SparkFun](https://www.sparkfun.com/products/11460))
 
-The TinyProgrammer is a sweet little tool that vastly simplifies the programming of Atmel's ATTiny45/85 microcontrollers. The 'tinys', as they're affectionately called, can do just about everything an Arduino can do (Atmel makes the ATmega168/32U4), but are much cheaper, smaller, and for our purposes--much more easily embedded. [David Mellis](http://media.mit.edu/~mellis) designed this one. 
+The TinyProgrammer is a sweet little tool that vastly simplifies the programming of Atmel's ATTiny45/85 microcontrollers. The ATTiny can do just about everything an Arduino can do (Atmel makes the ATmega168/32U4), but are much cheaper, smaller, and more easily embedded. If you want to make twenty of something, it's a lot easier to get your hands on 20 ATTiny's than 20 Arduinos. [David Mellis](http://media.mit.edu/~mellis) designed this one. 
 
 - [TinyProgrammer Tutorial](http://hlt.media.mit.edu/?p=1695)
-
-### Paper Speakers
-
-I've written up the basics, gleaned from many-a-resource, in a post, here: 
-
-- [Speakers Paperish](http://localhost:8080/posts/2013/4/1/speaker-paperish)
-
-[Hannah Perner-Wilson](http://plusea.at), as always, is a one-woman army. She has done a variety of gorgeous pieces:
-
-- [Paper Speaker Tutorial](http://hlt.media.mit.edu/?p=1372) on the High-Low Tech Site 
-- [Sea-shell Headphones](http://www.plusea.at/?p=4596)
-
-[Marcelo Coelho](http://www.cmarcelo.com/#/pulp-based-computing/) put together some particularly striking, insprirational examples, if a bit more involved than what we'll be making.
-
-## Tiny Synth
 
 ### Helpful Information
 - [Bare Conductive's Paper Battery Holder](http://www.bareconductive.com/paper-battery-holders)
@@ -44,6 +65,4 @@ A really nice collection of elegant folded designs. Incorporating power into pap
 
 - [ATTiny Datasheet](http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf) 
 
-This is not really that useful--a hundred-odd pages of technical specifications. But it's interesting if you want to delve deeper into how people actually _understand_ these things. And the pin diagram is on the second page.
-
-
+This is not really that useful for our purposes here--a hundred-odd pages of technical specifications. But it's interesting if you want to delve deeper into how people actually _understand_ these things. And the pin diagram is on the second page.
