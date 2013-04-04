@@ -15,7 +15,7 @@ title: Posts
     {% if not res.meta.exclude %} 
     <article>
         <header>
-            <h2><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h3>
+            <h2 class="title"><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h3>
             <p class="datetime">{{ macros.render_date(res.meta.date) }}</p>
         </header>
     {% refer to res.relative_path as post %} 
