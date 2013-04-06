@@ -138,6 +138,11 @@ table {
     border-spacing: 0;
 }
 
+td { 
+    vertical-align: top;
+    padding-left: 2em;
+}
+
 #colophon {
     clear: both;
     padding: 24/@em 0 0;
@@ -163,6 +168,9 @@ img {
 	border: 1px solid @gray; 
     margin: .5em 0 .5em 0;
 	-ms-interpolation-mode: bicubic;
+    &.no-border {
+        border: none;
+    }
 }
 
 .post img {
