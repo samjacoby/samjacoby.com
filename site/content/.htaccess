@@ -4,6 +4,8 @@ RewriteBase /
 ErrorDocument 404 /404.html
 
 RewriteRule ^apps/monotype(.*)/$ http://ec2-107-21-76-31.compute-1.amazonaws.com/monotype [P]
+# redirect for workshop
+RewriteRule ^sparkfun-workshop/$ http://samjacoby.com/posts/2013/4/2/sparkfun-workshop/
 
 # Don't fix direct file links
 RewriteCond %{REQUEST_FILENAME} !-f
