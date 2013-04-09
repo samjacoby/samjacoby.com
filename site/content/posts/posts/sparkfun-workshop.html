@@ -17,14 +17,15 @@ We’ll explore conductive inks and other materials to create unique, interactiv
 - [Paper Speakers](#paper-speakers)
 - [TinyProgrammer](#tinyprogrammer)
 - [TinySynth](#tinysynth)
+- [Adding Amplification with a Mosfet](#mosfet)
 - [Battery Holder](#battery-holder)
 - [Helpful Links](#helpful-information)
 
 ## <a id="surveys"></a>Surveys
 For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled out. There'll be paper copies available, but filling it out online is quicker and easier! 
 
-- [Pre-Workshop Survey](https://www.surveymonkey.com/s/YVNDW5F)
-- [Post-Workshop Survey](https://www.surveymonkey.com/s/YVFN38D)
+- [Pre-Workshop Survey](#)
+- [Post-Workshop Survey](#)
 
 If you've happened to stumble on this survey and *won't* be attending the workshop, make my life a little easier and don't fill it out! 
 
@@ -77,7 +78,7 @@ To get started with it on your computer, you'll need (a) to have the Arduino IDE
 - [TinyProgrammer Tutorial](http://hlt.media.mit.edu/?p=1695)
 ## <a id="tinysynth"></a>TinySynth
 
-The TinySynth is a simple circuit that used an eight-bit microcontroller to make sounds. We'll need:
+The TinySynth is a program loaded onto an ATTiny45/85 that uses an eight-bit microcontroller to make sounds. We'll need:
 
 - TinyProgrammer
 - ATTiny45/85
@@ -103,7 +104,9 @@ While we're programming the chip, we can test some of its functions -- but ultim
 
 {{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/8623874872/" title="IMG_4304 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8256/8623874872_e352d6b6f1.jpg" width="500" height="375" alt="IMG_4304"></a>', "Your circuit doesn't need to look like this at all. These are just the connections.") }} 
 
-Applying silver ink can be difficult. Go slow. With attention and care, you can draw fine, well-controlled traces. Unless of course, you don't want to, in which case, go nuts!
+Applying silver ink can be difficult. Go slow. With attention and care, you can draw fine, well-controlled traces. 
+
+Preparing your microcontroller to work on a paper surface also requires some attention. Dave Mellis has put up some good, relevant guidlines here: [Micocontroller Circuit with Copper Tape](http://hlt.media.mit.edu/?p=1653).
 
 {{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/7976725337/" title="Electric Narratives by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8440/7976725337_297dd84636.jpg" width="500" height="375" alt="Electric Narratives"></a>', "Painting with conductive silver ink.") }}
 
@@ -126,6 +129,21 @@ Using conductive ink, paint over the fold as shown in the black rectangles below
 Fasten the folded over corner down over the battery with a binder clip.
 {{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/8622772695/" title="IMG_4314 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8257/8622772695_aea218f794.jpg" width="500" height="375" alt="IMG_4314"></a>', '') }}
 
+## <a id="mosfet"></a>Adding Amplification with a MOSFET
+
+- N-Channel MOSFET ([DigiKey](http://www.digikey.com/product-detail/en/NTD5867NL-1G/NTD5867NL-1GOS-ND/2401422?cur=USD))
+
+Once you've made your circuit, you'll probably notice that it's not overwhelmingly loud. That's because we're driving the speaker with one of the pins of the microcontroller, which really isn't great for that sort of thing. According to the [datasheet](#datasheet), the ATTiny can source about 20 milliamps, which isn't all that much. Using a MOSFET, we can drive a great deal more current through our speaker--and theoretically at least--make it louder.   
+
+Here's my crude schematic of the mosfet that we'll be using. It has a particularly low threshold-voltage, which means it works well with the low-voltage coin-cell batteries. It's an [N-channel MOSFET](http://en.wikipedia.org/wiki/Mosfet), which is very important, though why, I could not say.  
+
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/8623875122/" title="IMG_4305 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8530/8623875122_1e2968ca26.jpg" width="485" height="500" alt="IMG_4305"></a>', "G: Gate, D: Drain, S: source") }}
+
+Figuring out just how the "FET"--as such things are sometimes called--is hooked up into the circuit is trickier than it should be, at least for me. We're interested in the gate, drain, and source. The gate is what we'll connect to our microcontroller. The source, we'll connect straight to ground. And the drain, we'll connect to one end of our speaker. The diagram below gives about half the answer.  
+
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/8623875340/" title="IMG_4307 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8534/8623875340_6202ddab72.jpg" width="500" height="375" alt="IMG_4307"></a>', "") }}
+
+The missing piece, here, is what the *other* end of the speaker is connected to. If one side is connected to drain -- the other side of your speaker should be connected to power. There are a variety of ingenious analogies that explain the way in which a MOSFET Works--controlling a valve, opening and closing a dam--but the more lucid ones escape me now. At any rate, suffice it to say, it allows the relative *weak* microcontroller signal to control a much more powerful flow of current directly from the battery. Which naturally enough, makes it a bit more of a ruckus. 
 
 ### <a id="helpful-information"></a>Helpful Links & So Forth
 - [Copper Circuits Tutorial](http://hlt.media.mit.edu/?p=2505)
@@ -136,6 +154,6 @@ Fasten the folded over corner down over the battery with a binder clip.
 
 A really nice collection of elegant folded designs. Incorporating power into paper electronic projects has long been tricky, and these are some nice solutions. We've long-used a binder clip and a coin-cell battery, which works pretty well too.  
 
-- [ATTiny Datasheet](http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf) 
+- <a id="datasheet"></a>[ATTiny Datasheet](http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf) 
 
 This is not really that useful for our purposes here--a hundred-odd pages of technical specifications. But it's interesting if you want to delve deeper into how people actually _understand_ these things. And the pin diagram is on the second page.
