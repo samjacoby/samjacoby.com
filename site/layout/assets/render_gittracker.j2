@@ -1,5 +1,5 @@
 {% if resource.meta.commits %}
-<h3>Change History</h3>
+<h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
 <section id="commit-log">
 {% for c in resource.meta.commits %}
 <h4><time class="timeago" datetime="{{ c.date }}">{{ c.date }}</time>: <span class="message"> {{ c.msg | escape }}</span> <a class="link" href="#{{ c.hash }}" id="{{ c.hash }}">&raquo;</a> </h4> 

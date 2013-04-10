@@ -5,7 +5,7 @@ date: 2013-01-31 14:56:39
 ---
 Inspired by [@jsvine's](https://twitter.com/jsvine) experiments in version-control at [drafts.jsvine.com](http://drafts.jsvine.com), I thought I'd expose some of the bones that tick beneath my [site](http://samjacoby.com/posts/2012/8/21/hello-world/). I run these pages through the [Hyde](http://hyde.github.com) static-site generator--[Jekyll's](https://github.com/mojombo/jekyll) underloved Pythonic-cousin--which despite being a little complex for the job, I like. 
 
-I mostly use [git](http://github.com){{ macros.render_footnote("github-1", "†") }} as a glorified save button, not a collaborative tool (on this site at least)--so all I needed to do was expose my changesets (already online on [GitHub]](http://https://github.com/samjacoby/samjacoby.com/)).
+I mostly use [git](http://github.com){{ macros.render_footnote("github-1", "†") }} as a glorified save button, not a collaborative tool (on this site at least)--so all I needed to do was expose my changesets (already online on [GitHub](http://https://github.com/samjacoby/samjacoby.com/)).
 
 I slapped together a small plugin that parses the logs of the repo that backs the site, and renders them on the page per-file in a reasonably-digestible manner. It would've made more sense to be using mercurial (which is written in Python), but alas, GitHub is too damn good. 
 
@@ -13,4 +13,4 @@ At any rate, you'll now see a 'Change History' on the bottom of each page I've w
 
 The plug-in, itself, is [here](https://github.com/samjacoby/hyde/commit/a92073bb46775499e1d510c2c71009ddd8101218) in a not-very-palatable form. Pretty minimal, but you get the idea. The syntax-highlighting is a smidgen of jQuery. 
 
-{{ macros.render_footnote("github-1", "†", "My sister pointed out that _git_ looks suspiciously-like a typo for _get_, so it's worth mentioning that git is a popular piece of software that allows you to keep track of all of the edits you make on text files and easily collaborate and share your changes with others.")}} 
+{{ macros.render_footnote("github-1", "†", "My sister pointed out that _git_ looks suspiciously-like a typo for _get_. It is not. Git is a popular piece of software that allows you to keep track of all of the edits you make on text files and easily collaborate and share your changes with others. While originally intended for software development, it's finding uses in a number of projects.")}} 
