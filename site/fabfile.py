@@ -3,7 +3,7 @@ import os
 import fabric.contrib.project as project
 
 PROD = 'shackman@shackmanpress.com'
-KEY = '/homes/sjacoby/.ssh/orville.pem'
+KEY = '/homes/sjacoby/.ssh/id_bardamu'
 
 SITE_CONFIG = 'site.yaml'
 PROD_CONFIG = 'prod.yaml'

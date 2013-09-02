@@ -12,8 +12,8 @@ base_url: /
 template: hyde.ext.templates.jinja.Jinja2Template
 plugins:
     - hyde.ext.plugins.meta.MetaPlugin
-    - hyde.ext.plugins.git.GitDatesPlugin
-    - hyde.ext.plugins.git.GitTrackerPlugin
+#    - hyde.ext.plugins.git.GitDatesPluginOld
+    - hyde.ext.plugins.gitTracker.GitTrackerPlugin
     - hyde.ext.plugins.auto_extend.AutoExtendPlugin
     - hyde.ext.plugins.urls.UrlCleanerPlugin
     - hyde.ext.plugins.less.LessCSSPlugin

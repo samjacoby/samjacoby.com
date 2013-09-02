@@ -8,7 +8,9 @@ thumbnails:
     height: 200
     prefix: listing_
     crop_type: center
-    include: '*.jpg'
+    include: 
+    - '*.jpg'
+    - '*.png'
   - width: 240
     height: 240
     prefix: thumb_
@@ -20,6 +22,5 @@ thumbnails:
     prefix: thumb_narrow_
     crop_type: center
     include:
-        - '*.png'
-        - '*.jpg'
-    
+    - '*.png'
+    - '*.jpg'
