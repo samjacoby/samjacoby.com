@@ -479,6 +479,7 @@ header, footer, #twoway {
 }
 
 article header {
+    clear: both;
     margin: 0;
 }
 
@@ -637,7 +638,11 @@ header, footer, .wrapper {
 		font-size: (@font-size) / @em; 
 	}
 
-    header {
+    article section {
+        width: 75%
+    }
+
+    body > header {
         width: 45%;
     }
 	
@@ -670,7 +675,7 @@ header, footer, .wrapper {
 		font-size: (@font-size) / @em;
 	}
 
-    header {
+    body > header {
        width: 48%; 
     }
 	
@@ -693,7 +698,7 @@ header, footer, .wrapper {
 		font-size: (@font-size + 1) / @em;
 	}
 
-    header {
+    body > header {
        width: 38%; 
     }
 	
