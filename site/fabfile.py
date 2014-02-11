@@ -21,6 +21,10 @@ def clean():
 def gen(config=SITE_CONFIG):
     generate(config)
 
+def watch(config=SITE_CONFIG):
+    local('fswatch content "fab gen" &')
+    serve()
+
 def generate(config=SITE_CONFIG):
     local('hyde gen -c %s' % config)
 
