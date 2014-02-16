@@ -30,17 +30,11 @@ class="{{ class }}"
 {% endmacro %}
 
 {% macro render_date(date=false) -%}
-    {% if date %}
-    Posted <time class="timeago" datetime="{{ date }}" pubdate>{{ date }}</time>.
-    {% endif %} 
+    {% if date %}Posted <time class="timeago" datetime="{{ date }}" pubdate>{{ date }}</time>.{% endif %} 
 {% endmacro %}
 
 {% macro render_updated(date=false, updated) -%}
-    {% if updated and date != updated %}
-    <p class="datetime">
-    Last updated <time class="timeago" datetime="{{ updated }}" pubdate>{{ updated }}</time>.
-    </p>
-    {% endif %} 
+    {% if updated and date != updated %}Last updated <time class="timeago" datetime="{{ updated }}" pubdate>{{ updated }}</time>.{% endif %} 
 {% endmacro %}
 
 {% macro render_main_menu() -%}

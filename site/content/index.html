@@ -7,7 +7,7 @@ description: Hello, I'm a printer, programmer and student at the MIT Media Lab. 
 {% block splash %}
     <h1 class="splash">
         Hello, I am a printer, programmer, and tinkerer. I work at <a href="http://formlabs.com">Formlabs</a>. Here's a bit more <a href="/me/">about me</a>.</h1> 
-    </h1>
+    <p><a href="{{ site.last_updated_resource.url }}">{{ site.last_updated_resource.meta.title }}</a> was updated <time class="timeago" datetime="{{ site.last_updated }}">{{ site.last_updated }}</time>.</p>
 {% endblock %}
 
 {% block content -%}

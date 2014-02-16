@@ -23,7 +23,10 @@
     <header>
         <h2 class="title">{{ resource.meta.title }}</h2> 
         {% if resource.meta.date %}
-        <p class="datetime">{{ macros.render_date( resource.meta.date ) }}</p>
+        <p class="datetime">
+        {{ macros.render_date( resource.meta.date ) }}
+        <span class="updated">[{{ macros.render_updated( resource.meta.created, resource.meta.modified )}}]</span>
+        </p>
         {% endif %}
     </header>
     <section>
@@ -35,7 +38,6 @@
     </section>
     <footer>
     {% include "assets/render_related_posts.j2" %}
-    {{ macros.render_updated( resource.meta.created, resource.meta.modified ) }}
     {% include "assets/render_gittracker.j2" %}
     </footer>
  </article>
