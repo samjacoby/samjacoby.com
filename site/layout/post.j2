@@ -22,6 +22,9 @@
 <article class="post">
     <header>
         <h2 class="title">{{ resource.meta.title }}</h2> 
+        {% if resource.meta.subtitle %}
+        <h3 class="subtitle">{{ resource.meta.subtitle }}</h3>
+        {% endif %}
         {% if resource.meta.date %}
         <p class="datetime">
         {{ macros.render_date( resource.meta.date ) }}
