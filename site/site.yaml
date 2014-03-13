@@ -1,6 +1,6 @@
 mode: development
 logger:
-    level: warning 
+    level: error 
 media_root: media
 media_url: /media
 base_url: /
@@ -18,7 +18,6 @@ plugins:
     - hyde.ext.plugins.urls.UrlCleanerPlugin
     - hyde.ext.plugins.less.LessCSSPlugin
     - hyde.ext.plugins.images.ImageThumbnailsPlugin
-#    - hyde.ext.plugins.images.ImageSizerPlugin
     - hyde.ext.plugins.sorter.SorterPlugin
     - hyde.ext.plugins.grouper.GrouperPlugin
     - hyde.ext.plugins.tagger.TaggerPlugin
@@ -150,3 +149,6 @@ unflattener:
 gittracker:
     extensions:
         - html
+markdown:
+    extensions:
+        - tables
