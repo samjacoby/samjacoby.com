@@ -25,9 +25,9 @@ plugins:
 context:
     data:
         author:
-            name: Sam Jacoby
+            name: Neocaridina heteropoda  
             url: "http://samjacoby.com"
-            email: sjacoby@media.mit.edu
+            email: sam@shackmanpress.com
         this_site:
             title: Sam Jacoby 
             url: "http://samjacoby.com"

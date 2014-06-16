@@ -9,7 +9,6 @@ title: Projects
 {% endblock %}
 
 {% block content %}
-
 {% for res in resource.node.walk_resources_sorted_by_date() %}
 {% if not res.meta.exclude %} 
 <article>

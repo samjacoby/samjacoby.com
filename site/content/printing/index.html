@@ -16,7 +16,7 @@ exclude: True
     </header>
     {% refer to res.relative_path as post %} 
 
-    <p>{{ post.html('article>section>p:nth-child(1)') }}</p>
+    <p>{%if post.excerpt %}{{ post.excerpt | markdown }}{% else %}{{post.html('article>section>p:nth-child(1)') }}{% endif %}</p>
     {% if res.meta.thumbnail %}
         {% set image='img/listing_' + res.meta.thumbnail %}
         <figure><img src="{{ media_url(image) }}"/></figure>
