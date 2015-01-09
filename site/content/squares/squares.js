@@ -14,7 +14,7 @@
     canvas.onmousemove = function(event) {
         if(mousedown) {
             ctx.fillStyle = getRndColor(); 
-            ctx.fillRect(event.x - 10, event.y - 10, 20, 20);
+            ctx.fillRect(event.clientX - 10, event.clientY - 10, 20, 20);
         }
     }
 
@@ -38,19 +38,25 @@
         clearCanvas();
     }
 
-    var loadImage = function() {
+    var fetchImage = function() {
         firebase.on('value', function(snapshot) {
-            var image = new Image();
             var data = snapshot.val();
-            image.src = data.image;
-            ctx.drawImage(image, 0, 0);
+            loadImage(data.image)
         });
     }
 
-    loadImage();
+    var loadImage = function(imagesrc) {
+        var image = new Image();
+        image.src = imagesrc; 
+        image.onload = function () {
+          ctx.drawImage(image, 0, 0);
+        }
+    }
+
+    fetchImage();
 
     var saveImage = function() {
-        var dataURL = canvas.toDataURL();
+        var dataURL = currentImage(); 
         firebase.set({image: dataURL}, function(error) {
             if(error) {
                 alert(error);
@@ -63,6 +69,10 @@
         });
     }
 
+    var currentImage = function() {
+        return canvas.toDataURL();
+    }; 
+
     var clearCanvas = function() {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
     }
@@ -73,6 +83,22 @@
             b = 255*Math.random()|0;
         return 'rgb(' + r + ',' + g + ',' + b + ')';
     }
+
+    var resizeTimeout;
+    var resizeWindow = function() {
+      var image = currentImage();
+      
+      if(!resizeTimeout) {
+          resizeTimeout = setTimeout(function() {
+            resizeTimeout = false;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            loadImage(image);
+          }, 100);
+      }
+    }
+
+    window.addEventListener('resize', resizeWindow, false);
 
 
 
