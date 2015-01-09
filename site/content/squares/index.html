@@ -5,6 +5,8 @@
        body, html {
         margin: 0;
         padding: 0;
+        overflow: auto; 
+        -webkit-overflow-scrolling: touch;   
       }
       #spice {
         position: absolute;
@@ -28,6 +30,16 @@
         color: black; 
         cursor: pointer;
       }
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 480px) {
+      #control a {
+        font-size: 4em; 
+        padding-left: 1em;
+      }
+
+    }
     </style>
   <script src="https://cdn.firebase.com/js/client/2.1.0/firebase.js"></script>
   </head>

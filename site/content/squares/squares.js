@@ -11,6 +11,10 @@
 
     var mousedown, touchdown;
 
+    canvas.onclick = function(event) {
+        draw(event.clientX, event.clientY);
+    }
+
     canvas.onmousemove = function(event) {
         if(mousedown) {
             draw(event.clientX, event.clientY);
@@ -24,10 +28,12 @@
 
     canvas.addEventListener("touchstart", function() {
         touchdown = true;
+        event.preventDefault();
     }, false);
 
     canvas.addEventListener("touchend", function() {
         touchdown = false;
+        event.preventDefault();
     }, false);
 
     canvas.addEventListener("touchmove", function(event) {
@@ -35,14 +41,16 @@
             var arrLength = event.touches.length;
             for(var i = 0; i < arrLength; i++ ) {
                 var touch = event.touches[i];
-                draw(touch.clientX, touch.clientY);
+                draw(touch.screenX, touch.screenY);
             }
         }
+        event.preventDefault();
     }, false);
 
     canvas.onmousedown = function(event) {
         mousedown = true;
     }
+    
 
     canvas.onmouseup = function(event) {
         mousedown = false;
@@ -117,7 +125,7 @@
                 resizeTimeout = false;
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
-                loadImage(image);
+                loadImage(image.src);
               }, 100);
         }
     }
