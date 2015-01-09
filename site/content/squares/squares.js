@@ -41,7 +41,7 @@
             var arrLength = event.touches.length;
             for(var i = 0; i < arrLength; i++ ) {
                 var touch = event.touches[i];
-                draw(touch.screenX, touch.screenY);
+                draw(touch.clientX, touch.clientY);
             }
         }
         event.preventDefault();
