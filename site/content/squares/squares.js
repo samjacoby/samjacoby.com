@@ -9,14 +9,36 @@
 
     var firebase = new Firebase("https://burning-torch-5616.firebaseio.com/squares/");
 
-    var mousedown;
+    var mousedown, touchdown;
 
     canvas.onmousemove = function(event) {
         if(mousedown) {
-            ctx.fillStyle = getRndColor(); 
-            ctx.fillRect(event.clientX - 10, event.clientY - 10, 20, 20);
+            draw(event.clientX, event.clientY);
         }
     }
+
+    var draw = function(x, y) {
+        ctx.fillStyle = getRndColor(); 
+        ctx.fillRect(x - 10, y- 10, 20, 20);
+    }
+
+    canvas.addEventListener("touchstart", function() {
+        touchdown = true;
+    }, false);
+
+    canvas.addEventListener("touchend", function() {
+        touchdown = false;
+    }, false);
+
+    canvas.addEventListener("touchmove", function(event) {
+        if(touchdown) {
+            var arrLength = event.touches.length;
+            for(var i = 0; i < arrLength; i++ ) {
+                var touch = event.touches[i];
+                draw(touch.clientX, touch.clientY);
+            }
+        }
+    }, false);
 
     canvas.onmousedown = function(event) {
         mousedown = true;
@@ -38,6 +60,24 @@
         clearCanvas();
     }
 
+    var saveImage = function() {
+        var dataURL = currentImage().src; 
+        firebase.set({image: dataURL}, function(error) {
+            if(error) {
+                alert(error);
+            } else {
+                saveButton.innerHTML = 'Saved.';
+                window.setTimeout(function() {
+                    saveButton.innerHTML = 'Save';
+                }, 2000);
+            }
+        });
+    }
+
+    var clearCanvas = function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+    }
+
     var fetchImage = function() {
         firebase.on('value', function(snapshot) {
             var data = snapshot.val();
@@ -56,27 +96,11 @@
 
     fetchImage();
 
-    var saveImage = function() {
-        var dataURL = currentImage(); 
-        firebase.set({image: dataURL}, function(error) {
-            if(error) {
-                alert(error);
-            } else {
-                saveButton.innerHTML = 'Saved.';
-                window.setTimeout(function() {
-                    saveButton.innerHTML = 'Save';
-                }, 2000);
-            }
-        });
-    }
 
     var currentImage = function() {
-        return canvas.toDataURL();
+        return { width: canvas.width, height: canvas.height, src: canvas.toDataURL() };
     }; 
 
-    var clearCanvas = function() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-    }
     
     function getRndColor() {
         var r = 255*Math.random()|0,
@@ -87,21 +111,18 @@
 
     var resizeTimeout;
     var resizeWindow = function() {
-      var image = currentImage();
-      
-      if(!resizeTimeout) {
-          resizeTimeout = setTimeout(function() {
-            resizeTimeout = false;
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            loadImage(image);
-          }, 100);
-      }
+        var image = currentImage();
+        if(!resizeTimeout) {
+            resizeTimeout = setTimeout(function() {
+                resizeTimeout = false;
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                loadImage(image);
+              }, 100);
+        }
     }
 
     window.addEventListener('resize', resizeWindow, false);
-
-
 
 }).call(this);
 
