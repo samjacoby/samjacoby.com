@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <style>
+       body, html {
+        margin: 0;
+        padding: 0;
+      }
+      #spice {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      #control {
+        position: absolute;
+        top: 20px;
+      }
+
+      #control a {
+        padding-left: 10px;
+        font-family: "Futura", sans-serif;
+        color: grey;
+      }
+
+      #control a:hover {
+        color: black; 
+        cursor: pointer;
+      }
+    </style>
+  <script src="https://cdn.firebase.com/js/client/2.1.0/firebase.js"></script>
+  </head>
+  <body>
+    <canvas id="spice">
+        Sorry, your browser doesn't support the &lt;canvas&gt; element.
+    </canvas>
+    <menu id="control">
+      <a id="save" type="button">Save</a>
+      <a id="clear" type="button">Clear</a>
+    </menu>
+  </body>
+  <script src="squares.js"></script>
+</html>
