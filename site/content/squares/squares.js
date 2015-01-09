@@ -49,6 +49,7 @@
         var image = new Image();
         image.src = imagesrc; 
         image.onload = function () {
+          clearCanvas();
           ctx.drawImage(image, 0, 0);
         }
     }
