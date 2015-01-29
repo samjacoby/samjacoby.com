@@ -9,10 +9,32 @@
 
     var firebase = new Firebase("https://burning-torch-5616.firebaseio.com/squares/");
 
-    var mousedown, touchdown;
+    // track mouse movement 
+    var mousedown, touchdown; 
 
+    var saveButton = root.document.getElementById('save');
+    var clearButton = root.document.getElementById('clear');
+    //var libraryButtons = root.document.getElementsByClassName('image_button');
+
+    saveButton.onclick = function() {
+        createImage();
+    }
+
+    clearButton.onclick = function() {
+        clearCanvas();
+    }
+
+    // mouse bindings
     canvas.onclick = function(event) {
         draw(event.clientX, event.clientY);
+    }
+
+    canvas.onmousedown = function(event) {
+        mousedown = true;
+    }
+
+    canvas.onmouseup = function(event) {
+        mousedown = false;
     }
 
     canvas.onmousemove = function(event) {
@@ -21,11 +43,7 @@
         }
     }
 
-    var draw = function(x, y) {
-        ctx.fillStyle = getRndColor(); 
-        ctx.fillRect(x - 10, y- 10, 20, 20);
-    }
-
+    // phone & tablet events
     canvas.addEventListener("touchstart", function() {
         touchdown = true;
         event.preventDefault();
@@ -47,50 +65,106 @@
         event.preventDefault();
     }, false);
 
-    canvas.onmousedown = function(event) {
-        mousedown = true;
-    }
-    
-
-    canvas.onmouseup = function(event) {
-        mousedown = false;
+    // draw your basic rectangle
+    var draw = function(x, y) {
+        ctx.fillStyle = getRndColor(); 
+        ctx.fillRect(x - 10, y- 10, 20, 20);
     }
 
-
-    var saveButton = root.document.getElementById('save');
-    var clearButton = root.document.getElementById('clear');
-    
-    saveButton.onclick = function() {
-        saveImage();
-    }
-
-    clearButton.onclick = function() {
-        clearCanvas();
-    }
-
-    var saveImage = function() {
-        var dataURL = currentImage().src; 
-        firebase.set({image: dataURL}, function(error) {
-            if(error) {
-                alert(error);
-            } else {
-                saveButton.innerHTML = 'Saved.';
-                window.setTimeout(function() {
+    // create new image
+    var createImage = function() {
+        var dataURL = currentImage().src;
+        if(activeImage in libraryData) {
+            libraryData[activeImage] = { 'image': dataURL };
+            var ref = firebase.child(activeImage)
+            ref.update({ image: dataURL }, function(error) {
+                if(error) {
+                  alert(error);
+                } else {
+                  saveButton.innerHTML = 'Saved.';
+                  window.setTimeout(function() {
                     saveButton.innerHTML = 'Save';
-                }, 2000);
+                  }, 2000);
+                }
+            });
+        } else {
+          var newImage = firebase.push({ image: dataURL }, function(error) {
+            if(error) {
+              alert(error);
+            } else {
+              saveButton.innerHTML = 'Saved.';
+              window.setTimeout(function() {
+                saveButton.innerHTML = 'Save';
+              }, 2000);
             }
-        });
+          });
+        }
     }
 
-    var clearCanvas = function() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
+    // fetch all images
+
+    var val = 1;
+    function createElementFromSnapshot(snapshot) {
+        var a = document.createElement('a');
+        a.setAttribute('class', 'image_button');
+        a.setAttribute('id', snapshot.key());
+        a.innerHTML = val++; 
+        a.addEventListener('click', drawImage, false); 
+        document.getElementById('library').appendChild(a);
     }
 
+    var activeImage;
+    function drawImage() {
+        var buttons = document.getElementsByClassName('image_button') 
+        var button_length = buttons.length
+        for(var i=0;i < button_length; i++) {
+          buttons[i].setAttribute('class','image_button') 
+        }
+        this.setAttribute('class', 'selected image_button');
+        activeImage = this.id; 
+        if(this.id in libraryData) {
+            loadImage(libraryData[this.id]['image'])
+        }
+    }
+    
+    var libraryData = [];
+    var fetchImages = function() {
+      firebase.on('child_added', function(snapshot) {
+        key = snapshot.key()
+        imageData = snapshot.val();
+        libraryData[key] = imageData
+
+        createElementFromSnapshot(snapshot);
+      });
+    }
+
+    fetchImages();
+
+    // open image
+    var openImage = function() {
+      // fetch by key from list
+    }
+
+    // fetch specic from firebase
     var fetchImage = function() {
         firebase.on('value', function(snapshot) {
             var data = snapshot.val();
             loadImage(data.image)
         });
+    }
+
+    // and do it
+    // fetchImage();
+
+    // update to firebase
+    var updateImage = function() {
+      var imageRef =  firebase.child(key);
+      var dataURL = currentImage().src;
+      imageRef.update({ image: dataURL })
+    }
+
+    var clearCanvas = function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
     }
 
     var loadImage = function(imagesrc) {
@@ -101,9 +175,6 @@
           ctx.drawImage(image, 0, 0);
         }
     }
-
-    fetchImage();
-
 
     var currentImage = function() {
         return { width: canvas.width, height: canvas.height, src: canvas.toDataURL() };
@@ -130,6 +201,7 @@
         }
     }
 
+    // redraw canvas on window resize
     window.addEventListener('resize', resizeWindow, false);
 
 }).call(this);

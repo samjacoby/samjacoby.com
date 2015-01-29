@@ -15,9 +15,26 @@
         display: block;
       }
 
+      #library a.selected {
+        color: red;
+        text-decoration: underline;
+      }
+
       #control {
         position: absolute;
         top: 20px;
+      }
+
+      #library {
+        position: absolute;
+        top:60px;
+      }
+
+      #library a {
+        display: block;
+        padding-left: 10px;
+        font-family: "Futura", sans-serif;
+        color: grey;
       }
 
       #control a {
@@ -26,8 +43,8 @@
         color: grey;
       }
 
-      #control a:hover {
-        color: black; 
+      #library a:hover, #control a:hover {
+        color: red; 
         cursor: pointer;
       }
     /* Smartphones (portrait and landscape) ----------- */
@@ -50,6 +67,8 @@
     <menu id="control">
       <a id="save" type="button">Save</a>
       <a id="clear" type="button">Clear</a>
+    </menu>
+    <menu id="library">
     </menu>
   </body>
   <script src="squares.js"></script>
