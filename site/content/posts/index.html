@@ -18,8 +18,17 @@ title: Posts
             <h2 class="title"><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h3>
             <p class="datetime">{{ macros.render_date(res.meta.date) }}</p>
         </header>
-    {% refer to res.relative_path as post %} 
-    {{ post.content }}
+          {% refer to res.relative_path as post %} 
+          {% if post.excerpt %}
+              {{ post.excerpt | markdown }}
+              {% if res.meta.thumbnail %}
+                {% set image='img/listing_' + res.meta.thumbnail %}
+                <figure><a href="{{ res.full_url }}"><img src="{{ media_url(image) }}"/></a></figure>
+              {% endif %}
+              <p><a href="{{ res.full_url }}">read on &raquo;</a></h4>
+          {% else %}
+            {{ post.content }}
+          {% endif %}
     </article>
     {% endif %}
 {% endfor %}

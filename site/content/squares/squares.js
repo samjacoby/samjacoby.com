@@ -113,6 +113,7 @@
         document.getElementById('library').appendChild(a);
     }
 
+    // draw saved image to canvas
     var activeImage;
     function drawImage() {
         var buttons = document.getElementsByClassName('image_button') 
@@ -127,6 +128,7 @@
         }
     }
     
+    // fetch all images from firebase reference
     var libraryData = [];
     var fetchImages = function() {
       firebase.on('child_added', function(snapshot) {
@@ -140,18 +142,13 @@
 
     fetchImages();
 
-    // open image
-    var openImage = function() {
-      // fetch by key from list
-    }
-
-    // fetch specic from firebase
-    var fetchImage = function() {
-        firebase.on('value', function(snapshot) {
-            var data = snapshot.val();
-            loadImage(data.image)
-        });
-    }
+    // fetch specific image from firebase
+    //var fetchImage = function() {
+        //firebase.on('value', function(snapshot) {
+            //var data = snapshot.val();
+            //loadImage(data.image)
+        //});
+    //}
 
     // and do it
     // fetchImage();
