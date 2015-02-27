@@ -12,7 +12,7 @@ DEST_PATH = '/home/shackman/public_html/samjacoby.com/'
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 DEPLOY_PATH = os.path.join(ROOT_PATH, 'deploy')
 
-PROD_AWS = 'sjacoby@yarbo.mooo.com'
+PROD_AWS = 'sjacoby@yarbo.org'
 DEST_PATH_AWS= '/home/sjacoby/public_html/samjacoby.com/'
 
 def clean():
