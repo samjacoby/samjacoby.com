@@ -479,6 +479,28 @@ a.selected {
     margin: .5em 0 .5em 0;
     border: 1px solid @gray;
 }
+.bar {
+}
+
+.bar:hover {
+  opacity: 0.5;
+
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
 /*
 ::selection         {background: @red; color: @emphasis;}
 ::-moz-selection    {background: @red; color: @emphasis;}
@@ -526,6 +548,14 @@ h1, h2 {
 
 .post h1, h2 {
 	margin: (36/26*12em)/@em 0 (36/26*3em)/@em;
+}
+
+#message{
+  height: 2rem;    
+  font-family: monospaced;
+  span {
+    font-style: italic;
+    }
 }
 
 h2 {
