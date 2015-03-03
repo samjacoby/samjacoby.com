@@ -8,6 +8,7 @@ tags:
 thumbnail: ir-throwies-1.jpg
 track: True
 ---
+{% block post %}
 {% mark excerpt %}
 Thanks to the inestimable efforts of [Valentin Huen](http://colorsaregood.com/index.php), we pulled together a whopping [500 IR Throwies](/projects/ir-led/throwies/) for the Media Lab's latest 99 Friday dance-party _cum_ project-showcase. I use "we" rather loosely: I was racing against a conference paper deadline, so Valentin heroically recruited a small army of people to scale up the [IR Throwies](/projects/ir-led-throwies/) project. It came off pretty well.
 {% endmark %}
@@ -23,3 +24,4 @@ Here are the final batch. Each throwie was attached to a clothespin so that peop
 {{ macros.render_figure('<a href="http://www.flickr.com/photos/40358770@N00/8070863365/" title="IR Throwies by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8180/8070863365_2225c127b7.jpg" width="500" height="375" alt="IR Throwies"></a>', "The final lot, brought up to the party and triggered by the music.") }}
 
 Not a bad showing, all in all. And cheap -- though it starts to add up in quantity. 
+{% endblock %}

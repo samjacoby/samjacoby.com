@@ -4,7 +4,7 @@ summary: And they don't give a damn.
 date:  2013-10-17 23:25:44
 thumbnail: old-internet.png
 ---
-
+{% block post %}
 {{ macros.render_figure('<img src="/media/img/old-internet.png"/>', "What hath man wrought!?") }}
 
 {% mark excerpt %}
@@ -48,3 +48,4 @@ A growing selection in casually-alphatetical order:
 
 Got others? Drop me a note: sam@shackmanpress.com 
 {{ macros.render_footnote("cerf-1", "†", "OK, not his. But still amazing.")  }} 
+{% endblock %}

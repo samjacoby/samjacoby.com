@@ -9,6 +9,7 @@ tags:
     - website
 track: True
 ---
+{% block post %}
 _In which my adventures in migrating some small-websites over to Amazon's vaunted services are discussed._
 
 ## To those who have much, yet more. 
@@ -50,4 +51,5 @@ Exciting stuff, eh? Never done anything easier. Now, I'm not doing any of the fa
 {{ macros.render_footnote("X40", "2", "At any rate, after realizing that it would be a royal pain-in-the-ass to have mod_wsgi compiled against python3, while having some virtualenvs that were still using Django 1.3 & Python 2.6 and so on...absolute misery.")}} 
 {{ macros.render_footnote("option", "3", "There are surely some clever ways around this, perhaps using RewriteRule and permanent redirects. A quick scan shows that this is indeed the case, the [[P] flag](http://httpd.apache.org/docs/current/rewrite/flags.html#flag_p) passes requests through to mod_proxy.") }}
 {% endspaceless %}
+{% endblock %}
 

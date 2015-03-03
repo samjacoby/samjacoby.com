@@ -4,7 +4,7 @@ summary: So that I could know them and remember them in my heart.
 date: 2012-11-21 21:49:03
 track: True
 ---
-
+{% block post %}
 {% set words = [
 'abscissa',
 'agonist',
@@ -82,3 +82,4 @@ This is a list of words I've looked up for one reason or another.
 {% for w in words %}
 - [{{ w }}](http://ninjawords.com/?q={{ w }}) 
 {% endfor %}
+{% endblock %}

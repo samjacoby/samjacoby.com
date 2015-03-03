@@ -7,6 +7,7 @@ tags:
     - SenseClip
 thumbnail: hidden-layers-1.jpg
 ---
+{% block post %}
 {% mark excerpt %}
 _The journey continues. This is part of my work as a research assistant in the [High-Low Tech](http://hlt.media.mit.edu) group at the MIT Media Lab._
 
@@ -35,9 +36,5 @@ It turns out, though, the job wasn't really done. The pouring algorithm had done
 At any rate, lesson learned. Don't switch off views and think you've solved any problems. You haven't.  
 
 {{ macros.render_footnote("airwires", "1", "Airwires are just a wire that you're supposed to solder on later, so it's displayed as a single line in Eagle. That's all well and good and sometimes a well-placed airwire can take care of a number of problems--but they're difficult and tedious to solder, and really, if you're having a custom-board made, you should take care not to have any.")}} 
-
-
-
-
-
+{% endblock %}
 

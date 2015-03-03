@@ -7,7 +7,7 @@ tags:
     - SenseClip
 track: True
 ---
-
+{% block post %}
 {% mark excerpt %}
 I've been working on the software for TapClip--which is rolling along, in preparation for a workshop next week. So far, it's working pretty well, though the `minim` library is causing me some grief. There appears to be a noticeable lag-time when using `loadSample` to queue a `.wav` file in memory. 
 {% endmark %}
@@ -19,7 +19,5 @@ The code is up on [GitHub](https://github.com/samjacoby/Processing/tree/master/T
 <div class="gallery">
     <img src="{{media_url('img/scaled_paperclip-processing.jpg')}}"/>
 </div>
+{% endblock %}
     
-
-
-
