@@ -1,4 +1,4 @@
-mode: development
+mode: production
 logger:
     level: error 
 media_root: media
