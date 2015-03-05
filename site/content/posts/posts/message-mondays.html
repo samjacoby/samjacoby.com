@@ -6,9 +6,9 @@ date: 2015-03-01 14:08:56
 track: True
 ---
 {% block tail_scripts %}
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="/media/js/d3.v3.min.js"></script>
 <script type="text/javascript">
-var margin = {top: 20, right: 20, bottom: 30, left: 30},
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 350 - margin.top - margin.bottom;
 
@@ -19,7 +19,7 @@ var y = d3.scale.linear()
     .range([height, -2]);
 
 var hueScale = d3.scale.linear()
-    .rangeRound([120, 0]);
+    .rangeRound([140, 20]);
 
 var xTime = d3.time.scale()
     .range([2, width]);
@@ -44,11 +44,10 @@ var svg = d3.select("#spicebeam").append("svg")
 
 d3.csv("/media/files/message_mondays.csv", type, function(error, data) {
   x.domain(data.map(function(d) { return d.date; }));
-  //xTime.domain(data.map(function(d) { return d.date; }))
   xTime.domain([d3.min(data, function(d) { return d.date }), d3.max(data, function(d) { return d.date; })])
 
-  y.domain([0, d3.max(data, function(d) { return d.test; })]);
-  hueScale.domain([0, d3.max(data, function(d) { return d.test; })]);
+  y.domain([0, d3.max(data, function(d) { return d.crashes; })]);
+  hueScale.domain([0, d3.max(data, function(d) { return d.crashes; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -69,13 +68,13 @@ d3.csv("/media/files/message_mondays.csv", type, function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Crashes");
+      .text("Crashes (weekly)");
 
   var message = d3.select("#message")
       format = d3.time.format("%m-%d-%Y");
   var displayMessage = function(el){
     var formDate = format(el.date);  
-    message.text(el.message).append("span").text(" [" + formDate + "]");
+    message.text("MSG: " + el.message).append("span").text(" [" + formDate + "]");
   }
 
   svg.selectAll(".bar")
@@ -84,10 +83,14 @@ d3.csv("/media/files/message_mondays.csv", type, function(error, data) {
       .attr("class", "bar")
       .attr("x", function(d) { return xTime(d.date); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.test); })
-      .attr("height", function(d) { return height - y(d.test); })
+      .attr("y", function(d) { return y(d.crashes); })
+      .attr("height", function(d) { return height - y(d.crashes); })
       .attr("fill", function(d) { 
-        return "hsl(" + hueScale(d.test)  + ",90%,50%)"; 
+          //if(d.date < new Date("12/30/2014"))
+          if(d.crashes != 700) {
+            return "hsl(" + hueScale(d.crashes)  + ",90%,50%)"; 
+          }
+          return "#aaa";
       })
       .on('mouseover', displayMessage);
 
@@ -96,7 +99,7 @@ d3.csv("/media/files/message_mondays.csv", type, function(error, data) {
 function type(d) {
   //d.date = +d.date;
   d.date = new Date(d.date)  
-  d.test = +d.test;
+  d.crashes = +d.crashes;
   return d;
 }
 
@@ -104,11 +107,13 @@ function type(d) {
 {% endblock %}
 
 {% block post %}
+*In this project, I looked at the freeway digital sign alerts in Iowa charted against statewide accident totals, both obtained via FOIA requests to the Iowa DOT.* 
+
 <div id="spicebeam"></div>
-<h2 id="message">156 Traffic Deaths this Year - Don't Add to this number<span>[08-05-2013]</span></h2>
-<p class="small">Note: this graph is for illustration purposes only.</p>
+<p style="text-align: right;" class="source small"><strong>Source: <a href="http://www.iowadot.gov/">Iowa DOT</a></strong></p>
+<h2 id="message">MSG: 156 Traffic Deaths this Year - Don't Add to this number<span>[08-05-2013]</span></h2>
 {% mark excerpt %}
-If you drive in Iowa—on the interstate, at least—you can't miss the highway alert signs. I remember seeing these growing up in LA. They were usually switched off or had a nurery rhyme reminding you to buckle up.. I never once thought, "what a missed opportunity!" 
+If you drive in Iowa—on the interstate, at least—you can't miss the highway alert signs. I remember seeing these growing up in LA. They were usually switched off or had a nursery rhyme reminding you to buckle up.. I never once thought, "what a missed opportunity!" 
 {% endmark %}
 
 They are not such dull thinkers in Iowa. Here, in the famously mild-mannered midwest, the highway signs have real sass. When we arrived and began our daily commute (Iowa City to Cedar Rapids), we immediately noticed the signs. 
@@ -139,7 +144,7 @@ Nonetheless, about ten days later, an EXCEL file courtesy of the IowaDOT: 82 wee
 
  For those looking to get into gear, the basic beginning tutorials on [d3js.org](http://d3js.org)—are really useful. The list of tutorials [here](https://github.com/mbostock/d3/wiki/Tutorials) is hit or miss, but there are some great ones too. I'd recommending reading Bostock's [write-ups](http://bost.ocks.org/mike/join/) on [joins](http://bost.ocks.org/mike/selection/) more than anything else, as that explains the basics of the whole chaining syntax. I struggled somewhat with the scales, as well. It's just the kind've thing that takes a little headbeating.    
 
- The full CSV is avalailable for download [here](/media/files/message_mondays.csv).
+ The full CSV is available for download [here](/media/files/message_mondays.csv).
 
  **Update:** I just heard back from the DOT with the full accident data, so I'll get that up soon!
 
