@@ -1,0 +1,26 @@
+---
+title: Computerese 
+summary: Useful things in Computer. 
+date: 2015-01-10 09:40:05
+track: True
+---
+{% block post %}
+{% mark excerpt %}
+I work with computers a fair amount, so now and again want to keep track of things I've learned. 
+{% endmark %}
+
+Say you've got a server running locally—and want to quickly it share it with the world?
+
+  ssh -R <remote port>:localhost:<local port> sjacoby@<my remote server> 
+
+You will need to enable `GatewayPorts` on the *remote* `ssh_config` (not your local machine):
+
+  GatewayPorts yes  
+
+Reload the remote sshd for the new config (on my Arch box):
+
+   sudo systemctl restart sshd
+
+ Your locahost page should now be available at `<my remote server>:<my remote port>` 
+
+{% endblock %}
