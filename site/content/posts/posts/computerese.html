@@ -9,18 +9,19 @@ track: True
 I work with computers a fair amount, so now and again want to keep track of things I've learned. 
 {% endmark %}
 
-Say you've got a server running locally—and want to quickly it share it with the world?
+Say you've got a server running locally—and want to quickly it share it with the world? You need a remote server that you have ssh access to.
 
-  ssh -R <remote port>:localhost:<local port> sjacoby@<my remote server> 
+    ssh -R <remote port>:localhost:<local port> sjacoby@ <remote server> 
 
-You will need to enable `GatewayPorts` on the *remote* `ssh_config` (not your local machine):
+You will need to enable `GatewayPorts` on the *remote* `sshd_config` (not your local machine):
 
-  GatewayPorts yes  
+    GatewayPorts yes  
 
-Reload the remote sshd for the new config (on my Arch box):
+Reload the remote sshd for the new config (on my Arch box, it's the below).:
 
-   sudo systemctl restart sshd
+    sudo systemctl restart sshd
 
- Your locahost page should now be available at `<my remote server>:<my remote port>` 
+ Your locahost page should now be available at `<my remote server>:<my remote port>`. Party on. 
 
+EpNCKPdAm9$yLY&Py&5g
 {% endblock %}
