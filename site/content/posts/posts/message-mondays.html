@@ -19,7 +19,7 @@ var y = d3.scale.linear()
     .range([height, -2]);
 
 var hueScale = d3.scale.linear()
-    .rangeRound([140, 20]);
+    .rangeRound([100, 11]);
 
 var xTime = d3.time.scale()
     .range([2, width]);
@@ -36,11 +36,29 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .ticks(10);
 
+
+var msg = d3.select("body").append("div")
+  .attr("class", "tooltip")
+  .style("opacity", 1e-6);
+
+  format = d3.time.format("%m-%d-%Y");
+  var mouseOver = function(el) {
+    msg.html("<p><strong>"+ format(el.date) + "</strong></p><p>" + el.message + "</p>")
+    .style("opacity", 1);  
+}
+
+function mouseMove() {
+  msg
+    .style("left", d3.event.pageX + "px")
+    .style("top", (d3.event.pageY - 100) + "px");
+}
+
 var svg = d3.select("#spicebeam").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
 
 d3.csv("/media/files/message_mondays.csv", type, function(error, data) {
   x.domain(data.map(function(d) { return d.date; }));
@@ -69,14 +87,7 @@ d3.csv("/media/files/message_mondays.csv", type, function(error, data) {
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("Crashes (weekly)");
-
-  var message = d3.select("#message")
-      format = d3.time.format("%m-%d-%Y");
-  var displayMessage = function(el){
-    var formDate = format(el.date);  
-    message.text("MSG: " + el.message).append("span").text(" [" + formDate + "]");
-  }
-
+  
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
@@ -86,14 +97,14 @@ d3.csv("/media/files/message_mondays.csv", type, function(error, data) {
       .attr("y", function(d) { return y(d.crashes); })
       .attr("height", function(d) { return height - y(d.crashes); })
       .attr("fill", function(d) { 
-          //if(d.date < new Date("12/30/2014"))
           if(d.crashes != 700) {
+            // hack to display gray where I don't have data
             return "hsl(" + hueScale(d.crashes)  + ",90%,50%)"; 
           }
           return "#aaa";
       })
-      .on('mouseover', displayMessage);
-
+      .on('mouseover', mouseOver)
+      .on('mousemove', mouseMove);
 });
 
 function type(d) {
@@ -102,7 +113,6 @@ function type(d) {
   d.crashes = +d.crashes;
   return d;
 }
-
 </script>
 {% endblock %}
 
@@ -111,7 +121,6 @@ function type(d) {
 
 <div id="spicebeam"></div>
 <p style="text-align: right;" class="source small"><strong>Source: <a href="http://www.iowadot.gov/">Iowa DOT</a></strong></p>
-<h2 id="message">MSG: 156 Traffic Deaths this Year - Don't Add to this number<span>[08-05-2013]</span></h2>
 {% mark excerpt %}
 If you drive in Iowa—on the interstate, at least—you can't miss the highway alert signs. I remember seeing these growing up in LA. They were usually switched off or had a nursery rhyme reminding you to buckle up.. I never once thought, "what a missed opportunity!" 
 {% endmark %}
@@ -131,22 +140,23 @@ The IowaDOT has extensive resources online, including an impressive interactive 
 
 I got in touch with a few friendly folks out there—muckraking this ain't—and after after some back and forth, they encouraged me to file a FOIA request. With the friendly help of the [FOIA Machine](http://foiamachine.org) and the [USA](http://www.foia.gov/how-to.html) I learned that this was a codeword for "email with the magic words 'FOIA request' in it." Done. I immediately received a vacation auto-responder. Not bad. Not great.  
 
-Nonetheless, about ten days later, an EXCEL file courtesy of the IowaDOT: 82 weeks worth of sign messages and dates. What I didn't have, though, was any numerical data. I've put in another request—but in the meantime, I generated some numbers with a quick python script. 
+Nonetheless, about ten days later, an an EXCEL file with 82 weeks worth of sign messages and dates was gleaming in my inbox. What I didn't have, though, was any numerical data. Another request turned that around quickly—traffic data is easy, because it's clear that agencies monitor this stuff very closely themselves. The trick, I suppose, is to get at the data that people *don't* want to know. At any rate, another lovely EXCEL file in hand, I summed by weeks (not knowing the way to do this right in Excel, I generated the appropriate sum formulas, =SUM(B7:B13) in Python and pasted em' in).  
 
     #!/usr/bin/env python
-    import random
+    # print =SUM(BX:BX+n)
+    start = 8
+    interval = 6
+    for i in range(52):
+        end = start + interval
+        print "=SUM(B%d:B%d)" % (start, end)  
+        start += interval + 1
 
-    random.seed()
-    for x in range(0, 82):
-      print random.randrange(13, 114, 1) 
+Ha! I felt brilliant and stupid all at once. Honestly, I find it a lot more readable than the cryptic offset(...) Excel soutions, and easier than doing it all in Python. Numbers so summed, I turned to `d3.js`, the much beloved visual library. I learned a few things in getting up to speed. Having spent quite a bit of time working with `jQuery`, it was a pleasure to use a library that offered a bit more out-of-the-box functionality.
 
- With that, I turned to `d3.js`, the much beloved visual library. I learned a few things in getting up to speed. Having spent quite a bit of time working with `jQuery`, it was a pleasure to use a library that offered a bit more out-of-the-box functionality.
+For those looking to get into gear, the basic beginning tutorials on [d3js.org](http://d3js.org)—are really useful. The list of tutorials [here](https://github.com/mbostock/d3/wiki/Tutorials) is hit or miss, but there are some great ones too. I'd recommending reading Bostock's [write-ups](http://bost.ocks.org/mike/join/) on [joins](http://bost.ocks.org/mike/selection/) more than anything else, as that explains the basics of the whole chaining syntax. I struggled somewhat with the scales, as well. It's just the kind've thing that takes a little banging.
 
- For those looking to get into gear, the basic beginning tutorials on [d3js.org](http://d3js.org)—are really useful. The list of tutorials [here](https://github.com/mbostock/d3/wiki/Tutorials) is hit or miss, but there are some great ones too. I'd recommending reading Bostock's [write-ups](http://bost.ocks.org/mike/join/) on [joins](http://bost.ocks.org/mike/selection/) more than anything else, as that explains the basics of the whole chaining syntax. I struggled somewhat with the scales, as well. It's just the kind've thing that takes a little headbeating.    
+It's interesting how rapidly patterns become clear. Traffic accidents spike immediately before Thanksgiving.  
 
  The full CSV is available for download [here](/media/files/message_mondays.csv).
-
- **Update:** I just heard back from the DOT with the full accident data, so I'll get that up soon!
-
 
 {% endblock %}
