@@ -1,5 +1,4 @@
 extends: post.j2
-default_block: post
 category: posts
 class: posts
 created: git

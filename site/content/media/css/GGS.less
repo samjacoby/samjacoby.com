@@ -1,6 +1,7 @@
 /*
 *
 *  Golden Grid System (1.01)	<http://goldengridsystem.com/>
+
 *  by Joni Korpi 				<http://jonikorpi.com/>
 *  licensed under MIT			<http://opensource.org/licenses/mit-license.php>
 *	
@@ -99,6 +100,7 @@ sub {
 	bottom: -0.25em;
 }
 pre {
+  font-size: .8rem;
 	white-space: pre; 
 	white-space: pre-wrap; 
 	word-wrap: break-word;
@@ -191,6 +193,17 @@ img {
     margin: 1em 0 0 0;
 }
 
+.tooltip {
+  position: absolute;
+  text-align: left;
+  width: 140px;
+  padding: 12px;
+  line-height: 1.2em; font: 12px sans-serif;
+  background: white;
+  border: solid 1px #aaa;
+  pointer-events: none;
+}
+
 /*
 *
 *	Zoomable baseline grid
@@ -257,8 +270,12 @@ pre, code, blockquote {
     font-family: Menlo, Monaco, monospace;
 }
 
+code {
+    font-size: .8rem;
+}
+
 blockquote {
-   font-size: small; 
+    font-size: small; 
 }
 
 .larger { 
@@ -560,7 +577,6 @@ h1, h2 {
   padding-left: 1.5em;
   font-family: monospace;
   margin-top: -1.5em;
-  height: 4.5em;
   span {
     font-style: italic;
     }
