@@ -41,7 +41,7 @@ def regen(config=SITE_CONFIG):
 
 def serve():
     with cd(LOCAL_PATH):
-        local('hyde serve')
+        local('hyde serve -p 8888')
 
 def reserve():
     with cd(LOCAL_PATH):
