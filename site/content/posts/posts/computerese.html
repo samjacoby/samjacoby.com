@@ -9,6 +9,8 @@ track: True
 I work with computers a fair amount, so now and again want to keep track of things I've learned. 
 {% endmark %}
 
+## Sharing your localhost dev server with the world
+
 Say you've got a server running locally—and want to quickly it share it with the world? You need a remote server that you have ssh access to.
 
     ssh -R <remote port>:localhost:<local port> sjacoby@ <remote server> 
@@ -23,5 +25,15 @@ Reload the remote sshd for the new config (on my Arch box, it's the below).:
 
  Your locahost page should now be available at `<my remote server>:<my remote port>`. Party on. 
 
-EpNCKPdAm9$yLY&Py&5g
+## Pretty printing `json` responses,  
+
+You've got this little slice of sweetness.
+
+    python -m json.tool
+
+And if you want to do it in Vim, go with:
+
+    :%!python -m json.tool
+
+Credit to [Pascal Prect](https://pascalprecht.github.io/2014/07/10/pretty-print-json-in-vim/).
 {% endblock %}
