@@ -63,15 +63,20 @@ def publish():
         )
         run('ln -s ~/public_html/static ~/public_html/samjacoby.com/')
 
-@hosts(PROD_AWS)
+@hosts(PROD)
 def publish_aws():
-    regen(PROD_CONFIG)
-    project.rsync_project(
-        ssh_opts='-i ' + KEY,
-        remote_dir=DEST_PATH_AWS,
-        local_dir=DEPLOY_PATH.rstrip('/') + '/',
-        delete=True
-    )
-    run('cd public_html/samjacoby.com/')
-    run('ln -s ~/public_html/static ~/public_html/samjacoby.com/')
+    with cd(LOCAL_PATH):
+        regen(PROD_CONFIG)
+        local("aws s3 sync --delete --exclude '.DS_Store' --acl='public-read' --size-only deploy/media/img/ s3://Shackman/samjacoby.com/")
+        project.rsync_project(
+            remote_dir=DEST_PATH,
+            local_dir=DEPLOY_PATH.rstrip('/') + '/',
+            exclude=['/media/img/'],
+            delete=True
+        )
+        run('ln -s ~/public_html/static ~/public_html/samjacoby.com/')
 
+@hosts(PROD)
+def media_to_aws():
+    with cd(LOCAL_PATH):
+        local("aws s3 sync --delete --exclude '.DS_Store' --acl='public-read' --size-only deploy/media/img/ s3://Shackman/samjacoby.com/")
