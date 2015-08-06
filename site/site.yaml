@@ -154,4 +154,6 @@ markdown:
         - tables
         - footnotes
         - captions
+        - fenced_code
+        - codehilite
 
