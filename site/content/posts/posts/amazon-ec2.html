@@ -45,11 +45,30 @@ At any rate, they're dead simple. These are what mine look like.
 
 Exciting stuff, eh? Never done anything easier. Now, I'm not doing any of the fancy load-balancing or the various bells and whistles that real people probably do, but it's been a pleasant introduction. The Apache docs give the rather stern warning: make sure you don't inadvertently turn your server into a _forward_ server, in which case it can be easily hijacked and redirected to all sorts of nefarious ends. 
 
+### Serving Images from S3 
+*Added 2015-08-06 10:25:09*
+I've used Flickr's lovely embedded iframes to serve most of the images on this site, but lately, I've been frustrated with how slowly it loads. On some of the image heavy pages on my [motorcycle](/projects/motorcycle/) project, it's very noticeable. I don't think the slideshow format works well for this site, anyhow, so I wanted to look into how to do my image hosting with `s3`[^s3]. I didn't want to change my own development habits, though, so I turned to my `.htaccess` file, which my host, [ASmallOrange](https://asmallorange.com/), respects, even though I'm in a super-cheap shared VPS with very limited shell access.
+
+```apache
+RewriteCond %{REQUEST_FILENAME} \.jpg$ 
+RewriteRule ^.*/media/img/(.*\.jpg)$ https://s3.amazonaws.com/Shackman/samjacoby.com/$1
+```
+
+That's it! In the `fabfile.py` that I use to manage the deployment of this website, I also added the following:
+
+```bash
+local("aws s3 sync --delete --exclude '.DS_Store' --acl='public-read' --size-only deploy/media/img/ s3://Shackman/samjacoby.com/")
+```
+
+The `aws` utility is provided by Amazon—and while the sync function is not as clever as rsync, it works well enough for my purposes.
+
+
 
 {% spaceless %}
 [^service]: Granted, this isn't ASO's problem. They've been absolutely wonderful. I have never interacted with a company--not in tech, not anywhere, with more respnsive customer service. I don't think I've had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the privilege.
 [^X40]: At any rate, after realizing that it would be a royal pain-in-the-ass to have mod_wsgi compiled against python3, while having some virtualenvs that were still using Django 1.3 & Python 2.6 and so on...absolute misery.
 [^option]: There are surely some clever ways around this, perhaps using RewriteRule and permanent redirects. A quick scan shows that this is indeed the case, the [[P] flag](http://httpd.apache.org/docs/current/rewrite/flags.html#flag_p) passes requests through to mod_proxy.
+[^s3]: Granted, the entire site is static, so it could all be served from s3, but whatever. 
 {% endspaceless %}
 {% endblock %}
 
