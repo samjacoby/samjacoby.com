@@ -3,24 +3,25 @@ RewriteBase /
 
 ErrorDocument 404 /404.html
 
-RewriteRule ^apps/monotype(.*)/$ http://ec2-107-21-76-31.compute-1.amazonaws.com/monotype [P]
-
 # redirect for workshop
 RewriteRule ^sparkfun-workshop/$ http://samjacoby.com/posts/2013/4/2/sparkfun-workshop/
 RewriteRule ^projects/motorcycles-are-fun http://samjacoby.com/projects/motorcycles/ [L,R=301]
 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} \.(jpg|png)$
+RewriteRule ^.*media\/img\/(.*)$ https://s3.amazonaws.com/Shackman/samjacoby.com/$1 [L]
+
 # Don't fix direct file links
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
 RewriteCond %{REQUEST_URI} !(.*)/$
 RewriteRule ^(.*)$ $1/ [L,R=301]
 
 RewriteCond %{REQUEST_FILENAME} (.*jpg)/$ 
 RewriteRule ^(.*) $1
 
-RewriteCond %{REQUEST_FILENAME} \.jpg$ 
-RewriteRule ^.*/media/img/(.*\.jpg)$ https://s3.amazonaws.com/Shackman/samjacoby.com/$1
+#RewriteCond %{REQUEST_FILENAME} \.jpg$
+#RewriteRule ^.*media\/img\/(.*jpg)$ https://s3.amazonaws.com/Shackman/samjacoby.com/$1 [L]
 
 RewriteCond %{REQUEST_FILENAME}/index.html -f 
 RewriteRule ^(.*) $1/index.html 
@@ -34,4 +35,6 @@ RewriteRule ^.*$ %{REQUEST_FILENAME}.html
 RewriteCond %{REQUEST_FILENAME}.xml -f 
 RewriteRule ^.*$ %{REQUEST_FILENAME}.xml 
 
+#RewriteCond %{REQUEST_FILENAME} \.jpg$
+#RewriteRule ^(.*)$ https://s3.amazonaws.com/Shackman/samjacoby.com/$1
 
