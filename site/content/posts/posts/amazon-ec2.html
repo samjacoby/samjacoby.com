@@ -50,8 +50,9 @@ Exciting stuff, eh? Never done anything easier. Now, I'm not doing any of the fa
 I've used Flickr's lovely embedded iframes to serve most of the images on this site, but lately, I've been frustrated with how slowly it loads. On some of the image heavy pages on my [motorcycle](/projects/motorcycle/) project, it's very noticeable. I don't think the slideshow format works well for this site, anyhow, so I wanted to look into how to do my image hosting with `s3`[^s3]. I didn't want to change my own development habits, though, so I turned to my `.htaccess` file, which my host, [ASmallOrange](https://asmallorange.com/), respects, even though I'm in a super-cheap shared VPS with very limited shell access.
 
 ```apache
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} \.jpg$ 
-RewriteRule ^.*/media/img/(.*\.jpg)$ https://s3.amazonaws.com/Shackman/samjacoby.com/$1
+RewriteRule ^.*media\/img\/(.*)$ https://s3.amazonaws.com/Shackman/samjacoby.com/$1 [L]
 ```
 
 That's it! In the `fabfile.py` that I use to manage the deployment of this website, I also added the following:

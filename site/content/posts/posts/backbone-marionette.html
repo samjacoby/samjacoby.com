@@ -1,6 +1,6 @@
 ---
 title: Rolling with Backbone + Marionette 
-summary: In which I learn something new about structuring web applications.
+summary: Learning something new about structuring web applications.
 date: 2015-05-05 20:26:57
 track: True
 exclude: False
@@ -52,7 +52,9 @@ Finally comes the view itself, which is only really concerned with interacting d
 
 <object data="/media/img/backbone-diagram.svg" type="image/svg+xml"></object>
 
-This, of course, is just one application among many. What I've found nice about this construction, is that though sometimes individual sub-applications can feel over-engineered (application -> controller -> view -> template), for fairly simple functionality like a login/logout pane, that level of complexity is fixed and well-contained. 
+This, of course, is just one sub-application among many. Any larger web-application will be a constellation of interconnected modules—some handling the basics of user creation, editing, and display (like above). Others, devoted to business logic, may never be indivually routable, but only called upon to say, process a set of data.  
+
+What I've found nice about this construction, is that though sometimes individual sub-applications can feel over-engineered (application -> controller -> view -> template), for fairly simple functionality like a login/logout pane, that level of complexity is fixed and well-contained. 
 
 [0]: https://www.youtube.com/watch?v=qWr7x9wk6_c
 [1]: https://www.youtube.com/watch?v=PrQSpdWkN6Q

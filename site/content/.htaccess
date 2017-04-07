@@ -1,6 +1,8 @@
 RewriteEngine on 
 RewriteBase / 
 
+Options -Indexes
+
 ErrorDocument 404 /404.html
 
 # redirect for workshop
