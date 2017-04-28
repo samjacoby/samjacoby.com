@@ -9,8 +9,8 @@ ErrorDocument 404 /404.html
 RewriteRule ^sparkfun-workshop/$ http://samjacoby.com/posts/2013/4/2/sparkfun-workshop/
 RewriteRule ^projects/motorcycles-are-fun http://samjacoby.com/projects/motorcycles/ [L,R=301]
 
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteCond %{REQUEST_URI} \.(jpg|png)$
+#RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} .*\.(jpg|png)$
 RewriteRule ^.*media\/img\/(.*)$ https://s3.amazonaws.com/Shackman/samjacoby.com/$1 [L]
 
 # Don't fix direct file links
