@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xml:lang="en"
+      xml:base="{{ this_site.url }}">
+    <id>{{ this_site.url }}/feed/</id>
+    <title>{{ this_site.title }} | Explorer of Stormy Seas</title>
+    <link href="{{ this_site.url}}{{ resource.url }}" rel="self"/>
+
+    <author>
+        <name>{{ author.name }}</name>
+        <email>{{ author.email }}</email>
+    </author>
+
+    <updated>{{ time_now|xmldatetime }}</updated>
+    {% for post in site.content.walk_resources_sorted_by_date() %}
+    {% if not post.meta.exclude %}
+    <entry>
+        <title type="html">{{ post.meta.title|e }}</title>
+        <link href="{{ this_site.url }}{{ content_url(post.url) }}"/>
+        <updated>{{ post.meta.date|xmldatetime }}</updated>
+        <published>{{ post.meta.date|xmldatetime }}</published>
+        <id>{{ this_site.url}}{{ content_url(post.url) }}</id>
+        <summary type="html">{{ post.meta.summary|e}}</summary>
+        <content type="html">
+        {% refer to post.relative_path as article %}
+        {{ article.content|markdown|e|replace("nbsp","#160") }} 
+        </content>
+    </entry>
+    {% endif %}
+    {% endfor %}
+</feed>

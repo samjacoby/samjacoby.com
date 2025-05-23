@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | English Monotype Game</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a class="selected"href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">English Monotype Game</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2010-10-09 14:20:34" pubdate>2010-10-09 14:20:34</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2015-06-02 19:40:49" pubdate>2015-06-02 19:40:49</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <figure><img alt="" src="/media/img/monotype-composite-1.jpg" /><figcaption>
+<p>Garamond, Joanna, <span class="amp">&amp;</span>&nbsp;Centaur.</p>
+</figcaption>
+</figure>
+<p>In the fine printing community, there is a slight kerfuffle around the aesthetic difference between type designed for letterpress printing and type designed for digital or offset printing. With the rise of photopolymer printing, many designers are using digital-native typefaces to print on film, which inevitably results in bulky, inelegant letterforms, as a digital type design doesn&#8217;t account for the cross-sectional distribution of&nbsp;ink-on-paper.</p>
+<p>The first typefaces adapted for phototypesetting and digital printing were, as a rule, too light and too spindly. They were also, generally, somewhat malformed. While high-quality metal typefaces were cut slightly differently at various sizes&#8212;so 18 pt. Bembo was not simply a scaled up facsimile of 10 pt. Bembo (or vice versa), but somewhat elaborated upon&#8212;digital typefaces had no such&nbsp;subtlety.  </p>
+<p>At any rate, this is all a very long way of saying, one of the first Django projects I put together was a little typography-training game. Rather than using digital copies of the typefaces, though, I scanned each letter-form from a specimen book of English Monotype that a <a href="http://katranpress.com">friend</a> let me borrow. Other than that, there&#8217;s not that much to it. <span class="strike">I haven&#8217;t had this hosted live in awhile, but I recently started looking into Amazon Web Services, which made setting up an <code>ec2</code> instance a&nbsp;snap.</span> </p>
+<p><span class="strike">At any rate, try your hand: <a href="#">Classic Typefaces</a>.</span> 
+<em>I killed the instance, as it was too expensive to keep running after my free year. Thought I&#8217;d use it for other things too, but mostly use Heroku now. Anyhow, it&#8217;s damn old&nbsp;now.</em> </p>    </section>
+    <footer>
+        <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2015-06-02 19:40:49">2015-06-02 19:40:49</time>: <span class="message"> Updating figure rendering.
+</span> <a class="link" href="#f1904f463e71a20dc8e20c4c0f74876a43851e15" id="f1904f463e71a20dc8e20c4c0f74876a43851e15">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/f1904f463e71a20dc8e20c4c0f74876a43851e15">f1904f463e71a20dc8e20c4c0f74876a43851e15</a> on GitHub.</pre>
+    <pre class="message">Updating figure rendering.
+</pre>
+    <pre class="diff">thumbnail: monotype-composite-1.jpg
+track: True
+---
+
+[-{{ macros.render_figure(&#34;&lt;img src=&#39;/media/img/monotype-composite-1.jpg&#39;/&gt;&#34; , &#34;Garamond,-]{+![](/media/img/monotype-composite-1.jpg)+}
+{+:   Garamond,+} Joanna, &amp; [-Centaur.&#34;) }}-]{+Centaur.+}
+
+{% mark excerpt %}
+In the fine printing community, there is a slight kerfuffle around the aesthetic difference between type designed for letterpress printing and type designed for digital or offset printing. With the rise of photopolymer printing, many designers are using digital-native typefaces to print on film, which inevitably results in bulky, inelegant letterforms, as a digital type design doesn&#39;t account for the cross-sectional distribution of ink-on-paper.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2014-06-15 22:23:17">2014-06-15 22:23:17</time>: <span class="message"> Removing link to ec2 instance. Lazzyyyy.
+</span> <a class="link" href="#5dcb5d6c6c635ed9567402c6d996b0aa5f36bcbe" id="5dcb5d6c6c635ed9567402c6d996b0aa5f36bcbe">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/5dcb5d6c6c635ed9567402c6d996b0aa5f36bcbe">5dcb5d6c6c635ed9567402c6d996b0aa5f36bcbe</a> on GitHub.</pre>
+    <pre class="message">Removing link to ec2 instance. Lazzyyyy.
+</pre>
+    <pre class="diff">The first typefaces adapted for phototypesetting and digital printing were, as a rule, too light and too spindly. They were also, generally, somewhat malformed. While high-quality metal typefaces were cut slightly differently at various sizes--so 18 pt. Bembo was not simply a scaled up facsimile of 10 pt. Bembo (or vice versa), but somewhat elaborated upon--digital typefaces had no such subtlety.
+
+{+At any rate, this is all a very long way of saying, one of the first Django projects I put together was a little typography-training game. Rather than using digital copies of the typefaces, though, I scanned each letter-form from a specimen book of English Monotype that a [friend](http://katranpress.com) let me borrow. Other than that, there&#39;s not that much to it. &lt;span class=&#34;strike&#34;&gt;I haven&#39;t had this hosted live in awhile, but I recently started looking into Amazon Web Services, which made setting up an `ec2` instance a snap.&lt;/span&gt;+}
+
+[-At any rate, this is all a very long way of saying, one of the first django projects I put together was a little typography-training game. Rather than using digital copies of the typefaces, though, I scanned each letter-form from a specimen book of English Monotype that a [friend](http://katranpress.com) let me borrow. Other than that, there&#39;s not that much to it. I haven&#39;t had this hosted live in awhile, but I recently started looking into Amazon Web Services, which made setting up an `ec2` instance a snap. -]
+
+[-At-]{+&lt;span class=&#34;strike&#34;&gt;At+} any rate, try your hand: [Classic [-Typefaces](/apps/monotype/).-]{+Typefaces](#).&lt;/span&gt; +}
+{+*I killed the instance, as it was too expensive to keep running after my free year. Thought I&#39;d use it for other things too, but mostly use Heroku now. Anyhow, it&#39;s damn old now.*+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-29 18:51:46">2013-01-29 18:51:46</time>: <span class="message"> What hast thou persisted? Be gone.
+</span> <a class="link" href="#a7bf49012393eb9e442a26ffa7a80270937f810f" id="a7bf49012393eb9e442a26ffa7a80270937f810f">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/a7bf49012393eb9e442a26ffa7a80270937f810f">a7bf49012393eb9e442a26ffa7a80270937f810f</a> on GitHub.</pre>
+    <pre class="message">What hast thou persisted? Be gone.
+</pre>
+    <pre class="diff">summary: How well do you know your classic humanist typefaces?
+date: 2010-10-09 14:20:34
+thumbnail: monotype-composite-1.jpg
+{+track: True+}
+---
+{{ macros.render_figure(&#34;&lt;img src=&#39;/media/img/monotype-composite-1.jpg&#39;/&gt;&#34; , &#34;Garamond, Joanna, &amp; Centaur.&#34;) }}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-28 12:58:12">2012-12-28 12:58:12</time>: <span class="message"> And we plunge onward.
+</span> <a class="link" href="#122c876be05cac9b50681d184b10c1c0f4cbb1f4" id="122c876be05cac9b50681d184b10c1c0f4cbb1f4">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/122c876be05cac9b50681d184b10c1c0f4cbb1f4">122c876be05cac9b50681d184b10c1c0f4cbb1f4</a> on GitHub.</pre>
+    <pre class="message">And we plunge onward.
+</pre>
+    <pre class="diff">---
+title: English Monotype {+Game+}
+summary: How well do you know your classic humanist typefaces?
+date: 2010-10-09 14:20:34
+thumbnail: monotype-composite-1.jpg</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-20 10:22:38">2012-12-20 10:22:38</time>: <span class="message"> Don&#39;t do weird &lt;img&gt; tags.
+</span> <a class="link" href="#2bd5082270dbbecd231e7a795900bd7423073c0d" id="2bd5082270dbbecd231e7a795900bd7423073c0d">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/2bd5082270dbbecd231e7a795900bd7423073c0d">2bd5082270dbbecd231e7a795900bd7423073c0d</a> on GitHub.</pre>
+    <pre class="message">Don&#39;t do weird &lt;img&gt; tags.
+</pre>
+    <pre class="diff">date: 2010-10-09 14:20:34
+thumbnail: monotype-composite-1.jpg
+---
+{{ macros.render_figure(&#34;&lt;img [-src=&#39;/media/img/monotype-composite-1.jpg&#39;&gt;&lt;/img&gt;&#34;-]{+src=&#39;/media/img/monotype-composite-1.jpg&#39;/&gt;&#34;+} , &#34;Garamond, Joanna, &amp; Centaur.&#34;) }}
+
+{% mark excerpt %}
+In the fine printing community, there is a slight kerfuffle around the aesthetic difference between type designed for letterpress printing and type designed for digital or offset printing. With the rise of photopolymer printing, many designers are using digital-native typefaces to print on film, which inevitably results in bulky, inelegant letterforms, as a digital type design doesn&#39;t account for the cross-sectional distribution of ink-on-paper.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-20 08:41:36">2012-12-20 08:41:36</time>: <span class="message"> Adding in support for proper excerpts.
+</span> <a class="link" href="#c5b6743357fcf8687bad84298f940ecb9db32c92" id="c5b6743357fcf8687bad84298f940ecb9db32c92">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/c5b6743357fcf8687bad84298f940ecb9db32c92">c5b6743357fcf8687bad84298f940ecb9db32c92</a> on GitHub.</pre>
+    <pre class="message">Adding in support for proper excerpts.
+</pre>
+    <pre class="diff">thumbnail: monotype-composite-1.jpg
+---
+{{ macros.render_figure(&#34;&lt;img src=&#39;/media/img/monotype-composite-1.jpg&#39;&gt;&lt;/img&gt;&#34; , &#34;Garamond, Joanna, &amp; Centaur.&#34;) }}
+
+{+{% mark excerpt %}+}
+In the fine printing community, there is a slight kerfuffle around the aesthetic difference between type designed for letterpress printing and type designed for digital or offset printing. With the rise of photopolymer printing, many designers are using digital-native typefaces to print on film, which inevitably results in bulky, inelegant letterforms, as a digital type design doesn&#39;t account for the cross-sectional distribution of ink-on-paper.
+{+{% endmark %}+}
+
+The first typefaces adapted for phototypesetting and digital printing were, as a rule, too light and too spindly. They were also, generally, somewhat malformed. While high-quality metal typefaces were cut slightly differently at various sizes--so 18 pt. Bembo was not simply a scaled up facsimile of 10 pt. Bembo (or vice versa), but somewhat elaborated upon--digital typefaces had no such subtlety.
+
+
+At any rate, this is all a very long way of saying, one of the first django projects I put together was a little typography-training game. Rather than using digital copies of the typefaces, though, I scanned each letter-form from a specimen book of English Monotype that a [friend](http://katranpress.com) let me borrow. Other than that, there&#39;s not that much to it. I haven&#39;t had this hosted live in awhile, but I recently started looking into Amazon Web Services, which made setting up an `ec2` instance a snap.
+
+At any rate, try your hand: [Classic Typefaces](/apps/monotype/).</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-20 01:16:50">2012-12-20 01:16:50</time>: <span class="message"> This should be here already, as it&#39;s live.
+</span> <a class="link" href="#c63effe7ccec5af2cfb0505820f5c58915952dc9" id="c63effe7ccec5af2cfb0505820f5c58915952dc9">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/c63effe7ccec5af2cfb0505820f5c58915952dc9">c63effe7ccec5af2cfb0505820f5c58915952dc9</a> on GitHub.</pre>
+    <pre class="message">This should be here already, as it&#39;s live.
+</pre>
+    <pre class="diff">@@ -0,0 +1,15 @@
+{+---+}
+{+title: English Monotype+}
+{+summary: How well do you know your classic humanist typefaces?  +}
+{+date: 2010-10-09 14:20:34+}
+{+thumbnail: monotype-composite-1.jpg+}
+{+---+}
+{+{{ macros.render_figure(&#34;&lt;img src=&#39;/media/img/monotype-composite-1.jpg&#39;&gt;&lt;/img&gt;&#34; , &#34;Garamond, Joanna, &amp; Centaur.&#34;) }}+}
+{+In the fine printing community, there is a slight kerfuffle around the aesthetic difference between type designed for letterpress printing and type designed for digital or offset printing. With the rise of photopolymer printing, many designers are using digital-native typefaces to print on film, which inevitably results in bulky, inelegant letterforms, as a digital type design doesn&#39;t account for the cross-sectional distribution of ink-on-paper.+}
+
+{+The first typefaces adapted for phototypesetting and digital printing were, as a rule, too light and too spindly. They were also, generally, somewhat malformed. While high-quality metal typefaces were cut slightly differently at various sizes--so 18 pt. Bembo was not simply a scaled up facsimile of 10 pt. Bembo (or vice versa), but somewhat elaborated upon--digital typefaces had no such subtlety.  +}
+
+{+At any rate, this is all a very long way of saying, one of the first django projects I put together was a little typography-training game. Rather than using digital copies of the typefaces, though, I scanned each letter-form from a specimen book of English Monotype that a [friend](http://katranpress.com) let me borrow. Other than that, there&#39;s not that much to it. I haven&#39;t had this hosted live in awhile, but I recently started looking into Amazon Web Services, which made setting up an `ec2` instance a snap. +}
+
+{+At any rate, try your hand: [Classic Typefaces](/apps/monotype/).+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

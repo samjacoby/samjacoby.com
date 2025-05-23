@@ -1,0 +1,477 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | Infra-Red LED Throwies</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a class="selected"href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">Infra-Red LED Throwies</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2012-08-16 10:54:13" pubdate>2012-08-16 10:54:13</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2014-09-01 20:33:26" pubdate>2014-09-01 20:33:26</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p>I&#8217;ve been toying with with ideas for a quick, easy, scalable project for a large group of teenagers to do together for the Boston <a href="http://icaboston.org"><span class="caps">ICA</span>&#8217;s</a> Teen&nbsp;Night. </p>
+<p>I&#8217;ve always really liked the little <a href="http://www.instructables.com/id/LED-Throwies/"><span class="caps">LED</span> Throwies</a> from the fine people over at <a href="http://graffitiresearchlab.com/">Graffiti Research Lab</a>, <em>so</em> here&#8217;s an updated version that allows for the little guys to be controlled by a regular old remote control. It&#8217;s a little startling how simple the whole operation&nbsp;is.  </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/40358770@N00/7735310028/" title="DSC_0203 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8287/7735310028_7885198dbc.jpg" width="500" height="333" alt="DSC_0203"></a> 
+    <figcaption><p>Looking&nbsp;alright.</p></figcaption>
+</figure>
+
+<h2>Material</h2>
+<p>What we need: not much. If you&#8217;re interested, I drew up a <a href="/media/files/ir_throwie.pdf"><span class="caps">PDF</span> hand-out</a> that details some of&nbsp;this. </p>
+<ul>
+<li><span class="caps">CR2032</span> Battery [<a href="http://www.digikey.com/product-detail/en/CR2032/P189-ND/31939">DigiKey</a>]</li>
+</ul>
+<p>This is what lives inside of millions of watches, all over this fine land. And what keeps the time in your computer accurate, and a bunch of other things. You can get them&#8212;for a small fortune&#8212;at a drugstore. Someone told me that Ikea was now selling them at close to wholesale&nbsp;prices.</p>
+<ul>
+<li>A Regular <span class="caps">LED</span>. [<a href="https://www.sparkfun.com/products/533">SparkFun</a>][<a href="http://www.digikey.com/product-detail/en/C503B-BCS-CV0Z0461/C503B-BCS-CV0Z0461-ND/1922944">DigiKey</a>]</li>
+</ul>
+<p>Pretty much anything like this will do. Available at RadioShack, Sparkfun, or wherever fine, finger-friendly electronics are&nbsp;sold.</p>
+<ul>
+<li>38KHz Infrared Receiver [<a href="https://www.sparkfun.com/products/10266">SparkFun</a>][<a href="http://www.digikey.com/scripts/dksearch/dksus.dll?vendor=0&amp;keywords=751-1390-5-ND">Digikey</a>]</li>
+</ul>
+<p>This is what makes the magic happen. There are a number of these out there&#8212;the frequency, 38KHz, is an industry-standard&#8212;so anything like that should work fine. This model has worked well for me and I tried a handful. These are more or less the little fellows that live inside of your <span class="caps">TV</span>, or radio, or anything, really, that&#8217;s <span class="caps">IR</span> remote-controlled. Look for ones with&nbsp;three-legs.  </p>
+<ul>
+<li>Magnet&nbsp;(optional)</li>
+</ul>
+<p>The &#8216;classic&#8217; <span class="caps">LED</span> throwie has a magnet, so it can be chucked at anything metal and will stick. Certainly, you can do the same with this. I didn&#8217;t, but you certainly&nbsp;could. </p>
+<ul>
+<li>Scotch&nbsp;tape</li>
+</ul>
+<p>For wrapping the whole shebang&nbsp;together.</p>
+<ul>
+<li>Remote&nbsp;Control</li>
+</ul>
+<p>Any one should do. I just grabbed one for a television that was lying&nbsp;around.</p>
+<p><a href="http://www.flickr.com/photos/40358770@N00/7784243140/" title="DSC_0333 by s_jacoby, on Flickr"><img src="http://farm8.staticflickr.com/7127/7784243140_9383a38a50.jpg" width="500" height="333" alt="DSC_0333"></a></p>
+<h2>Step&nbsp;1</h2>
+<p>Bend the legs of the <span class="caps">IR</span> Receiver and of the <span class="caps">LED</span> apart, so that they can span the battery easily:
+<div>
+    <section class="side-by-side">
+        <a href="http://www.flickr.com/photos/40358770@N00/7784243814/" title="IMG_1186 by s_jacoby, on Flickr"><img src="http://farm8.staticflickr.com/7261/7784243814_f91ef8501e_n.jpg" width="320" height="240" alt="IMG_1186"></a>
+    </section>
+    <section class="side-by-side">
+        <a href="http://www.flickr.com/photos/40358770@N00/7784244454/" title="IMG_1199 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8440/7784244454_31ced29ae5_n.jpg" width="320" height="240" alt="IMG_1199"></a>
+    </section>
+</div></p>
+<h2>Step&nbsp;2</h2>
+<p>Find the <em>ground</em> pin of <span class="caps">LED</span>&#8212;the shorter one&#8212;and the <em>out</em> pin of the receiver (if you use the same model that I did, it&#8217;ll be on the left when the &#8220;domed&#8221; part is facing you), and twist them firmly together. Don&#8217;t be shy. Twist em&#8217;. You can always redo it. <br />
+<a href="http://www.flickr.com/photos/40358770@N00/7784245022/" title="IMG_1237 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8435/7784245022_467246ebf6.jpg" width="500" height="375" alt="IMG_1237"></a></p>
+<h2>Step&nbsp;3</h2>
+<p>Time to throw that battery in there. That means connecting up the legs, to the <em>positive (+)</em> and <em>negative (-)</em> sides of the battery. Hold your&nbsp;breath.</p>
+<p>The <em>postitive (+)</em> lead of the <span class="caps">LED</span>&#8212;that is, the long one&#8212;and the <em>positive (+)</em> lead of the receiver&#8212;the one on the middle&#8212;should touch the <em>positive (+)</em> side of the battery. There should be a user-friendly <em>+</em> on the battery to help you out with that, but you shouldn&#8217;t burn anything if you do it&nbsp;wrong. </p>
+<p><a href="http://www.flickr.com/photos/40358770@N00/7784245772/" title="IMG_1250 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8298/7784245772_92aac85b3d.jpg" width="500" height="375" alt="IMG_1250"></a></p>
+<p>Something, of course, needs to head to the back of the battery, to the <em>minus (-)</em> side to complete the circuit. Both legs of the <span class="caps">LED</span> are busy&#8212;so take the free leg of the <span class="caps">IR</span> Receiver&#8212;the on the far right&#8212;and bend it around to the back and hold it against the battery. Make sure that it doesn&#8217;t make contact with anything&nbsp;else. </p>
+<p>Hold that sucker tight with your fingers. You&#8217;re pretty much done. If you&#8217;ve got a remote handy, now&#8217;s the time to point it at your gizmo and press a button to make sure you&#8217;ve got it figured right. <strong>Good</strong>?  </p>
+<h3>Trouble?</h3>
+<p>Nothing works for the first time. That&#8217;s just a&nbsp;rule. </p>
+<p>Try a couple buttons if the first one doesn&#8217;t seem to work&#8212;depending on the remote, some modes might be disabled (say, <span class="caps">TV</span> guide buttons when you&#8217;re in cable-mode) and your remote won&#8217;t be firing. Then check that all of your leads (legs) are doing what you think they&#8217;re doing and connected where you think they&#8217;re connected, and that you haven&#8217;t inadvertantly shorted anything&#8212;say, across the lip of the&nbsp;battery.</p>
+<p>Once you feel good about the operation, wrap it all up in tape &#8212; and you&#8217;re ready to throw-in a magnet, integrate it into a project, or whatever. It starts getting really good when you put together a couple hundred of these, which will all blink synchronously when you fire off. 
+<a href="http://www.flickr.com/photos/40358770@N00/7784246988/" title="IMG_1293 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8446/7784246988_26ecbed8db.jpg" width="500" height="375" alt="IMG_1293"></a></p>
+<h2>Step 4 //&nbsp;Rejoice.</h2>
+<p>It&#8217;s like a <span class="caps">TV</span>. A one-pixel <span class="caps">TV</span>.
+<a href="http://www.flickr.com/photos/40358770@N00/7784247614/" title="IMG_1262 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8283/7784247614_41aa4e6f8c.jpg" width="500" height="380" alt="IMG_1262"></a></p>    </section>
+    <footer>
+    <section class="tags">
+
+<h4>Related&nbsp;posts:</h4>
+<ul>
+<li><a href="/posts/2012/9/26/99-fridays">99 Fridays <span class="amp">&amp;</span> <span class="caps">IR</span>&nbsp;Throwies</a></li>
+</ul></section>
+    <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2014-09-01 20:33:26">2014-09-01 20:33:26</time>: <span class="message"> Adding thumbnail.
+</span> <a class="link" href="#be368cc39244127783bf5c84f075ffd7e42205fb" id="be368cc39244127783bf5c84f075ffd7e42205fb">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/be368cc39244127783bf5c84f075ffd7e42205fb">be368cc39244127783bf5c84f075ffd7e42205fb</a> on GitHub.</pre>
+    <pre class="message">Adding thumbnail.
+</pre>
+    <pre class="diff">title: Infra-Red LED Throwies
+summary: Use an ordinary remote control to blink LED throwies on and off.
+date: 2012-08-16 10:54:13
+{+thumbnail: ir_throwie.jpg+}
+tags:
+- IR Throwies
+track: True</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-29 18:51:46">2013-01-29 18:51:46</time>: <span class="message"> What hast thou persisted? Be gone.
+</span> <a class="link" href="#a7bf49012393eb9e442a26ffa7a80270937f810f" id="a7bf49012393eb9e442a26ffa7a80270937f810f">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/a7bf49012393eb9e442a26ffa7a80270937f810f">a7bf49012393eb9e442a26ffa7a80270937f810f</a> on GitHub.</pre>
+    <pre class="message">What hast thou persisted? Be gone.
+</pre>
+    <pre class="diff">date: 2012-08-16 10:54:13
+tags:
+- IR Throwies
+{+track: True+}
+---
+{% mark excerpt %}
+I&#39;ve been toying with with ideas for a quick, easy, scalable project for a large group of teenagers to do together for the Boston [ICA&#39;s](http://icaboston.org) Teen Night.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-11 00:03:11">2013-01-11 00:03:11</time>: <span class="message"> More header spacing.
+</span> <a class="link" href="#64065b1f3f4ada6bef7b0a22337db4583e1d4b8e" id="64065b1f3f4ada6bef7b0a22337db4583e1d4b8e">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/64065b1f3f4ada6bef7b0a22337db4583e1d4b8e">64065b1f3f4ada6bef7b0a22337db4583e1d4b8e</a> on GitHub.</pre>
+    <pre class="message">More header spacing.
+</pre>
+    <pre class="diff">tags:
+- IR Throwies
+---
+{+{% mark excerpt %}+}
+I&#39;ve been toying with with ideas for a quick, easy, scalable project for a large group of teenagers to do together for the Boston [ICA&#39;s](http://icaboston.org) Teen Night.
+
+I&#39;ve always really liked the little [LED Throwies](http://www.instructables.com/id/LED-Throwies/) from the fine people over at [Graffiti Research Lab](http://graffitiresearchlab.com/), *so* here&#39;s an updated version that allows for the little guys to be controlled by a regular old remote control. It&#39;s a little startling how simple the whole operation is.
+{+{% endmark %}+}
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7735310028/&#34; title=&#34;DSC_0203 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8287/7735310028_7885198dbc.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;DSC_0203&#34;&gt;&lt;/a&gt;&#39;, &#34;Looking alright.&#34;) }}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-05 12:22:04">2012-12-05 12:22:04</time>: <span class="message"> Typo.
+</span> <a class="link" href="#cb5a4b1f6d8f89d3ebe8f0e71703b0d47f60761f" id="cb5a4b1f6d8f89d3ebe8f0e71703b0d47f60761f">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/cb5a4b1f6d8f89d3ebe8f0e71703b0d47f60761f">cb5a4b1f6d8f89d3ebe8f0e71703b0d47f60761f</a> on GitHub.</pre>
+    <pre class="message">Typo.
+</pre>
+    <pre class="diff">{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7735310028/&#34; title=&#34;DSC_0203 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8287/7735310028_7885198dbc.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;DSC_0203&#34;&gt;&lt;/a&gt;&#39;, &#34;Looking alright.&#34;) }}
+
+## [-Materia-]{+Material+}
+What we need: not much. If you&#39;re interested, I drew up a [PDF hand-out]({{ media_url(&#39;files/ir_throwie.pdf&#39;) }}) that details some of this.
+
+- CR2032 Battery [[DigiKey](http://www.digikey.com/product-detail/en/CR2032/P189-ND/31939)]</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-05 11:02:03">2012-12-05 11:02:03</time>: <span class="message"> Here we go.
+</span> <a class="link" href="#0680c5b43291800892f8df54996b391d55df4aed" id="0680c5b43291800892f8df54996b391d55df4aed">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/0680c5b43291800892f8df54996b391d55df4aed">0680c5b43291800892f8df54996b391d55df4aed</a> on GitHub.</pre>
+    <pre class="message">Here we go.
+</pre>
+    <pre class="diff">I&#39;ve always really liked the little [LED Throwies](http://www.instructables.com/id/LED-Throwies/) from the fine people over at [Graffiti Research Lab](http://graffitiresearchlab.com/), *so* here&#39;s an updated version that allows for the little guys to be controlled by a regular old remote control. It&#39;s a little startling how simple the whole operation is.
+
+[-&lt;figure&gt;-]
+[-    &lt;a-]{+{{ macros.render_figure(&#39;&lt;a+} href=&#34;http://www.flickr.com/photos/40358770@N00/7735310028/&#34; title=&#34;DSC_0203 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8287/7735310028_7885198dbc.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; [-alt=&#34;DSC_0203&#34;&gt;&lt;/a&gt;-]
+[-    &lt;figcaption&gt;Looking alright.&lt;/figcaption&gt;-]
+[-&lt;/figure&gt;-]{+alt=&#34;DSC_0203&#34;&gt;&lt;/a&gt;&#39;, &#34;Looking alright.&#34;) }}+}
+
+## [-Materials-]{+Materia+}
+What we need: not much. {+If you&#39;re interested, I drew up a [PDF hand-out]({{ media_url(&#39;files/ir_throwie.pdf&#39;) }}) that details some of this.+}
+
+- CR2032 Battery [[DigiKey](http://www.digikey.com/product-detail/en/CR2032/P189-ND/31939)]
+
+This is[-just-] what[-like-] lives inside of millions of watches, all over this fine land. And what keeps the time in your computer accurate, and a bunch of other things. You can get them--for a small fortune--at a drugstore. Someone told me that Ikea was now selling them at close to wholesale prices.
+
+- A Regular LED. [[SparkFun](https://www.sparkfun.com/products/533)][[DigiKey](http://www.digikey.com/product-detail/en/C503B-BCS-CV0Z0461/C503B-BCS-CV0Z0461-ND/1922944)]
+
+@@ -90,3 +86,4 @@ It&#39;s like a TV. A one-pixel TV.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-18 17:13:08">2012-10-18 17:13:08</time>: <span class="message"> Clarity + corrections.
+</span> <a class="link" href="#5de239d6bb6bf5875b4e5d1c4272756a02c1a429" id="5de239d6bb6bf5875b4e5d1c4272756a02c1a429">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/5de239d6bb6bf5875b4e5d1c4272756a02c1a429">5de239d6bb6bf5875b4e5d1c4272756a02c1a429</a> on GitHub.</pre>
+    <pre class="message">Clarity + corrections.
+</pre>
+    <pre class="diff">## Materials
+What we need: not much.[-Well, getting your hands on the IR receivers will be the tricky part:-]
+
+- CR2032 Battery [[DigiKey](http://www.digikey.com/product-detail/en/CR2032/P189-ND/31939)]
+
+@@ -28,7 +28,7 @@ Pretty much anything like this will do. Available at RadioShack, Sparkfun, or wh
+
+- 38KHz Infrared Receiver [[SparkFun](https://www.sparkfun.com/products/10266)][[Digikey](http://www.digikey.com/scripts/dksearch/dksus.dll?vendor=0&amp;keywords=751-1390-5-ND)]
+
+{+This is what makes the magic happen.+} There are a number of these out there--the frequency, 38KHz, is an industry-standard--so anything like that should work fine. {+This model has worked well for me and I tried a handful.+} These are {+more or less+} the[-same-] little fellows that live inside of your TV, or radio, or anything, really, that&#39;s {+IR+} remote-controlled. Look for [-one&#39;s-]{+ones+} with three-legs.
+
+- Magnet (optional)</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-18 11:34:18">2012-10-18 11:34:18</time>: <span class="message"> Some updates.
+</span> <a class="link" href="#d45e89546040c242160f50b119204215765353a0" id="d45e89546040c242160f50b119204215765353a0">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/d45e89546040c242160f50b119204215765353a0">d45e89546040c242160f50b119204215765353a0</a> on GitHub.</pre>
+    <pre class="message">Some updates.
+</pre>
+    <pre class="diff">title: Infra-Red LED Throwies
+summary: Use an ordinary remote control to blink LED throwies on and off.
+date: 2012-08-16 10:54:13
+{+tags:+}
+{+    - IR Throwies+}
+---
+I&#39;ve been toying with with ideas for a quick, easy, scalable project for a large group of teenagers to do together for the Boston [ICA&#39;s](http://icaboston.org) Teen Night.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-09 11:20:30">2012-10-09 11:20:30</time>: <span class="message"> Before.
+</span> <a class="link" href="#8e0bdd626ed13c0ef94c868b0368d84d84a6611c" id="8e0bdd626ed13c0ef94c868b0368d84d84a6611c">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/8e0bdd626ed13c0ef94c868b0368d84d84a6611c">8e0bdd626ed13c0ef94c868b0368d84d84a6611c</a> on GitHub.</pre>
+    <pre class="message">Before.
+</pre>
+    <pre class="diff">I&#39;ve always really liked the little [LED Throwies](http://www.instructables.com/id/LED-Throwies/) from the fine people over at [Graffiti Research Lab](http://graffitiresearchlab.com/), *so* here&#39;s an updated version that allows for the little guys to be controlled by a regular old remote control. It&#39;s a little startling how simple the whole operation is.
+
+{+&lt;figure&gt;+}
+{+    &lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7735310028/&#34; title=&#34;DSC_0203 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8287/7735310028_7885198dbc.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;DSC_0203&#34;&gt;&lt;/a&gt;+}
+{+    &lt;figcaption&gt;Looking alright.&lt;/figcaption&gt;+}
+{+&lt;/figure&gt;+}
+
+
+## Materials
+What we need: not much. Well, getting your hands on the IR receivers will be the tricky part:</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-02 11:00:39">2012-10-02 11:00:39</time>: <span class="message"> Updated changed flickr photos again.
+</span> <a class="link" href="#c1186ff62c20fc467c6679c74470745d535d5b00" id="c1186ff62c20fc467c6679c74470745d535d5b00">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/c1186ff62c20fc467c6679c74470745d535d5b00">c1186ff62c20fc467c6679c74470745d535d5b00</a> on GitHub.</pre>
+    <pre class="message">Updated changed flickr photos again.
+</pre>
+    <pre class="diff">Bend the legs of the IR Receiver and of the LED apart, so that they can span the battery easily:
+&lt;div&gt;
+&lt;section class=&#34;side-by-side&#34;&gt;
+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784243814/&#34; title=&#34;IMG_1186 by s_jacoby, on Flickr&#34;&gt;&lt;img [-src=&#34;http://farm8.staticflickr.com/7261/7784243814_d50463e96a_n.jpg&#34;-]{+src=&#34;http://farm8.staticflickr.com/7261/7784243814_f91ef8501e_n.jpg&#34;+} width=&#34;320&#34; [-height=&#34;296&#34;-]{+height=&#34;240&#34;+} alt=&#34;IMG_1186&#34;&gt;&lt;/a&gt;
+&lt;/section&gt;
+&lt;section class=&#34;side-by-side&#34;&gt;
+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784244454/&#34; title=&#34;IMG_1199 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8440/7784244454_31ced29ae5_n.jpg&#34; width=&#34;320&#34; height=&#34;240&#34; alt=&#34;IMG_1199&#34;&gt;&lt;/a&gt;</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-02 10:58:23">2012-10-02 10:58:23</time>: <span class="message"> Updated changed flickr photos.
+</span> <a class="link" href="#4f81e2375b49edde946840639af373add274b391" id="4f81e2375b49edde946840639af373add274b391">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/4f81e2375b49edde946840639af373add274b391">4f81e2375b49edde946840639af373add274b391</a> on GitHub.</pre>
+    <pre class="message">Updated changed flickr photos.
+</pre>
+    <pre class="diff">Bend the legs of the IR Receiver and of the LED apart, so that they can span the battery easily:
+&lt;div&gt;
+&lt;section class=&#34;side-by-side&#34;&gt;
+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784243814/&#34; title=&#34;IMG_1186 by s_jacoby, on Flickr&#34;&gt;&lt;img [-src=&#34;http://farm8.staticflickr.com/7261/7784243814_1d01d1cbe7_m.jpg&#34;-]{+src=&#34;http://farm8.staticflickr.com/7261/7784243814_d50463e96a_n.jpg&#34;+} width=&#34;320&#34; [-height=&#34;240&#34;-]{+height=&#34;296&#34;+} alt=&#34;IMG_1186&#34;&gt;&lt;/a&gt;
+&lt;/section&gt;
+&lt;section class=&#34;side-by-side&#34;&gt;
+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784244454/&#34; title=&#34;IMG_1199 by s_jacoby, on Flickr&#34;&gt;&lt;img [-src=&#34;http://farm9.staticflickr.com/8440/7784244454_5b544ae9d1_m.jpg&#34;-]{+src=&#34;http://farm9.staticflickr.com/8440/7784244454_31ced29ae5_n.jpg&#34;+} width=&#34;320&#34; height=&#34;240&#34; alt=&#34;IMG_1199&#34;&gt;&lt;/a&gt;
+&lt;/section&gt;
+&lt;/div&gt;
+
+## Step 2
+Find the _ground_ pin of LED--the shorter one--and the _out_ pin of the receiver (if you use the same model that I did, it&#39;ll be on the left when the &#34;domed&#34; part is facing you), and twist them firmly together. Don&#39;t be shy. Twist em&#39;. You can always redo it.
+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784245022/&#34; title=&#34;IMG_1237 by s_jacoby, on Flickr&#34;&gt;&lt;img [-src=&#34;http://farm9.staticflickr.com/8435/7784245022_88722103ac.jpg&#34;-]{+src=&#34;http://farm9.staticflickr.com/8435/7784245022_467246ebf6.jpg&#34;+} width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_1237&#34;&gt;&lt;/a&gt;
+
+## Step 3
+Time to throw that battery in there. That means connecting up the legs, to the *positive (+)* and *negative (-)* sides of the battery. Hold your breath.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-09-12 12:51:06">2012-09-12 12:51:06</time>: <span class="message"> A variety of things. Mostly, new post on boards.
+</span> <a class="link" href="#f05efe66d5be5aebed18f4af21e6bf3c1ee9e354" id="f05efe66d5be5aebed18f4af21e6bf3c1ee9e354">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/f05efe66d5be5aebed18f4af21e6bf3c1ee9e354">f05efe66d5be5aebed18f4af21e6bf3c1ee9e354</a> on GitHub.</pre>
+    <pre class="message">A variety of things. Mostly, new post on boards.
+</pre>
+    <pre class="diff">## Materials
+What we need: not much. Well, getting your hands on the IR receivers will be the tricky part:
+
+- CR2032 Battery [-[[DigiKey](http://www.digikey.com/scripts/dksearch/dksus.dll?vendor=0&amp;keywords=751-1390-5-ND)]-]{+[[DigiKey](http://www.digikey.com/product-detail/en/CR2032/P189-ND/31939)]+}
+
+This is just what like lives inside of millions of watches, all over this fine land. And what keeps the time in your computer accurate, and a bunch of other things. You can get them--for a small fortune--at a drugstore. Someone told me that Ikea was now selling them at close to wholesale prices.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-08-30 09:53:16">2012-08-30 09:53:16</time>: <span class="message"> Sarah had some opinions.
+</span> <a class="link" href="#47654b2540f74149fe0603a5fb62884ba39528bb" id="47654b2540f74149fe0603a5fb62884ba39528bb">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/47654b2540f74149fe0603a5fb62884ba39528bb">47654b2540f74149fe0603a5fb62884ba39528bb</a> on GitHub.</pre>
+    <pre class="message">Sarah had some opinions.
+</pre>
+    <pre class="diff">---
+title: Infra-Red LED Throwies
+summary: [-Three parts, cost a buck, remote-controlled. As good as TV.-]{+Use an ordinary remote control to blink LED throwies on and off.+}
+date: 2012-08-16 10:54:13
+---
+I&#39;ve been toying with[-coming up-] with {+ideas for a+} quick, easy, scalable [-projects-]{+project+} for {+a+} large [-groups-]{+group of teenagers+} to do [-together. It had to be something fast--like, minute-fast--and cool. I&#39;ve always loved the little [LED Throwies](http://www.instructables.com/id/LED-Throwies/) from the fine people over at [Graffiti Research Lab](http://graffitiresearchlab.com/)--and wanted to do a version-]{+together+} for[-a High-Low Tech workshop at-] the Boston [-[ICA](icaboston.org).-]{+[ICA&#39;s](http://icaboston.org) Teen Night.+}
+
+[-Here&#39;s-]{+I&#39;ve always really liked+} the {+little [LED Throwies](http://www.instructables.com/id/LED-Throwies/) from the fine people over at [Graffiti Research Lab](http://graffitiresearchlab.com/), *so* here&#39;s an+} updated version that allows for the little guys to be controlled by a regular old remote control. It&#39;s a little startling how simple the whole operation is.
+
+## Materials
+What we need: not much. Well, getting your hands on the IR receivers will be the tricky part:
+@@ -14,11 +14,11 @@ What we need: not much. Well, getting your hands on the IR receivers will be the
+
+This is just what like lives inside of millions of watches, all over this fine land. And what keeps the time in your computer accurate, and a bunch of other things. You can get them--for a small fortune--at a drugstore. Someone told me that Ikea was now selling them at close to wholesale prices.
+
+- A Regular LED. [-[[DigiKey](http://www.digikey.com/product-detail/en/C503B-BCS-CV0Z0461/C503B-BCS-CV0Z0461-ND/1922944)]-]{+[[SparkFun](https://www.sparkfun.com/products/533)][[DigiKey](http://www.digikey.com/product-detail/en/C503B-BCS-CV0Z0461/C503B-BCS-CV0Z0461-ND/1922944)]+}
+
+Pretty much anything like this will do. Available at RadioShack, Sparkfun, or wherever fine, finger-friendly electronics are sold.
+
+- 38KHz Infrared Receiver [-[[Digikey](http://www.digikey.com/scripts/dksearch/dksus.dll?vendor=0&amp;keywords=751-1390-5-ND)]-]{+[[SparkFun](https://www.sparkfun.com/products/10266)][[Digikey](http://www.digikey.com/scripts/dksearch/dksus.dll?vendor=0&amp;keywords=751-1390-5-ND)]+}
+
+There are a number of these out there--the frequency, 38KHz, is an industry-standard--so anything like that should work fine. These are the same little fellows that live inside of your TV, or radio, or anything, really, that&#39;s remote-controlled. Look for one&#39;s with three-legs.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-08-23 17:19:58">2012-08-23 17:19:58</time>: <span class="message"> Inching closer.
+</span> <a class="link" href="#c74229c010aa09a52b816053ba270ddfaffadfb0" id="c74229c010aa09a52b816053ba270ddfaffadfb0">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/c74229c010aa09a52b816053ba270ddfaffadfb0">c74229c010aa09a52b816053ba270ddfaffadfb0</a> on GitHub.</pre>
+    <pre class="message">Inching closer.
+</pre>
+    <pre class="diff">---
+title: Infra-Red LED Throwies
+summary: [-Well, sort&#39;ve.-]{+Three parts, cost a buck, remote-controlled. As good as TV.+}
+date: 2012-08-16 10:54:13
+---
+I&#39;ve been toying with coming up with quick, easy, scalable projects for large groups to do together. It had to be something fast--like, minute-fast--and cool. I&#39;ve always loved the little [LED Throwies](http://www.instructables.com/id/LED-Throwies/) from the fine people over at [Graffiti Research Lab](http://graffitiresearchlab.com/)--and wanted to do a version for a High-Low Tech workshop at the Boston [ICA](icaboston.org).</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-08-23 10:51:52">2012-08-23 10:51:52</time>: <span class="message"> Keep track, dammit
+</span> <a class="link" href="#4a2af5ccc2de58efdf7c6c937ddf4e6f0c55f3b3" id="4a2af5ccc2de58efdf7c6c937ddf4e6f0c55f3b3">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/4a2af5ccc2de58efdf7c6c937ddf4e6f0c55f3b3">4a2af5ccc2de58efdf7c6c937ddf4e6f0c55f3b3</a> on GitHub.</pre>
+    <pre class="message">Keep track, dammit
+</pre>
+    <pre class="diff">@@ -0,0 +1,84 @@
+{+---+}
+{+title: Infra-Red LED Throwies+}
+{+summary: Well, sort&#39;ve. +}
+{+date: 2012-08-16 10:54:13+}
+{+---+}
+{+I&#39;ve been toying with coming up with quick, easy, scalable projects for large groups to do together. It had to be something fast--like, minute-fast--and cool. I&#39;ve always loved the little [LED Throwies](http://www.instructables.com/id/LED-Throwies/) from the fine people over at [Graffiti Research Lab](http://graffitiresearchlab.com/)--and wanted to do a version for a High-Low Tech workshop at the Boston [ICA](icaboston.org).+}
+
+{+Here&#39;s the updated version that allows for the little guys to be controlled by a regular old remote control. It&#39;s a little startling how simple the whole operation is.  +}
+
+{+## Materials+}
+{+What we need: not much. Well, getting your hands on the IR receivers will be the tricky part:+}
+
+{+- CR2032 Battery [[DigiKey](http://www.digikey.com/scripts/dksearch/dksus.dll?vendor=0&amp;keywords=751-1390-5-ND)]+}
+
+{+This is just what like lives inside of millions of watches, all over this fine land. And what keeps the time in your computer accurate, and a bunch of other things. You can get them--for a small fortune--at a drugstore. Someone told me that Ikea was now selling them at close to wholesale prices.+}
+
+{+- A Regular LED. [[DigiKey](http://www.digikey.com/product-detail/en/C503B-BCS-CV0Z0461/C503B-BCS-CV0Z0461-ND/1922944)]+}
+
+{+Pretty much anything like this will do. Available at RadioShack, Sparkfun, or wherever fine, finger-friendly electronics are sold.+}
+
+{+- 38KHz Infrared Receiver [[Digikey](http://www.digikey.com/scripts/dksearch/dksus.dll?vendor=0&amp;keywords=751-1390-5-ND)]+}
+
+{+There are a number of these out there--the frequency, 38KHz, is an industry-standard--so anything like that should work fine. These are the same little fellows that live inside of your TV, or radio, or anything, really, that&#39;s remote-controlled. Look for one&#39;s with three-legs.  +}
+
+{+- Magnet (optional)+}
+
+{+The &#39;classic&#39; LED throwie has a magnet, so it can be chucked at anything metal and will stick. Certainly, you can do the same with this. I didn&#39;t, but you certainly could. +}
+
+{+- Scotch tape+}
+
+{+For wrapping the whole shebang together.+}
+
+{+- Remote Control+}
+
+{+Any one should do. I just grabbed one for a television that was lying around.+}
+
+{+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784243140/&#34; title=&#34;DSC_0333 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm8.staticflickr.com/7127/7784243140_9383a38a50.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;DSC_0333&#34;&gt;&lt;/a&gt;+}
+
+{+## Step 1+}
+{+Bend the legs of the IR Receiver and of the LED apart, so that they can span the battery easily:+}
+{+&lt;div&gt;+}
+{+    &lt;section class=&#34;side-by-side&#34;&gt;+}
+{+        &lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784243814/&#34; title=&#34;IMG_1186 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm8.staticflickr.com/7261/7784243814_1d01d1cbe7_m.jpg&#34; width=&#34;320&#34; height=&#34;240&#34; alt=&#34;IMG_1186&#34;&gt;&lt;/a&gt;+}
+{+    &lt;/section&gt;+}
+{+    &lt;section class=&#34;side-by-side&#34;&gt;+}
+{+        &lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784244454/&#34; title=&#34;IMG_1199 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8440/7784244454_5b544ae9d1_m.jpg&#34; width=&#34;320&#34; height=&#34;240&#34; alt=&#34;IMG_1199&#34;&gt;&lt;/a&gt;+}
+{+    &lt;/section&gt;+}
+{+&lt;/div&gt;+}
+
+{+## Step 2+}
+{+Find the _ground_ pin of LED--the shorter one--and the _out_ pin of the receiver (if you use the same model that I did, it&#39;ll be on the left when the &#34;domed&#34; part is facing you), and twist them firmly together. Don&#39;t be shy. Twist em&#39;. You can always redo it.   +}
+{+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784245022/&#34; title=&#34;IMG_1237 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8435/7784245022_88722103ac.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_1237&#34;&gt;&lt;/a&gt;+}
+
+{+## Step 3+}
+{+Time to throw that battery in there. That means connecting up the legs, to the *positive (+)* and *negative (-)* sides of the battery. Hold your breath.+}
+
+{+The *postitive (+)* lead of the LED--that is, the long one--and the *positive (+)* lead of the receiver--the one on the middle--should touch the *positive (+)* side of the battery. There should be a user-friendly *+* on the battery to help you out with that, but you shouldn&#39;t burn anything if you do it wrong. +}
+
+{+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784245772/&#34; title=&#34;IMG_1250 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8298/7784245772_92aac85b3d.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_1250&#34;&gt;&lt;/a&gt;+}
+
+{+ Something, of course, needs to head to the back of the battery, to the *minus (-)* side to complete the circuit. Both legs of the LED are busy--so take the free leg of the IR Receiver--the on the far right--and bend it around to the back and hold it against the battery. Make sure that it doesn&#39;t make contact with anything else. +}
+
+{+ Hold that sucker tight with your fingers. You&#39;re pretty much done. If you&#39;ve got a remote handy, now&#39;s the time to point it at your gizmo and press a button to make sure you&#39;ve got it figured right. **Good**?  +}
+{+ +}
+{+### Trouble?+}
+{+ +}
+{+Nothing works for the first time. That&#39;s just a rule. +}
+
+{+ Try a couple buttons if the first one doesn&#39;t seem to work--depending on the remote, some modes might be disabled (say, TV guide buttons when you&#39;re in cable-mode) and your remote won&#39;t be firing. Then check that all of your leads (legs) are doing what you think they&#39;re doing and connected where you think they&#39;re connected, and that you haven&#39;t inadvertantly shorted anything--say, across the lip of the battery.+}
+
+{+Once you feel good about the operation, wrap it all up in tape -- and you&#39;re ready to throw-in a magnet, integrate it into a project, or whatever. It starts getting really good when you put together a couple hundred of these, which will all blink synchronously when you fire off. +}
+{+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784246988/&#34; title=&#34;IMG_1293 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8446/7784246988_26ecbed8db.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_1293&#34;&gt;&lt;/a&gt;+}
+
+{+## Step 4 // Rejoice.+}
+
+{+It&#39;s like a TV. A one-pixel TV.+}
+{+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7784247614/&#34; title=&#34;IMG_1262 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8283/7784247614_41aa4e6f8c.jpg&#34; width=&#34;500&#34; height=&#34;380&#34; alt=&#34;IMG_1262&#34;&gt;&lt;/a&gt;+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

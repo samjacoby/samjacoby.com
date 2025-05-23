@@ -1,0 +1,30 @@
+---
+exclude: True
+---
+{% extends "listing.j2" %}
+
+{% block class%}
+    {{ macros.render_class(resource.meta.class) }}
+{% endblock %}
+
+{% block content %}
+{% for res in resource.node.walk_resources_sorted_by_multi() %}
+{% if not res.meta.exclude %} 
+<article>
+    <header>
+    <h2><a href="{{ res.full_url }}">{{ res.meta.title }}</a></h2>
+    </header>
+    {% refer to res.relative_path as post %} 
+
+    <p>{%if post.excerpt %}{{ post.excerpt | markdown }}{% else %}{{post.html('article>section>p:nth-child(1)') }}{% endif %}</p>
+    {% if res.meta.thumbnail %}
+        {% set image='img/listing_' + res.meta.thumbnail %}
+        <figure><img src="{{ media_url(image) }}"/></figure>
+    {% endif %}
+    
+    <p><a href="{{ res.full_url }}">read on &raquo;</a></p>
+</article>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

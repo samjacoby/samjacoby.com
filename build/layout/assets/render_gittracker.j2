@@ -1,0 +1,14 @@
+{% if resource.meta.commits %}
+<h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+{% for c in resource.meta.commits %}
+<h4><time class="timeago" datetime="{{ c.date }}">{{ c.date }}</time>: <span class="message"> {{ c.msg | escape }}</span> <a class="link" href="#{{ c.hash }}" id="{{ c.hash }}">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/{{ c.hash }}">{{ c.hash }}</a> on GitHub.</pre>
+    <pre class="message">{{ c.msg | escape }}</pre>
+    <pre class="diff">{{ c.diff | escape }}</pre>
+<hr>
+</div>
+{% endfor %}
+</section>
+{% endif %}

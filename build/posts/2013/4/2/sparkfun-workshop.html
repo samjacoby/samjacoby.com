@@ -1,0 +1,842 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | Drawing the Electric Synth</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">Drawing the Electric Synth</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2013-04-02 12:19:50" pubdate>2013-04-02 12:19:50</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2015-03-02 21:47:19" pubdate>2015-03-02 21:47:19</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p><em>This is a compendium of resources assembled for a workshop over the weekend of April 6 and 7 at SparkFun Electronics in Boulder,&nbsp;Colorado.</em></p>
+<h2>Workshop&nbsp;Description</h2>
+<p>We’ll explore conductive inks and other materials to create unique, interactive musical instruments. Learn the basics of embedded microcontroller programming and circuit design, while crafting miniature synthesizers using a combination of electronics, programming, and art materials. For those interested, we can delve into the mysteries of <span class="caps">FM</span> sound generation and work on creating structed, pictorial representations of sound. No experience necessary—but you’ve got to love crafts, drawing, sound, and learning new ways of making&nbsp;electronics.</p>
+<h2>Contents</h2>
+<ul>
+<li><a href="#surveys">Surveys</a></li>
+<li><a href="#schedule">Schedule</a></li>
+<li><a href="#paper-speakers">Paper&nbsp;Speakers</a></li>
+<li><a href="#tinyprogrammer">TinyProgrammer</a></li>
+<li><a href="#tinysynth">TinySynth</a></li>
+<li><a href="#mosfet">Adding Amplification with a&nbsp;Mosfet</a></li>
+<li><a href="#battery-holder">Battery&nbsp;Holder</a></li>
+<li><a href="#helpful-information">Helpful&nbsp;Links</a></li>
+<li><a href="#it-happened">It&nbsp;Happened</a></li>
+</ul>
+<h2><a id="surveys"></a>Surveys</h2>
+<p>For our ongoing research at <a href="http://hlt.media.mit.edu">High-Low Tech</a> and my own thesis, there is a pre-and-post workshop survey that should be filled out. There&#8217;ll be paper copies available, but filling it out online is quicker and&nbsp;easier! </p>
+<ul>
+<li><a href="#">Pre-Workshop&nbsp;Survey</a></li>
+<li><a href="#">Post-Workshop&nbsp;Survey</a></li>
+</ul>
+<p>If you&#8217;ve happened to stumble on this survey and <em>won&#8217;t</em> be attending the workshop, make my life a little easier and don&#8217;t fill it out! <em>Note: these links are now dead, &#8216;cus, uh, its&nbsp;over.</em>  </p>
+<h2><a id="schedule"></a>Schedule&nbsp;(theoretically)</h2>
+<p><table>
+    <tr><td><strong>9:00</strong> </td><td>Surveys!</td></tr>
+<tr><td><strong>9:15</strong> </td><td>Introductions (me, mostly)</td></tr>
+<tr><td><strong>9:30</strong> </td><td>How-to-make a Paper Speaker </td></tr>
+<tr><td><strong>10:20</strong> </td><td> <span style="color: red">Break</span></td></tr>
+<tr><td><strong>10:30</strong> </td><td>Making circuits with Conductive Ink</td></tr>
+<tr><td><strong>11:30</strong> </td><td>A brief introduction to the ATTiny + TinyProgrammer (this might be ambitious)</td></tr>
+<tr><td><strong>12:00</strong> </td><td><span style="color:red">Lunch <span class="amp">&amp;</span> Arduino-debugging</span></td></tr>
+<tr><td><strong>1:00</strong> </td><td>Programming Blink. It&#8217;s a miracle!</td></tr>
+<tr><td><strong>1:15</strong> </td><td>Programming TinySynth </td></tr>
+<tr><td><strong>1:30</strong> </td><td>Code overview</td></tr>
+<tr><td><strong>1:45</strong> </td><td>Make some Synths!</td></tr>
+<tr><td><strong>2:10</strong> </td><td> <span style="color: red">Break</span></td></tr>
+<tr><td><strong>4:45</strong> </td><td>Fill out post-workshop survey</td></tr>
+</table></p>
+<h2><a id="paper-speakers"></a>Paper&nbsp;Speakers</h2>
+<p>I&#8217;ve written up the basics, gleaned from many-a-resource,&nbsp;here: </p>
+<ul>
+<li><a href="http://samjacoby.com/posts/2013/4/1/speaker-paperish">Speakers&nbsp;Paperish</a></li>
+</ul>
+<p><a href="http://plusea.at">Hannah Perner-Wilson</a> is a one-person armada. She has done a variety of gorgeous&nbsp;pieces:</p>
+<ul>
+<li><a href="http://hlt.media.mit.edu/?p=1372">Paper Speaker Tutorial</a> at High-Low&nbsp;Tech. </li>
+<li><a href="http://www.plusea.at/?p=4596">Sea-shell&nbsp;Headphones</a></li>
+</ul>
+<p><a href="http://www.cmarcelo.com/#/pulp-based-computing/">Marcelo Coelho</a> put together some particularly striking, insprirational examples, if a bit more involved than what we&#8217;ll be&nbsp;making.</p>
+<p><a href="http://www.karich.cl">jckarich</a> has a number of gorgeous projects (some done right at home, in the <a href="http://media.mit.edu"><span class="caps">MIT</span> Media Lab</a>):</p>
+<ul>
+<li><a href="http://www.karich.cl/?p=601">Printed + Handmade&nbsp;Headphones</a></li>
+<li><a href="http://www.karich.cl/?p=172">Dollar Bill Ghetto&nbsp;Blaster</a></li>
+</ul>
+<h3><a id="templates"></a>&nbsp;Templates</h3>
+<p>I put together a simple template, that guides you on how to make the design shown here, <a href="/posts/2013/4/1/speaker-paperish">Speakers Paperish</a>. It&#8217;s just a rough guideline, but can give you some&nbsp;ideas. </p>
+<h3><a id="tinyprogrammer"></a>&nbsp;TinyProgrammer</h3>
+<ul>
+<li>TinyProgrammer (<a href="https://www.sparkfun.com/products/11460">SparkFun</a>)</li>
+</ul>
+<p>The TinyProgrammer is a sweet little tool that vastly simplifies the programming of Atmel&#8217;s ATTiny45/85 microcontrollers. The ATTiny can do just about everything an Arduino can do (Atmel makes the ATmega168/32U4), but are much cheaper, smaller, and more easily embedded. If you want to make twenty of something, it&#8217;s a lot easier to get your hands on 20 ATTinys (they&#8217;re <a href="">$.95</a> on SparkFun) than 20 Arduinos. <a href="http://media.mit.edu/~mellis">David Mellis</a> designed this one. Or actually, he designed one, and SparkFun redesigned it to make it way&nbsp;better.  </p>
+<p>To get started with it on your computer, you&#8217;ll need (a) to have the Arduino <span class="caps">IDE</span> installed (get it <a href="http://arduino.cc/en/Main/Software">here</a> if you haven&#8217;t already) and (b) have ATTiny installed (it doesn&#8217;t come with the normal download). While the ATTiny is an Atmel chip (like the chips that power the Arduino), Arduino doesn&#8217;t come with support for the ATTiny family out-of-the-box, so you&#8217;ll have to follow the tutorial below to add ATTiny Support. Hopefully this&#8217;ll change at some&nbsp;point. </p>
+<ul>
+<li><a href="http://hlt.media.mit.edu/?p=1695">TinyProgrammer&nbsp;Tutorial</a></li>
+</ul>
+<h2><a id="tinysynth"></a>TinySynth</h2>
+<p>The TinySynth is a program loaded onto an ATTiny45/85 that uses an eight-bit microcontroller to make sounds. We&#8217;ll&nbsp;need:</p>
+<ul>
+<li>TinyProgrammer</li>
+<li>ATTiny45/85</li>
+<li>Coin&nbsp;Cell</li>
+<li><a href="/posts/2013/4/1/speaker-paperish/">Paper&nbsp;Speaker</a></li>
+<li>Conductive&nbsp;Ink</li>
+</ul>
+<p>Getting up and playing with the Tiny is simple enough. Most of the default Arduino sketches work with the ATTiny outt&#8217;ve of the box. Some things will have to be tweaked, though, as the default Arduino pins don&#8217;t necessarily map to anything useful on the Tiny&#8212;pin 13, which by default is connected to an <span class="caps">LED</span> on an Arduino board doesn&#8217;t go anywhere on a&nbsp;Tiny:</p>
+<figure class="with-caption">
+    <img class="no-border" src="/media/img/attiny45_85pinout.png"/> 
+    <figcaption><p>Arduino-compatible pinout for Tiny45 (image courtesy of <a href="http://hlt.media.mit.edu/?p=1695">David Mellis</a>).</p></figcaption>
+</figure>
+
+<p>The program that we&#8217;ll be loading onto our Tiny&#8217;s is a basic sound generation library I&#8217;ve written. You can peruse the source over on <a href="https://github.com/samjacoby/tinysynth">GitHub</a>, and down a .zip of the necessary files here: <a href="https://github.com/samjacoby/tinysynth/archive/master.zip">zip archive</a>.  </p>
+<p>To use, unzip the folder and open the &#8220;tinysynth.ino&#8221; file (you need to have Arduino&nbsp;installed).  </p>
+<p>TinySynth has been preconfigured to have two touch-sensitive capacitive sensors and two LEDs, as well as a speaker output. See&nbsp;below:</p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8616341819/" title="IMG_4275 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8542/8616341819_38f4b4a9c7.jpg" width="500" height="375" alt="IMG_4275"></a> 
+    <figcaption><p><code>TOUCH1</code> triggers <code>LED1</code>, <code>TOUCH2</code> triggers <code>LED2</code></p></figcaption>
+</figure>
+
+<p>The <code>RESET</code> pin is only used while the chip is being programmed. We could disable it, but it means that you&#8217;d need some special hardware to ever program the chip again. <code>POWER</code> and <code>GND</code>, naturally enough, are connected to the positive and negative terminals of your power supply&#8212;in our case, a coin-cell battery or&nbsp;what-have-you. </p>
+<p>While we&#8217;re programming the chip, we can test some of its functions &#8212; but ultimately, we&#8217;re going to making fancy-pants circuits outt&#8217;ve of conductive ink. Below is a rough schematic of what the circuit looks like. The various symbols correspond to different components: batteries, LEDs, and so forth. Which is which? You&nbsp;decide!  </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8623874872/" title="IMG_4304 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8256/8623874872_e352d6b6f1.jpg" width="500" height="375" alt="IMG_4304"></a> 
+    <figcaption><p>Your circuit doesn&#8217;t need to look like this at all. These are just the&nbsp;connections.</p></figcaption>
+</figure>
+
+<p>Applying silver ink can be difficult. Go slow. With attention and care, you can draw fine, well-controlled&nbsp;traces. </p>
+<p>Preparing your microcontroller to work on a paper surface also requires some attention. Dave Mellis has put up some good, relevant guidlines here: <a href="http://hlt.media.mit.edu/?p=1653">Micocontroller Circuit with Copper Tape</a>.</p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/7976725337/" title="Electric Narratives by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8440/7976725337_297dd84636.jpg" width="500" height="375" alt="Electric Narratives"></a> 
+    <figcaption><p>Painting with conductive silver&nbsp;ink.</p></figcaption>
+</figure>
+
+<p><strong>Note:</strong> The conductive silver ink we&#8217;ll be using dries fairly slowly and was designed to be heat-dried at a specific temperature. A regular toaster oven will do the job. We&#8217;ve supplied some hot-air stations and heateriziers that should work just as well. When working with microcontrollers, as we are, you need to be sensitive to the resistance of each line, because the microcontroller expects a very specific range of voltages on its&nbsp;pins. </p>
+<p>Here&#8217;s a complete example with a big ol&#8217; gramophone cone sticking out. This uses a painted silver speaker (instead of a wound-wire speaker), which works, but without amplification, is very&nbsp;quiet!</p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8465566076/" title="Capactive touch button by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8233/8465566076_f70ec81291.jpg" width="500" height="375" alt="Capactive touch button"></a> 
+    <figcaption><p>Speakers need to be coiled in a single direction&#8212;so on the back of this sheet, there&#8217;s a straight line leaving the&nbsp;center.</p></figcaption>
+</figure>
+
+<h2><a id="battery-holder"></a>Battery&nbsp;Holders</h2>
+<p>Integrating &#8220;hard&#8221; components, like batteries and microcontrollers, with &#8220;soft&#8221; materials, like paper and textiles, is always difficult. Here&#8217;s one way of creating battery a battery holder for a coin-cell battery, using the corner of a sheet of paper and a binder&nbsp;clip. </p>
+<p>Fold over the corner of a sheet of paper. It should completely and easily cover the battery.
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8623875732/" title="IMG_4311 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8522/8623875732_a2e2d02511.jpg" width="500" height="375" alt="IMG_4311"></a> 
+    <figcaption></figcaption>
+</figure></p>
+<p>Using conductive ink, paint over the fold as shown in the black rectangles below. Because conductive paint doesn&#8217;t crease well, it can sometimes be a good idea to replace those portions of your circuit with short lengths of copper tape (<a href="https://www.sparkfun.com/products/10561">SparkFun</a>. The configuration has to be relatively precise, because you don&#8217;t want to short the battery. Position it with the (+) side&nbsp;up.</p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8623875978/" title="IMG_4313 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8406/8623875978_d86d1c659b.jpg" width="500" height="375" alt="IMG_4313"></a> 
+    <figcaption></figcaption>
+</figure>
+
+<p>Fasten the folded over corner down over the battery with a binder clip.
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8622772695/" title="IMG_4314 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8257/8622772695_aea218f794.jpg" width="500" height="375" alt="IMG_4314"></a> 
+    <figcaption></figcaption>
+</figure></p>
+<h2><a id="mosfet"></a>Adding Amplification with a&nbsp;<span class="caps">MOSFET</span></h2>
+<ul>
+<li>N-Channel <span class="caps">MOSFET</span> (<a href="http://www.digikey.com/product-detail/en/NTD5867NL-1G/NTD5867NL-1GOS-ND/2401422?cur=USD">DigiKey</a>)</li>
+</ul>
+<p>Once you&#8217;ve made your circuit, you&#8217;ll probably notice that it&#8217;s not overwhelmingly loud. That&#8217;s because we&#8217;re driving the speaker with one of the pins of the microcontroller, which really isn&#8217;t great for that sort of thing. According to the <a href="#datasheet">datasheet</a>, the ATTiny can source about 20 milliamps, which isn&#8217;t all that much. Using a <span class="caps">MOSFET</span>, we can drive a great deal more current through our speaker&#8212;and theoretically at least&#8212;make it&nbsp;louder.   </p>
+<p>Here&#8217;s my crude schematic of the mosfet that we&#8217;ll be using. It has a particularly low threshold-voltage, which means it works well with the low-voltage coin-cell batteries. It&#8217;s an <a href="http://en.wikipedia.org/wiki/Mosfet">N-channel <span class="caps">MOSFET</span></a>, which is very important, though why, I could not&nbsp;say.  </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8623875122/" title="IMG_4305 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8530/8623875122_1e2968ca26.jpg" width="485" height="500" alt="IMG_4305"></a> 
+    <figcaption><p>G: Gate, D: Drain, S:&nbsp;source</p></figcaption>
+</figure>
+
+<p>Figuring out just how the &#8220;<span class="caps">FET</span>&#8221;&#8212;as such things are sometimes called&#8212;is hooked up into the circuit is trickier than it should be, at least for me. We&#8217;re interested in the gate, drain, and source. The gate is what we&#8217;ll connect to our microcontroller. The source, we&#8217;ll connect straight to ground. And the drain, we&#8217;ll connect to one end of our speaker. The diagram below gives about half the&nbsp;answer.  </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8623875340/" title="IMG_4307 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8534/8623875340_6202ddab72.jpg" width="500" height="375" alt="IMG_4307"></a> 
+    <figcaption></figcaption>
+</figure>
+
+<p>The missing piece, here, is what the <em>other</em> end of the speaker is connected to. If one side is connected to drain &#8212; the other side of your speaker should be connected to power. There are a variety of ingenious analogies that explain the way in which a <span class="caps">MOSFET</span> Works&#8212;controlling a valve, opening and closing a dam&#8212;but the more lucid ones escape me now. At any rate, suffice it to say, it allows the relative <em>weak</em> microcontroller signal to control a much more powerful flow of current directly from the battery. Which naturally enough, makes it a bit more of a&nbsp;ruckus. </p>
+<h2><a id="helpful-information"></a>Helpful Links <span class="amp">&amp;</span> So&nbsp;Forth</h2>
+<ul>
+<li><a href="http://hlt.media.mit.edu/?p=2505">Copper Circuits&nbsp;Tutorial</a></li>
+</ul>
+<p><a href="http://technolojie.com/category/featured-projects/">Jie Qi</a> has put up some useful information about making circuits using copper tape on the High-Low Tech <a href="http://hlt.media.mit.edu/?p=2505">website</a>. There&#8217;s also good information about the orientation of surface-amount LEDs&#8212;which can be tricky to work&nbsp;with!</p>
+<ul>
+<li><a href="http://www.bareconductive.com/paper-battery-holders">Bare Conductive&#8217;s Paper Battery&nbsp;Holder</a></li>
+</ul>
+<p>A really nice collection of elegant folded designs. Incorporating power into paper electronic projects has long been tricky, and these are some nice solutions. We&#8217;ve long-used a binder clip and a coin-cell battery, which works pretty well&nbsp;too.  </p>
+<ul>
+<li><a id="datasheet"></a><a href="http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf">ATTiny&nbsp;Datasheet</a> </li>
+</ul>
+<p>This is not really that useful for our purposes here&#8212;a hundred-odd pages of technical specifications. But it&#8217;s interesting if you want to delve deeper into how people actually <em>understand</em> these things. And the pin diagram is on the second&nbsp;page.</p>
+<h2><a id="it-happened"></a>It&nbsp;Happened</h2>
+<p>April 6 <span class="amp">&amp;</span> 7 has come and gone, and people put together many lovely things. Here&#8217;s a handful:
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8632165003/" title="Drawing the Electric Synth by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8386/8632165003_c487323eef.jpg" width="375" height="500" alt="Drawing the Electric Synth"></a> 
+    <figcaption></figcaption>
+</figure></p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8633287594/" title="Drawing the Electric Synth by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8107/8633287594_fd4a18aca1.jpg" width="375" height="500" alt="Drawing the Electric Synth"></a> 
+    <figcaption></figcaption>
+</figure>
+
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8633277890/" title="Drawing the Electric Synth by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8246/8633277890_e6503a9163.jpg" width="500" height="375" alt="Drawing the Electric Synth"></a> 
+    <figcaption></figcaption>
+</figure>
+
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8632169749/" title="Drawing the Electric Synth by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8522/8632169749_690ba4c5d1.jpg" width="500" height="375" alt="Drawing the Electric Synth"></a> 
+    <figcaption></figcaption>
+</figure>
+
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8633278348/" title="Drawing the Electric Synth by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8545/8633278348_eb150f37ff.jpg" width="375" height="500" alt="Drawing the Electric Synth"></a> 
+    <figcaption></figcaption>
+</figure>
+
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8633275918/" title="Drawing the Electric Synth by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8243/8633275918_19d004bbd0.jpg" width="500" height="375" alt="Drawing the Electric Synth"></a> 
+    <figcaption></figcaption>
+</figure>    </section>
+    <footer>
+        <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2015-03-02 21:47:19">2015-03-02 21:47:19</time>: <span class="message"> Updating layout for new blocks.
+</span> <a class="link" href="#3a8c3faf3cf2ac8144b1050f4c387551018b567b" id="3a8c3faf3cf2ac8144b1050f4c387551018b567b">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3a8c3faf3cf2ac8144b1050f4c387551018b567b">3a8c3faf3cf2ac8144b1050f4c387551018b567b</a> on GitHub.</pre>
+    <pre class="message">Updating layout for new blocks.
+</pre>
+    <pre class="diff">date: 2013-04-02 12:19:50
+thumbnail: sparkfun-synth.jpg
+---
+{+{% block post %}+}
+*This is a compendium of resources assembled for a workshop over the weekend of April 6 and 7 at SparkFun Electronics in Boulder, Colorado.*
+
+
+@@ -169,3 +170,4 @@ April 6 &amp; 7 has come and gone, and people put together many lovely things. Here&#39;
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8632169749/&#34; title=&#34;Drawing the Electric Synth by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8522/8632169749_690ba4c5d1.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;Drawing the Electric Synth&#34;&gt;&lt;/a&gt;&#39;,&#34;&#34;) }}
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8633278348/&#34; title=&#34;Drawing the Electric Synth by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8545/8633278348_eb150f37ff.jpg&#34; width=&#34;375&#34; height=&#34;500&#34; alt=&#34;Drawing the Electric Synth&#34;&gt;&lt;/a&gt;&#39;,&#34;&#34;) }}
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8633275918/&#34; title=&#34;Drawing the Electric Synth by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8243/8633275918_19d004bbd0.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;Drawing the Electric Synth&#34;&gt;&lt;/a&gt;&#39;,&#34;&#34;) }}
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-02-16 14:28:44">2015-02-16 14:28:44</time>: <span class="message"> Adding excerpts to all posts, basically.
+</span> <a class="link" href="#07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57" id="07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57</a> on GitHub.</pre>
+    <pre class="message">Adding excerpts to all posts, basically.
+</pre>
+    <pre class="diff">## Workshop Description
+{+{% mark excerpt %}+}
+We’ll explore conductive inks and other materials to create unique, interactive musical instruments. Learn the basics of embedded microcontroller programming and circuit design, while crafting miniature synthesizers using a combination of electronics, programming, and art materials. [-For-]{+{% endmark %}For+} those interested, we can delve into the mysteries of FM sound generation and work on creating structed, pictorial representations of sound. No experience necessary—but you’ve got to love crafts, drawing, sound, and learning new ways of making electronics.
+
+
+## Contents</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2014-09-01 20:33:26">2014-09-01 20:33:26</time>: <span class="message"> Adding thumbnail.
+</span> <a class="link" href="#be368cc39244127783bf5c84f075ffd7e42205fb" id="be368cc39244127783bf5c84f075ffd7e42205fb">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/be368cc39244127783bf5c84f075ffd7e42205fb">be368cc39244127783bf5c84f075ffd7e42205fb</a> on GitHub.</pre>
+    <pre class="message">Adding thumbnail.
+</pre>
+    <pre class="diff">- [Dollar Bill Ghetto Blaster](http://www.karich.cl/?p=172)
+
+### &lt;a id=&#34;templates&#34;&gt;&lt;/a&gt; Templates
+I put together a simple template, that guides you on how to make the design shown here, [Speakers [-Paperish](http://localhost:8080/posts/2013/4/1/speaker-paperish).-]{+Paperish](/posts/2013/4/1/speaker-paperish).+} It&#39;s just a rough guideline, but can give you some ideas.[-Download the the PDF here: [Business Card Paper Speaker Template](/media/files/paper-speaker-template.pdf).-]
+
+### &lt;a id=&#34;tinyprogrammer&#34;&gt;&lt;/a&gt; TinyProgrammer</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-21 22:37:01">2013-04-21 22:37:01</time>: <span class="message"> I just heard this on a word game at the BBC. Dude did an *American* accent. Funny.
+</span> <a class="link" href="#86b5f039c97254817c286558304f56da1eabc6c3" id="86b5f039c97254817c286558304f56da1eabc6c3">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/86b5f039c97254817c286558304f56da1eabc6c3">86b5f039c97254817c286558304f56da1eabc6c3</a> on GitHub.</pre>
+    <pre class="message">I just heard this on a word game at the BBC. Dude did an *American* accent. Funny.
+</pre>
+    <pre class="diff">- [Dollar Bill Ghetto Blaster](http://www.karich.cl/?p=172)
+
+### &lt;a id=&#34;templates&#34;&gt;&lt;/a&gt; Templates
+I put together a simple template, that guides you on how to make the design shown here, [Speakers Paperish](http://localhost:8080/posts/2013/4/1/speaker-paperish). It&#39;s just a rough guideline, but can give you some ideas. Download the the PDF here: [Business Card Paper Speaker [-Template](/files/paper-speaker-template.pdf).-]{+Template](/media/files/paper-speaker-template.pdf).+}
+
+### &lt;a id=&#34;tinyprogrammer&#34;&gt;&lt;/a&gt; TinyProgrammer</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-09 11:30:24">2013-04-09 11:30:24</time>: <span class="message"> Adding photos and such of the actual thing.
+</span> <a class="link" href="#1e2f78c291d6ed1e28bd27f1a6a96918e82927f7" id="1e2f78c291d6ed1e28bd27f1a6a96918e82927f7">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/1e2f78c291d6ed1e28bd27f1a6a96918e82927f7">1e2f78c291d6ed1e28bd27f1a6a96918e82927f7</a> on GitHub.</pre>
+    <pre class="message">Adding photos and such of the actual thing.
+</pre>
+    <pre class="diff">title: Drawing the Electric Synth
+summary: A workshop at SparkFun Electronics.
+date: 2013-04-02 12:19:50
+{+thumbnail: sparkfun-synth.jpg+}
+---
+*This is a compendium of resources assembled for a workshop over the weekend of April 6 and 7 at SparkFun Electronics in Boulder, Colorado.*
+
+@@ -20,6 +21,7 @@ We’ll explore conductive inks and other materials to create unique, interactiv
+- [Adding Amplification with a Mosfet](#mosfet)
+- [Battery Holder](#battery-holder)
+- [Helpful Links](#helpful-information)
+{+- [It Happened](#it-happened)+}
+
+## &lt;a id=&#34;surveys&#34;&gt;&lt;/a&gt;Surveys
+For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled out. There&#39;ll be paper copies available, but filling it out online is quicker and easier!
+@@ -27,7 +29,7 @@ For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own
+- [Pre-Workshop Survey](#)
+- [Post-Workshop Survey](#)
+
+If you&#39;ve happened to stumble on this survey and *won&#39;t* be attending the workshop, make my life a little easier and don&#39;t fill it out! {+*Note: these links are now dead, &#39;cus, uh, its over.*+}
+
+## &lt;a id=&#34;schedule&#34;&gt;&lt;/a&gt;Schedule (theoretically)
+&lt;table&gt;
+@@ -145,7 +147,7 @@ Figuring out just how the &#34;FET&#34;--as such things are sometimes called--is hooked
+
+The missing piece, here, is what the *other* end of the speaker is connected to. If one side is connected to drain -- the other side of your speaker should be connected to power. There are a variety of ingenious analogies that explain the way in which a MOSFET Works--controlling a valve, opening and closing a dam--but the more lucid ones escape me now. At any rate, suffice it to say, it allows the relative *weak* microcontroller signal to control a much more powerful flow of current directly from the battery. Which naturally enough, makes it a bit more of a ruckus.
+
+[-###-]{+##+} &lt;a id=&#34;helpful-information&#34;&gt;&lt;/a&gt;Helpful Links &amp; So Forth
+- [Copper Circuits Tutorial](http://hlt.media.mit.edu/?p=2505)
+
+[Jie Qi](http://technolojie.com/category/featured-projects/) has put up some useful information about making circuits using copper tape on the High-Low Tech [website](http://hlt.media.mit.edu/?p=2505). There&#39;s also good information about the orientation of surface-amount LEDs--which can be tricky to work with!
+@@ -157,3 +159,12 @@ A really nice collection of elegant folded designs. Incorporating power into pap
+- &lt;a id=&#34;datasheet&#34;&gt;&lt;/a&gt;[ATTiny Datasheet](http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
+
+This is not really that useful for our purposes here--a hundred-odd pages of technical specifications. But it&#39;s interesting if you want to delve deeper into how people actually _understand_ these things. And the pin diagram is on the second page.
+
+{+## &lt;a id=&#34;it-happened&#34;&gt;&lt;/a&gt;It Happened+}
+{+April 6 &amp; 7 has come and gone, and people put together many lovely things. Here&#39;s a handful:+}
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8632165003/&#34; title=&#34;Drawing the Electric Synth by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8386/8632165003_c487323eef.jpg&#34; width=&#34;375&#34; height=&#34;500&#34; alt=&#34;Drawing the Electric Synth&#34;&gt;&lt;/a&gt;&#39;,&#34;&#34;) }}+}
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8633287594/&#34; title=&#34;Drawing the Electric Synth by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8107/8633287594_fd4a18aca1.jpg&#34; width=&#34;375&#34; height=&#34;500&#34; alt=&#34;Drawing the Electric Synth&#34;&gt;&lt;/a&gt;&#39;,&#34;&#34;) }}+}
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8633277890/&#34; title=&#34;Drawing the Electric Synth by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8246/8633277890_e6503a9163.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;Drawing the Electric Synth&#34;&gt;&lt;/a&gt;&#39;,&#34;&#34;) }}+}
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8632169749/&#34; title=&#34;Drawing the Electric Synth by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8522/8632169749_690ba4c5d1.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;Drawing the Electric Synth&#34;&gt;&lt;/a&gt;&#39;,&#34;&#34;) }}+}
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8633278348/&#34; title=&#34;Drawing the Electric Synth by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8545/8633278348_eb150f37ff.jpg&#34; width=&#34;375&#34; height=&#34;500&#34; alt=&#34;Drawing the Electric Synth&#34;&gt;&lt;/a&gt;&#39;,&#34;&#34;) }}+}
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8633275918/&#34; title=&#34;Drawing the Electric Synth by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8243/8633275918_19d004bbd0.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;Drawing the Electric Synth&#34;&gt;&lt;/a&gt;&#39;,&#34;&#34;) }}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-08 22:55:18">2013-04-08 22:55:18</time>: <span class="message"> Adding information on MOSFET.
+</span> <a class="link" href="#fcbdef52f43eed34f4e131400df6f3de68dc8516" id="fcbdef52f43eed34f4e131400df6f3de68dc8516">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/fcbdef52f43eed34f4e131400df6f3de68dc8516">fcbdef52f43eed34f4e131400df6f3de68dc8516</a> on GitHub.</pre>
+    <pre class="message">Adding information on MOSFET.
+</pre>
+    <pre class="diff">- [Paper Speakers](#paper-speakers)
+- [TinyProgrammer](#tinyprogrammer)
+- [TinySynth](#tinysynth)
+{+- [Adding Amplification with a Mosfet](#mosfet)+}
+- [Battery Holder](#battery-holder)
+- [Helpful Links](#helpful-information)
+
+## &lt;a id=&#34;surveys&#34;&gt;&lt;/a&gt;Surveys
+For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled out. There&#39;ll be paper copies available, but filling it out online is quicker and easier!
+
+- [Pre-Workshop [-Survey](https://www.surveymonkey.com/s/YVNDW5F)-]{+Survey](#)+}
+- [Post-Workshop [-Survey](https://www.surveymonkey.com/s/YVFN38D)-]{+Survey](#)+}
+
+If you&#39;ve happened to stumble on this survey and *won&#39;t* be attending the workshop, make my life a little easier and don&#39;t fill it out!
+
+@@ -77,7 +78,7 @@ To get started with it on your computer, you&#39;ll need (a) to have the Arduino IDE
+- [TinyProgrammer Tutorial](http://hlt.media.mit.edu/?p=1695)
+## &lt;a id=&#34;tinysynth&#34;&gt;&lt;/a&gt;TinySynth
+
+The TinySynth is a [-simple circuit-]{+program loaded onto an ATTiny45/85+} that [-used-]{+uses+} an eight-bit microcontroller to make sounds. We&#39;ll need:
+
+- TinyProgrammer
+- ATTiny45/85
+@@ -103,7 +104,9 @@ While we&#39;re programming the chip, we can test some of its functions -- but ultim
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8623874872/&#34; title=&#34;IMG_4304 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8256/8623874872_e352d6b6f1.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4304&#34;&gt;&lt;/a&gt;&#39;, &#34;Your circuit doesn&#39;t need to look like this at all. These are just the connections.&#34;) }}
+
+Applying silver ink can be difficult. Go slow. With attention and care, you can draw fine, well-controlled traces.
+
+[-Unless of course, you don&#39;t want to, in which case, go nuts!-]{+Preparing your microcontroller to work on a paper surface also requires some attention. Dave Mellis has put up some good, relevant guidlines here: [Micocontroller Circuit with Copper Tape](http://hlt.media.mit.edu/?p=1653).+}
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/7976725337/&#34; title=&#34;Electric Narratives by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8440/7976725337_297dd84636.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;Electric Narratives&#34;&gt;&lt;/a&gt;&#39;, &#34;Painting with conductive silver ink.&#34;) }}
+
+@@ -126,6 +129,21 @@ Using conductive ink, paint over the fold as shown in the black rectangles below
+Fasten the folded over corner down over the battery with a binder clip.
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8622772695/&#34; title=&#34;IMG_4314 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8257/8622772695_aea218f794.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4314&#34;&gt;&lt;/a&gt;&#39;, &#39;&#39;) }}
+
+{+## &lt;a id=&#34;mosfet&#34;&gt;&lt;/a&gt;Adding Amplification with a MOSFET+}
+
+{+- N-Channel MOSFET ([DigiKey](http://www.digikey.com/product-detail/en/NTD5867NL-1G/NTD5867NL-1GOS-ND/2401422?cur=USD))+}
+
+{+Once you&#39;ve made your circuit, you&#39;ll probably notice that it&#39;s not overwhelmingly loud. That&#39;s because we&#39;re driving the speaker with one of the pins of the microcontroller, which really isn&#39;t great for that sort of thing. According to the [datasheet](#datasheet), the ATTiny can source about 20 milliamps, which isn&#39;t all that much. Using a MOSFET, we can drive a great deal more current through our speaker--and theoretically at least--make it louder.   +}
+
+{+Here&#39;s my crude schematic of the mosfet that we&#39;ll be using. It has a particularly low threshold-voltage, which means it works well with the low-voltage coin-cell batteries. It&#39;s an [N-channel MOSFET](http://en.wikipedia.org/wiki/Mosfet), which is very important, though why, I could not say.  +}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8623875122/&#34; title=&#34;IMG_4305 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8530/8623875122_1e2968ca26.jpg&#34; width=&#34;485&#34; height=&#34;500&#34; alt=&#34;IMG_4305&#34;&gt;&lt;/a&gt;&#39;, &#34;G: Gate, D: Drain, S: source&#34;) }}+}
+
+{+Figuring out just how the &#34;FET&#34;--as such things are sometimes called--is hooked up into the circuit is trickier than it should be, at least for me. We&#39;re interested in the gate, drain, and source. The gate is what we&#39;ll connect to our microcontroller. The source, we&#39;ll connect straight to ground. And the drain, we&#39;ll connect to one end of our speaker. The diagram below gives about half the answer.  +}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8623875340/&#34; title=&#34;IMG_4307 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8534/8623875340_6202ddab72.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4307&#34;&gt;&lt;/a&gt;&#39;, &#34;&#34;) }}+}
+
+{+The missing piece, here, is what the *other* end of the speaker is connected to. If one side is connected to drain -- the other side of your speaker should be connected to power. There are a variety of ingenious analogies that explain the way in which a MOSFET Works--controlling a valve, opening and closing a dam--but the more lucid ones escape me now. At any rate, suffice it to say, it allows the relative *weak* microcontroller signal to control a much more powerful flow of current directly from the battery. Which naturally enough, makes it a bit more of a ruckus.+}
+
+### &lt;a id=&#34;helpful-information&#34;&gt;&lt;/a&gt;Helpful Links &amp; So Forth
+- [Copper Circuits Tutorial](http://hlt.media.mit.edu/?p=2505)
+@@ -136,6 +154,6 @@ Fasten the folded over corner down over the battery with a binder clip.
+
+A really nice collection of elegant folded designs. Incorporating power into paper electronic projects has long been tricky, and these are some nice solutions. We&#39;ve long-used a binder clip and a coin-cell battery, which works pretty well too.
+
+- [-[ATTiny-]{+&lt;a id=&#34;datasheet&#34;&gt;&lt;/a&gt;[ATTiny+} Datasheet](http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
+
+This is not really that useful for our purposes here--a hundred-odd pages of technical specifications. But it&#39;s interesting if you want to delve deeper into how people actually _understand_ these things. And the pin diagram is on the second page.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-06 21:46:50">2013-04-06 21:46:50</time>: <span class="message"> Updating survey links for the next. day.
+</span> <a class="link" href="#fc9eb46ad48230dfb7cb8ce4f298c4e7752f194d" id="fc9eb46ad48230dfb7cb8ce4f298c4e7752f194d">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/fc9eb46ad48230dfb7cb8ce4f298c4e7752f194d">fc9eb46ad48230dfb7cb8ce4f298c4e7752f194d</a> on GitHub.</pre>
+    <pre class="message">Updating survey links for the next. day.
+</pre>
+    <pre class="diff">## &lt;a id=&#34;surveys&#34;&gt;&lt;/a&gt;Surveys
+For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled out. There&#39;ll be paper copies available, but filling it out online is quicker and easier!
+
+- [Pre-Workshop [-Survey](https://www.surveymonkey.com/s/HXQLFJ2)-]{+Survey](https://www.surveymonkey.com/s/YVNDW5F)+}
+- [Post-Workshop [-Survey](https://www.surveymonkey.com/s/99T53TQ)-]{+Survey](https://www.surveymonkey.com/s/YVFN38D)+}
+
+If you&#39;ve happened to stumble on this survey and *won&#39;t* be attending the workshop, make my life a little easier and don&#39;t fill it out!
+
+@@ -49,7 +49,7 @@ If you&#39;ve happened to stumble on this survey and *won&#39;t* be attending the worksh
+
+I&#39;ve written up the basics, gleaned from many-a-resource, here:
+
+- [Speakers [-Paperish](http://localhost:8080/posts/2013/4/1/speaker-paperish)-]{+Paperish](http://samjacoby.com/posts/2013/4/1/speaker-paperish)+}
+
+[Hannah Perner-Wilson](http://plusea.at) is a one-person armada. She has done a variety of gorgeous pieces:
+
+@@ -103,7 +103,13 @@ While we&#39;re programming the chip, we can test some of its functions -- but ultim
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8623874872/&#34; title=&#34;IMG_4304 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8256/8623874872_e352d6b6f1.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4304&#34;&gt;&lt;/a&gt;&#39;, &#34;Your circuit doesn&#39;t need to look like this at all. These are just the connections.&#34;) }}
+
+{+Applying silver ink can be difficult. Go slow. With attention and care, you can draw fine, well-controlled traces. Unless of course, you don&#39;t want to, in which case, go nuts!+}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/7976725337/&#34; title=&#34;Electric Narratives by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8440/7976725337_297dd84636.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;Electric Narratives&#34;&gt;&lt;/a&gt;&#39;, &#34;Painting with conductive silver ink.&#34;) }}+}
+
+{+**Note:** The conductive silver ink we&#39;ll be using dries fairly slowly and was designed to be heat-dried at a specific temperature. A regular toaster oven will do the job. We&#39;ve supplied some hot-air stations and heateriziers that should work just as well. When working with microcontrollers, as we are, you need to be sensitive to the resistance of each line, because the microcontroller expects a very specific range of voltages on its pins.+}
+
+Here&#39;s [-an-]{+a complete+} example with a big ol&#39; gramophone cone sticking out. This uses a painted silver speaker (instead of a wound-wire speaker), which works, but without amplification, is very quiet!
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8465566076/&#34; title=&#34;Capactive touch button by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8233/8465566076_f70ec81291.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;Capactive touch button&#34;&gt;&lt;/a&gt;&#39;, &#34;Speakers need to be coiled in a single direction--so on the back of this sheet, there&#39;s a straight line leaving the center.&#34;) }}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-06 02:17:21">2013-04-06 02:17:21</time>: <span class="message"> Onward, Onward.
+</span> <a class="link" href="#26bd9eb66625f7896a89b3a66690bd4653df5e04" id="26bd9eb66625f7896a89b3a66690bd4653df5e04">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/26bd9eb66625f7896a89b3a66690bd4653df5e04">26bd9eb66625f7896a89b3a66690bd4653df5e04</a> on GitHub.</pre>
+    <pre class="message">Onward, Onward.
+</pre>
+    <pre class="diff">- [TinyProgrammer](#tinyprogrammer)
+- [TinySynth](#tinysynth)
+- [Battery Holder](#battery-holder)
+- [Helpful [-Information](#helpful-information)-]{+Links](#helpful-information)+}
+
+## &lt;a id=&#34;surveys&#34;&gt;&lt;/a&gt;Surveys
+For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled out. There&#39;ll be paper copies available, but filling it out online is quicker and easier!
+
+- [Pre-Workshop Survey](https://www.surveymonkey.com/s/HXQLFJ2)
+- [Post-Workshop [-Survey](http://#)-]{+Survey](https://www.surveymonkey.com/s/99T53TQ)+}
+
+If you&#39;ve happened to stumble on this survey and *won&#39;t* be attending the workshop, make my life a little easier and don&#39;t fill it out!
+
+@@ -70,7 +70,7 @@ I put together a simple template, that guides you on how to make the design show
+
+- TinyProgrammer ([SparkFun](https://www.sparkfun.com/products/11460))
+
+The TinyProgrammer is a sweet little tool that vastly simplifies the programming of Atmel&#39;s ATTiny45/85 microcontrollers. The ATTiny can do just about everything an Arduino can do (Atmel makes the ATmega168/32U4), but are much cheaper, smaller, and more easily embedded. If you want to make twenty of something, it&#39;s a lot easier to get your hands on 20 [-ATTiny&#39;s-]{+ATTinys+} (they&#39;re [$.95]() on SparkFun) than 20 Arduinos. [David Mellis](http://media.mit.edu/~mellis) designed this one. Or actually, he designed one, and SparkFun redesigned it to make it way better.
+
+To get started with it on your computer, you&#39;ll need (a) to have the Arduino IDE installed (get it [here](http://arduino.cc/en/Main/Software) if you haven&#39;t already) and (b) have ATTiny installed (it doesn&#39;t come with the normal download). While the ATTiny is an Atmel chip (like the chips that power the Arduino), Arduino doesn&#39;t come with support for the ATTiny family out-of-the-box, so you&#39;ll have to follow the tutorial below to add ATTiny Support. Hopefully this&#39;ll change at some point.
+
+@@ -121,10 +121,10 @@ Fasten the folded over corner down over the battery with a binder clip.
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8622772695/&#34; title=&#34;IMG_4314 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8257/8622772695_aea218f794.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4314&#34;&gt;&lt;/a&gt;&#39;, &#39;&#39;) }}
+
+
+{+### &lt;a id=&#34;helpful-information&#34;&gt;&lt;/a&gt;Helpful Links &amp; So Forth+}
+{+- [Copper Circuits Tutorial](http://hlt.media.mit.edu/?p=2505)+}
+
+[-### &lt;a id=&#34;helpful-information&#34;&gt;&lt;/a&gt;Helpful Information-][Jie Qi](http://technolojie.com/category/featured-projects/) has put up some useful information about making circuits using copper tape on the High-Low Tech [website](http://hlt.media.mit.edu/?p=2505). {+There&#39;s also good information about the orientation of surface-amount LEDs--which can be tricky to work with!+}
+
+- [Bare Conductive&#39;s Paper Battery Holder](http://www.bareconductive.com/paper-battery-holders)</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-06 01:36:07">2013-04-06 01:36:07</time>: <span class="message"> Finalizing (most) details.
+</span> <a class="link" href="#a98569e4ef699112a415cd670d56c85e6c174f9f" id="a98569e4ef699112a415cd670d56c85e6c174f9f">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/a98569e4ef699112a415cd670d56c85e6c174f9f">a98569e4ef699112a415cd670d56c85e6c174f9f</a> on GitHub.</pre>
+    <pre class="message">Finalizing (most) details.
+</pre>
+    <pre class="diff">---
+*This is a compendium of resources assembled for a workshop over the weekend of April 6 and 7 at SparkFun Electronics in Boulder, Colorado.*
+
+
+## Workshop Description
+We’ll explore conductive inks and other materials to create unique, interactive musical instruments. Learn the basics of embedded microcontroller programming and circuit design, while crafting miniature synthesizers using a combination of electronics, programming, and art materials. For those interested, we can delve into the mysteries of FM sound generation and work on creating structed, pictorial representations of sound. No experience necessary—but you’ve got to love crafts, drawing, sound, and learning new ways of making electronics.
+
+
+## [-Surveys-]{+Contents+}
+
+{+- [Surveys](#surveys)+}
+{+- [Schedule](#schedule)+}
+{+- [Paper Speakers](#paper-speakers)+}
+{+- [TinyProgrammer](#tinyprogrammer)+}
+{+- [TinySynth](#tinysynth)+}
+{+- [Battery Holder](#battery-holder)+}
+{+- [Helpful Information](#helpful-information)+}
+
+{+## &lt;a id=&#34;surveys&#34;&gt;&lt;/a&gt;Surveys+}
+For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled out. There&#39;ll be paper copies available, but filling it out online is quicker and easier!
+
+- [Pre-Workshop Survey](https://www.surveymonkey.com/s/HXQLFJ2)
+@@ -16,7 +28,7 @@ For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own
+
+If you&#39;ve happened to stumble on this survey and *won&#39;t* be attending the workshop, make my life a little easier and don&#39;t fill it out!
+
+## [-Schedule (tentative)-]{+&lt;a id=&#34;schedule&#34;&gt;&lt;/a&gt;Schedule (theoretically)+}
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;**9:00** &lt;/td&gt;&lt;td&gt;Surveys!&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;**9:15** &lt;/td&gt;&lt;td&gt;Introductions (me, mostly)&lt;/td&gt;&lt;/tr&gt;
+@@ -29,10 +41,11 @@ If you&#39;ve happened to stumble on this survey and *won&#39;t* be attending the worksh
+&lt;tr&gt;&lt;td&gt;**1:15** &lt;/td&gt;&lt;td&gt;Programming TinySynth &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;**1:30** &lt;/td&gt;&lt;td&gt;Code overview&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;**1:45** &lt;/td&gt;&lt;td&gt;Make some Synths!&lt;/td&gt;&lt;/tr&gt;
+{+&lt;tr&gt;&lt;td&gt;**2:10** &lt;/td&gt;&lt;td&gt; &lt;span style=&#34;color: red&#34;&gt;Break&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;+}
+&lt;tr&gt;&lt;td&gt;**4:45** &lt;/td&gt;&lt;td&gt;Fill out post-workshop survey&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+## [-Paper-]{+&lt;a id=&#34;paper-speakers&#34;&gt;&lt;/a&gt;Paper+} Speakers
+
+I&#39;ve written up the basics, gleaned from many-a-resource, here:
+
+@@ -50,38 +63,69 @@ I&#39;ve written up the basics, gleaned from many-a-resource, here:
+- [Printed + Handmade Headphones](http://www.karich.cl/?p=601)
+- [Dollar Bill Ghetto Blaster](http://www.karich.cl/?p=172)
+
+{+### &lt;a id=&#34;templates&#34;&gt;&lt;/a&gt; Templates+}
+{+I put together a simple template, that guides you on how to make the design shown here, [Speakers Paperish](http://localhost:8080/posts/2013/4/1/speaker-paperish). It&#39;s just a rough guideline, but can give you some ideas. Download the the PDF here: [Business Card Paper Speaker Template](/files/paper-speaker-template.pdf).+}
+
+{+### &lt;a id=&#34;tinyprogrammer&#34;&gt;&lt;/a&gt; TinyProgrammer+}
+
+{+- TinyProgrammer ([SparkFun](https://www.sparkfun.com/products/11460))+}
+
+{+The TinyProgrammer is a sweet little tool that vastly simplifies the programming of Atmel&#39;s ATTiny45/85 microcontrollers. The ATTiny can do just about everything an Arduino can do (Atmel makes the ATmega168/32U4), but are much cheaper, smaller, and more easily embedded. If you want to make twenty of something, it&#39;s a lot easier to get your hands on 20 ATTiny&#39;s (they&#39;re [$.95]() on SparkFun) than 20 Arduinos. [David Mellis](http://media.mit.edu/~mellis) designed this one. Or actually, he designed one, and SparkFun redesigned it to make it way better.  +}
+
+{+To get started with it on your computer, you&#39;ll need (a) to have the Arduino IDE installed (get it [here](http://arduino.cc/en/Main/Software) if you haven&#39;t already) and (b) have ATTiny installed (it doesn&#39;t come with the normal download). While the ATTiny is an Atmel chip (like the chips that power the Arduino), Arduino doesn&#39;t come with support for the ATTiny family out-of-the-box, so you&#39;ll have to follow the tutorial below to add ATTiny Support. Hopefully this&#39;ll change at some point. +}
+
+{+- [TinyProgrammer Tutorial](http://hlt.media.mit.edu/?p=1695)+}
+## {+&lt;a id=&#34;tinysynth&#34;&gt;&lt;/a&gt;TinySynth+}
+
+{+The+} TinySynth {+is a simple circuit that used an eight-bit microcontroller to make sounds. We&#39;ll need:+}
+
+[-The TinySynth is an eight-bit microcontroller that makes sounds. We&#39;ll need:-]
+- TinyProgrammer
+- [-Tiny45V-]{+ATTiny45/85+}
+- Coin Cell
+- [Paper Speaker](/posts/2013/4/1/speaker-paperish/)
+- Conductive Ink
+
+Getting up and playing with the Tiny is simple enough. Most of the default Arduino sketches work with the [-ATTIny-]{+ATTiny+} outt&#39;ve of the box. Some things will have to be tweaked, though, as the default Arduino pins don&#39;t necessarily map to anything useful on the Tiny--pin 13, which by default is connected to an LED on an Arduino board doesn&#39;t go anywhere on a Tiny:
+
+{{ macros.render_figure(&#39;&lt;img class=&#34;no-border&#34; src=&#34;/media/img/attiny45_85pinout.png&#34;/&gt;&#39;, &#34;Arduino-compatible pinout for Tiny45 (image courtesy of [David Mellis](http://hlt.media.mit.edu/?p=1695)).&#34;) }}
+
+The program that we&#39;ll be loading onto our Tiny&#39;s is a basic sound generation library I&#39;ve written. You can peruse the source over on [GitHub](https://github.com/samjacoby/tinysynth), and down a .zip of the necessary files here: [zip archive](https://github.com/samjacoby/tinysynth/archive/master.zip).
+
+To use,[-simply-] unzip the folder and open the &#34;tinysynth.ino&#34; file (you need to have Arduino installed).
+
+TinySynth has been preconfigured to have two touch-sensitive capacitive sensors and two LEDs, as well as a speaker output. See below:
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8616341819/&#34; title=&#34;IMG_4275 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8542/8616341819_38f4b4a9c7.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4275&#34;&gt;&lt;/a&gt;&#39;, &#34;`TOUCH1` triggers `LED1`, `TOUCH2` triggers `LED2`&#34;) }}
+
+The `RESET` pin is only used while the chip is being programmed. We could disable it, but it means that you&#39;d need some special hardware to ever program the chip again. `POWER` and `GND`, naturally enough, are connected to the positive and negative terminals of your power supply--in our case, a coin-cell [-battery.-]{+battery or what-have-you.+}
+
+[-### TinyProgrammer-]{+While we&#39;re programming the chip, we can test some of its functions -- but ultimately, we&#39;re going to making fancy-pants circuits outt&#39;ve of conductive ink. Below is a rough schematic of what the circuit looks like. The various symbols correspond to different components: batteries, LEDs, and so forth. Which is which? You decide!+}
+
+[-- TinyProgrammer ([SparkFun](https://www.sparkfun.com/products/11460))-]{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8623874872/&#34; title=&#34;IMG_4304 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8256/8623874872_e352d6b6f1.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4304&#34;&gt;&lt;/a&gt;&#39;, &#34;Your circuit doesn&#39;t need to look like this at all. These are just the connections.&#34;) }}+}
+
+[-The TinyProgrammer is a sweet little tool that vastly simplifies the programming of Atmel&#39;s ATTiny45/85 microcontrollers. The ATTiny can do just about everything-]{+Here&#39;s+} an [-Arduino can do (Atmel makes the ATmega168/32U4), but are much cheaper, smaller, and more easily embedded. If you want to make twenty-]{+example with a big ol&#39; gramophone cone sticking out. This uses a painted silver speaker (instead+} of[-something, it&#39;s-] a [-lot easier to get your hands on 20 ATTiny&#39;s than 20 Arduinos. [David Mellis](http://media.mit.edu/~mellis) designed this one.-]{+wound-wire speaker), which works, but without amplification, is very quiet!+}
+
+[-- [TinyProgrammer Tutorial](http://hlt.media.mit.edu/?p=1695)-]{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8465566076/&#34; title=&#34;Capactive touch button by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8233/8465566076_f70ec81291.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;Capactive touch button&#34;&gt;&lt;/a&gt;&#39;, &#34;Speakers need to be coiled in a single direction--so on the back of this sheet, there&#39;s a straight line leaving the center.&#34;) }}+}
+
+{+## &lt;a id=&#34;battery-holder&#34;&gt;&lt;/a&gt;Battery Holders+}
+{+Integrating &#34;hard&#34; components, like batteries and microcontrollers, with &#34;soft&#34; materials, like paper and textiles, is always difficult. Here&#39;s one way of creating battery a battery holder for a coin-cell battery, using the corner of a sheet of paper and a binder clip. +}
+
+{+Fold over the corner of a sheet of paper. It should completely and easily cover the battery.+}
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8623875732/&#34; title=&#34;IMG_4311 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8522/8623875732_a2e2d02511.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4311&#34;&gt;&lt;/a&gt;&#39;, &#39;&#39;) }}+}
+
+{+Using conductive ink, paint over the fold as shown in the black rectangles below. Because conductive paint doesn&#39;t crease well, it can sometimes be a good idea to replace those portions of your circuit with short lengths of copper tape ([SparkFun](https://www.sparkfun.com/products/10561). The configuration has to be relatively precise, because you don&#39;t want to short the battery. Position it with the (+) side up.+}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8623875978/&#34; title=&#34;IMG_4313 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8406/8623875978_d86d1c659b.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4313&#34;&gt;&lt;/a&gt;&#39;,&#39;&#39;) }}+}
+
+{+Fasten the folded over corner down over the battery with a binder clip.+}
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8622772695/&#34; title=&#34;IMG_4314 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8257/8622772695_aea218f794.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4314&#34;&gt;&lt;/a&gt;&#39;, &#39;&#39;) }}+}
+
+
+
+
+{+### &lt;a id=&#34;helpful-information&#34;&gt;&lt;/a&gt;Helpful Information+}
+{+[Jie Qi](http://technolojie.com/category/featured-projects/) has put up some useful information about making circuits using copper tape on the High-Low Tech [website](http://hlt.media.mit.edu/?p=2505).+}
+
+[-### Helpful Information-]
+- [Bare Conductive&#39;s Paper Battery Holder](http://www.bareconductive.com/paper-battery-holders)
+
+A really nice collection of elegant folded designs. Incorporating power into paper electronic projects has long been tricky, and these are some nice solutions. We&#39;ve long-used a binder clip and a coin-cell battery, which works pretty well too.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-04 20:28:41">2013-04-04 20:28:41</time>: <span class="message"> Adding (tenative) schedule.
+</span> <a class="link" href="#07fc32596cb6adc9ca78816bd9f8e133e544eb61" id="07fc32596cb6adc9ca78816bd9f8e133e544eb61">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/07fc32596cb6adc9ca78816bd9f8e133e544eb61">07fc32596cb6adc9ca78816bd9f8e133e544eb61</a> on GitHub.</pre>
+    <pre class="message">Adding (tenative) schedule.
+</pre>
+    <pre class="diff">## Surveys
+For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled out. There&#39;ll be paper copies available, but filling it out online is quicker and easier!
+
+- [Pre-Workshop [-Survey](http://#)-]{+Survey](https://www.surveymonkey.com/s/HXQLFJ2)+}
+- [Post-Workshop Survey](http://#)
+
+{+If you&#39;ve happened to stumble on this survey and *won&#39;t* be attending the workshop, make my life a little easier and don&#39;t fill it out! +}
+
+{+## Schedule (tentative)+}
+{+&lt;table&gt;+}
+{+    &lt;tr&gt;&lt;td&gt;**9:00** &lt;/td&gt;&lt;td&gt;Surveys!&lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**9:15** &lt;/td&gt;&lt;td&gt;Introductions (me, mostly)&lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**9:30** &lt;/td&gt;&lt;td&gt;How-to-make a Paper Speaker &lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**10:20** &lt;/td&gt;&lt;td&gt; &lt;span style=&#34;color: red&#34;&gt;Break&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**10:30** &lt;/td&gt;&lt;td&gt;Making circuits with Conductive Ink&lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**11:30** &lt;/td&gt;&lt;td&gt;A brief introduction to the ATTiny + TinyProgrammer (this might be ambitious)&lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**12:00** &lt;/td&gt;&lt;td&gt;&lt;span style=&#34;color:red&#34;&gt;Lunch &amp; Arduino-debugging&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**1:00** &lt;/td&gt;&lt;td&gt;Programming Blink. It&#39;s a miracle!&lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**1:15** &lt;/td&gt;&lt;td&gt;Programming TinySynth &lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**1:30** &lt;/td&gt;&lt;td&gt;Code overview&lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**1:45** &lt;/td&gt;&lt;td&gt;Make some Synths!&lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;tr&gt;&lt;td&gt;**4:45** &lt;/td&gt;&lt;td&gt;Fill out post-workshop survey&lt;/td&gt;&lt;/tr&gt;+}
+{+&lt;/table&gt;+}
+
+## Paper Speakers
+
+I&#39;ve written up the basics, gleaned from many-a-resource, here:</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-04 15:52:57">2013-04-04 15:52:57</time>: <span class="message"> Adding Karich&#39;s lovely projects.
+</span> <a class="link" href="#b868acb673c06fcb38767fa8ca5b8294cc625aa3" id="b868acb673c06fcb38767fa8ca5b8294cc625aa3">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/b868acb673c06fcb38767fa8ca5b8294cc625aa3">b868acb673c06fcb38767fa8ca5b8294cc625aa3</a> on GitHub.</pre>
+    <pre class="message">Adding Karich&#39;s lovely projects.
+</pre>
+    <pre class="diff">[Marcelo Coelho](http://www.cmarcelo.com/#/pulp-based-computing/) put together some particularly striking, insprirational examples, if a bit more involved than what we&#39;ll be making.
+
+{+[jckarich](http://www.karich.cl) has a number of gorgeous projects (some done right at home, in the [MIT Media Lab](http://media.mit.edu)):+}
+
+{+- [Printed + Handmade Headphones](http://www.karich.cl/?p=601)+}
+{+- [Dollar Bill Ghetto Blaster](http://www.karich.cl/?p=172)+}
+
+## TinySynth
+
+The TinySynth is an eight-bit microcontroller that makes sounds. We&#39;ll need:</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-04 11:59:20">2013-04-04 11:59:20</time>: <span class="message"> Adding details and links. Survey links are dead.
+</span> <a class="link" href="#c15f3eaa68b96b63cdea85ebf982207e56b3219c" id="c15f3eaa68b96b63cdea85ebf982207e56b3219c">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/c15f3eaa68b96b63cdea85ebf982207e56b3219c">c15f3eaa68b96b63cdea85ebf982207e56b3219c</a> on GitHub.</pre>
+    <pre class="message">Adding details and links. Survey links are dead.
+</pre>
+    <pre class="diff">---
+title: Drawing the Electric Synth
+summary: A workshop at SparkFun [-Electroncs-]{+Electronics.+}
+date: 2013-04-02 12:19:50
+---
+*This is a compendium of resources assembled for a workshop over the weekend of April 6 and 7 at SparkFun Electronics in Boulder, Colorado.*
+
+[-###-]{+##+} Workshop Description
+We’ll explore conductive inks and other materials to create unique, interactive musical instruments. Learn the basics of embedded microcontroller programming and circuit design, while crafting miniature synthesizers using a combination of electronics, programming, and art materials. For those interested, we can delve into the mysteries of FM sound generation and work on creating structed, pictorial representations of sound. No experience necessary—but you’ve got to love crafts, drawing, sound, and learning new ways of making electronics.
+
+[-###-]{+##+} Surveys
+For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled [-out:-]{+out. There&#39;ll be paper copies available, but filling it out online is quicker and easier!+}
+
+- [Pre-Workshop Survey](http://#)
+- [Post-Workshop Survey](http://#)
+
+[-### TinyProgrammer-]{+## Paper Speakers+}
+
+[-- TinyProgrammer ([SparkFun](https://www.sparkfun.com/products/11460))-]{+I&#39;ve written up the basics, gleaned from many-a-resource, here:+}
+
+[-The TinyProgrammer is a sweet little tool that vastly simplifies the programming of Atmel&#39;s ATTiny45/85 microcontrollers. The &#39;tinys&#39;, as they&#39;re affectionately called, can do just about everything an Arduino can do (Atmel makes the ATmega168/32U4), but are much cheaper, smaller, and for our purposes--much more easily embedded. [David Mellis](http://media.mit.edu/~mellis) designed this one.-]{+- [Speakers Paperish](http://localhost:8080/posts/2013/4/1/speaker-paperish)+}
+
+[-- [TinyProgrammer Tutorial](http://hlt.media.mit.edu/?p=1695)-]{+[Hannah Perner-Wilson](http://plusea.at) is a one-person armada. She has done a variety of gorgeous pieces:+}
+
+[-### Paper Speakers-]{+- [Paper Speaker Tutorial](http://hlt.media.mit.edu/?p=1372) at High-Low Tech. +}
+{+- [Sea-shell Headphones](http://www.plusea.at/?p=4596)+}
+
+[-I&#39;ve written up the basics, gleaned from many-a-resource, in-]{+[Marcelo Coelho](http://www.cmarcelo.com/#/pulp-based-computing/) put together some particularly striking, insprirational examples, if+} a [-post, here:-]{+bit more involved than what we&#39;ll be making.+}
+
+[-- [Speakers Paperish](http://localhost:8080/posts/2013/4/1/speaker-paperish)-]{+## TinySynth+}
+
+[-[Hannah Perner-Wilson](http://plusea.at), as always,-]{+The TinySynth+} is [-a one-woman army. She has done a variety of gorgeous pieces:-]{+an eight-bit microcontroller that makes sounds. We&#39;ll need:+}
+{+- TinyProgrammer+}
+{+- Tiny45V+}
+{+- Coin Cell+}
+{+- [Paper Speaker](/posts/2013/4/1/speaker-paperish/)+}
+{+- Conductive Ink+}
+
+[-- [Paper Speaker Tutorial](http://hlt.media.mit.edu/?p=1372)-]{+Getting up and playing with the Tiny is simple enough. Most of the default Arduino sketches work with the ATTIny outt&#39;ve of the box. Some things will have to be tweaked, though, as the default Arduino pins don&#39;t necessarily map to anything useful+} on the [-High-Low Tech Site -]
+[-- [Sea-shell Headphones](http://www.plusea.at/?p=4596)-]{+Tiny--pin 13, which by default is connected to an LED on an Arduino board doesn&#39;t go anywhere on a Tiny:+}
+
+[-[Marcelo Coelho](http://www.cmarcelo.com/#/pulp-based-computing/) put together some particularly striking, insprirational examples, if a bit more involved than what-]{+{{ macros.render_figure(&#39;&lt;img class=&#34;no-border&#34; src=&#34;/media/img/attiny45_85pinout.png&#34;/&gt;&#39;, &#34;Arduino-compatible pinout for Tiny45 (image courtesy of [David Mellis](http://hlt.media.mit.edu/?p=1695)).&#34;) }} +}
+
+{+The program that+} we&#39;ll be [-making.-]{+loading onto our Tiny&#39;s is a basic sound generation library I&#39;ve written. You can peruse the source over on [GitHub](https://github.com/samjacoby/tinysynth), and down a .zip of the necessary files here: [zip archive](https://github.com/samjacoby/tinysynth/archive/master.zip).  +}
+
+{+To use, simply unzip the folder and open the &#34;tinysynth.ino&#34; file (you need to have Arduino installed).+}
+
+[-## Tiny Synth-]{+TinySynth has been preconfigured to have two touch-sensitive capacitive sensors and two LEDs, as well as a speaker output. See below:+}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8616341819/&#34; title=&#34;IMG_4275 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8542/8616341819_38f4b4a9c7.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_4275&#34;&gt;&lt;/a&gt;&#39;, &#34;`TOUCH1` triggers `LED1`, `TOUCH2` triggers `LED2`&#34;) }}+}
+
+{+The `RESET` pin is only used while the chip is being programmed. We could disable it, but it means that you&#39;d need some special hardware to ever program the chip again. `POWER` and `GND`, naturally enough, are connected to the positive and negative terminals of your power supply--in our case, a coin-cell battery.  +}
+
+{+### TinyProgrammer+}
+
+{+- TinyProgrammer ([SparkFun](https://www.sparkfun.com/products/11460))+}
+
+{+The TinyProgrammer is a sweet little tool that vastly simplifies the programming of Atmel&#39;s ATTiny45/85 microcontrollers. The ATTiny can do just about everything an Arduino can do (Atmel makes the ATmega168/32U4), but are much cheaper, smaller, and more easily embedded. If you want to make twenty of something, it&#39;s a lot easier to get your hands on 20 ATTiny&#39;s than 20 Arduinos. [David Mellis](http://media.mit.edu/~mellis) designed this one. +}
+
+{+- [TinyProgrammer Tutorial](http://hlt.media.mit.edu/?p=1695)+}
+
+### Helpful Information
+- [Bare Conductive&#39;s Paper Battery Holder](http://www.bareconductive.com/paper-battery-holders)
+@@ -44,6 +65,4 @@ A really nice collection of elegant folded designs. Incorporating power into pap
+
+- [ATTiny Datasheet](http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
+
+This is not really that [-useful--a-]{+useful for our purposes here--a+} hundred-odd pages of technical specifications. But it&#39;s interesting if you want to delve deeper into how people actually _understand_ these things. And the pin diagram is on the second page.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-03 10:29:07">2013-04-03 10:29:07</time>: <span class="message"> Come ye, to the internet, and learneth.
+</span> <a class="link" href="#3b9b1c6dc25e8185d4b9a5222276d70da2be92d3" id="3b9b1c6dc25e8185d4b9a5222276d70da2be92d3">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3b9b1c6dc25e8185d4b9a5222276d70da2be92d3">3b9b1c6dc25e8185d4b9a5222276d70da2be92d3</a> on GitHub.</pre>
+    <pre class="message">Come ye, to the internet, and learneth.
+</pre>
+    <pre class="diff">@@ -0,0 +1,49 @@
+{+---+}
+{+title: Drawing the Electric Synth+}
+{+summary: A workshop at SparkFun Electroncs+}
+{+date: 2013-04-02 12:19:50+}
+{+---+}
+{+*This is a compendium of resources assembled for a workshop over the weekend of April 6 and 7 at SparkFun Electronics in Boulder, Colorado.*+}
+
+{+### Workshop Description+}
+{+We’ll explore conductive inks and other materials to create unique, interactive musical instruments. Learn the basics of embedded microcontroller programming and circuit design, while crafting miniature synthesizers using a combination of electronics, programming, and art materials. For those interested, we can delve into the mysteries of FM sound generation and work on creating structed, pictorial representations of sound. No experience necessary—but you’ve got to love crafts, drawing, sound, and learning new ways of making electronics.+}
+
+{+### Surveys+}
+{+For our ongoing research at [High-Low Tech](http://hlt.media.mit.edu) and my own thesis, there is a pre-and-post workshop survey that should be filled out: +}
+
+{+- [Pre-Workshop Survey](http://#)+}
+{+- [Post-Workshop Survey](http://#)+}
+
+{+### TinyProgrammer+}
+
+{+- TinyProgrammer ([SparkFun](https://www.sparkfun.com/products/11460))+}
+
+{+The TinyProgrammer is a sweet little tool that vastly simplifies the programming of Atmel&#39;s ATTiny45/85 microcontrollers. The &#39;tinys&#39;, as they&#39;re affectionately called, can do just about everything an Arduino can do (Atmel makes the ATmega168/32U4), but are much cheaper, smaller, and for our purposes--much more easily embedded. [David Mellis](http://media.mit.edu/~mellis) designed this one. +}
+
+{+- [TinyProgrammer Tutorial](http://hlt.media.mit.edu/?p=1695)+}
+
+{+### Paper Speakers+}
+
+{+I&#39;ve written up the basics, gleaned from many-a-resource, in a post, here: +}
+
+{+- [Speakers Paperish](http://localhost:8080/posts/2013/4/1/speaker-paperish)+}
+
+{+[Hannah Perner-Wilson](http://plusea.at), as always, is a one-woman army. She has done a variety of gorgeous pieces:+}
+
+{+- [Paper Speaker Tutorial](http://hlt.media.mit.edu/?p=1372) on the High-Low Tech Site +}
+{+- [Sea-shell Headphones](http://www.plusea.at/?p=4596)+}
+
+{+[Marcelo Coelho](http://www.cmarcelo.com/#/pulp-based-computing/) put together some particularly striking, insprirational examples, if a bit more involved than what we&#39;ll be making.+}
+
+{+## Tiny Synth+}
+
+{+### Helpful Information+}
+{+- [Bare Conductive&#39;s Paper Battery Holder](http://www.bareconductive.com/paper-battery-holders)+}
+
+{+A really nice collection of elegant folded designs. Incorporating power into paper electronic projects has long been tricky, and these are some nice solutions. We&#39;ve long-used a binder clip and a coin-cell battery, which works pretty well too.  +}
+
+{+- [ATTiny Datasheet](http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf) +}
+
+{+This is not really that useful--a hundred-odd pages of technical specifications. But it&#39;s interesting if you want to delve deeper into how people actually _understand_ these things. And the pin diagram is on the second page.+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

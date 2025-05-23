@@ -1,0 +1,67 @@
+---
+title: Rolling with Backbone + Marionette 
+summary: Learning something new about structuring web applications.
+date: 2015-05-05 20:26:57
+track: True
+exclude: False
+---
+{% block post %}
+{% mark excerpt %}
+Over at [Formlabs](http://formlabs.com), we've been putting together a new frontend application using Backbone + Marionette. I've done a fair amount with Backbone, over the years, but have never really grasped it. I mean, I understand the basics, but the lack of prescriptive patterns has always troubled me. I *like* to know the right way of doing things, so the free-and-easy choices that Backbone presents has always been a bit challenging. It's not that I mind formulating my own patterns, it's that design-patterns can provide a window into the choices that an author's intentions. It helps explain *why* something is designed the way it is, rather than just how. I find that useful.  
+{% endmark %}
+
+For that reason, despite the abundance of resource:, getting started with Backbone and Marionette has been no less challenging. Thankfully, some Marionette folks have put some videos online that get a little into the modular event-driven philosophies behind what they're about.  
+
+- [The Tools & Patterns for Building Large-scale Backbone Applications][0] (Brian Mann)
+- [Building Modular & Component Driven Architecture in Backbone.js & Marionette.js][1] (Jeremy Fairbank)
+- [Marionette: The Backbone Framework][2] (James Smith)
+
+I like to start with structure.[^structure] I've roughly followed the schematic that outlined above, starting with one simple guiding principle—one file, one responsibility. This can be onerous (150-odd files for a modest application), but as complexity has increased, it's meant that it's simple to add (and remove) functionality. A module might be roughly-organized like so, depending on the overall functionality:
+
+<pre>
+  user_settings
+        ├── user_settings_app.js
+        ├── edit
+        │   ├── user_settings_edit.js
+        │ ├── templates
+           │   └── user_edit_list.hbs
+          │   └── views
+          │       └── user_edit_view.js
+        ├── list
+        │   ├── user_settings_list.js
+        │   ├── templates
+        │   │   ├── user_item.hbs
+        │   │   ├── user_list.hbs
+        │   │   └── user_list_layout.hbs
+        │   └── views
+        │       └── user_list_view.js
+        ├── new
+        │   ├── user_settings_new.js
+        │   └── views
+        │       └── user_new_view.js
+        └── regions
+            └── user_dialog.js
+</pre>
+
+
+It's not as bad as it looks. The `user_settings_app.js` is the over-all showrunner, but does very little. As a sub-app, it only delegates events between the various controllers and listens to global events from other modules.[^radio] , in this case, the files `user_settings_edit.js`, `user_settings_list.js`, and `user_settings_list.js`. Let's call these modules *functional controllers*. They control the different functions of the sub-application.  
+
+Each functional controller furnishes the requirements necessary for rendering it's own particular view. This is where all of the messy bits go. In my case, that means fetching the relevant models and triggering other events that require *other* sub-applications to take action that are necessary for drawing the overall view.[^models] 
+
+Finally comes the view itself, which is only really concerned with interacting directly with the DOM, capturing user-interactions, and triggering the appropriate events so that the appropriate controller (or sub-app), can respond. Though view itself includes the template, which isn't much more than a small snippet of javascript with a few variables mixed in (we've used Handlebars--the built-in underscore dependency would probably have made more sense). 
+
+<object data="/media/img/backbone-diagram.svg" type="image/svg+xml"></object>
+
+This, of course, is just one sub-application among many. Any larger web-application will be a constellation of interconnected modules—some handling the basics of user creation, editing, and display (like above). Others, devoted to business logic, may never be indivually routable, but only called upon to say, process a set of data.  
+
+What I've found nice about this construction, is that though sometimes individual sub-applications can feel over-engineered (application -> controller -> view -> template), for fairly simple functionality like a login/logout pane, that level of complexity is fixed and well-contained. 
+
+[0]: https://www.youtube.com/watch?v=qWr7x9wk6_c
+[1]: https://www.youtube.com/watch?v=PrQSpdWkN6Q
+[2]: https://www.youtube.com/watch?v=EvQnntaqVdE   
+
+[^structure]: It can definitely slow you down, but it yields enormous dividends as complexity increases. I typically refactor fairly often, and a good structure means that you can iteratively refactor over your file system.
+[^radio]: I'm using the [Backbone.Radio](https://github.com/marionettejs/backbone.radio) library (which used to be rolled into Marionette) to help make that happen. 
+[^models]: It's worth noting that in the schematic illustrated above, models and collections (entities), are defined else where and included as needed. 
+{% endblock %}
+

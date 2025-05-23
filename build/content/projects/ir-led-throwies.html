@@ -1,0 +1,93 @@
+---
+title: Infra-Red LED Throwies
+summary: Use an ordinary remote control to blink LED throwies on and off. 
+date: 2012-08-16 10:54:13
+thumbnail: ir_throwie.jpg 
+tags:
+    - IR Throwies
+track: True
+---
+{% mark excerpt %}
+I've been toying with with ideas for a quick, easy, scalable project for a large group of teenagers to do together for the Boston [ICA's](http://icaboston.org) Teen Night. 
+
+I've always really liked the little [LED Throwies](http://www.instructables.com/id/LED-Throwies/) from the fine people over at [Graffiti Research Lab](http://graffitiresearchlab.com/), *so* here's an updated version that allows for the little guys to be controlled by a regular old remote control. It's a little startling how simple the whole operation is.  
+{% endmark %}
+
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/40358770@N00/7735310028/" title="DSC_0203 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8287/7735310028_7885198dbc.jpg" width="500" height="333" alt="DSC_0203"></a>', "Looking alright.") }}
+
+## Material
+What we need: not much. If you're interested, I drew up a [PDF hand-out]({{ media_url('files/ir_throwie.pdf') }}) that details some of this. 
+
+- CR2032 Battery [[DigiKey](http://www.digikey.com/product-detail/en/CR2032/P189-ND/31939)]
+
+This is what lives inside of millions of watches, all over this fine land. And what keeps the time in your computer accurate, and a bunch of other things. You can get them--for a small fortune--at a drugstore. Someone told me that Ikea was now selling them at close to wholesale prices.
+
+- A Regular LED. [[SparkFun](https://www.sparkfun.com/products/533)][[DigiKey](http://www.digikey.com/product-detail/en/C503B-BCS-CV0Z0461/C503B-BCS-CV0Z0461-ND/1922944)]
+
+Pretty much anything like this will do. Available at RadioShack, Sparkfun, or wherever fine, finger-friendly electronics are sold.
+
+- 38KHz Infrared Receiver [[SparkFun](https://www.sparkfun.com/products/10266)][[Digikey](http://www.digikey.com/scripts/dksearch/dksus.dll?vendor=0&keywords=751-1390-5-ND)]
+
+This is what makes the magic happen. There are a number of these out there--the frequency, 38KHz, is an industry-standard--so anything like that should work fine. This model has worked well for me and I tried a handful. These are more or less the little fellows that live inside of your TV, or radio, or anything, really, that's IR remote-controlled. Look for ones with three-legs.  
+
+- Magnet (optional)
+
+The 'classic' LED throwie has a magnet, so it can be chucked at anything metal and will stick. Certainly, you can do the same with this. I didn't, but you certainly could. 
+
+- Scotch tape
+
+For wrapping the whole shebang together.
+
+- Remote Control
+
+Any one should do. I just grabbed one for a television that was lying around.
+
+<a href="http://www.flickr.com/photos/40358770@N00/7784243140/" title="DSC_0333 by s_jacoby, on Flickr"><img src="http://farm8.staticflickr.com/7127/7784243140_9383a38a50.jpg" width="500" height="333" alt="DSC_0333"></a>
+
+## Step 1
+Bend the legs of the IR Receiver and of the LED apart, so that they can span the battery easily:
+<div>
+    <section class="side-by-side">
+        <a href="http://www.flickr.com/photos/40358770@N00/7784243814/" title="IMG_1186 by s_jacoby, on Flickr"><img src="http://farm8.staticflickr.com/7261/7784243814_f91ef8501e_n.jpg" width="320" height="240" alt="IMG_1186"></a>
+    </section>
+    <section class="side-by-side">
+        <a href="http://www.flickr.com/photos/40358770@N00/7784244454/" title="IMG_1199 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8440/7784244454_31ced29ae5_n.jpg" width="320" height="240" alt="IMG_1199"></a>
+    </section>
+</div>
+
+## Step 2
+Find the _ground_ pin of LED--the shorter one--and the _out_ pin of the receiver (if you use the same model that I did, it'll be on the left when the "domed" part is facing you), and twist them firmly together. Don't be shy. Twist em'. You can always redo it.   
+<a href="http://www.flickr.com/photos/40358770@N00/7784245022/" title="IMG_1237 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8435/7784245022_467246ebf6.jpg" width="500" height="375" alt="IMG_1237"></a>
+
+## Step 3
+Time to throw that battery in there. That means connecting up the legs, to the *positive (+)* and *negative (-)* sides of the battery. Hold your breath.
+
+The *postitive (+)* lead of the LED--that is, the long one--and the *positive (+)* lead of the receiver--the one on the middle--should touch the *positive (+)* side of the battery. There should be a user-friendly *+* on the battery to help you out with that, but you shouldn't burn anything if you do it wrong. 
+
+<a href="http://www.flickr.com/photos/40358770@N00/7784245772/" title="IMG_1250 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8298/7784245772_92aac85b3d.jpg" width="500" height="375" alt="IMG_1250"></a>
+
+ Something, of course, needs to head to the back of the battery, to the *minus (-)* side to complete the circuit. Both legs of the LED are busy--so take the free leg of the IR Receiver--the on the far right--and bend it around to the back and hold it against the battery. Make sure that it doesn't make contact with anything else. 
+
+ Hold that sucker tight with your fingers. You're pretty much done. If you've got a remote handy, now's the time to point it at your gizmo and press a button to make sure you've got it figured right. **Good**?  
+ 
+### Trouble?
+ 
+Nothing works for the first time. That's just a rule. 
+
+ Try a couple buttons if the first one doesn't seem to work--depending on the remote, some modes might be disabled (say, TV guide buttons when you're in cable-mode) and your remote won't be firing. Then check that all of your leads (legs) are doing what you think they're doing and connected where you think they're connected, and that you haven't inadvertantly shorted anything--say, across the lip of the battery.
+
+Once you feel good about the operation, wrap it all up in tape -- and you're ready to throw-in a magnet, integrate it into a project, or whatever. It starts getting really good when you put together a couple hundred of these, which will all blink synchronously when you fire off. 
+<a href="http://www.flickr.com/photos/40358770@N00/7784246988/" title="IMG_1293 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8446/7784246988_26ecbed8db.jpg" width="500" height="375" alt="IMG_1293"></a>
+
+## Step 4 // Rejoice.
+
+It's like a TV. A one-pixel TV.
+<a href="http://www.flickr.com/photos/40358770@N00/7784247614/" title="IMG_1262 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8283/7784247614_41aa4e6f8c.jpg" width="500" height="380" alt="IMG_1262"></a>
+
+
+
+
+
+
+
+

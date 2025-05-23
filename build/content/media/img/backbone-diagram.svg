@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="641px" height="378px" viewBox="0 0 641 378" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>Backbone App Diagram</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M123.5,184.5 L488.5,184.5" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <rect id="Rectangle-5" fill="#D8D8D8" sketch:type="MSShapeGroup" x="450" y="-125" width="288" height="623"></rect>
+        <rect id="Rectangle-1-Copy-5" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="234" width="125" height="50"></rect>
+        <g id="Line">
+            <use stroke="none" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+            <use stroke="#979797" stroke-width="1" stroke-linecap="square" xlink:href="#path-1"></use>
+        </g>
+        <path id="Line-decoration-1" d="M477.7,187.5 L488.5,184.5 L477.7,181.5"></path>
+        <rect id="Rectangle-1-Copy-2" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="149" y="158.5" width="125" height="50"></rect>
+        <rect id="Rectangle-1-Copy-3" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="288" y="159" width="125" height="50"></rect>
+        <rect id="Rectangle-1-Copy" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="86" width="415" height="50"></rect>
+        <text id="User-Sub-app" sketch:type="MSTextLayer" font-family="Gill Sans MT" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="172" y="114.175293">User Sub-app</tspan>
+        </text>
+        <text id="Edit-User" sketch:type="MSTextLayer" font-family="Gill Sans MT" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="323" y="188">Edit User</tspan>
+        </text>
+        <text id="New-User" sketch:type="MSTextLayer" font-family="Gill Sans MT" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="179.5" y="188">New User</tspan>
+        </text>
+        <rect id="Rectangle-1" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="160" width="125" height="50"></rect>
+        <text id="List-Users" sketch:type="MSTextLayer" font-family="Gill Sans MT" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="28" y="188">List Users</tspan>
+        </text>
+        <text id="List-Template" sketch:type="MSTextLayer" font-family="Gill Sans MT" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="24" y="262">List Template</tspan>
+        </text>
+        <rect id="Rectangle-1-Copy-6" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="149.5" y="234" width="125" height="50"></rect>
+        <text id="New-Template" sketch:type="MSTextLayer" font-family="Gill Sans MT" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="167" y="261.5">New Template</tspan>
+        </text>
+        <rect id="Rectangle-1-Copy-7" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="287.5" y="234" width="125" height="50"></rect>
+        <text id="Edit-Template" sketch:type="MSTextLayer" font-family="Gill Sans MT" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="311.5" y="262">Edit Template</tspan>
+        </text>
+        <rect id="Rectangle-1-Copy-4" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="489" y="160" width="113" height="50"></rect>
+        <text id="User-Model" sketch:type="MSTextLayer" font-family="Gill Sans MT" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="512" y="188">User Model</tspan>
+        </text>
+        <g id="Group" sketch:type="MSLayerGroup" transform="translate(502.000000, 231.000000)" stroke="#979797">
+            <path d="M0,4.56618991 L0,44.7604213 C0,47.3276137 19.0278981,49.5661899 42.5,49.5661899 L42.5,49.5661899 C65.9721019,49.5661899 85,47.3276137 85,44.5661899 L85,4.56361983" id="Path-1" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            <path d="M42.5,10 C65.9721019,10 85,7.76142375 85,5 C85,2.23857625 65.9721019,0 42.5,0 C19.0278981,0 0,2.23857625 0,5 C0,7.76142375 19.0278981,10 42.5,10 Z" id="Oval-1-Copy" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            <path id="Path-3" sketch:type="MSShapeGroup" d=""></path>
+            <path id="Path-3-Copy" sketch:type="MSShapeGroup"></path>
+        </g>
+        <path d="M545.5,210.5 L545.5,228.5" id="Line" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path id="Line-decoration-1" d="M542.5,217.7 L545.5,228.5 L548.5,217.7" stroke="#979797" stroke-linecap="square"></path>
+        <path d="M55,210.5 L55,231.5" id="Line-Copy" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path id="Line-Copy-decoration-1" d="M52,220.7 L55,231.5 L58,220.7" stroke="#979797" stroke-linecap="square"></path>
+        <path d="M210.5,210.5 L210.5,231.5" id="Line-Copy-2" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path id="Line-Copy-2-decoration-1" d="M207.5,220.7 L210.5,231.5 L213.5,220.7" stroke="#979797" stroke-linecap="square"></path>
+        <path d="M54.5,136 L54.5,157.5" id="Line-Copy-4" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path id="Line-Copy-4-decoration-1" d="M51.5,146.7 L54.5,157.5 L57.5,146.7" stroke="#979797" stroke-linecap="square"></path>
+        <path d="M208.5,136 L208.5,155.5" id="Line-Copy-5" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path id="Line-Copy-5-decoration-1" d="M205.5,144.7 L208.5,155.5 L211.5,144.7" stroke="#979797" stroke-linecap="square"></path>
+        <path d="M355.5,136 L355.5,157" id="Line-Copy-6" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path id="Line-Copy-6-decoration-1" d="M352.5,146.2 L355.5,157 L358.5,146.2" stroke="#979797" stroke-linecap="square"></path>
+        <path d="M354,210 L354,231" id="Line-Copy-3" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path id="Line-Copy-3-decoration-1" d="M351,220.2 L354,231 L357,220.2" stroke="#979797" stroke-linecap="square"></path>
+        <text id="Router-&amp;-other-Sub-a" sketch:type="MSTextLayer" font-family="Gill Sans MT" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="7" y="24">Router &amp; other Sub-apps</tspan>
+        </text>
+        <text id="Models-&amp;-Collections" sketch:type="MSTextLayer" font-family="Gill Sans MT" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="459" y="24">Models &amp; Collections</tspan>
+        </text>
+        <path d="M53.5,83.5 L53.5,29.5" id="Line" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path id="Line-decoration-1" d="M56.5,72.7 L53.5,83.5 L50.5,72.7" stroke="#979797" stroke-linecap="square"></path>
+        <path id="Line-decoration-2" d="M56.5,40.3 L53.5,29.5 L50.5,40.3" stroke="#979797" stroke-linecap="square"></path>
+    </g>
+</svg>

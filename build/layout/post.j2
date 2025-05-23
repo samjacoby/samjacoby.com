@@ -1,0 +1,51 @@
+{% extends "base.j2" %}
+
+{% block scripts_off %}
+<script type="text/javascript" src="{{ media_url('js/sh/shCore.js') }}"></script>
+<script type="text/javascript" src="{{ media_url('js/sh/shBrushDiff.js') }}"></script>
+<link type="text/css" rel="stylesheet" href="{{ media_url('css/shCoreDefault.css') }}"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ media_url('js/app.js') }}"></script>
+{% endblock %}
+
+{% block menu %}
+    <nav>
+    {{ macros.render_main_menu() }}
+    </nav>
+{% endblock %}
+
+{%- block content -%}
+{% mark post -%}
+<article class="post">
+    <header>
+        <h2 class="title">{{ resource.meta.title }}</h2> 
+        {% if resource.meta.subtitle %}
+        <h3 class="subtitle">{{ resource.meta.subtitle }}</h3>
+        {% endif %}
+        {% if resource.meta.date %}
+        <p class="datetime">
+        {{ macros.render_date( resource.meta.date ) }}
+        <span class="updated">[{{ macros.render_updated( resource.meta.created, resource.meta.modified )}}]</span>
+        </p>
+        {% endif %}
+    </header>
+    <section>
+        {% mark content -%}
+        {% filter markdown|typogrify -%}
+        {% block post %}{% endblock %}
+        {%- endfilter %}
+        {%- endmark %}
+    </section>
+    <footer>
+    {% include "assets/render_related_posts.j2" %}
+    {% include "assets/render_gittracker.j2" %}
+    </footer>
+ </article>
+{% if site.config.mode == "nuthin" %}
+{% include media_url('js/disqus.js') %}
+{% endif %}
+{%- endmark -%}
+{% endblock -%}

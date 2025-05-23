@@ -1,0 +1,73 @@
+{% macro render_figure(image, caption) %}
+<figure class="with-caption">
+    {{ image }} 
+    <figcaption>{{ caption | markdown }}</figcaption>
+</figure>
+{% endmacro %}
+
+{% macro render_footnote(target, identifier, content)%}
+{% if not content %}
+<sup><a id="{{ target }}-mark" href="#{{ target }}-note">{{ identifier }}</a></sup>
+{% else %}
+{% markdown %}
+<div id="{{ target }}-note" class="footnote">{{ identifier }}. {{ content|markdown }}<a class="footnote-note-number" href="#{{ target }}-mark">↩</a></div>
+{% endmarkdown %}
+{% endif %}
+{% endmacro %}
+
+{% macro render_class(class='') %}
+class="{{ class }}"
+{% endmacro %}
+
+{% macro render_title() %}
+{% if not res.meta.exclude %}
+{% if res.meta.title %}
+[{{ res.meta.title }}]({{ res.full_url }})
+{% else %}
+[{{ res.slug|capitalize|replace("-"," ") }}]({{ res.full_url }})
+{% endif %}
+{% endif %}
+{% endmacro %}
+
+{% macro render_date(date=false) -%}
+    {% if date %}Posted <time class="timeago" datetime="{{ date }}" pubdate>{{ date }}</time>.{% endif %} 
+{% endmacro %}
+
+{% macro render_updated(date=false, updated) -%}
+    {% if updated and date != updated %}Last updated <time class="timeago" datetime="{{ updated }}" pubdate>{{ updated }}</time>.{% endif %} 
+{% endmacro %}
+
+{% macro render_main_menu() -%}
+
+{# Set menu item selected if the current resource matches the item in the
+   site's config file or set "Advanced topics" selected for any resources
+   that have the "advanced" folder as their parent.
+#}
+
+{% for menu_item in menu -%}
+    <div class="wrapper"><h2><a {% if (menu_item.key == resource.meta.category) or
+                 (menu_item.title == "Advanced topics"
+                  and resource.node.name == "advanced")
+            %}class="selected"{% endif -%}
+            href="{{ content_url(menu_item.url) }}">{{ menu_item.title }}</a></h2></div>
+{%- endfor %}
+{%- endmacro %}
+
+{# Advanced topics macro. Renders navigation at the end of the article. #}
+
+{% macro render_bottom_article_nav() %}
+<div class="bottom_article_nav">
+{% if resource.next_by_index is not none -%}
+    <div class="next"><a href="{{ resource.next_by_index.full_url }}">
+    {{ resource.next_by_index.meta.title_ending|replace("| ", "") }}</a>
+    &gt;</div>
+{%- endif %}
+
+
+{% if resource.prev_by_index is not none -%}
+    <div class="prev">&lt; <a href="{{ resource.prev_by_index.full_url }}">
+    {{ resource.prev_by_index.meta.title_ending|replace("| ", "") }}</a>
+    </div>
+{%- endif %}
+</div>
+{% endmacro %}

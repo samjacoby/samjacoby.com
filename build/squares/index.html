@@ -1,0 +1,75 @@
+<html land="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <style>
+       body, html {
+        margin: 0;
+        padding: 0;
+        overflow: auto; 
+        -webkit-overflow-scrolling: touch;   
+      }
+      #spice {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      #library a.selected {
+        color: red;
+        text-decoration: underline;
+      }
+
+      #control {
+        position: absolute;
+        top: 20px;
+      }
+
+      #library {
+        position: absolute;
+        top:60px;
+      }
+
+      #library a {
+        display: block;
+        padding-left: 10px;
+        font-family: "Futura", sans-serif;
+        color: grey;
+      }
+
+      #control a {
+        padding-left: 10px;
+        font-family: "Futura", sans-serif;
+        color: grey;
+      }
+
+      #library a:hover, #control a:hover {
+        color: red; 
+        cursor: pointer;
+      }
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 480px) {
+      #control a {
+        font-size: 4em; 
+        padding-left: 1em;
+      }
+
+    }
+    </style>
+  <script src="https://cdn.firebase.com/js/client/2.1.0/firebase.js"></script>
+  </head>
+  <body>
+    <canvas id="spice">
+        Sorry, your browser doesn't support the &lt;canvas&gt; element.
+    </canvas>
+    <menu id="control">
+      <a id="save" type="button">Save</a>
+      <a id="clear" type="button">Clear</a>
+    </menu>
+    <menu id="library">
+    </menu>
+  </body>
+  <script src="squares.js"></script>
+</html>

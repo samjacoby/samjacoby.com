@@ -1,0 +1,6 @@
+extends: post.j2
+category: printing 
+default_block: post
+class: listing
+title: Printing
+track: True

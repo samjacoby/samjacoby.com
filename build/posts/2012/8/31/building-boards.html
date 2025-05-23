@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | Building Boards</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">Building Boards</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2012-08-31 10:33:23" pubdate>2012-08-31 10:33:23</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2015-03-02 21:47:19" pubdate>2015-03-02 21:47:19</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p>My circuit board order came in &#8212; it&#8217;s always astonishing how tiny the things are, these boards are about the size of two postage stamps, side-by-side. The &#8220;barebones&#8221; option from Advanced Circuits is a pretty good deal too. These cost $8.90 apiece, which is pretty reasonable. I know that <a href="http://apccircuits.com"><span class="caps">APC</span> Circuits</a> has really quick turn-around for boards with solder mask and such, but I didn&#8217;t need it. I&#8217;m mostly proud for remembering not to pour a groundplane, as it makes it a pain to solder. 
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/7900310464/" title="DSC_0359 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8318/7900310464_b9102dd273.jpg" width="500" height="333" alt="DSC_0359"></a> 
+    <figcaption><p>Nice <span class="amp">&amp;</span> pretty&nbsp;like.</p></figcaption>
+</figure></p>
+<p>I used a bunch of <code>0603</code> resistors to provide the loads on the capacitive pads (those rectangles along the top). Those suckers are small. What&#8217;s all the more astonishing, is that there is yet a <em>smaller</em> size, 0402, which is about the size of a grain of sand. And Brian was telling me that some special-purpose boards can have the passive elements like those baked right into the various&nbsp;layers. </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/7900311646/" title="0603 Resistor by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8310/7900311646_930af5efac.jpg" width="500" height="333" alt="0603 Resistor"></a> 
+    <figcaption><p>Resistor + Finger. Mostly&nbsp;finger.</p></figcaption>
+</figure>
+
+<p>I had to catch a flight out to <span class="caps">LA</span>&#8212;though it was delayed 2 hours&#8212;but I managed to throw together a board to bring with, so I could do some work on the plane (of course, I ended up not doing any). After puzzling for a minute why the <code>FTDI</code> programming only worked the first time after burning the Arduino bootloader, I realized that I hadn&#8217;t put in the auto-reset capacitor between the <code>DTS</code> pin of and the <code>RST</code> line. It works the first, because the bootloader itself holds the chip in reset (thanks, <a href="http://web.media.mit.edu/~mellis/">Dave</a>). </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/7900312620/" title="TapClip v.2 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8321/7900312620_42e83107db.jpg" width="500" height="333" alt="TapClip v.2"></a> 
+    <figcaption><p>I am still learning about&nbsp;f-stops.</p></figcaption>
+</figure>
+
+<p><strong>Update</strong></p>
+<p>I soldered on the toothless alligator clips today (what gems! [<a href="http://www.newark.com/silvertronic/502008/toothless-steel-alligator-clip/dp/82R5349">Newark</a>]) and drew up an aquatic sketch to have some examples to show folks for the workshop I&#8217;ll be&nbsp;doing.</p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/7929989432/" title="DSC_0426 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8451/7929989432_54a77a2a56.jpg" width="500" height="333" alt="DSC_0426"></a> 
+    <figcaption><p>Under the&nbsp;sea.</p></figcaption>
+</figure>    </section>
+    <footer>
+        <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2015-03-02 21:47:19">2015-03-02 21:47:19</time>: <span class="message"> Updating layout for new blocks.
+</span> <a class="link" href="#3a8c3faf3cf2ac8144b1050f4c387551018b567b" id="3a8c3faf3cf2ac8144b1050f4c387551018b567b">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3a8c3faf3cf2ac8144b1050f4c387551018b567b">3a8c3faf3cf2ac8144b1050f4c387551018b567b</a> on GitHub.</pre>
+    <pre class="message">Updating layout for new blocks.
+</pre>
+    <pre class="diff">date: 2012-08-31 10:33:23
+track: True
+---
+{+{% block post %}+}
+{% mark excerpt %}
+My circuit board order came in -- it&#39;s always astonishing how tiny the things are, these boards are about the size of two postage stamps, side-by-side. The &#34;barebones&#34; option from Advanced Circuits is a pretty good deal too. These cost $8.90 apiece, which is pretty reasonable. I know that [APC Circuits](http://apccircuits.com) has really quick turn-around for boards with solder mask and such, but I didn&#39;t need it. I&#39;m mostly proud for remembering not to pour a groundplane, as it makes it a pain to solder.
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/7900310464/&#34; title=&#34;DSC_0359 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8318/7900310464_b9102dd273.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;DSC_0359&#34;&gt;&lt;/a&gt;&#39;,&#34;Nice &amp; pretty like.&#34;) }}
+@@ -23,3 +24,4 @@ I had to catch a flight out to LA--though it was delayed 2 hours--but I managed
+I soldered on the toothless alligator clips today (what gems! [[Newark](http://www.newark.com/silvertronic/502008/toothless-steel-alligator-clip/dp/82R5349)]) and drew up an aquatic sketch to have some examples to show folks for the workshop I&#39;ll be doing.
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/7929989432/&#34; title=&#34;DSC_0426 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8451/7929989432_54a77a2a56.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;DSC_0426&#34;&gt;&lt;/a&gt;&#39;, &#34;Under the sea.&#34;) }}
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-02-16 14:28:44">2015-02-16 14:28:44</time>: <span class="message"> Adding excerpts to all posts, basically.
+</span> <a class="link" href="#07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57" id="07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57</a> on GitHub.</pre>
+    <pre class="message">Adding excerpts to all posts, basically.
+</pre>
+    <pre class="diff">date: 2012-08-31 10:33:23
+track: True
+---
+{+{% mark excerpt %}+}
+My circuit board order came in -- it&#39;s always astonishing how tiny the things are, these boards are about the size of two postage stamps, side-by-side. The &#34;barebones&#34; option from Advanced Circuits is a pretty good deal too. These cost $8.90 apiece, which is pretty reasonable. I know that [APC Circuits](http://apccircuits.com) has really quick turn-around for boards with solder mask and such, but I didn&#39;t need it. I&#39;m mostly proud for remembering not to pour a groundplane, as it makes it a pain to solder.
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/7900310464/&#34; title=&#34;DSC_0359 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8318/7900310464_b9102dd273.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;DSC_0359&#34;&gt;&lt;/a&gt;&#39;,&#34;Nice &amp; pretty like.&#34;) }}
+{+{% endmark %}+}
+
+
+I used a bunch of `0603` resistors to provide the loads on the capacitive pads (those rectangles along the top). Those suckers are small. What&#39;s all the more astonishing, is that there is yet a *smaller* size, 0402, which is about the size of a grain of sand. And Brian was telling me that some special-purpose boards can have the passive elements like those baked right into the various layers.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-29 18:40:51">2013-01-29 18:40:51</time>: <span class="message"> Start displaying .git tracking information
+</span> <a class="link" href="#cfa46ecb8a0244c3a1d4650cff13dc9294381b44" id="cfa46ecb8a0244c3a1d4650cff13dc9294381b44">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/cfa46ecb8a0244c3a1d4650cff13dc9294381b44">cfa46ecb8a0244c3a1d4650cff13dc9294381b44</a> on GitHub.</pre>
+    <pre class="message">Start displaying .git tracking information
+</pre>
+    <pre class="diff">title: Building Boards
+summary: Whipping together some quick prototype circuit boards.
+date: 2012-08-31 10:33:23
+{+track: True+}
+---
+My circuit board order came in -- it&#39;s always astonishing how tiny the things are, these boards are about the size of two postage stamps, side-by-side. The &#34;barebones&#34; option from Advanced Circuits is a pretty good deal too. These cost $8.90 apiece, which is pretty reasonable. I know that [APC Circuits](http://apccircuits.com) has really quick turn-around for boards with solder mask and such, but I didn&#39;t need it. I&#39;m mostly proud for remembering not to pour a groundplane, as it makes it a pain to solder.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-16 00:42:07">2012-12-16 00:42:07</time>: <span class="message"> I don&#39;t even remember.
+</span> <a class="link" href="#20465de0d8d4bfc5894d86d13534c433c5509c48" id="20465de0d8d4bfc5894d86d13534c433c5509c48">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/20465de0d8d4bfc5894d86d13534c433c5509c48">20465de0d8d4bfc5894d86d13534c433c5509c48</a> on GitHub.</pre>
+    <pre class="message">I don&#39;t even remember.
+</pre>
+    <pre class="diff">I used a bunch of `0603` resistors to provide the loads on the capacitive pads (those rectangles along the top). Those suckers are small. What&#39;s all the more astonishing, is that there is yet a *smaller* size, 0402, which is about the size of a grain of sand. And Brian was telling me that some special-purpose boards can have the passive elements like those baked right into the various layers.
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/7900311646/&#34; title=&#34;0603 Resistor by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8310/7900311646_930af5efac.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;0603 Resistor&#34;&gt;&lt;/a&gt;&#39;, [-&#34;Resister-]{+&#34;Resistor+} + Finger. Mostly finger.&#34;) }}
+
+I had to catch a flight out to LA--though it was delayed 2 hours--but I managed to throw together a board to bring with, so I could do some work on the plane (of course, I ended up not doing any). After puzzling for a minute why the `FTDI` programming only worked the first time after burning the Arduino bootloader, I realized that I hadn&#39;t put in the auto-reset capacitor between the `DTS` pin of and the `RST` line. It works the first, because the bootloader itself holds the chip in reset (thanks, [Dave](http://web.media.mit.edu/~mellis/)).</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-05 11:02:03">2012-12-05 11:02:03</time>: <span class="message"> Here we go.
+</span> <a class="link" href="#0680c5b43291800892f8df54996b391d55df4aed" id="0680c5b43291800892f8df54996b391d55df4aed">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/0680c5b43291800892f8df54996b391d55df4aed">0680c5b43291800892f8df54996b391d55df4aed</a> on GitHub.</pre>
+    <pre class="message">Here we go.
+</pre>
+    <pre class="diff">date: 2012-08-31 10:33:23
+---
+My circuit board order came in -- it&#39;s always astonishing how tiny the things are, these boards are about the size of two postage stamps, side-by-side. The &#34;barebones&#34; option from Advanced Circuits is a pretty good deal too. These cost $8.90 apiece, which is pretty reasonable. I know that [APC Circuits](http://apccircuits.com) has really quick turn-around for boards with solder mask and such, but I didn&#39;t need it. I&#39;m mostly proud for remembering not to pour a groundplane, as it makes it a pain to solder.
+
+{{ [-macros.render_figure(&#34;&lt;a-]{+macros.render_figure(&#39;&lt;a+} href=&#34;http://www.flickr.com/photos/samjacoby/7900310464/&#34; title=&#34;DSC_0359 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8318/7900310464_b9102dd273.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; [-alt=&#34;DSC_0359&#34;&gt;&lt;/a&gt;&#34;,&#34;Nice-]{+alt=&#34;DSC_0359&#34;&gt;&lt;/a&gt;&#39;,&#34;Nice+} &amp; pretty like.&#34;) }}
+
+I used a bunch of `0603` resistors to provide the loads on the capacitive pads (those rectangles along the top). Those suckers are small. What&#39;s all the more astonishing, is that there is yet a *smaller* size, 0402, which is about the size of a grain of sand. And Brian was telling me that some special-purpose boards can have the passive elements like those baked right into the various layers.
+
+{{ [-macros.render_figure(&#34;&lt;a-]{+macros.render_figure(&#39;&lt;a+} href=&#34;http://www.flickr.com/photos/samjacoby/7900311646/&#34; title=&#34;0603 Resistor by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8310/7900311646_930af5efac.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;0603 [-Resistor&#34;&gt;&lt;/a&gt;&#34;, Resister-]{+Resistor&#34;&gt;&lt;/a&gt;&#39;, &#34;Resister+} + Finger. Mostly [-finger.&#34;-]{+finger.&#34;)+} }}
+
+I had to catch a flight out to LA--though it was delayed 2 hours--but I managed to throw together a board to bring with, so I could do some work on the plane (of course, I ended up not doing any). After puzzling for a minute why the `FTDI` programming only worked the first time after burning the Arduino bootloader, I realized that I hadn&#39;t put in the auto-reset capacitor between the `DTS` pin of and the `RST` line. It works the first, because the bootloader itself holds the chip in reset (thanks, [Dave](http://web.media.mit.edu/~mellis/)).
+
+{{ [-macros.render_figure(&#34;&lt;a-]{+macros.render_figure(&#39;&lt;a+} href=&#34;http://www.flickr.com/photos/samjacoby/7900312620/&#34; title=&#34;TapClip v.2 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8321/7900312620_42e83107db.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;TapClip [-v.2&#34;&gt;&lt;/a&gt;&#34;,-]{+v.2&#34;&gt;&lt;/a&gt;&#39;,+} &#34;I am still learning about f-stops.&#34;) }}
+
+**Update**
+
+I soldered on the toothless alligator clips today (what gems! [[Newark](http://www.newark.com/silvertronic/502008/toothless-steel-alligator-clip/dp/82R5349)]) and drew up an aquatic sketch to have some examples to show folks for the workshop I&#39;ll be doing.
+
+{{ [-macros.render_figure(&#34;&lt;a-]{+macros.render_figure(&#39;&lt;a+} href=&#34;http://www.flickr.com/photos/samjacoby/7929989432/&#34; title=&#34;DSC_0426 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8451/7929989432_54a77a2a56.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; [-alt=&#34;DSC_0426&#34;&gt;&lt;/a&gt;&#34;,-]{+alt=&#34;DSC_0426&#34;&gt;&lt;/a&gt;&#39;,+} &#34;Under the sea.&#34;) }}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-04 00:22:22">2012-12-04 00:22:22</time>: <span class="message"> Hm. Updating some words.
+</span> <a class="link" href="#6c93ff62d1c522f2a2c27d246ec8872d859f3d93" id="6c93ff62d1c522f2a2c27d246ec8872d859f3d93">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/6c93ff62d1c522f2a2c27d246ec8872d859f3d93">6c93ff62d1c522f2a2c27d246ec8872d859f3d93</a> on GitHub.</pre>
+    <pre class="message">Hm. Updating some words.
+</pre>
+    <pre class="diff">date: 2012-08-31 10:33:23
+---
+My circuit board order came in -- it&#39;s always astonishing how tiny the things are, these boards are about the size of two postage stamps, side-by-side. The &#34;barebones&#34; option from Advanced Circuits is a pretty good deal too. These cost $8.90 apiece, which is pretty reasonable. I know that [APC Circuits](http://apccircuits.com) has really quick turn-around for boards with solder mask and such, but I didn&#39;t need it. I&#39;m mostly proud for remembering not to pour a groundplane, as it makes it a pain to solder.
+[-&lt;figure&gt;-]
+[-&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7900310464/&#34;-]{+{{ macros.render_figure(&#34;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/7900310464/&#34;+} title=&#34;DSC_0359 by s_jacoby, on Flickr&#34;&gt;&lt;img [-src=&#34;http://farm9.staticflickr.com/8318/7900310464_5bf3a2cd41.jpg&#34;-]{+src=&#34;http://farm9.staticflickr.com/8318/7900310464_b9102dd273.jpg&#34;+} width=&#34;500&#34; height=&#34;333&#34; [-alt=&#34;DSC_0359&#34;&gt;&lt;/a&gt;-]
+[-&lt;figcaption&gt;Nice-]{+alt=&#34;DSC_0359&#34;&gt;&lt;/a&gt;&#34;,&#34;Nice+} &amp; pretty [-like.&lt;/figcaption&gt;-]
+[-&lt;/figure&gt;-]{+like.&#34;) }}+}
+
+I used a bunch of `0603` resistors to provide the loads on the capacitive pads (those rectangles along the top). Those suckers are small. What&#39;s all the more astonishing, is that there is yet a *smaller* size, 0402, which is about the size of a grain of sand. And Brian was telling me that some special-purpose boards can have the passive elements like those baked right into the various layers.
+
+[-&lt;figure&gt;-]
+[-    &lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7900311646/&#34;-]{+{{ macros.render_figure(&#34;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/7900311646/&#34;+} title=&#34;0603 Resistor by s_jacoby, on Flickr&#34;&gt;&lt;img [-src=&#34;http://farm9.staticflickr.com/8310/7900311646_c4ec76ea47.jpg&#34;-]{+src=&#34;http://farm9.staticflickr.com/8310/7900311646_930af5efac.jpg&#34;+} width=&#34;500&#34; height=&#34;333&#34; alt=&#34;0603 [-Resistor&#34;&gt;&lt;/a&gt;-]
+[-    &lt;figcaption&gt;Resistor-]{+Resistor&#34;&gt;&lt;/a&gt;&#34;, Resister+} + Finger. Mostly [-finger.&lt;/figcaption&gt;-]
+[-&lt;/figure&gt;-]{+finger.&#34; }}+}
+
+I had to catch a flight out to LA--though it was delayed 2 hours--but I managed to throw together a board to bring with, so I could do some work on the plane (of course, I ended up not doing any). After puzzling for a minute why the `FTDI` programming only worked the first time after burning the Arduino bootloader, I realized that I hadn&#39;t put in the auto-reset capacitor between the `DTS` pin of and the `RST` line. It works the first, because the bootloader itself holds the chip in reset (thanks, [Dave](http://web.media.mit.edu/~mellis/)).
+
+[-&lt;figure&gt;-]
+[-    &lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7900312620/&#34;-]{+{{ macros.render_figure(&#34;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/7900312620/&#34;+} title=&#34;TapClip v.2 by s_jacoby, on Flickr&#34;&gt;&lt;img [-src=&#34;http://farm9.staticflickr.com/8321/7900312620_52835de79f.jpg&#34;-]{+src=&#34;http://farm9.staticflickr.com/8321/7900312620_42e83107db.jpg&#34;+} width=&#34;500&#34; height=&#34;333&#34; alt=&#34;TapClip [-v.2&#34;&gt;&lt;/a&gt;-]
+[-    &lt;figcaption&gt;I-]{+v.2&#34;&gt;&lt;/a&gt;&#34;, &#34;I+} am still learning about [-fstops.&lt;/figcaption&gt; -]
+[-&lt;/figure&gt;-]{+f-stops.&#34;) }}+}
+
+**Update**
+
+I soldered on the toothless alligator clips today (what gems! [[Newark](http://www.newark.com/silvertronic/502008/toothless-steel-alligator-clip/dp/82R5349)]) and drew up an aquatic sketch to have some examples to show folks for the workshop I&#39;ll be doing.
+
+[-&lt;figure&gt;-]
+[-    &lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7929989432/&#34;-]{+{{ macros.render_figure(&#34;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/7929989432/&#34;+} title=&#34;DSC_0426 by s_jacoby, on Flickr&#34;&gt;&lt;img [-src=&#34;http://farm9.staticflickr.com/8451/7929989432_ca8d84db5b.jpg&#34;-]{+src=&#34;http://farm9.staticflickr.com/8451/7929989432_54a77a2a56.jpg&#34;+} width=&#34;500&#34; height=&#34;333&#34; [-alt=&#34;DSC_0426&#34;&gt;&lt;/a&gt;-]
+[-    &lt;figcaption&gt;Under-]{+alt=&#34;DSC_0426&#34;&gt;&lt;/a&gt;&#34;, &#34;Under+} the [-sea.&lt;/figcaption&gt;-]
+
+[-&lt;/figure&gt;-]{+sea.&#34;) }}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-05 18:33:38">2012-10-05 18:33:38</time>: <span class="message"> Updating post.
+</span> <a class="link" href="#be98ad54ff7c4be7d840af44ccbf8c01f1d903ea" id="be98ad54ff7c4be7d840af44ccbf8c01f1d903ea">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/be98ad54ff7c4be7d840af44ccbf8c01f1d903ea">be98ad54ff7c4be7d840af44ccbf8c01f1d903ea</a> on GitHub.</pre>
+    <pre class="message">Updating post.
+</pre>
+    <pre class="diff">I soldered on the toothless alligator clips today (what gems! [[Newark](http://www.newark.com/silvertronic/502008/toothless-steel-alligator-clip/dp/82R5349)]) and drew up an aquatic sketch to have some examples to show folks for the workshop I&#39;ll be doing.
+
+&lt;figure&gt;
+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7929989432/&#34; [-title=&#34;TapClip v.2-]{+title=&#34;DSC_0426+} by s_jacoby, on Flickr&#34;&gt;&lt;img [-src=&#34;http://farm9.staticflickr.com/8451/7929989432_de491d4f1d.jpg&#34;-]{+src=&#34;http://farm9.staticflickr.com/8451/7929989432_ca8d84db5b.jpg&#34;+} width=&#34;500&#34; height=&#34;333&#34; [-alt=&#34;TapClip v.2&#34;&gt;&lt;/a&gt;-]{+alt=&#34;DSC_0426&#34;&gt;&lt;/a&gt;+}
+&lt;figcaption&gt;Under the sea.&lt;/figcaption&gt;
+
+&lt;/figure&gt;</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-02 10:34:08">2012-10-02 10:34:08</time>: <span class="message"> Moved all files over to a flat file system. Added new hyde plugin.
+</span> <a class="link" href="#e98500c7a0459410661b53d92e754b7d84a1b869" id="e98500c7a0459410661b53d92e754b7d84a1b869">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/e98500c7a0459410661b53d92e754b7d84a1b869">e98500c7a0459410661b53d92e754b7d84a1b869</a> on GitHub.</pre>
+    <pre class="message">Moved all files over to a flat file system. Added new hyde plugin.
+</pre>
+    <pre class="diff">@@ -0,0 +1,36 @@
+{+---+}
+{+title: Building Boards +}
+{+summary: Whipping together some quick prototype circuit boards. +}
+{+date: 2012-08-31 10:33:23 +}
+{+---+}
+{+My circuit board order came in -- it&#39;s always astonishing how tiny the things are, these boards are about the size of two postage stamps, side-by-side. The &#34;barebones&#34; option from Advanced Circuits is a pretty good deal too. These cost $8.90 apiece, which is pretty reasonable. I know that [APC Circuits](http://apccircuits.com) has really quick turn-around for boards with solder mask and such, but I didn&#39;t need it. I&#39;m mostly proud for remembering not to pour a groundplane, as it makes it a pain to solder. +}
+{+&lt;figure&gt;+}
+{+&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7900310464/&#34; title=&#34;DSC_0359 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8318/7900310464_5bf3a2cd41.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;DSC_0359&#34;&gt;&lt;/a&gt;+}
+{+&lt;figcaption&gt;Nice &amp; pretty like.&lt;/figcaption&gt;+}
+{+&lt;/figure&gt;+}
+
+{+I used a bunch of `0603` resistors to provide the loads on the capacitive pads (those rectangles along the top). Those suckers are small. What&#39;s all the more astonishing, is that there is yet a *smaller* size, 0402, which is about the size of a grain of sand. And Brian was telling me that some special-purpose boards can have the passive elements like those baked right into the various layers. +}
+
+{+&lt;figure&gt;+}
+{+    &lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7900311646/&#34; title=&#34;0603 Resistor by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8310/7900311646_c4ec76ea47.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;0603 Resistor&#34;&gt;&lt;/a&gt;+}
+{+    &lt;figcaption&gt;Resistor + Finger. Mostly finger.&lt;/figcaption&gt;+}
+{+&lt;/figure&gt;+}
+
+{+I had to catch a flight out to LA--though it was delayed 2 hours--but I managed to throw together a board to bring with, so I could do some work on the plane (of course, I ended up not doing any). After puzzling for a minute why the `FTDI` programming only worked the first time after burning the Arduino bootloader, I realized that I hadn&#39;t put in the auto-reset capacitor between the `DTS` pin of and the `RST` line. It works the first, because the bootloader itself holds the chip in reset (thanks, [Dave](http://web.media.mit.edu/~mellis/)). +}
+{+&lt;figure&gt;+}
+{+    &lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7900312620/&#34; title=&#34;TapClip v.2 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8321/7900312620_52835de79f.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;TapClip v.2&#34;&gt;&lt;/a&gt;+}
+{+    &lt;figcaption&gt;I am still learning about fstops.&lt;/figcaption&gt; +}
+{+&lt;/figure&gt;+}
+
+{+**Update**+}
+
+{+I soldered on the toothless alligator clips today (what gems! [[Newark](http://www.newark.com/silvertronic/502008/toothless-steel-alligator-clip/dp/82R5349)]) and drew up an aquatic sketch to have some examples to show folks for the workshop I&#39;ll be doing.+}
+
+{+&lt;figure&gt;+}
+{+    &lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/7929989432/&#34; title=&#34;TapClip v.2 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8451/7929989432_de491d4f1d.jpg&#34; width=&#34;500&#34; height=&#34;333&#34; alt=&#34;TapClip v.2&#34;&gt;&lt;/a&gt;+}
+{+    &lt;figcaption&gt;Under the sea.&lt;/figcaption&gt;+}
+
+{+&lt;/figure&gt;+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

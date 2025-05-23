@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | Gerber File Extensions</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="gerber, eagle, file formats">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">Gerber File Extensions</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2012-08-24 22:42:58" pubdate>2012-08-24 22:42:58</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2015-03-02 21:47:19" pubdate>2015-03-02 21:47:19</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p>Lest anyone be misled, <strong>this is a post about making circuit boards.</strong> Thrilling&nbsp;stuff.</p>
+<p>Every time I send off Gerbers for production, I am baffled by the array of files that the <span class="caps">CAM</span> job in Eagle generates. I&#8217;m happy to be ignorant. That&#8217;s fine. The issue is, when you upload your files to most board fabs, they cheerily list the half-dozen odd things you&#8217;ve sent them&#8212;and ask you what they are? Top solder mask? <span class="caps">NC</span> drill file? I know nothing of this. So&#8212;some research later, and this is what we&#8217;ve&nbsp;got.  </p>
+<p>To the best of my knowledge&#8212;using <a href="http://www.4mypcb.com">Advanced Circuits</a>, these are the file extension mappings using the Eagle Gerber <span class="caps">RS274X</span> cam file. I may have once changed the default extensions randomly a few months ago&#8212;so handle with care. There are some inconsistencies as detailed <a href="http://www.protoexpress.com/content/gerber_extensions.jsp">here</a>. A nice summary <a href="http://www.cs.uml.edu/~fredm/courses/91.548-spr03/eagle-gerber-output.shtml">here</a> as well. Thanks,&nbsp;Fred.</p>
+<p>At any rate, we&#8217;ll see how the boards come&nbsp;out:</p>
+<ul>
+<li>
+<p><strong>.cmp</strong> / top&nbsp;copper</p>
+</li>
+<li>
+<p><strong>.drd</strong> / <span class="caps">NC</span> drill from&nbsp;excellon.com</p>
+</li>
+<li>
+<p><strong>.dri</strong> / <em>also</em> an <span class="caps">NC</span> drill file. Do we need both? I don&#8217;t know. Probably not. But someone told me to generate the excellon paths once, so I&nbsp;do. </p>
+</li>
+<li>
+<p><strong>.plc</strong> / top&nbsp;silkscreen</p>
+</li>
+<li>
+<p><strong>.sol</strong> / bottom&nbsp;copper</p>
+</li>
+<li>
+<p><strong>.stc</strong> / top solder&nbsp;mask</p>
+</li>
+<li>
+<p><strong>.sts</strong> / bottom solder&nbsp;mask</p>
+</li>
+<li>
+<p><strong>.gpi</strong> / screw this one. General board info. Not&nbsp;needed.</p>
+</li>
+</ul>    </section>
+    <footer>
+        <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2015-03-02 21:47:19">2015-03-02 21:47:19</time>: <span class="message"> Updating layout for new blocks.
+</span> <a class="link" href="#3a8c3faf3cf2ac8144b1050f4c387551018b567b" id="3a8c3faf3cf2ac8144b1050f4c387551018b567b">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3a8c3faf3cf2ac8144b1050f4c387551018b567b">3a8c3faf3cf2ac8144b1050f4c387551018b567b</a> on GitHub.</pre>
+    <pre class="message">Updating layout for new blocks.
+</pre>
+    <pre class="diff">track: True
+keywords: gerber, eagle, file formats
+---
+{+{% block post %}+}
+Lest anyone be misled, **this is a post about making circuit boards.** Thrilling stuff.
+
+{% mark excerpt %}
+@@ -30,3 +31,4 @@ At any rate, we&#39;ll see how the boards come out:
+- **.sts** / bottom solder mask
+
+- **.gpi** / screw this one. General board info. Not needed.
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-02-16 14:28:44">2015-02-16 14:28:44</time>: <span class="message"> Adding excerpts to all posts, basically.
+</span> <a class="link" href="#07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57" id="07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57</a> on GitHub.</pre>
+    <pre class="message">Adding excerpts to all posts, basically.
+</pre>
+    <pre class="diff">---
+Lest anyone be misled, **this is a post about making circuit boards.** Thrilling stuff.
+
+{+{% mark excerpt %}+}
+Every time I send off Gerbers for production, I am baffled by the array of files that the CAM job in Eagle generates. I&#39;m happy to be ignorant. That&#39;s fine. The issue is, when you upload your files to most board fabs, they cheerily list the half-dozen odd things you&#39;ve sent them--and ask you what they are? Top solder mask? NC drill file? I know nothing of this. So--some research later, and this is what we&#39;ve got.
+{+{% endmark %}+}
+
+To the best of my knowledge--using [Advanced Circuits](http://www.4mypcb.com), these are the file extension mappings using the Eagle Gerber RS274X cam file. I may have once changed the default extensions randomly a few months ago--so handle with care. There are some inconsistencies as detailed [here](http://www.protoexpress.com/content/gerber_extensions.jsp). A nice summary [here](http://www.cs.uml.edu/~fredm/courses/91.548-spr03/eagle-gerber-output.shtml) as well. Thanks, Fred.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-29 18:40:51">2013-01-29 18:40:51</time>: <span class="message"> Start displaying .git tracking information
+</span> <a class="link" href="#cfa46ecb8a0244c3a1d4650cff13dc9294381b44" id="cfa46ecb8a0244c3a1d4650cff13dc9294381b44">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/cfa46ecb8a0244c3a1d4650cff13dc9294381b44">cfa46ecb8a0244c3a1d4650cff13dc9294381b44</a> on GitHub.</pre>
+    <pre class="message">Start displaying .git tracking information
+</pre>
+    <pre class="diff">title: Gerber File Extensions
+summary: Making sense--mostly--of the alphabet soup of circuit board layout files.
+date: 2012-08-24 22:42:58
+{+track: True+}
+keywords: gerber, eagle, file formats
+---
+Lest anyone be misled, **this is a post about making circuit boards.** Thrilling stuff.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-07 21:30:18">2012-12-07 21:30:18</time>: <span class="message"> Adding thumbnail.
+</span> <a class="link" href="#5b07160844a8ef00822de931cbf51b0fa8840158" id="5b07160844a8ef00822de931cbf51b0fa8840158">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/5b07160844a8ef00822de931cbf51b0fa8840158">5b07160844a8ef00822de931cbf51b0fa8840158</a> on GitHub.</pre>
+    <pre class="message">Adding thumbnail.
+</pre>
+    <pre class="diff">title: Gerber File Extensions
+summary: Making sense--mostly--of the alphabet soup of circuit board layout files.
+date: 2012-08-24 22:42:58
+{+keywords: gerber, eagle, file formats+}
+---
+Lest anyone be misled, **this is a post about making circuit boards.** Thrilling stuff.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-02 10:34:08">2012-10-02 10:34:08</time>: <span class="message"> Moved all files over to a flat file system. Added new hyde plugin.
+</span> <a class="link" href="#e98500c7a0459410661b53d92e754b7d84a1b869" id="e98500c7a0459410661b53d92e754b7d84a1b869">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/e98500c7a0459410661b53d92e754b7d84a1b869">e98500c7a0459410661b53d92e754b7d84a1b869</a> on GitHub.</pre>
+    <pre class="message">Moved all files over to a flat file system. Added new hyde plugin.
+</pre>
+    <pre class="diff">@@ -0,0 +1,28 @@
+{+---+}
+{+title: Gerber File Extensions +}
+{+summary: Making sense--mostly--of the alphabet soup of circuit board layout files. +}
+{+date: 2012-08-24 22:42:58+}
+{+---+}
+{+Lest anyone be misled, **this is a post about making circuit boards.** Thrilling stuff.+}
+
+{+Every time I send off Gerbers for production, I am baffled by the array of files that the CAM job in Eagle generates. I&#39;m happy to be ignorant. That&#39;s fine. The issue is, when you upload your files to most board fabs, they cheerily list the half-dozen odd things you&#39;ve sent them--and ask you what they are? Top solder mask? NC drill file? I know nothing of this. So--some research later, and this is what we&#39;ve got.  +}
+
+{+To the best of my knowledge--using [Advanced Circuits](http://www.4mypcb.com), these are the file extension mappings using the Eagle Gerber RS274X cam file. I may have once changed the default extensions randomly a few months ago--so handle with care. There are some inconsistencies as detailed [here](http://www.protoexpress.com/content/gerber_extensions.jsp). A nice summary [here](http://www.cs.uml.edu/~fredm/courses/91.548-spr03/eagle-gerber-output.shtml) as well. Thanks, Fred.+}
+
+{+At any rate, we&#39;ll see how the boards come out:+}
+
+{+- **.cmp** / top copper+}
+
+{+- **.drd** / NC drill from excellon.com+}
+
+{+- **.dri** / *also* an NC drill file. Do we need both? I don&#39;t know. Probably not. But someone told me to generate the excellon paths once, so I do. +}
+
+{+- **.plc** / top silkscreen+}
+
+{+- **.sol** / bottom copper+}
+
+{+- **.stc** / top solder mask+}
+
+{+- **.sts** / bottom solder mask+}
+
+{+- **.gpi** / screw this one. General board info. Not needed.+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

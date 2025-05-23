@@ -1,0 +1,45 @@
+---
+title: Computerese 
+summary: Useful things in Computer. 
+date: 2015-01-10 09:40:05
+track: True
+---
+{% block post %}
+{% mark excerpt %}
+I work with computers a fair amount, so now and again want to keep track of things I've learned. 
+{% endmark %}
+
+## Sharing your localhost dev server with the world
+
+Say you've got a server running locally—and want to quickly it share it with the world? You need a remote server that you have ssh access to.
+
+    ssh -R <remote port>:localhost:<local port> sjacoby@ <remote server> 
+
+You will need to enable `GatewayPorts` on the *remote* `sshd_config` (not your local machine):
+
+    GatewayPorts yes  
+
+Reload the remote sshd for the new config (on my Arch box, it's the below).:
+
+    sudo systemctl restart sshd
+
+ Your locahost page should now be available at `<my remote server>:<my remote port>`. Party on. 
+
+## Pretty printing `json` responses,  
+
+You've got this little slice of sweetness.
+
+    python -m json.tool
+
+And if you want to do it in Vim, go with:
+
+    :%!python -m json.tool
+
+Credit to [Pascal Prect](https://pascalprecht.github.io/2014/07/10/pretty-print-json-in-vim/).
+
+## Deleting Annoying Files
+
+  find . -name '.DS_Store' -delete
+  find . -type l
+
+{% endblock %}

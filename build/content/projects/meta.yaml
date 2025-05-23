@@ -1,0 +1,6 @@
+extends: post.j2
+class: listing
+category: projects
+default_block: post
+created: git
+modified: git

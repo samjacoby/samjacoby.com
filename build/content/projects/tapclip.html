@@ -1,0 +1,27 @@
+---
+title: TapClip 
+summary: A capacitive-sensing board for creating ad-hoc computer interfaces from conductive inks.  
+date: 2012-08-22 12:57:30
+tags: 
+    - SenseClip
+thumbnail: synthclip-1.jpg 
+track: True
+---
+_This is a project that brings together a broad set of my research at MIT_ 
+
+{% mark excerpt %}
+TapClip is a specialized capactive sensor board that I'm using as a test-bed for exploring ad-hoc user-interface design, and more broadly, self-made technologies. 
+{% endmark %}
+
+It's served as a platform, both for [StoryClip](/projects/storyclip/), as well as SynthClip below, which is a self-contained musical interface, running a simple 8-bit wave generation algorithm. Each clip was associated with a specific set of tones, which it cycled through automatically. Pressing multiple clips blended their sounds together. This would be a good place to have an mp3 or something.[^mp3]
+
+![](/media/img/synthclip-2.jpg)
+:   If only you could hear it's 8-bit purring. 
+
+TapClip, as a general concept, shares much with the [Makey Makey](http://www.makeymakey.com/). Jay & Eric worked just downstairs from me at the Media Lab, and I stole every idea I could find. The key difference is simply in the basic use-case. The Makey Makey is designed to emulate a keyboard, so works in tandem with a computer. This opens up a series of sophisticated interactions that take full-advantage of a computer's horsepower (and internet connectivity). That moves the focus of interaction from the computation itself, to the materiality of the conductive substrate. That, and technically, TapClip relied on a series of simple two-pin capacitive sensors, rather than the resistive pins in the Makey Makey. 
+
+The Eagle files are available [here](https://github.com/samjacoby/Eagle/tree/master/TapClip32u4).
+
+I've also documented some of my process in a variety of briefer posts. Take a look.  
+
+[^mp3]: Nope. 

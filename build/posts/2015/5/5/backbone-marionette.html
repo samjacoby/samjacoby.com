@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | Rolling with Backbone + Marionette</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">Rolling with Backbone + Marionette</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2015-05-05 20:26:57" pubdate>2015-05-05 20:26:57</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2017-04-07 08:01:28" pubdate>2017-04-07 08:01:28</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p>Over at <a href="http://formlabs.com">Formlabs</a>, we&#8217;ve been putting together a new frontend application using Backbone + Marionette. I&#8217;ve done a fair amount with Backbone, over the years, but have never really grasped it. I mean, I understand the basics, but the lack of prescriptive patterns has always troubled me. I <em>like</em> to know the right way of doing things, so the free-and-easy choices that Backbone presents has always been a bit challenging. It&#8217;s not that I mind formulating my own patterns, it&#8217;s that design-patterns can provide a window into the choices that an author&#8217;s intentions. It helps explain <em>why</em> something is designed the way it is, rather than just how. I find that&nbsp;useful.  </p>
+<p>For that reason, despite the abundance of resource:, getting started with Backbone and Marionette has been no less challenging. Thankfully, some Marionette folks have put some videos online that get a little into the modular event-driven philosophies behind what they&#8217;re&nbsp;about.  </p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=qWr7x9wk6_c">The Tools <span class="amp">&amp;</span> Patterns for Building Large-scale Backbone Applications</a> (Brian&nbsp;Mann)</li>
+<li><a href="https://www.youtube.com/watch?v=PrQSpdWkN6Q">Building Modular <span class="amp">&amp;</span> Component Driven Architecture in Backbone.js <span class="amp">&amp;</span> Marionette.js</a> (Jeremy&nbsp;Fairbank)</li>
+<li><a href="https://www.youtube.com/watch?v=EvQnntaqVdE">Marionette: The Backbone Framework</a> (James&nbsp;Smith)</li>
+</ul>
+<p>I like to start with structure.<sup id="fnref:structure"><a class="footnote-ref" href="#fn:structure" rel="footnote">1</a></sup> I&#8217;ve roughly followed the schematic that outlined above, starting with one simple guiding principle—one file, one responsibility. This can be onerous (150-odd files for a modest application), but as complexity has increased, it&#8217;s meant that it&#8217;s simple to add (and remove) functionality. A module might be roughly-organized like so, depending on the overall&nbsp;functionality:</p>
+<pre>
+  user_settings
+        ├── user_settings_app.js
+        ├── edit
+        │   ├── user_settings_edit.js
+        │ ├── templates
+           │   └── user_edit_list.hbs
+          │   └── views
+          │       └── user_edit_view.js
+        ├── list
+        │   ├── user_settings_list.js
+        │   ├── templates
+        │   │   ├── user_item.hbs
+        │   │   ├── user_list.hbs
+        │   │   └── user_list_layout.hbs
+        │   └── views
+        │       └── user_list_view.js
+        ├── new
+        │   ├── user_settings_new.js
+        │   └── views
+        │       └── user_new_view.js
+        └── regions
+            └── user_dialog.js
+</pre>
+
+<p>It&#8217;s not as bad as it looks. The <code>user_settings_app.js</code> is the over-all showrunner, but does very little. As a sub-app, it only delegates events between the various controllers and listens to global events from other modules.<sup id="fnref:radio"><a class="footnote-ref" href="#fn:radio" rel="footnote">2</a></sup> , in this case, the files <code>user_settings_edit.js</code>, <code>user_settings_list.js</code>, and <code>user_settings_list.js</code>. Let&#8217;s call these modules <em>functional controllers</em>. They control the different functions of the&nbsp;sub-application.  </p>
+<p>Each functional controller furnishes the requirements necessary for rendering it&#8217;s own particular view. This is where all of the messy bits go. In my case, that means fetching the relevant models and triggering other events that require <em>other</em> sub-applications to take action that are necessary for drawing the overall view.<sup id="fnref:models"><a class="footnote-ref" href="#fn:models" rel="footnote">3</a></sup> </p>
+<p>Finally comes the view itself, which is only really concerned with interacting directly with the <span class="caps">DOM</span>, capturing user-interactions, and triggering the appropriate events so that the appropriate controller (or sub-app), can respond. Though view itself includes the template, which isn&#8217;t much more than a small snippet of javascript with a few variables mixed in (we&#8217;ve used Handlebars&#8212;the built-in underscore dependency would probably have made more&nbsp;sense). </p>
+<p><object data="/media/img/backbone-diagram.svg" type="image/svg+xml"></object></p>
+<p>This, of course, is just one sub-application among many. Any larger web-application will be a constellation of interconnected modules—some handling the basics of user creation, editing, and display (like above). Others, devoted to business logic, may never be indivually routable, but only called upon to say, process a set of&nbsp;data.  </p>
+<p>What I&#8217;ve found nice about this construction, is that though sometimes individual sub-applications can feel over-engineered (application -&gt; controller -&gt; view -&gt; template), for fairly simple functionality like a login/logout pane, that level of complexity is fixed and&nbsp;well-contained. </p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:structure">
+<p>It can definitely slow you down, but it yields enormous dividends as complexity increases. I typically refactor fairly often, and a good structure means that you can iteratively refactor over your file system.&#160;<a class="footnote-backref" href="#fnref:structure" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:radio">
+<p>I&#8217;m using the <a href="https://github.com/marionettejs/backbone.radio">Backbone.Radio</a> library (which used to be rolled into Marionette) to help make that happen. &#160;<a class="footnote-backref" href="#fnref:radio" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:models">
+<p>It&#8217;s worth noting that in the schematic illustrated above, models and collections (entities), are defined else where and included as needed. &#160;<a class="footnote-backref" href="#fnref:models" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>    </section>
+    <footer>
+        <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2017-04-07 08:01:28">2017-04-07 08:01:28</time>: <span class="message"> should be committed...
+</span> <a class="link" href="#bdeed64d1aad514261a815d62f14fc54e7a80c6a" id="bdeed64d1aad514261a815d62f14fc54e7a80c6a">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/bdeed64d1aad514261a815d62f14fc54e7a80c6a">bdeed64d1aad514261a815d62f14fc54e7a80c6a</a> on GitHub.</pre>
+    <pre class="message">should be committed...
+</pre>
+    <pre class="diff">---
+title: Rolling with Backbone + Marionette
+summary: [-In which I learn-]{+Learning+} something new about structuring web applications.
+date: 2015-05-05 20:26:57
+track: True
+exclude: False
+@@ -52,7 +52,9 @@ Finally comes the view itself, which is only really concerned with interacting d
+
+&lt;object data=&#34;/media/img/backbone-diagram.svg&#34; type=&#34;image/svg+xml&#34;&gt;&lt;/object&gt;
+
+This, of course, is just one [-application-]{+sub-application+} among many. {+Any larger web-application will be a constellation of interconnected modules—some handling the basics of user creation, editing, and display (like above). Others, devoted to business logic, may never be indivually routable, but only called upon to say, process a set of data.+}
+
+What I&#39;ve found nice about this construction, is that though sometimes individual sub-applications can feel over-engineered (application -&gt; controller -&gt; view -&gt; template), for fairly simple functionality like a login/logout pane, that level of complexity is fixed and well-contained.
+
+[0]: https://www.youtube.com/watch?v=qWr7x9wk6_c
+[1]: https://www.youtube.com/watch?v=PrQSpdWkN6Q</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-05-20 17:39:44">2015-05-20 17:39:44</time>: <span class="message"> Adding summary
+</span> <a class="link" href="#787ac8c51eef3cca1ba2026a23c25e7f27ebe092" id="787ac8c51eef3cca1ba2026a23c25e7f27ebe092">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/787ac8c51eef3cca1ba2026a23c25e7f27ebe092">787ac8c51eef3cca1ba2026a23c25e7f27ebe092</a> on GitHub.</pre>
+    <pre class="message">Adding summary
+</pre>
+    <pre class="diff">---
+title: Rolling with Backbone + Marionette
+summary: {+In which I learn something new about structuring web applications.+}
+date: 2015-05-05 20:26:57
+track: True
+exclude: False</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-05-20 17:32:14">2015-05-20 17:32:14</time>: <span class="message"> Get thee into version control.
+</span> <a class="link" href="#f9204dfc7f7aa45ccf32ebccef57ec757510b727" id="f9204dfc7f7aa45ccf32ebccef57ec757510b727">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/f9204dfc7f7aa45ccf32ebccef57ec757510b727">f9204dfc7f7aa45ccf32ebccef57ec757510b727</a> on GitHub.</pre>
+    <pre class="message">Get thee into version control.
+</pre>
+    <pre class="diff">@@ -0,0 +1,65 @@
+{+---+}
+{+title: Rolling with Backbone + Marionette +}
+{+summary:  +}
+{+date: 2015-05-05 20:26:57+}
+{+track: True+}
+{+exclude: False+}
+{+---+}
+{+{% block post %}+}
+{+{% mark excerpt %}+}
+{+Over at [Formlabs](http://formlabs.com), we&#39;ve been putting together a new frontend application using Backbone + Marionette. I&#39;ve done a fair amount with Backbone, over the years, but have never really grasped it. I mean, I understand the basics, but the lack of prescriptive patterns has always troubled me. I *like* to know the right way of doing things, so the free-and-easy choices that Backbone presents has always been a bit challenging. It&#39;s not that I mind formulating my own patterns, it&#39;s that design-patterns can provide a window into the choices that an author&#39;s intentions. It helps explain *why* something is designed the way it is, rather than just how. I find that useful.  +}
+{+{% endmark %}+}
+
+{+For that reason, despite the abundance of resource:, getting started with Backbone and Marionette has been no less challenging. Thankfully, some Marionette folks have put some videos online that get a little into the modular event-driven philosophies behind what they&#39;re about.  +}
+
+{+- [The Tools &amp; Patterns for Building Large-scale Backbone Applications][0] (Brian Mann)+}
+{+- [Building Modular &amp; Component Driven Architecture in Backbone.js &amp; Marionette.js][1] (Jeremy Fairbank)+}
+{+- [Marionette: The Backbone Framework][2] (James Smith)+}
+
+{+I like to start with structure.[^structure] I&#39;ve roughly followed the schematic that outlined above, starting with one simple guiding principle—one file, one responsibility. This can be onerous (150-odd files for a modest application), but as complexity has increased, it&#39;s meant that it&#39;s simple to add (and remove) functionality. A module might be roughly-organized like so, depending on the overall functionality:+}
+
+{+&lt;pre&gt;+}
+{+  user_settings+}
+{+        ├── user_settings_app.js+}
+{+        ├── edit+}
+{+        │   ├── user_settings_edit.js+}
+{+        │ ├── templates+}
+{+           │   └── user_edit_list.hbs+}
+{+          │   └── views+}
+{+          │       └── user_edit_view.js+}
+{+        ├── list+}
+{+        │   ├── user_settings_list.js+}
+{+        │   ├── templates+}
+{+        │   │   ├── user_item.hbs+}
+{+        │   │   ├── user_list.hbs+}
+{+        │   │   └── user_list_layout.hbs+}
+{+        │   └── views+}
+{+        │       └── user_list_view.js+}
+{+        ├── new+}
+{+        │   ├── user_settings_new.js+}
+{+        │   └── views+}
+{+        │       └── user_new_view.js+}
+{+        └── regions+}
+{+            └── user_dialog.js+}
+{+&lt;/pre&gt;+}
+
+
+{+It&#39;s not as bad as it looks. The `user_settings_app.js` is the over-all showrunner, but does very little. As a sub-app, it only delegates events between the various controllers and listens to global events from other modules.[^radio] , in this case, the files `user_settings_edit.js`, `user_settings_list.js`, and `user_settings_list.js`. Let&#39;s call these modules *functional controllers*. They control the different functions of the sub-application.  +}
+
+{+Each functional controller furnishes the requirements necessary for rendering it&#39;s own particular view. This is where all of the messy bits go. In my case, that means fetching the relevant models and triggering other events that require *other* sub-applications to take action that are necessary for drawing the overall view.[^models] +}
+
+{+Finally comes the view itself, which is only really concerned with interacting directly with the DOM, capturing user-interactions, and triggering the appropriate events so that the appropriate controller (or sub-app), can respond. Though view itself includes the template, which isn&#39;t much more than a small snippet of javascript with a few variables mixed in (we&#39;ve used Handlebars--the built-in underscore dependency would probably have made more sense). +}
+
+{+&lt;object data=&#34;/media/img/backbone-diagram.svg&#34; type=&#34;image/svg+xml&#34;&gt;&lt;/object&gt;+}
+
+{+This, of course, is just one application among many. What I&#39;ve found nice about this construction, is that though sometimes individual sub-applications can feel over-engineered (application -&gt; controller -&gt; view -&gt; template), for fairly simple functionality like a login/logout pane, that level of complexity is fixed and well-contained. +}
+
+{+[0]: https://www.youtube.com/watch?v=qWr7x9wk6_c+}
+{+[1]: https://www.youtube.com/watch?v=PrQSpdWkN6Q+}
+{+[2]: https://www.youtube.com/watch?v=EvQnntaqVdE   +}
+
+{+[^structure]: It can definitely slow you down, but it yields enormous dividends as complexity increases. I typically refactor fairly often, and a good structure means that you can iteratively refactor over your file system.+}
+{+[^radio]: I&#39;m using the [Backbone.Radio](https://github.com/marionettejs/backbone.radio) library (which used to be rolled into Marionette) to help make that happen. +}
+{+[^models]: It&#39;s worth noting that in the schematic illustrated above, models and collections (entities), are defined else where and included as needed. +}
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

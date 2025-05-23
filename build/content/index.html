@@ -1,0 +1,70 @@
+---
+description: Hello, I'm a printer, programmer and student at the MIT Media Lab. This is a collection of odds & ends I've worked on, and things I'm interested in.
+---
+
+{% extends "base.j2" %}
+
+{% block splash %}
+    <h1 class="splash">
+        Hello, I am a printer, programmer, and tinkerer. Here's a bit more <a href="/me/">about me</a>.</h1> 
+{% endblock %}
+    <p><a href="{{ site.last_updated_resource.url }}">{{ site.last_updated_resource.meta.title }}</a> was updated <time class="timeago" datetime="{{ site.last_updated }}">{{ site.last_updated }}</time>.</p>
+
+{% block content -%}
+
+<section class="wrapper">
+{% for res in site.content.walk_resources_grouped_by_posts() -%}
+    {% if loop.first %}
+        <nav><h2><a href="/posts/">POSTS</a></h2></nav> 
+    {% endif %}
+    {% if not res.meta.exclude %}
+    <div class="listing">
+            {% include "assets/render_title.j2" %}
+            {% include "assets/render_summary.j2" %}
+    {% if res.meta.thumbnail %}
+        {% set image='img/thumb_narrow_' + res.meta.thumbnail %}
+        <a href="{{ res.full_url }}"><img src="{{ media_url( image ) }}" /></a>
+    {% endif %}
+    </div>
+    {% endif %}
+{%- endfor %}
+</section>
+
+<section class="wrapper projects">
+{% for res in site.content.walk_resources_grouped_by_projects() -%}
+    {% if loop.first %}
+    <nav><h2><a href="/projects/">PROJECTS</a></h2></nav> 
+    {% endif %}
+    {% if not res.meta.exclude %}
+        <div class="listing">
+            {% include "assets/render_title.j2" %}
+            {% include "assets/render_summary.j2" %}
+            {% if res.meta.thumbnail %}
+                {% set image='img/thumb_narrow_' + res.meta.thumbnail %}
+                <a href="{{ res.full_url }}"><img src="{{ media_url( image ) }}" /></a>
+            {% endif %}
+        </div>
+    {% endif %}
+{%- endfor %}
+</section>
+
+<section class="wrapper">
+{% for res in site.content.walk_resources_grouped_by_printing() -%}
+    {% if loop.first %}
+        <nav><h2><a href="/printing/">PRINTING</a></h2></nav> 
+    {% endif %}
+
+    {% if not res.meta.exclude %}
+    <div class="listing">
+    {% include "assets/render_title.j2" %}
+    {% include "assets/render_summary.j2" %}
+    {% if res.meta.thumbnail %}
+        {% set image='img/thumb_' + res.meta.thumbnail %}
+        <a href="{{ res.full_url }}"><img src="{{ media_url( image ) }}" /></a>
+    {% endif %}
+    </div>
+    {% endif %}
+{%- endfor %}
+</section>
+
+{%- endblock %}

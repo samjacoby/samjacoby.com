@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | PaperClip</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">PaperClip</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2012-08-29 11:37:24" pubdate>2012-08-29 11:37:24</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2015-03-02 21:47:19" pubdate>2015-03-02 21:47:19</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p>I&#8217;ve been working on the software for TapClip&#8212;which is rolling along, in preparation for a workshop next week. So far, it&#8217;s working pretty well, though the <code>minim</code> library is causing me some grief. There appears to be a noticeable lag-time when using <code>loadSample</code> to queue a <code>.wav</code> file in&nbsp;memory. </p>
+<p>I think it has something to do with this <code>buffer underrun</code> error I&#8217;ve been seeing a lot of (see below). It&#8217;s thrown somewhere in the <code>javasound</code> library, and I haven&#8217;t tracked it down yet, so that&#8217;s all I&#8217;ve got. At any rate, it&#8217;s probably not that important (the error, I mean)&#8212;but if I can&#8217;t get it resolved, I may give the <a href="http://www.tree-axis.com/Ess/">Ess</a> library a try (thanks to Nick Gillian of <a href="http://nickgillian.com">NickGillian.com</a> for the&nbsp;suggestion.</p>
+<p>The code is up on <a href="https://github.com/samjacoby/Processing/tree/master/TapClipSound">GitHub</a>.</p>
+<div class="gallery">
+    <img src="/media/img/scaled_paperclip-processing.jpg"/>
+</div>    </section>
+    <footer>
+    <section class="tags">
+
+<h4>Related&nbsp;posts:</h4>
+<ul>
+<li><a href="/projects/storyclip">Drawing the&nbsp;Electric</a></li>
+<li><a href="/projects/wheels-and-sliders">Sliders <span class="amp">&amp;</span>&nbsp;Wheels</a></li>
+<li><a href="/posts/2012/11/15/hidden-layers">Hidden&nbsp;Layers</a></li>
+<li><a href="/posts/2012/9/8/en-masse">TapClip&nbsp;v.2</a></li>
+<li><a href="/posts/2012/8/22/touch-tiny-under">Touch Tiny&nbsp;v.1</a></li>
+<li><a href="/projects/tapclip">TapClip</a></li>
+</ul></section>
+    <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2015-03-02 21:47:19">2015-03-02 21:47:19</time>: <span class="message"> Updating layout for new blocks.
+</span> <a class="link" href="#3a8c3faf3cf2ac8144b1050f4c387551018b567b" id="3a8c3faf3cf2ac8144b1050f4c387551018b567b">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3a8c3faf3cf2ac8144b1050f4c387551018b567b">3a8c3faf3cf2ac8144b1050f4c387551018b567b</a> on GitHub.</pre>
+    <pre class="message">Updating layout for new blocks.
+</pre>
+    <pre class="diff">- SenseClip
+track: True
+---
+{+{% block post %}+}
+{% mark excerpt %}
+I&#39;ve been working on the software for TapClip--which is rolling along, in preparation for a workshop next week. So far, it&#39;s working pretty well, though the `minim` library is causing me some grief. There appears to be a noticeable lag-time when using `loadSample` to queue a `.wav` file in memory.
+{% endmark %}
+@@ -19,7 +19,5 @@ The code is up on [GitHub](https://github.com/samjacoby/Processing/tree/master/T
+&lt;div class=&#34;gallery&#34;&gt;
+&lt;img src=&#34;{{media_url(&#39;img/scaled_paperclip-processing.jpg&#39;)}}&#34;/&gt;
+&lt;/div&gt;
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-02-16 14:28:44">2015-02-16 14:28:44</time>: <span class="message"> Adding excerpts to all posts, basically.
+</span> <a class="link" href="#07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57" id="07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57</a> on GitHub.</pre>
+    <pre class="message">Adding excerpts to all posts, basically.
+</pre>
+    <pre class="diff">track: True
+---
+
+{+{% mark excerpt %}+}
+I&#39;ve been working on the software for TapClip--which is rolling along, in preparation for a workshop next week. So far, it&#39;s working pretty well, though the `minim` library is causing me some grief. There appears to be a noticeable lag-time when using `loadSample` to queue a `.wav` file in memory.
+{+{% endmark %}+}
+
+I think it has something to do with this `buffer underrun` error I&#39;ve been seeing a lot of (see below). It&#39;s thrown somewhere in the `javasound` library, and I haven&#39;t tracked it down yet, so that&#39;s all I&#39;ve got. At any rate, it&#39;s probably not that important (the error, I mean)--but if I can&#39;t get it resolved, I may give the [Ess](http://www.tree-axis.com/Ess/) library a try (thanks to Nick Gillian of [NickGillian.com](http://nickgillian.com) for the suggestion.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-29 18:40:51">2013-01-29 18:40:51</time>: <span class="message"> Start displaying .git tracking information
+</span> <a class="link" href="#cfa46ecb8a0244c3a1d4650cff13dc9294381b44" id="cfa46ecb8a0244c3a1d4650cff13dc9294381b44">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/cfa46ecb8a0244c3a1d4650cff13dc9294381b44">cfa46ecb8a0244c3a1d4650cff13dc9294381b44</a> on GitHub.</pre>
+    <pre class="message">Start displaying .git tracking information
+</pre>
+    <pre class="diff">thumbnail: paperclip-processing.jpg
+tags:
+- SenseClip
+{+track: True+}
+---
+
+I&#39;ve been working on the software for TapClip--which is rolling along, in preparation for a workshop next week. So far, it&#39;s working pretty well, though the `minim` library is causing me some grief. There appears to be a noticeable lag-time when using `loadSample` to queue a `.wav` file in memory.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-11-12 09:54:31">2012-11-12 09:54:31</time>: <span class="message"> Latest.
+</span> <a class="link" href="#3c2f20d37759a45e2141d143e4ff384f3e932ade" id="3c2f20d37759a45e2141d143e4ff384f3e932ade">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3c2f20d37759a45e2141d143e4ff384f3e932ade">3c2f20d37759a45e2141d143e4ff384f3e932ade</a> on GitHub.</pre>
+    <pre class="message">Latest.
+</pre>
+    <pre class="diff">---
+title: PaperClip
+summary: [-Touch-sensitive circuit board-]{+Designing a touch-sensitive sensor+} + sound-sample recording software.
+date: 2012-08-29 11:37:24
+thumbnail: paperclip-processing.jpg
+tags:
+- SenseClip
+---
+
+I&#39;ve been working on the software for TapClip--which is rolling along, in preparation for a workshop next week. So far, it&#39;s working pretty well, though the `minim` library is causing me some grief. There appears to be a noticeable lag-time when using `loadSample` to queue a `.wav` file in memory.
+
+I think it has something to do with this `buffer underrun` error I&#39;ve been seeing a lot of (see below). It&#39;s thrown somewhere in the `javasound` library, and I haven&#39;t tracked it down yet, so that&#39;s all I&#39;ve got. At any rate, it&#39;s probably not that important (the error, I mean)--but if I can&#39;t get it resolved, I may give the [Ess](http://www.tree-axis.com/Ess/) library a try (thanks to Nick Gillian of [NickGillian.com](http://nickgillian.com) for the suggestion.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-17 23:53:28">2012-10-17 23:53:28</time>: <span class="message"> Added some tags.
+</span> <a class="link" href="#02fd917dc3a249df8d7e25e6ca390528175e11dc" id="02fd917dc3a249df8d7e25e6ca390528175e11dc">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/02fd917dc3a249df8d7e25e6ca390528175e11dc">02fd917dc3a249df8d7e25e6ca390528175e11dc</a> on GitHub.</pre>
+    <pre class="message">Added some tags.
+</pre>
+    <pre class="diff">summary: Touch-sensitive circuit board + sound-sample recording software.
+date: 2012-08-29 11:37:24
+thumbnail: paperclip-processing.jpg
+{+tags:+}
+{+    - SenseClip+}
+---
+I&#39;ve been working on the software for TapClip--which is rolling along, in preparation for a workshop next week. So far, it&#39;s working pretty well, though the `minim` library is causing me some grief. There appears to be a noticeable lag-time when using `loadSample` to queue a `.wav` file in memory.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-02 10:34:08">2012-10-02 10:34:08</time>: <span class="message"> Moved all files over to a flat file system. Added new hyde plugin.
+</span> <a class="link" href="#e98500c7a0459410661b53d92e754b7d84a1b869" id="e98500c7a0459410661b53d92e754b7d84a1b869">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/e98500c7a0459410661b53d92e754b7d84a1b869">e98500c7a0459410661b53d92e754b7d84a1b869</a> on GitHub.</pre>
+    <pre class="message">Moved all files over to a flat file system. Added new hyde plugin.
+</pre>
+    <pre class="diff">@@ -0,0 +1,19 @@
+{+---+}
+{+title: PaperClip +}
+{+summary: Touch-sensitive circuit board + sound-sample recording software.+}
+{+date: 2012-08-29 11:37:24+}
+{+thumbnail: paperclip-processing.jpg+}
+{+---+}
+{+I&#39;ve been working on the software for TapClip--which is rolling along, in preparation for a workshop next week. So far, it&#39;s working pretty well, though the `minim` library is causing me some grief. There appears to be a noticeable lag-time when using `loadSample` to queue a `.wav` file in memory. +}
+
+{+I think it has something to do with this `buffer underrun` error I&#39;ve been seeing a lot of (see below). It&#39;s thrown somewhere in the `javasound` library, and I haven&#39;t tracked it down yet, so that&#39;s all I&#39;ve got. At any rate, it&#39;s probably not that important (the error, I mean)--but if I can&#39;t get it resolved, I may give the [Ess](http://www.tree-axis.com/Ess/) library a try (thanks to Nick Gillian of [NickGillian.com](http://nickgillian.com) for the suggestion.+}
+
+{+The code is up on [GitHub](https://github.com/samjacoby/Processing/tree/master/TapClipSound).+}
+
+{+&lt;div class=&#34;gallery&#34;&gt;+}
+{+    &lt;img src=&#34;{{media_url(&#39;img/scaled_paperclip-processing.jpg&#39;)}}&#34;/&gt;+}
+{+&lt;/div&gt;+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

@@ -1,0 +1,162 @@
+---
+title: Message Mondays 
+summary: My first FOIA request, d3.js, and Iowa DOT's sassy highway signs.  
+thumbnail: message_mondays.jpg
+date: 2015-03-01 14:08:56
+track: True
+---
+{% block tail_scripts %}
+<script src="/media/js/d3.v3.min.js"></script>
+<script type="text/javascript">
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 350 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .06);
+
+var y = d3.scale.linear()
+    .range([height, -2]);
+
+var hueScale = d3.scale.linear()
+    .rangeRound([100, 11]);
+
+var xTime = d3.time.scale()
+    .range([2, width]);
+
+var xAxis = d3.svg.axis()
+    .scale(xTime)
+    .orient("bottom")
+    .tickFormat(d3.time.format("%b %y"))
+    .ticks(d3.time.months, 1);
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(10);
+
+
+var msg = d3.select("body").append("div")
+  .attr("class", "tooltip")
+  .style("opacity", 1e-6);
+
+  format = d3.time.format("%m-%d-%Y");
+  var mouseOver = function(el) {
+    msg.html("<p><strong>"+ format(el.date) + "</strong></p><p>" + el.message + "</p>")
+    .style("opacity", 1);  
+}
+
+function mouseMove() {
+  msg
+    .style("left", d3.event.pageX + "px")
+    .style("top", (d3.event.pageY - 100) + "px");
+}
+
+var svg = d3.select("#spicebeam").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+d3.csv("/media/files/message_mondays.csv", type, function(error, data) {
+  x.domain(data.map(function(d) { return d.date; }));
+  xTime.domain([d3.min(data, function(d) { return d.date }), d3.max(data, function(d) { return d.date; })])
+
+  y.domain([0, d3.max(data, function(d) { return d.crashes; })]);
+  hueScale.domain([0, d3.max(data, function(d) { return d.crashes; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+      .selectAll("text")
+      .attr("y", "16")
+      .attr("x", "0")
+      .attr("dy", ".35em")
+      .attr("transform", "rotate(0)")
+      .style("text-anchor", "start");
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Crashes (weekly)");
+  
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return xTime(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.crashes); })
+      .attr("height", function(d) { return height - y(d.crashes); })
+      .attr("fill", function(d) { 
+          if(d.crashes != 700) {
+            // hack to display gray where I don't have data
+            return "hsl(" + hueScale(d.crashes)  + ",90%,50%)"; 
+          }
+          return "#aaa";
+      })
+      .on('mouseover', mouseOver)
+      .on('mousemove', mouseMove);
+});
+
+function type(d) {
+  //d.date = +d.date;
+  d.date = new Date(d.date)  
+  d.crashes = +d.crashes;
+  return d;
+}
+</script>
+{% endblock %}
+
+{% block post %}
+*In this project, I looked at the freeway digital sign alerts in Iowa charted against statewide accident totals, both obtained via FOIA requests to the Iowa DOT.* 
+
+<div id="spicebeam"></div>
+<p style="text-align: right;" class="source small"><strong>Source: <a href="http://www.iowadot.gov/">Iowa DOT</a></strong></p>
+{% mark excerpt %}
+If you drive in Iowa—on the interstate, at least—you can't miss the highway alert signs. I remember seeing these growing up in LA. They were usually switched off or had a nursery rhyme reminding you to buckle up.. I never once thought, "what a missed opportunity!" 
+{% endmark %}
+
+They are not such dull thinkers in Iowa. Here, in the famously mild-mannered midwest, the highway signs have real sass. When we arrived and began our daily commute (Iowa City to Cedar Rapids), we immediately noticed the signs. 
+
+
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="4" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://instagram.com/p/yUdp65JmMg/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_top">I often wonder about the Iowa DOT official in charge of the weekly sign change.</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A photo posted by Madison (@melizbre) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2015-01-26T14:00:40+00:00">Jan 26, 2015 at 6:00am PST</time></p></div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+<br>
+"IN THE BLINK OF AN EYE, YOU COULD DIE." Good morning to you, too. These signs alternate with a sobering daily ticker — "34 traffic deaths so far this year." Driving is serious stuff. That aside, the signs bring some humor and a note of (morbid) grace to the gray morning commute.
+
+I decided to learn more. I wanted all the signs.  
+
+The IowaDOT has extensive resources online, including an impressive interactive map of the state's roadways, not to mention a surprisingly comprehensive staff [phone book](http://www.iowadot.gov/phonebook.htm). That said, they're much more interested in relaying information about current traffic conditions than historical ones.
+
+I got in touch with a few friendly folks out there—muckraking this ain't—and after after some back and forth, they encouraged me to file a FOIA request. With the friendly help of the [FOIA Machine](http://foiamachine.org) and the [USA](http://www.foia.gov/how-to.html) I learned that this was a codeword for "email with the magic words 'FOIA request' in it." Done. I immediately received a vacation auto-responder. Not bad. Not great.  
+
+Nonetheless, about ten days later, an an EXCEL file with 82 weeks worth of sign messages and dates was gleaming in my inbox. What I didn't have, though, was any numerical data. Another request turned that around quickly—traffic data is easy, because it's clear that agencies monitor this stuff very closely themselves. The trick, I suppose, is to get at the data that people *don't* want to know. At any rate, another lovely EXCEL file in hand, I summed by weeks (not knowing the way to do this right in Excel, I generated the appropriate sum formulas, =SUM(B7:B13) in Python and pasted em' in).  
+
+    #!/usr/bin/env python
+    # print =SUM(BX:BX+n)
+    start = 8
+    interval = 6
+    for i in range(52):
+        end = start + interval
+        print "=SUM(B%d:B%d)" % (start, end)  
+        start += interval + 1
+
+Ha! I felt brilliant and stupid all at once. Honestly, I find it a lot more readable than the cryptic offset(...) Excel soutions, and easier than doing it all in Python. Numbers so summed, I turned to `d3.js`, the much beloved visual library. I learned a few things in getting up to speed. Having spent quite a bit of time working with `jQuery`, it was a pleasure to use a library that offered a bit more out-of-the-box functionality.
+
+For those looking to get into gear, the basic beginning tutorials on [d3js.org](http://d3js.org)—are really useful. The list of tutorials [here](https://github.com/mbostock/d3/wiki/Tutorials) is hit or miss, but there are some great ones too. I'd recommending reading Bostock's [write-ups](http://bost.ocks.org/mike/join/) on [joins](http://bost.ocks.org/mike/selection/) more than anything else, as that explains the basics of the whole chaining syntax. I struggled somewhat with the scales, as well. It's just the kind've thing that takes a little banging.
+
+It's interesting how rapidly patterns become clear. Traffic accidents spike immediately before Thanksgiving.  
+
+ The full CSV is available for download [here](/media/files/message_mondays.csv).
+
+{% endblock %}

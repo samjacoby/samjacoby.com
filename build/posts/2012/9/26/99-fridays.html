@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | 99 Fridays &amp; IR Throwies</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">99 Fridays &amp; IR Throwies</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2012-09-26 10:08:23" pubdate>2012-09-26 10:08:23</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2015-03-02 21:47:19" pubdate>2015-03-02 21:47:19</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p>Thanks to the inestimable efforts of <a href="http://colorsaregood.com/index.php">Valentin Huen</a>, we pulled together a whopping <a href="/projects/ir-led/throwies/">500 <span class="caps">IR</span> Throwies</a> for the Media Lab&#8217;s latest 99 Friday dance-party <em>cum</em> project-showcase. I use &#8220;we&#8221; rather loosely: I was racing against a conference paper deadline, so Valentin heroically recruited a small army of people to scale up the <a href="/projects/ir-led-throwies/"><span class="caps">IR</span> Throwies</a> project. It came off pretty&nbsp;well.</p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/40358770@N00/8070857656/" title="IR Throwies by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8177/8070857656_764138f70f.jpg" width="500" height="334" alt="IR Throwies"></a> 
+    <figcaption><p>500 <span class="caps">IR</span> Throwies under construction (photo courtesy of Valentine&nbsp;Huen).</p></figcaption>
+</figure>
+
+<p>I had a batch that I tested with an Arduino and an <span class="caps">IR</span> light array. The array&#8212;it turned out&#8212;wasn&#8217;t the right wavelength, so though the response was good in the comfort of my office, once we were trying to blanket an entire space, it didn&#8217;t work all that well. Valentin scrounged up some of the right LEDs though, and that worked fine. <em>Then</em> we had some issues with the receiver&#8217;s error-detection and noise-rejection &#8212; but managed to get around it with some jerry-regging. The morial is what it always is: read the datasheet. Once things were squared away, the <span class="caps">IR</span> transmitter was synced to <a href="http://bdm.cc">Brian&#8217;s</a> <span class="caps">OSC</span> stream that distributed levels and <span class="caps">FFT</span> bands to whomever was listening to the server. When the emitter pulsed, the LEDs pulsed-with. Not bad. Even figured out some nice <span class="caps">PWM</span> action,&nbsp;too.  </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/40358770@N00/8070864153/" title="IR Throwies by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8315/8070864153_93b8a8f089.jpg" width="375" height="500" alt="IR Throwies"></a> 
+    <figcaption><p>Before they&#8217;ve been attached to clothespins and all. Testing&nbsp;functionality.</p></figcaption>
+</figure>
+
+<p>Here are the final batch. Each throwie was attached to a clothespin so that people could attach them to their clothes. I wish I had some shots from the actual party, with everyone dancing and all, but I had to take off once we had them working to entertain a very patient, out-of-town guest. I heard that they were a hit&nbsp;though.  </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/40358770@N00/8070863365/" title="IR Throwies by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8180/8070863365_2225c127b7.jpg" width="500" height="375" alt="IR Throwies"></a> 
+    <figcaption><p>The final lot, brought up to the party and triggered by the&nbsp;music.</p></figcaption>
+</figure>
+
+<p>Not a bad showing, all in all. And cheap &#8212; though it starts to add up in&nbsp;quantity. </p>    </section>
+    <footer>
+    <section class="tags">
+
+<h4>Related&nbsp;posts:</h4>
+<ul>
+<li><a href="/projects/ir-led-throwies">Infra-Red <span class="caps">LED</span>&nbsp;Throwies</a></li>
+</ul></section>
+    <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2015-03-02 21:47:19">2015-03-02 21:47:19</time>: <span class="message"> Updating layout for new blocks.
+</span> <a class="link" href="#3a8c3faf3cf2ac8144b1050f4c387551018b567b" id="3a8c3faf3cf2ac8144b1050f4c387551018b567b">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3a8c3faf3cf2ac8144b1050f4c387551018b567b">3a8c3faf3cf2ac8144b1050f4c387551018b567b</a> on GitHub.</pre>
+    <pre class="message">Updating layout for new blocks.
+</pre>
+    <pre class="diff">thumbnail: ir-throwies-1.jpg
+track: True
+---
+{+{% block post %}+}
+{% mark excerpt %}
+Thanks to the inestimable efforts of [Valentin Huen](http://colorsaregood.com/index.php), we pulled together a whopping [500 IR Throwies](/projects/ir-led/throwies/) for the Media Lab&#39;s latest 99 Friday dance-party _cum_ project-showcase. I use &#34;we&#34; rather loosely: I was racing against a conference paper deadline, so Valentin heroically recruited a small army of people to scale up the [IR Throwies](/projects/ir-led-throwies/) project. It came off pretty well.
+{% endmark %}
+@@ -23,3 +24,4 @@ Here are the final batch. Each throwie was attached to a clothespin so that peop
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/8070863365/&#34; title=&#34;IR Throwies by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8180/8070863365_2225c127b7.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IR Throwies&#34;&gt;&lt;/a&gt;&#39;, &#34;The final lot, brought up to the party and triggered by the music.&#34;) }}
+
+Not a bad showing, all in all. And cheap -- though it starts to add up in quantity.
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-02-16 14:28:44">2015-02-16 14:28:44</time>: <span class="message"> Adding excerpts to all posts, basically.
+</span> <a class="link" href="#07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57" id="07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57</a> on GitHub.</pre>
+    <pre class="message">Adding excerpts to all posts, basically.
+</pre>
+    <pre class="diff">thumbnail: ir-throwies-1.jpg
+track: True
+---
+{+{% mark excerpt %}+}
+Thanks to the inestimable efforts of [Valentin Huen](http://colorsaregood.com/index.php), we pulled together a whopping [500 IR Throwies](/projects/ir-led/throwies/) for the Media Lab&#39;s latest 99 Friday dance-party _cum_ project-showcase. I use &#34;we&#34; rather loosely: I was racing against a conference paper deadline, so Valentin heroically recruited a small army of people to scale up the [IR Throwies](/projects/ir-led-throwies/) project. It came off pretty well.
+{+{% endmark %}+}
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/8070857656/&#34; title=&#34;IR Throwies by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8177/8070857656_764138f70f.jpg&#34; width=&#34;500&#34; height=&#34;334&#34; alt=&#34;IR Throwies&#34;&gt;&lt;/a&gt;&#39;, &#34;500 IR Throwies under construction (photo courtesy of Valentine Huen).&#34;) }}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-29 18:40:51">2013-01-29 18:40:51</time>: <span class="message"> Start displaying .git tracking information
+</span> <a class="link" href="#cfa46ecb8a0244c3a1d4650cff13dc9294381b44" id="cfa46ecb8a0244c3a1d4650cff13dc9294381b44">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/cfa46ecb8a0244c3a1d4650cff13dc9294381b44">cfa46ecb8a0244c3a1d4650cff13dc9294381b44</a> on GitHub.</pre>
+    <pre class="message">Start displaying .git tracking information
+</pre>
+    <pre class="diff">- IR Throwies
+- 99Fridays
+thumbnail: ir-throwies-1.jpg
+{+track: True+}
+---
+Thanks to the inestimable efforts of [Valentin Huen](http://colorsaregood.com/index.php), we pulled together a whopping [500 IR Throwies](/projects/ir-led/throwies/) for the Media Lab&#39;s latest 99 Friday dance-party _cum_ project-showcase. I use &#34;we&#34; rather loosely: I was racing against a conference paper deadline, so Valentin heroically recruited a small army of people to scale up the [IR Throwies](/projects/ir-led-throwies/) project. It came off pretty well.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-11 23:24:25">2012-12-11 23:24:25</time>: <span class="message"> Keeping track of the generalities of the mentals.
+</span> <a class="link" href="#db1fd991b3ea34429d47856c77e32ede5c8a3569" id="db1fd991b3ea34429d47856c77e32ede5c8a3569">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/db1fd991b3ea34429d47856c77e32ede5c8a3569">db1fd991b3ea34429d47856c77e32ede5c8a3569</a> on GitHub.</pre>
+    <pre class="message">Keeping track of the generalities of the mentals.
+</pre>
+    <pre class="diff">tags:
+- IR Throwies
+- 99Fridays
+{+thumbnail: ir-throwies-1.jpg+}
+---
+Thanks to the inestimable efforts of [Valentin Huen](http://colorsaregood.com/index.php), we pulled together a whopping [500 IR Throwies](/projects/ir-led/throwies/) for the Media Lab&#39;s latest 99 Friday dance-party _cum_ project-showcase. I use &#34;we&#34; rather loosely: I was racing against a conference paper deadline, so Valentin heroically recruited a small army of people to scale up the [IR Throwies](/projects/ir-led-throwies/) project. It came off pretty well.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-18 17:14:43">2012-10-18 17:14:43</time>: <span class="message"> typo.
+</span> <a class="link" href="#f7b38c6d193f9046b7d7d045561fa9dfa4a7e2e9" id="f7b38c6d193f9046b7d7d045561fa9dfa4a7e2e9">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/f7b38c6d193f9046b7d7d045561fa9dfa4a7e2e9">f7b38c6d193f9046b7d7d045561fa9dfa4a7e2e9</a> on GitHub.</pre>
+    <pre class="message">typo.
+</pre>
+    <pre class="diff">- IR Throwies
+- 99Fridays
+---
+Thanks to the inestimable efforts of [Valentin Huen](http://colorsaregood.com/index.php), we pulled together a whopping [500 IR Throwies](/projects/ir-led/throwies/) for the Media Lab&#39;s latest 99 Friday [-dancy-party-]{+dance-party+} _cum_ project-showcase. I use &#34;we&#34; rather loosely: I was racing against a conference paper deadline, so Valentin heroically recruited a small army of people to scale up the [IR Throwies](/projects/ir-led-throwies/) project. It came off pretty well.
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/8070857656/&#34; title=&#34;IR Throwies by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8177/8070857656_764138f70f.jpg&#34; width=&#34;500&#34; height=&#34;334&#34; alt=&#34;IR Throwies&#34;&gt;&lt;/a&gt;&#39;, &#34;500 IR Throwies under construction (photo courtesy of Valentine Huen).&#34;) }}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-17 23:53:28">2012-10-17 23:53:28</time>: <span class="message"> Added some tags.
+</span> <a class="link" href="#02fd917dc3a249df8d7e25e6ca390528175e11dc" id="02fd917dc3a249df8d7e25e6ca390528175e11dc">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/02fd917dc3a249df8d7e25e6ca390528175e11dc">02fd917dc3a249df8d7e25e6ca390528175e11dc</a> on GitHub.</pre>
+    <pre class="message">Added some tags.
+</pre>
+    <pre class="diff">title: 99 Fridays &amp;amp; IR Throwies
+summary: The little guys hit the big time.
+date: 2012-9-26 10:08:23
+{+tags:+}
+{+    - IR Throwies+}
+{+    - 99Fridays+}
+---
+Thanks to the inestimable efforts of [Valentin Huen](http://colorsaregood.com/index.php), we pulled together a whopping [500 IR Throwies](/projects/ir-led/throwies/) for the Media Lab&#39;s latest 99 Friday dancy-party _cum_ project-showcase. I use &#34;we&#34; rather loosely: I was racing against a conference paper deadline, so Valentin heroically recruited a small army of people to scale up the [IR Throwies](/projects/ir-led-throwies/) project. It came off pretty well.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-10 17:05:18">2012-10-10 17:05:18</time>: <span class="message"> Ok
+</span> <a class="link" href="#3be8951a57cf120587e000c87d173bb2526b9fa2" id="3be8951a57cf120587e000c87d173bb2526b9fa2">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3be8951a57cf120587e000c87d173bb2526b9fa2">3be8951a57cf120587e000c87d173bb2526b9fa2</a> on GitHub.</pre>
+    <pre class="message">Ok
+</pre>
+    <pre class="diff">summary: The little guys hit the big time.
+date: 2012-9-26 10:08:23
+---
+Thanks to the inestimable efforts of [Valentin Huen](http://colorsaregood.com/index.php), we pulled together [-_500_-]{+a whopping [500+} IR [-Throwies-]{+Throwies](/projects/ir-led/throwies/)+} for the Media Lab&#39;s {+latest+} 99 [-Friday&#39;s party series. 99 Fridays is all-out dance-party, albeit a very Media-Lab-ish one. It&#39;s spiced by projects that people pull together from their research--or whatever, really.-]{+Friday dancy-party _cum_ project-showcase. I use &#34;we&#34; rather loosely:+} I was racing against a [-&lt;span class=&#34;small-caps&#34;&gt;CHI&lt;/span&gt;-]{+conference+} paper deadline, so Valentin heroically recruited a small army of people to scale up the [IR Throwies](/projects/ir-led-throwies/) [-project for the last party.-]{+project. It came off pretty well.+}
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/8070857656/&#34; title=&#34;IR Throwies by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8177/8070857656_764138f70f.jpg&#34; width=&#34;500&#34; height=&#34;334&#34; alt=&#34;IR Throwies&#34;&gt;&lt;/a&gt;&#39;, &#34;500 IR Throwies under construction (photo courtesy of Valentine Huen).&#34;) }}
+
+I had a batch that I tested with an Arduino and an IR light array. The array--it turned out--wasn&#39;t the right [-frequency of light,-]{+wavelength,+} so though the response was good in the comfort of my office, once we were trying to blanket an entire space, it didn&#39;t work {+all that+} well. Valentin scrounged up some of the right LEDs though, and that worked fine. [-Read-]{+_Then_ we had some issues with+} the [-goddamn datasheet: that&#39;s-]{+receiver&#39;s error-detection and noise-rejection -- but managed to get around it with some jerry-regging. The morial is what it+} always {+is: read the datasheet. Once things were squared away,+} the[-lesson. The-] IR transmitter was synced to [-Brian&#39;s-]{+[Brian&#39;s](http://bdm.cc)+} OSC stream that distributed levels and FFT[-of various-] bands to whomever was [-listening. All-]{+listening to+} the [-LEDs, then, pulsed with-]{+server. When the emitter pulsed,+} the [-music. Pretty good.-]{+LEDs pulsed-with. Not bad. Even figured out some nice PWM action, too.+}
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/8070864153/&#34; title=&#34;IR Throwies by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8315/8070864153_93b8a8f089.jpg&#34; width=&#34;375&#34; height=&#34;500&#34; alt=&#34;IR Throwies&#34;&gt;&lt;/a&gt;&#39;, &#34;Before they&#39;ve been attached to clothespins and all. Testing functionality.&#34;) }}
+
+[-And here-]{+Here+} are the final batch. {+Each throwie was attached to a clothespin so that people could attach them to their clothes.+} I wish I had some shots from the [-party-]{+actual party,+} with everyone dancing and all, but I had to take off once we had them [-working. We heaped batches of them around the room, and as the night proceeded, people attached them all over themselves. #FUTURERAVES.-]{+working to entertain a very patient, out-of-town guest. I heard that they were a hit though.+}
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/8070863365/&#34; title=&#34;IR Throwies by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8180/8070863365_2225c127b7.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IR Throwies&#34;&gt;&lt;/a&gt;&#39;, &#34;The final lot, brought up to the party and triggered by the music.&#34;) }}
+
+Not a bad showing, all in all. And cheap -- though it starts to add up in [-quantity!-]{+quantity.+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-09 11:20:41">2012-10-09 11:20:41</time>: <span class="message"> New post.
+</span> <a class="link" href="#5b06c70010e80fe6abb29c325edb61225bfbe9c0" id="5b06c70010e80fe6abb29c325edb61225bfbe9c0">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/5b06c70010e80fe6abb29c325edb61225bfbe9c0">5b06c70010e80fe6abb29c325edb61225bfbe9c0</a> on GitHub.</pre>
+    <pre class="message">New post.
+</pre>
+    <pre class="diff">@@ -0,0 +1,18 @@
+{+---+}
+{+title: 99 Fridays &amp;amp; IR Throwies+}
+{+summary: The little guys hit the big time.+}
+{+date: 2012-9-26 10:08:23+}
+{+---+}
+{+Thanks to the inestimable efforts of [Valentin Huen](http://colorsaregood.com/index.php), we pulled together _500_ IR Throwies for the Media Lab&#39;s 99 Friday&#39;s party series. 99 Fridays is all-out dance-party, albeit a very Media-Lab-ish one. It&#39;s spiced by projects that people pull together from their research--or whatever, really. I was racing against a &lt;span class=&#34;small-caps&#34;&gt;CHI&lt;/span&gt; paper deadline, so Valentin heroically recruited a small army of people to scale up the [IR Throwies](/projects/ir-led-throwies/) project for the last party. +}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/8070857656/&#34; title=&#34;IR Throwies by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8177/8070857656_764138f70f.jpg&#34; width=&#34;500&#34; height=&#34;334&#34; alt=&#34;IR Throwies&#34;&gt;&lt;/a&gt;&#39;, &#34;500 IR Throwies under construction (photo courtesy of Valentine Huen).&#34;) }}+}
+
+{+I had a batch that I tested with an Arduino and an IR light array. The array--it turned out--wasn&#39;t the right frequency of light, so though the response was good in the comfort of my office, once we were trying to blanket an entire space, it didn&#39;t work well. Valentin scrounged up some of the right LEDs though, and that worked fine. Read the goddamn datasheet: that&#39;s always the lesson. The IR transmitter was synced to Brian&#39;s OSC stream that distributed levels and FFT of various bands to whomever was listening. All the LEDs, then, pulsed with the music. Pretty good. +}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/8070864153/&#34; title=&#34;IR Throwies by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8315/8070864153_93b8a8f089.jpg&#34; width=&#34;375&#34; height=&#34;500&#34; alt=&#34;IR Throwies&#34;&gt;&lt;/a&gt;&#39;, &#34;Before they&#39;ve been attached to clothespins and all. Testing functionality.&#34;) }} +}
+
+{+And here are the final batch. I wish I had some shots from the party with everyone dancing and all, but I had to take off once we had them working. We heaped batches of them around the room, and as the night proceeded, people attached them all over themselves. #FUTURERAVES. +}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/40358770@N00/8070863365/&#34; title=&#34;IR Throwies by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8180/8070863365_2225c127b7.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IR Throwies&#34;&gt;&lt;/a&gt;&#39;, &#34;The final lot, brought up to the party and triggered by the music.&#34;) }}+}
+
+{+Not a bad showing, all in all. And cheap -- though it starts to add up in quantity!+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

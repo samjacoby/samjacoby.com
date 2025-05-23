@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | Computerese</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">Computerese</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2015-01-10 09:40:05" pubdate>2015-01-10 09:40:05</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2015-08-06 10:24:01" pubdate>2015-08-06 10:24:01</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p>I work with computers a fair amount, so now and again want to keep track of things I&#8217;ve&nbsp;learned. </p>
+<h2>Sharing your localhost dev server with the&nbsp;world</h2>
+<p>Say you&#8217;ve got a server running locally—and want to quickly it share it with the world? You need a remote server that you have ssh access&nbsp;to.</p>
+<div class="codehilite"><pre><span class="n">ssh</span> <span class="o">-</span><span class="n">R</span> <span class="o">&lt;</span><span class="n">remote</span> <span class="n">port</span><span class="o">&gt;:</span><span class="n">localhost</span><span class="o">:&lt;</span><span class="n">local</span> <span class="n">port</span><span class="o">&gt;</span> <span class="n">sjacoby</span><span class="err">@</span> <span class="o">&lt;</span><span class="n">remote</span> <span class="n">server</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>You will need to enable <code>GatewayPorts</code> on the <em>remote</em> <code>sshd_config</code> (not your local&nbsp;machine):</p>
+<div class="codehilite"><pre><span class="n">GatewayPorts</span> <span class="n">yes</span>
+</pre></div>
+
+
+<p>Reload the remote sshd for the new config (on my Arch box, it&#8217;s the&nbsp;below).:</p>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">sshd</span>
+</pre></div>
+
+
+<p>Your locahost page should now be available at <code>&lt;my remote server&gt;:&lt;my remote port&gt;</code>. Party&nbsp;on. </p>
+<h2>Pretty printing <code>json</code> responses,</h2>
+<p>You&#8217;ve got this little slice of&nbsp;sweetness.</p>
+<div class="codehilite"><pre><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">json</span><span class="p">.</span><span class="n">tool</span>
+</pre></div>
+
+
+<p>And if you want to do it in Vim, go&nbsp;with:</p>
+<div class="codehilite"><pre><span class="o">:%!</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">json</span><span class="p">.</span><span class="n">tool</span>
+</pre></div>
+
+
+<p>Credit to <a href="https://pascalprecht.github.io/2014/07/10/pretty-print-json-in-vim/">Pascal Prect</a>.</p>
+<h2>Deleting Annoying&nbsp;Files</h2>
+<p>find . -name &#8216;.DS_Store&#8217; -delete
+  find . -type&nbsp;l</p>    </section>
+    <footer>
+        <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2015-08-06 10:24:01">2015-08-06 10:24:01</time>: <span class="message"> I am doing this more and more for some reason.
+</span> <a class="link" href="#91a581606140ee59a0e9eb6d52e743e944030b90" id="91a581606140ee59a0e9eb6d52e743e944030b90">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/91a581606140ee59a0e9eb6d52e743e944030b90">91a581606140ee59a0e9eb6d52e743e944030b90</a> on GitHub.</pre>
+    <pre class="message">I am doing this more and more for some reason.
+</pre>
+    <pre class="diff">:%!python -m json.tool
+
+Credit to [Pascal Prect](https://pascalprecht.github.io/2014/07/10/pretty-print-json-in-vim/).
+
+{+## Deleting Annoying Files+}
+
+{+  find . -name &#39;.DS_Store&#39; -delete+}
+{+  find . -type l+}
+
+{% endblock %}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-06-24 11:34:25">2015-06-24 11:34:25</time>: <span class="message"> Adding json prettyprint.
+</span> <a class="link" href="#7f99e4468a5c692560135a2b4140e256c0afd5f7" id="7f99e4468a5c692560135a2b4140e256c0afd5f7">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/7f99e4468a5c692560135a2b4140e256c0afd5f7">7f99e4468a5c692560135a2b4140e256c0afd5f7</a> on GitHub.</pre>
+    <pre class="message">Adding json prettyprint.
+</pre>
+    <pre class="diff">I work with computers a fair amount, so now and again want to keep track of things I&#39;ve learned.
+{% endmark %}
+
+{+## Sharing your localhost dev server with the world+}
+
+Say you&#39;ve got a server running locally—and want to quickly it share it with the world? You need a remote server that you have ssh access to.
+
+ssh -R &lt;remote port&gt;:localhost:&lt;local port&gt; sjacoby@ &lt;remote server&gt;
+@@ -23,5 +25,15 @@ Reload the remote sshd for the new config (on my Arch box, it&#39;s the below).:
+
+Your locahost page should now be available at `&lt;my remote server&gt;:&lt;my remote port&gt;`. Party on.
+
+[-EpNCKPdAm9$yLY&amp;Py&amp;5g-]{+## Pretty printing `json` responses,  +}
+
+{+You&#39;ve got this little slice of sweetness.+}
+
+{+    python -m json.tool+}
+
+{+And if you want to do it in Vim, go with:+}
+
+{+    :%!python -m json.tool+}
+
+{+Credit to [Pascal Prect](https://pascalprecht.github.io/2014/07/10/pretty-print-json-in-vim/).+}
+{% endblock %}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-03-28 16:54:06">2015-03-28 16:54:06</time>: <span class="message"> Note — you need a server anyhow.
+</span> <a class="link" href="#ede0e3f851b0676361bc85869c168a15f6bc75c4" id="ede0e3f851b0676361bc85869c168a15f6bc75c4">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/ede0e3f851b0676361bc85869c168a15f6bc75c4">ede0e3f851b0676361bc85869c168a15f6bc75c4</a> on GitHub.</pre>
+    <pre class="message">Note — you need a server anyhow.
+</pre>
+    <pre class="diff">I work with computers a fair amount, so now and again want to keep track of things I&#39;ve learned.
+{% endmark %}
+
+Say you&#39;ve got a server running locally—and want to quickly it share it with the world? {+You need a remote server that you have ssh access to.+}
+
+ssh -R &lt;remote port&gt;:localhost:&lt;local port&gt; [-sjacoby@&lt;my remote-]{+sjacoby@ &lt;remote+} server&gt;
+
+You will need to enable `GatewayPorts` on the *remote* [-`ssh_config`-]{+`sshd_config`+} (not your local machine):
+
+GatewayPorts yes
+
+Reload the remote sshd for the new config (on my Arch [-box):-]{+box, it&#39;s the below).:+}
+
+sudo systemctl restart sshd
+
+Your locahost page should now be available at `&lt;my remote server&gt;:&lt;my remote [-port&gt;`-]{+port&gt;`. Party on.+}
+
+{+EpNCKPdAm9$yLY&amp;Py&amp;5g+}
+{% endblock %}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-03-10 09:45:38">2015-03-10 09:45:38</time>: <span class="message"> Initial computerese.
+</span> <a class="link" href="#f15c55535014c08a93e8a894be467e5eef7abd7a" id="f15c55535014c08a93e8a894be467e5eef7abd7a">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/f15c55535014c08a93e8a894be467e5eef7abd7a">f15c55535014c08a93e8a894be467e5eef7abd7a</a> on GitHub.</pre>
+    <pre class="message">Initial computerese.
+</pre>
+    <pre class="diff">@@ -0,0 +1,26 @@
+{+---+}
+{+title: Computerese +}
+{+summary: Useful things in Computer. +}
+{+date: 2015-01-10 09:40:05+}
+{+track: True+}
+{+---+}
+{+{% block post %}+}
+{+{% mark excerpt %}+}
+{+I work with computers a fair amount, so now and again want to keep track of things I&#39;ve learned. +}
+{+{% endmark %}+}
+
+{+Say you&#39;ve got a server running locally—and want to quickly it share it with the world?+}
+
+{+  ssh -R &lt;remote port&gt;:localhost:&lt;local port&gt; sjacoby@&lt;my remote server&gt; +}
+
+{+You will need to enable `GatewayPorts` on the *remote* `ssh_config` (not your local machine):+}
+
+{+  GatewayPorts yes  +}
+
+{+Reload the remote sshd for the new config (on my Arch box):+}
+
+{+   sudo systemctl restart sshd+}
+
+{+ Your locahost page should now be available at `&lt;my remote server&gt;:&lt;my remote port&gt;` +}
+
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

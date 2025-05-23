@@ -1,0 +1,7 @@
+{% if not res.meta.exclude -%}
+{%- if res.meta.title -%}
+<a href="{{res.full_url}}">{{res.meta.title}}</a>
+{%- else -%}
+<a href="{{ res.full_url }}">{{ res.slug|capitalize|replace("-"," ") }}</a>
+{%- endif -%}
+{%- endif -%}

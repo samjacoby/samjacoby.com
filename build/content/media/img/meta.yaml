@@ -1,0 +1,26 @@
+thumbnails:
+  - width: 550
+    prefix: scaled_
+    include:
+    - '*.png'
+    - '*.jpg'
+  - width: 550
+    height: 200
+    prefix: listing_
+    crop_type: center
+    include: 
+    - '*.jpg'
+    - '*.png'
+  - width: 240
+    height: 240
+    prefix: thumb_
+    crop_type: center
+    include:
+    - '*.png'
+    - '*.jpg'
+  - width: 300 
+    prefix: thumb_narrow_
+    crop_type: center
+    include:
+    - '*.png'
+    - '*.jpg'

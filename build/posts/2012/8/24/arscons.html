@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | Using Arscons</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">Using Arscons</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2012-08-24 14:10:22" pubdate>2012-08-24 14:10:22</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2015-03-02 21:47:19" pubdate>2015-03-02 21:47:19</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p><em>This is a post about me <span class="amp">&amp;</span> my computer. Get&nbsp;excited.</em></p>
+<h2>Arch Linux <span class="amp">&amp;</span> Thinkpad X40: A love&nbsp;story</h2>
+<p>I&#8217;ve used Arch Linux for years &#8212; always a bit ineptly, I must admit &#8212; and a while back, mostly because of a new job (and the allure of ditching my open-source sensibilities and using Adobe <span class="caps">CS</span>), I switched to a Mac. I&#8217;ve been happy enough, but there&#8217;s something about coding in Snow Leopard or Lion or Cat or whatever we&#8217;re on, that I&#8217;ve never really liked. Too slick, maybe. I find I work better in heavily constrained&nbsp;environments. </p>
+<p>So I&#8217;ve always had another machine around for my &#8220;real&#8221; coding work. That lot falls to an old Thinkpad X40 that I hauled around on a six-month jaunt in Nicaragua, when I was taking some time off from college and working for <a href="http://ticotimes.net">The Tico Times</a>. I was running Ubuntu then. It was like a rock&#8212;it&#8217;s still going strong. Over the years, I&#8217;ve amassed a small armada of X40s: you can get one in working-order on <a href="http://www.ebay.com/sch/Laptops-Netbooks-/175672/i.html?_nkw=x40%20thinkpad&amp;_mPrRngCbx=1&amp;_udlo=10&amp;_udhi=76">Ebay</a> for under $65 bucks. How can you&nbsp;resist?</p>
+<h2>Arch +&nbsp;Arduino</h2>
+<p>On my latest X40, I&#8217;m running Arch off&#8217;ve a charming <span class="caps">4GB</span> <span class="caps">USB</span> stick (the X40s on Ebay are almost always stripped of their hard-drives). It&#8217;s a little pokey, particularly on writing to disk, but I couldn&#8217;t be happier. And my little, cranky, skull-bucket of a Thinkpad feels as roomy as the glossy 13&#8221; MacBook Pro I usually work and the keyboard has none of the mushy play. (Read up on Mako&#8217;s <a href="http://mako.cc/copyrighteous/20111207-00">great post</a> on the great swindle that is the 16:9 screen ratio &#8212; which is why the X40 <em>is</em> actually as large as the&nbsp;<span class="caps">MBP</span>).</p>
+<p>At any rate, all of that doesn&#8217;t change the fact that it&#8217;s an antiquated machine and I use it primarily for text editing. Not much else. I like coding on it&#8212;there&#8217;s no electro-peace like a tiling windows manager (Awesome) and someone else&#8217;s fantastic&nbsp;.vimrc. </p>
+<p>I&#8217;ve been using <a href="http://bdm.cc">Brian Mayton&#8217;s</a> Makefile (<a href="https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian">file</a>) to compile my avr programs&#8212;but honestly, I love the convenience of the Arduino libraries and all the rest, even if they&#8217;re anathema to Assembly&nbsp;Cowboys. </p>
+<p>Not growing up on embedded programming, the whole <code>(1 &lt;&lt; PB4)</code>, alas, does not quite feel like first nature. One sore spot has been the Arduino <span class="caps">IDE</span>, which in all its muscular Java-ness, is a bit much for the X40 to&nbsp;handle. </p>
+<p>So&#8212;how do you use the Arduino libraries in the comfort of your own <code>vim</code> config? There are a couple of ways. I use <a href="https://github.com/suapapa/arscons">Arscons</a>, a python build script, that makes the process relatively&nbsp;painless. </p>
+<p>First, install the&nbsp;necessaries: </p>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pyserial</span> <span class="n">scons</span>
+</pre></div>
+
+
+<p>Then grab the <a href="https://github.com/suapapa/arscons">SConstruct</a> file and copy it into your sketch folder. Run <code>scons</code>, and let the magic unfold. Maybe. Didn&#8217;t work for me outt&#8217;ve the box. Because I have several versions of avr-gcc, a conflict prevented programs from compiling correctly. I edited the SConstruct file to make it work right&#8212;in my case, I just modified the <code>AVR_BIN_PREFIX</code> setting to point to the actual Arduino install of <code>avr-gcc</code>. That broke <code>avrdude</code>, but such is life. I don&#8217;t know exactly what was amiss, but it seemed to have worked&nbsp;fine.</p>
+<p>So that&#8217;s that&#8212;not so grand. Scons is basically Make&#8212;or does the same things, at least&#8212;and lets you use Python rather than all of that gibberish. There <em>are</em> <code>Makefiles</code> for Arduino that do the exact same thing&#8212;but they are even more of a code&nbsp;soup.  </p>
+<p><strong><span class="caps">UPDATE</span>:</strong> I checked in with Dave and Arduino ships with its own version of avr-gcc with a number of necessary&nbsp;tweaks.</p>
+<p><strong><span class="caps">NOTE</span>:</strong> Yes, yes, I know I can use an external editor with Arduino, but I don&#8217;t like doing that for some reason. I end up being confused about where I should be&nbsp;editing. </p>    </section>
+    <footer>
+        <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2015-03-02 21:47:19">2015-03-02 21:47:19</time>: <span class="message"> Updating layout for new blocks.
+</span> <a class="link" href="#3a8c3faf3cf2ac8144b1050f4c387551018b567b" id="3a8c3faf3cf2ac8144b1050f4c387551018b567b">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3a8c3faf3cf2ac8144b1050f4c387551018b567b">3a8c3faf3cf2ac8144b1050f4c387551018b567b</a> on GitHub.</pre>
+    <pre class="message">Updating layout for new blocks.
+</pre>
+    <pre class="diff">date: 2012-08-24 14:10:22
+track: True
+---
+{+{% block post %}+}
+_This is a post about me &amp; my computer. Get excited._
+
+## Arch Linux &amp; Thinkpad X40: A love story
+@@ -39,3 +39,4 @@ So that&#39;s that--not so grand. Scons is basically Make--or does the same things,
+
+**NOTE:** Yes, yes, I know I can use an external editor with Arduino, but I don&#39;t like doing that for some reason. I end up being confused about where I should be editing.
+
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-02-16 14:28:44">2015-02-16 14:28:44</time>: <span class="message"> Adding excerpts to all posts, basically.
+</span> <a class="link" href="#07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57" id="07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57</a> on GitHub.</pre>
+    <pre class="message">Adding excerpts to all posts, basically.
+</pre>
+    <pre class="diff">_This is a post about me &amp; my computer. Get excited._
+
+## Arch Linux &amp; Thinkpad X40: A love story
+
+{+{% mark excerpt %}+}
+I&#39;ve used Arch Linux for years -- always a bit ineptly, I must admit -- and a while back, mostly because of a new job (and the allure of ditching my open-source sensibilities and using Adobe CS), I switched to a Mac. I&#39;ve been happy enough, but there&#39;s something about coding in Snow Leopard or Lion or Cat or whatever we&#39;re on, that I&#39;ve never really liked. Too slick, maybe. I find I work better in heavily constrained environments.
+{+{% endmark %}+}
+
+So I&#39;ve always had another machine around for my &#34;real&#34; coding work. That lot falls to an old Thinkpad X40 that I hauled around on a six-month jaunt in Nicaragua, when I was taking some time off from college and working for [The Tico Times](http://ticotimes.net). I was running Ubuntu then. It was like a rock--it&#39;s still going strong. Over the years, I&#39;ve amassed a small armada of X40s: you can get one in working-order on [Ebay](http://www.ebay.com/sch/Laptops-Netbooks-/175672/i.html?_nkw=x40%20thinkpad&amp;_mPrRngCbx=1&amp;_udlo=10&amp;_udhi=76) for under $65 bucks. How can you resist?</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-29 18:40:51">2013-01-29 18:40:51</time>: <span class="message"> Start displaying .git tracking information
+</span> <a class="link" href="#cfa46ecb8a0244c3a1d4650cff13dc9294381b44" id="cfa46ecb8a0244c3a1d4650cff13dc9294381b44">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/cfa46ecb8a0244c3a1d4650cff13dc9294381b44">cfa46ecb8a0244c3a1d4650cff13dc9294381b44</a> on GitHub.</pre>
+    <pre class="message">Start displaying .git tracking information
+</pre>
+    <pre class="diff">title: Using Arscons
+summary: Free&#39;d from the kind tyranny of the Arduino IDE.
+date: 2012-08-24 14:10:22
+{+track: True+}
+---
+
+_This is a post about me &amp; my computer. Get excited._</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-09 10:02:00">2012-10-09 10:02:00</time>: <span class="message"> Yo.
+</span> <a class="link" href="#4bb8ca7b7020b887a0e53046142e5f7f9953c944" id="4bb8ca7b7020b887a0e53046142e5f7f9953c944">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/4bb8ca7b7020b887a0e53046142e5f7f9953c944">4bb8ca7b7020b887a0e53046142e5f7f9953c944</a> on GitHub.</pre>
+    <pre class="message">Yo.
+</pre>
+    <pre class="diff">date: 2012-08-24 14:10:22
+---
+
+{+_This is a post about me &amp; my computer. Get excited._+}
+
+## Arch Linux &amp; Thinkpad X40: A love story
+I&#39;ve used Arch Linux for years -- always a bit ineptly, I must admit -- and a while back, mostly because of a new job (and the allure of ditching my open-source sensibilities and using Adobe CS), I switched to a Mac. I&#39;ve been happy enough, but there&#39;s something about coding in Snow Leopard or Lion or Cat or whatever we&#39;re on, that I&#39;ve never really liked. Too slick, maybe. I find I work better in heavily constrained environments.
+
+So I&#39;ve always had another machine around for my &#34;real&#34; coding work. That lot falls to an old Thinkpad X40 that I hauled {+around+} on a six-month jaunt in Nicaragua, {+when I was+} taking some time off from [-college.-]{+college and working for [The Tico Times](http://ticotimes.net). I was running Ubuntu then.+} It was like [-rock and-]{+a rock--it&#39;s+} still going [-strong to this day.-]{+strong.+} Over the years,[-though, for one reason or another,-] I&#39;ve amassed a small [-collection-]{+armada+} of X40s: you can get one in working-order on [-Ebay-]{+[Ebay](http://www.ebay.com/sch/Laptops-Netbooks-/175672/i.html?_nkw=x40%20thinkpad&amp;_mPrRngCbx=1&amp;_udlo=10&amp;_udhi=76)+} for [-around-]{+under+} $65 bucks. How can you resist?
+
+## Arch + Arduino
+
+On my latest X40, I&#39;m running Arch off&#39;ve a {+charming+} 4GB USB stick (the X40s on Ebay are almost always stripped of their [-hard-drives a).-]{+hard-drives). It&#39;s a little pokey, particularly on writing to disk, but+} I couldn&#39;t be happier. [-My-]{+And my+} little, cranky, skull-bucket of a Thinkpad feels as roomy as the glossy 13&#34; MacBook Pro I usually [-work,-]{+work+} and the keyboard has none of the mushy play. (Read up on Mako&#39;s [great post](http://mako.cc/copyrighteous/20111207-00) on the [-travesty-]{+great swindle+} that is the 16:9 screen ratio -- which is why the X40 _is_ actually as large as the MBP).
+
+{+At any rate, all of that doesn&#39;t change the fact that it&#39;s an antiquated machine and I use it primarily for text editing. Not much else. I like coding on it--there&#39;s no electro-peace like a tiling windows manager (Awesome) and someone else&#39;s fantastic .vimrc. +}
+
+{+I&#39;ve been using [Brian Mayton&#39;s](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian)) to compile my avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they&#39;re anathema to Assembly Cowboys.+}
+
+[-At any rate, all of that doesn&#39;t change the fact that it&#39;s an antiquated machine and I use it primarily for text editing. Not much else. I like coding on it--there&#39;s no electro-peace like a tiling windows manager (Awesome) and someone else&#39;s fantastic .vimrc. I&#39;ve been using [Brian Mayton&#39;s](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian)) to compile my avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they&#39;re anathema to Assembly Cowboys.-]Not growing up on embedded programming, the whole `(1 &lt;&lt; PB4)`, alas, does not quite feel like first nature. One sore spot has been the Arduino IDE, which in all its muscular Java-ness, is a bit much for the X40 to handle.
+
+So--how do you use the Arduino libraries in the comfort of your own `vim` config? There are a couple of ways. I use [Arscons](https://github.com/suapapa/arscons), a python build script, that makes the process relatively painless.
+
+@@ -21,13 +27,11 @@ First, install the necessaries:
+
+sudo pacman -S install python-pyserial scons
+
+Then grab the [SConstruct](https://github.com/suapapa/arscons) file and copy it into your sketch folder. Run `scons`, and let the magic unfold. Maybe. Didn&#39;t work for me outt&#39;ve the box. Because I have several versions of avr-gcc, a conflict prevented programs from compiling correctly. I edited the SConstruct file to make it work right--in my case, I just modified the `AVR_BIN_PREFIX` setting to point to the actual Arduino install of `avr-gcc`. That broke `avrdude`, but such is life. I don&#39;t know exactly what was amiss, but it seemed to have worked fine.
+
+So that&#39;s that--not so grand. Scons is basically Make--or does the same things, at least--and lets you use Python rather than all of that gibberish. There *are* `Makefiles` for Arduino that do the exact same thing--but they are even more of a code soup.
+
+[-*UPDATE*-]{+**UPDATE:**+} I checked in with Dave and Arduino ships with its own version of avr-gcc with a number of necessary tweaks.
+
+[-*Note*-]{+**NOTE:**+} Yes, yes, I know I can use an external editor with Arduino, but I don&#39;t like doing that for some reason. I end up being confused about where I should be editing.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-05 18:33:38">2012-10-05 18:33:38</time>: <span class="message"> Updating post.
+</span> <a class="link" href="#be98ad54ff7c4be7d840af44ccbf8c01f1d903ea" id="be98ad54ff7c4be7d840af44ccbf8c01f1d903ea">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/be98ad54ff7c4be7d840af44ccbf8c01f1d903ea">be98ad54ff7c4be7d840af44ccbf8c01f1d903ea</a> on GitHub.</pre>
+    <pre class="message">Updating post.
+</pre>
+    <pre class="diff">## Arch Linux &amp; Thinkpad X40: A love story
+I&#39;ve used Arch Linux for years -- always a bit ineptly, I must admit -- and a while back, mostly because of a new job (and the allure of ditching my open-source sensibilities and using Adobe CS), I switched to a Mac. I&#39;ve been happy enough, but there&#39;s something about coding in Snow Leopard or Lion or Cat or whatever we&#39;re on, that I&#39;ve never really liked. Too slick, maybe. I find I work better in heavily constrained environments.
+
+So I&#39;ve always had another machine around for my &#34;real&#34; coding work. [-My machine of choice is-]{+That lot falls to+} an old Thinkpad X40 that I hauled on a six-month jaunt in [-Nicaragua-]{+Nicaragua, taking+} some [-years ago.-]{+time off from college.+} It [-earned my devoted trust-]{+was like rock+} and[-affection. The original is-] still [-going, but over-]{+going strong to this day. Over+} the years, {+though, for one reason or another,+} I&#39;ve amassed a small collection of [-them:-]{+X40s:+} you can get one in working-order on Ebay for around $65 bucks. [-That&#39;s all a long way of saying the I _like_ to use my X40 + vim, even when there&#39;s no good reason for doing so.-]{+How can you resist?+}
+
+## Arch + Arduino
+
+{+On my latest X40,+} I&#39;m[-presently-] running Arch off&#39;ve a 4GB USB stick (the X40s on Ebay are almost always stripped of their [-hard-drives).-]{+hard-drives a).+} I couldn&#39;t be happier. [-Mako has-]{+My little, cranky, skull-bucket of+} a {+Thinkpad feels as roomy as the glossy 13&#34; MacBook Pro I usually work, and the keyboard has none of the mushy play. (Read up on Mako&#39;s+} [great post](http://mako.cc/copyrighteous/20111207-00) on the travesty that is the 16:9 screen ratio [---which makes my little, cranky skull-bucket thinkpad virtually-]{+-- which is why the X40 _is_ actually+} as [-roomy-]{+large+} as the [-glossy MacBook 13&#39;&#39; Pro I typically work on.-]{+MBP).+}
+
+At any rate, all of that doesn&#39;t change the fact that it&#39;s an antiquated machine and I use it primarily for text editing. {+Not much else.+} I like coding on [-it--but in vim with my own config. Not in an unwieldy-]{+it--there&#39;s no electro-peace like a tiling windows manager (Awesome)+} and [-poorly-rendered Java app. The Arduino IDE--as-]{+someone else&#39;s+} fantastic [-as it is--has been a raw spot on my Arch machine.-]{+.vimrc.+} I&#39;ve been using [Brian Mayton&#39;s](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian)) to compile my avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they&#39;re anathema to Assembly [-Cowboy&#39;s.-]{+Cowboys.+} Not growing up on embedded programming, the whole `(1 &lt;&lt; PB4)`, alas, does not quite feel like first nature. {+One sore spot has been the Arduino IDE, which in all its muscular Java-ness, is a bit much for the X40 to handle.+}
+
+[-What we got: vim, an X40,-]{+So--how do you use the Arduino libraries in the comfort of your own `vim` config? There are a couple of ways. I use [Arscons](https://github.com/suapapa/arscons),+} a [-tiling WM (Awesome and Xmonad) + Arduino? Doable? Sure. Doesn&#39;t mean it&#39;s particularly easy, but [Arscons](https://github.com/suapapa/arscons)-]{+python build script, that+} makes the process relatively painless.
+
+[-###-]First, install the necessaries:
+
+sudo pacman -S install python-pyserial scons
+
+Then grab the [-SContstruct-]{+[SConstruct](https://github.com/suapapa/arscons)+} file and copy it into your sketch [-folder, type-]{+folder. Run+} `scons`, and let the magic unfold. Maybe. Didn&#39;t work for me outt&#39;ve the box. Because I have several versions of avr-gcc, a conflict prevented programs from compiling correctly. I edited the SConstruct file to make it work right--in my case, I just modified the `AVR_BIN_PREFIX` setting to point to the actual Arduino install of `avr-gcc`. That broke `avrdude`, but such is life. I don&#39;t know exactly what was amiss, but it seemed to have worked fine.
+
+{+So that&#39;s that--not so grand. Scons is basically Make--or does the same things, at least--and lets you use Python rather than all of that gibberish. There *are* `Makefiles` for Arduino that do the exact same thing--but they are even more of a code soup.+}
+
+[-Now-]{+*UPDATE*+}
+I [-can work on mac, quickly compiling Arduino programs-]{+checked in with Dave+} and [-such--sync them up through GitHub--and work on my X40-]{+Arduino ships with its own version of avr-gcc+} with [-Scons, without having to stop using vim.-]{+a number of necessary tweaks.+}
+
+{+*Note*+}
+Yes, yes, I know I can use an external editor with Arduino, but I don&#39;t like doing that for some reason. I end up being confused about where I should be editing.[-So that&#39;s that--not so grand. Scons is basically Make--or does the same things, at least--and lets you use Python rather than all of that gibberish. There *are* `Makefiles` for Arduino that do the exact same thing--but they are even more of a code soup.-]</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-05 13:48:52">2012-10-05 13:48:52</time>: <span class="message"> New things.
+</span> <a class="link" href="#a7a6e76cbd921fd647f12de81ca3123ddfa36f95" id="a7a6e76cbd921fd647f12de81ca3123ddfa36f95">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/a7a6e76cbd921fd647f12de81ca3123ddfa36f95">a7a6e76cbd921fd647f12de81ca3123ddfa36f95</a> on GitHub.</pre>
+    <pre class="message">New things.
+</pre>
+    <pre class="diff">summary: Free&#39;d from the kind tyranny of the Arduino IDE.
+date: 2012-08-24 14:10:22
+---
+[-I&#39;ve used Arch Linux for years -- always a bit ineptly, I must admit -- and a while back, mostly because of a new job (and the allure of ditching my open-source sensibilities and transitioning to Adobe CS, I switched to a Mac. I&#39;ve been happy enough since, but there&#39;s something about coding in Snow Leopard or Lion or Cat or whatever we&#39;re on, that I&#39;ve never really liked. Too slick, maybe? I find I work better in heavily constrained environments. -]
+
+[-So-]{+## Arch Linux &amp; Thinkpad X40: A love story+}
+I&#39;ve [-always had another machine around-]{+used Arch Linux+} for [-my &#34;real&#34; coding work, taking up the slack. My machine of choice is I&#39;ve gone through-]{+years -- always a bit ineptly, I must admit -- and+} a [-number-]{+while back, mostly because+} of[-these durable guys. One X40 accompanied me on-] a [-six-month jaunt in Central America, earning-]{+new job (and the allure of ditching+} my [-devoted trust-]{+open-source sensibilities+} and [-affection. Over the years, I&#39;ve amassed-]{+using Adobe CS), I switched to+} a [-small collection of them: you can get one-]{+Mac. I&#39;ve been happy enough, but there&#39;s something about coding+} in [-working-order on Ebay for around $65 bucks, last-]{+Snow Leopard or Lion or Cat or whatever we&#39;re on, that I&#39;ve never really liked. Too slick, maybe.+} I [-checked.-]{+find I work better in heavily constrained environments.+}
+
+[-I&#39;m presently running Arch off&#39;ve a 4GB USB stick (the ones on Ebay almost never have drives).-]{+So I&#39;ve always had another machine around for my &#34;real&#34; coding work. My machine of choice is an old Thinkpad X40 that+} I [-couldn&#39;t be happier. I&#39;m not the only one. Mako has a [great post](http://mako.cc/copyrighteous/20111207-00)-]{+hauled+} on [-the travesty that is the 16:9 screen ratio --which makes-]{+a six-month jaunt in Nicaragua some years ago. It earned+} my [-little, cranky skull-bucket thinkpad feel roomier than-]{+devoted trust and affection. The original is still going, but over+} the [-glossy MacBook Pro I work on.-]{+years, I&#39;ve amassed a small collection of them: you can get one in working-order on Ebay for around $65 bucks.+}
+
+[-At any rate,-]{+That&#39;s+} all {+a long way+} of [-that doesn&#39;t change-]{+saying+} the[-fact that it&#39;s an antiquated machine--and-] I [-use it primarily for text editing. I like coding on it--but in vim with my own config. Not in an unwieldy and poorly-rendered Java app. The Arduino IDE--as fantastic as it is--has been a raw spot on my Arch machine. I&#39;ve been using [Brian Mayton&#39;s](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian))-]{+_like_+} to [-compile-]{+use+} my [-avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest,-]{+X40 + vim,+} even [-if they&#39;re anathema to Assembly Cowboy&#39;s. Not growing up on embedded programming, the whole `(1 &lt;&lt; PB4)`, alas, does not quite feel like first nature.-]{+when there&#39;s no good reason for doing so.+}
+
+[-So -- can you have it all? Vim, an X40, a tiling WM (Awesome and Xmonad)-]{+## Arch+} + [-Arduino? Sure. Doesn&#39;t mean it&#39;s particularly easy, but [Arscons](https://github.com/suapapa/arscons) makes the process relatively painless.-]{+Arduino+}
+
+{+I&#39;m presently running Arch off&#39;ve a 4GB USB stick (the X40s on Ebay are almost always stripped of their hard-drives). I couldn&#39;t be happier. Mako has a [great post](http://mako.cc/copyrighteous/20111207-00) on the travesty that is the 16:9 screen ratio --which makes my little, cranky skull-bucket thinkpad virtually as roomy as the glossy MacBook 13&#39;&#39; Pro I typically work on.+}
+
+{+At any rate, all of that doesn&#39;t change the fact that it&#39;s an antiquated machine and I use it primarily for text editing. I like coding on it--but in vim with my own config. Not in an unwieldy and poorly-rendered Java app. The Arduino IDE--as fantastic as it is--has been a raw spot on my Arch machine. I&#39;ve been using [Brian Mayton&#39;s](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian)) to compile my avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they&#39;re anathema to Assembly Cowboy&#39;s. Not growing up on embedded programming, the whole `(1 &lt;&lt; PB4)`, alas, does not quite feel like first nature.  +}
+
+{+What we got: vim, an X40, a tiling WM (Awesome and Xmonad) + Arduino? Doable? Sure. Doesn&#39;t mean it&#39;s particularly easy, but [Arscons](https://github.com/suapapa/arscons) makes the process relatively painless. +}
+
+{+###+} First, install the necessaries:
+
+sudo pacman -S install python-pyserial scons</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-04 17:17:27">2012-10-04 17:17:27</time>: <span class="message"> Whatever we&#39;ve got. Revising arscons.
+</span> <a class="link" href="#322273d27f478dc8f1aa05370a1bfe8e0dbf1124" id="322273d27f478dc8f1aa05370a1bfe8e0dbf1124">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/322273d27f478dc8f1aa05370a1bfe8e0dbf1124">322273d27f478dc8f1aa05370a1bfe8e0dbf1124</a> on GitHub.</pre>
+    <pre class="message">Whatever we&#39;ve got. Revising arscons.
+</pre>
+    <pre class="diff">---
+title: Using Arscons
+summary: Free&#39;d from the {+kind+} tyranny of [-an-]{+the Arduino+} IDE.
+date: 2012-08-24 14:10:22
+---
+I&#39;ve used Arch Linux for years -- always a bit ineptly, I must admit -- and a while back, mostly because of {+a new job (and the allure of ditching my open-source sensibilities and transitioning to+} Adobe CS, I switched to {+a+} Mac. I&#39;ve been[-pretty-] happy {+enough+} since, but there&#39;s something about coding in Snow Leopard or Lion or Cat or whatever we&#39;re on, that I&#39;ve never really liked. {+Too slick, maybe? I find I work better in heavily constrained environments.+}
+
+{+So+} I&#39;ve always had another machine [-around--a Thinkpad X40, to take-]{+around for my &#34;real&#34; coding work, taking+} up the slack. My [-old X40--which-]{+machine of choice is I&#39;ve gone through a number of these durable guys. One X40+} accompanied me on a [-six month-]{+six-month+} jaunt in Central [-America and has earned-]{+America, earning+} my devoted trust and [-affection since.-]{+affection. Over the years,+} I&#39;ve[-since-] amassed a small collection of [-the things--you-]{+them: you+} can get one in working-order on Ebay for around $65 bucks, last I checked.
+
+I&#39;m presently running Arch off&#39;ve a 4GB USB stick (the ones on Ebay almost never have drives). I couldn&#39;t be happier. I&#39;m not the only one. Mako has a [great post](http://mako.cc/copyrighteous/20111207-00) on the travesty that is the 16:9 screen ratio --which makes my little, cranky skull-bucket thinkpad feel roomier than the glossy MacBook Pro I work on.
+
+At any rate, all of that doesn&#39;t change the fact that it&#39;s an antiquated machine--and I use it primarily for text editing. I like coding on it--but in vim with my own config. Not in an unwieldy and poorly-rendered Java app. The Arduino IDE--as fantastic as it is--has been a raw spot on my Arch machine. I&#39;ve been using [Brian Mayton&#39;s](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian)) to compile my avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they&#39;re anathema to Assembly Cowboy&#39;s. Not growing up on embedded programming, the whole `(1 &lt;&lt; PB4)`, alas, does not quite feel like first nature.
+
+@@ -15,7 +17,7 @@ First, install the necessaries:
+
+sudo pacman -S install python-pyserial scons
+
+Then grab the SContstruct file and copy it into your sketch folder, type `scons`, and let the magic unfold. Maybe. Didn&#39;t work for me outt&#39;ve the box. Because I have several versions of avr-gcc, a conflict prevented programs from compiling correctly. I edited the SConstruct file to make it work right--in my case, I just modified the [-AVR_BIN_PREFIX-]{+`AVR_BIN_PREFIX`+} setting to point to the actual Arduino install of `avr-gcc`. That broke `avrdude`, but such is life. I don&#39;t know exactly what was amiss, but it seemed to have worked fine.
+
+Now I can work on mac, quickly compiling Arduino programs and such--sync them up through GitHub--and work on my X40 with Scons, without having to stop using vim.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-10-02 10:34:08">2012-10-02 10:34:08</time>: <span class="message"> Moved all files over to a flat file system. Added new hyde plugin.
+</span> <a class="link" href="#e98500c7a0459410661b53d92e754b7d84a1b869" id="e98500c7a0459410661b53d92e754b7d84a1b869">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/e98500c7a0459410661b53d92e754b7d84a1b869">e98500c7a0459410661b53d92e754b7d84a1b869</a> on GitHub.</pre>
+    <pre class="message">Moved all files over to a flat file system. Added new hyde plugin.
+</pre>
+    <pre class="diff">@@ -0,0 +1,23 @@
+{+---+}
+{+title: Using Arscons+}
+{+summary: Free&#39;d from the tyranny of an IDE.+}
+{+date: 2012-08-24 14:10:22+}
+{+---+}
+{+I&#39;ve used Arch Linux for years -- always a bit ineptly, I must admit -- and a while back, mostly because of Adobe CS, I switched to Mac. I&#39;ve been pretty happy since, but there&#39;s something about coding in Snow Leopard or Lion or Cat or whatever we&#39;re on, that I&#39;ve never really liked.+}
+
+{+I&#39;ve always had another machine around--a Thinkpad X40, to take up the slack. My old X40--which accompanied me on a six month jaunt in Central America and has earned my devoted trust and affection since. I&#39;ve since amassed a small collection of the things--you can get one in working-order on Ebay for around $65 bucks, last I checked. I&#39;m presently running Arch off&#39;ve a 4GB USB stick (the ones on Ebay almost never have drives). I couldn&#39;t be happier. I&#39;m not the only one. Mako has a [great post](http://mako.cc/copyrighteous/20111207-00) on the travesty that is the 16:9 screen ratio --which makes my little, cranky skull-bucket thinkpad feel roomier than the glossy MacBook Pro I work on.+}
+
+{+At any rate, all of that doesn&#39;t change the fact that it&#39;s an antiquated machine--and I use it primarily for text editing. I like coding on it--but in vim with my own config. Not in an unwieldy and poorly-rendered Java app. The Arduino IDE--as fantastic as it is--has been a raw spot on my Arch machine. I&#39;ve been using [Brian Mayton&#39;s](http://bdm.cc) Makefile ([file](https://github.com/samjacoby/avr/blob/master/makefiles.templates/avr_makefile_brian)) to compile my avr programs--but honestly, I love the convenience of the Arduino libraries and all the rest, even if they&#39;re anathema to Assembly Cowboy&#39;s. Not growing up on embedded programming, the whole `(1 &lt;&lt; PB4)`, alas, does not quite feel like first nature.  +}
+
+{+So -- can you have it all? Vim, an X40, a tiling WM (Awesome and Xmonad) + Arduino? Sure. Doesn&#39;t mean it&#39;s particularly easy, but [Arscons](https://github.com/suapapa/arscons) makes the process relatively painless. +}
+
+{+First, install the necessaries: +}
+
+{+    sudo pacman -S install python-pyserial scons  +}
+
+{+Then grab the SContstruct file and copy it into your sketch folder, type `scons`, and let the magic unfold. Maybe. Didn&#39;t work for me outt&#39;ve the box. Because I have several versions of avr-gcc, a conflict prevented programs from compiling correctly. I edited the SConstruct file to make it work right--in my case, I just modified the AVR_BIN_PREFIX setting to point to the actual Arduino install of `avr-gcc`. That broke `avrdude`, but such is life. I don&#39;t know exactly what was amiss, but it seemed to have worked fine.+}
+
+{+Now I can work on mac, quickly compiling Arduino programs and such--sync them up through GitHub--and work on my X40 with Scons, without having to stop using vim.+}
+
+{+Yes, yes, I know I can use an external editor with Arduino, but I don&#39;t like doing that for some reason. I end up being confused about where I should be editing. So that&#39;s that--not so grand. Scons is basically Make--or does the same things, at least--and lets you use Python rather than all of that gibberish. There *are* `Makefiles` for Arduino that do the exact same thing--but they are even more of a code soup.+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

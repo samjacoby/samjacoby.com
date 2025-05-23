@@ -1,0 +1,27 @@
+---
+title: 99 Fridays &amp; IR Throwies
+summary: The little guys hit the big time.
+date: 2012-9-26 10:08:23
+tags:
+    - IR Throwies
+    - 99Fridays
+thumbnail: ir-throwies-1.jpg
+track: True
+---
+{% block post %}
+{% mark excerpt %}
+Thanks to the inestimable efforts of [Valentin Huen](http://colorsaregood.com/index.php), we pulled together a whopping [500 IR Throwies](/projects/ir-led/throwies/) for the Media Lab's latest 99 Friday dance-party _cum_ project-showcase. I use "we" rather loosely: I was racing against a conference paper deadline, so Valentin heroically recruited a small army of people to scale up the [IR Throwies](/projects/ir-led-throwies/) project. It came off pretty well.
+{% endmark %}
+
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/40358770@N00/8070857656/" title="IR Throwies by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8177/8070857656_764138f70f.jpg" width="500" height="334" alt="IR Throwies"></a>', "500 IR Throwies under construction (photo courtesy of Valentine Huen).") }}
+
+I had a batch that I tested with an Arduino and an IR light array. The array--it turned out--wasn't the right wavelength, so though the response was good in the comfort of my office, once we were trying to blanket an entire space, it didn't work all that well. Valentin scrounged up some of the right LEDs though, and that worked fine. _Then_ we had some issues with the receiver's error-detection and noise-rejection -- but managed to get around it with some jerry-regging. The morial is what it always is: read the datasheet. Once things were squared away, the IR transmitter was synced to [Brian's](http://bdm.cc) OSC stream that distributed levels and FFT bands to whomever was listening to the server. When the emitter pulsed, the LEDs pulsed-with. Not bad. Even figured out some nice PWM action, too.  
+
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/40358770@N00/8070864153/" title="IR Throwies by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8315/8070864153_93b8a8f089.jpg" width="375" height="500" alt="IR Throwies"></a>', "Before they've been attached to clothespins and all. Testing functionality.") }} 
+
+Here are the final batch. Each throwie was attached to a clothespin so that people could attach them to their clothes. I wish I had some shots from the actual party, with everyone dancing and all, but I had to take off once we had them working to entertain a very patient, out-of-town guest. I heard that they were a hit though.  
+
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/40358770@N00/8070863365/" title="IR Throwies by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8180/8070863365_2225c127b7.jpg" width="500" height="375" alt="IR Throwies"></a>', "The final lot, brought up to the party and triggered by the music.") }}
+
+Not a bad showing, all in all. And cheap -- though it starts to add up in quantity. 
+{% endblock %}

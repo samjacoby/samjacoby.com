@@ -1,0 +1,501 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | Amazon EC2 Microinstances</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="amazon, ec2, system administration, web hosting">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">Amazon EC2 Microinstances</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2012-12-09 19:36:01" pubdate>2012-12-09 19:36:01</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2017-04-07 08:01:28" pubdate>2017-04-07 08:01:28</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p><em>In which my adventures in migrating some small-websites over to Amazon&#8217;s vaunted services are&nbsp;discussed.</em></p>
+<h2>To those who have much, yet&nbsp;more.</h2>
+<p>Over the past few days, I&#8217;ve been playing around with <a href="http://aws.amazon.com">Amazon Web Services (<span class="caps">AWS</span>)</a>. Now, I&#8217;ve been a spectacularly satisfied customer of <a href="http://asmallorange.com">A Small Orange</a> for years,  but I&#8217;ve been lately frustrated by the limitations of shared hosting. As I play around with different application platforms (Rails, Django, NodeJS), as part of my continuing professional-development-program, its clear that I need a bit more than <span class="caps">250MB</span> of space and a restricted shell.<sup id="fnref:service"><a class="footnote-ref" href="#fn:service" rel="footnote">1</a></sup> </p>
+<p>So, over this weekend, I migrated my sites over to play around with the twelve-months free access provided for <span class="caps">AWS</span> micro-instances, that is, tiny cheap servers. It&#8217;s been reasonably enlightening. I&#8217;ve built up a couple of <code>Arch Linux</code> images, my preferred distribution, and played with getting environments spinning up for some <a href="/projects/monotype-app">applications</a> that haven&#8217;t seen the light of day in some&nbsp;time.</p>
+<h2>To Cloud. Or not to&nbsp;Cloud?</h2>
+<p>Some part of me&#8212;or well, most of me&#8212;dislikes the cloud. Yes, it&#8217;s convenient. Yes, Amazon, Rackspace, and all the rest do a damn-good job of things. Yes, it&#8217;s the future. Virtual machines are great, make sense, are cheap, effecient, and all the rest. In some way, though, it&#8217;s equal parts exciting and depressing&#8212;there is something lost and something gained, when you spin up an instance from yet-another <code>dashboard</code>.  </p>
+<p>I&#8217;ve always found something striking about that bit of magic that comes with connecting a run-down beige box to an ethernet port in the corner of a room, configuring its permissions, and having it flash its small payload across the waves. This <em>cloud</em>, for all the hoopla&#8212;is just better word off-site refrigerated storage with 24-hour access. Convenient, sure. But like gmail, you&#8217;re trading convenience for freedom. As much as <code>AWS</code> is convenient, it&#8217;s also inherently less-free. Amazon&#8217;s got your&nbsp;stuff.  </p>
+<p>Nevertheless, ever the modern man,  I am a pragmatist&#8212;and even if I won&#8217;t remain with Amazon forever, I thought I should start figuring out how some their systems work. And what can I say? Right now, I have an insanely-fast, scalable, reliable, customizable server, with root access. I can&#8217;t really&nbsp;complain.  </p>
+<p>At the moment I&#8217;ve got two micro-instances running&#8212;one is serving the static pages, the other, a little <a href="/projects/monotype-app">typography training app</a> I wrote a few years ago. That won&#8217;t last long, because you only get one instance free&#8212;but I&#8217;ll switch the nameservers back to <code>A Small Orange</code> soon, while continuing to serve the dynamic content from&nbsp;<span class="caps">AWS</span>. </p>
+<h2>Reverse&nbsp;Proxies</h2>
+<p>Now, I&#8217;ve long heard preached that fine practice&#8212;the prudent splitting of dynamic and static content. That makes plenty of sense, really. Or plenty of sense if I ever had much content to serve. In practice, though, It&#8217;s not something I&#8217;ve ever needed. As someone who has only ever placed things online from some reptilian instinct to share, I have never had any problems with server performance&#8212;to say the least. For some time, I ran my personal website from an X40.<sup id="fnref:X40"><a class="footnote-ref" href="#fn:X40" rel="footnote">2</a></sup> </p>
+<p>There are a million-and-one ingenious ways to do this and I don&#8217;t understand half of them. All I wanted was a nice, static server that put pages that I made on the internet, and two, have another server throw up some of the dynamic content. That way, I could have one clean server&#8212;where I actually knew what was going on&#8212;and pass off all of the messy stuff to other computers that had whatever intricate combination of python and everything else that was&nbsp;necessary.</p>
+<p>Enter reverse proxies&#8212;which are exactly what they sound like. When you ask for something from a server, it scurries of to yet <em>another</em> server, and fetched it from there, passing it through itself and onward to you. So you never know that what you asked for came from some other place. And the proxying server doesn&#8217;t have to worry itself about whatever complex things you asked for, fobbing you off on some other machine (in my case, the correct <span class="caps">AWS</span> instance). Reverse proxies are what really pushed me to <span class="caps">AWS</span>, ultimately, as they&#8217;re not allowed in the shared hosting environment of <span class="caps">AWS</span>.<sup id="fnref:option"><a class="footnote-ref" href="#fn:option" rel="footnote">3</a></sup> </p>
+<p>At any rate, they&#8217;re dead simple. These are what mine look&nbsp;like. </p>
+<p><code>ProxyPass /apps/monotype/ http://ec2-109-21-77-32.compute-1.amazonaws.com/monotype/</code> </p>
+<p><code>ProxyPassReverse /apps/monotype/ http://ec2-109-21-77-32.compute-1.amazonaws.com/monotype/</code></p>
+<p>Exciting stuff, eh? Never done anything easier. Now, I&#8217;m not doing any of the fancy load-balancing or the various bells and whistles that real people probably do, but it&#8217;s been a pleasant introduction. The Apache docs give the rather stern warning: make sure you don&#8217;t inadvertently turn your server into a <em>forward</em> server, in which case it can be easily hijacked and redirected to all sorts of nefarious&nbsp;ends. </p>
+<h3>Serving Images from&nbsp;S3</h3>
+<p><em>Added 2015-08-06 10:25:09</em>
+I&#8217;ve used Flickr&#8217;s lovely embedded iframes to serve most of the images on this site, but lately, I&#8217;ve been frustrated with how slowly it loads. On some of the image heavy pages on my <a href="/projects/motorcycle/">motorcycle</a> project, it&#8217;s very noticeable. I don&#8217;t think the slideshow format works well for this site, anyhow, so I wanted to look into how to do my image hosting with <code>s3</code><sup id="fnref:s3"><a class="footnote-ref" href="#fn:s3" rel="footnote">4</a></sup>. I didn&#8217;t want to change my own development habits, though, so I turned to my <code>.htaccess</code> file, which my host, <a href="https://asmallorange.com/">ASmallOrange</a>, respects, even though I&#8217;m in a super-cheap shared <span class="caps">VPS</span> with very limited shell&nbsp;access.</p>
+<div class="codehilite"><pre><span class="nb">RewriteCond</span> %{REQUEST_FILENAME} !-f
+<span class="nb">RewriteCond</span> %{REQUEST_FILENAME} \.jpg$ 
+<span class="nb">RewriteRule</span> ^.*media\/img\/(.*)$ https://s3.amazonaws.com/Shackman/samjacoby.com/$1 [L]
+</pre></div>
+
+
+<p>That&#8217;s it! In the <code>fabfile.py</code> that I use to manage the deployment of this website, I also added the&nbsp;following:</p>
+<div class="codehilite"><pre><span class="nb">local</span><span class="o">(</span><span class="s2">&quot;aws s3 sync --delete --exclude &#39;.DS_Store&#39; --acl=&#39;public-read&#39; --size-only deploy/media/img/ s3://Shackman/samjacoby.com/&quot;</span><span class="o">)</span>
+</pre></div>
+
+
+<p>The <code>aws</code> utility is provided by Amazon—and while the sync function is not as clever as rsync, it works well enough for my&nbsp;purposes.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:service">
+<p>Granted, this isn&#8217;t <span class="caps">ASO</span>&#8217;s problem. They&#8217;ve been absolutely wonderful. I have never interacted with a company&#8212;not in tech, not anywhere, with more respnsive customer service. I don&#8217;t think I&#8217;ve had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the privilege.&#160;<a class="footnote-backref" href="#fnref:service" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:X40">
+<p>At any rate, after realizing that it would be a royal pain-in-the-ass to have mod_wsgi compiled against python3, while having some virtualenvs that were still using Django 1.3 <span class="amp">&amp;</span> Python 2.6 and so on&#8230;absolute misery.&#160;<a class="footnote-backref" href="#fnref:X40" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:option">
+<p>There are surely some clever ways around this, perhaps using RewriteRule and permanent redirects. A quick scan shows that this is indeed the case, the <a href="http://httpd.apache.org/docs/current/rewrite/flags.html#flag_p">[P] flag</a> passes requests through to mod_proxy.&#160;<a class="footnote-backref" href="#fnref:option" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:s3">
+<p>Granted, the entire site is static, so it could all be served from s3, but whatever.&#160;<a class="footnote-backref" href="#fnref:s3" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>    </section>
+    <footer>
+    <section class="tags">
+
+</section>
+    <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2017-04-07 08:01:28">2017-04-07 08:01:28</time>: <span class="message"> should be committed...
+</span> <a class="link" href="#bdeed64d1aad514261a815d62f14fc54e7a80c6a" id="bdeed64d1aad514261a815d62f14fc54e7a80c6a">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/bdeed64d1aad514261a815d62f14fc54e7a80c6a">bdeed64d1aad514261a815d62f14fc54e7a80c6a</a> on GitHub.</pre>
+    <pre class="message">should be committed...
+</pre>
+    <pre class="diff">I&#39;ve used Flickr&#39;s lovely embedded iframes to serve most of the images on this site, but lately, I&#39;ve been frustrated with how slowly it loads. On some of the image heavy pages on my [motorcycle](/projects/motorcycle/) project, it&#39;s very noticeable. I don&#39;t think the slideshow format works well for this site, anyhow, so I wanted to look into how to do my image hosting with `s3`[^s3]. I didn&#39;t want to change my own development habits, though, so I turned to my `.htaccess` file, which my host, [ASmallOrange](https://asmallorange.com/), respects, even though I&#39;m in a super-cheap shared VPS with very limited shell access.
+
+```apache
+{+RewriteCond %{REQUEST_FILENAME} !-f+}
+RewriteCond %{REQUEST_FILENAME} \.jpg$
+RewriteRule [-^.*/media/img/(.*\.jpg)$-]{+^.*media\/img\/(.*)$+} https://s3.amazonaws.com/Shackman/samjacoby.com/$1 {+[L]+}
+```
+
+That&#39;s it! In the `fabfile.py` that I use to manage the deployment of this website, I also added the following:</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-08-06 11:22:36">2015-08-06 11:22:36</time>: <span class="message"> Adding S3 write-up.
+</span> <a class="link" href="#d78e59b3a6b26ca782469b869dffe6de410213a8" id="d78e59b3a6b26ca782469b869dffe6de410213a8">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/d78e59b3a6b26ca782469b869dffe6de410213a8">d78e59b3a6b26ca782469b869dffe6de410213a8</a> on GitHub.</pre>
+    <pre class="message">Adding S3 write-up.
+</pre>
+    <pre class="diff">Exciting stuff, eh? Never done anything easier. Now, I&#39;m not doing any of the fancy load-balancing or the various bells and whistles that real people probably do, but it&#39;s been a pleasant introduction. The Apache docs give the rather stern warning: make sure you don&#39;t inadvertently turn your server into a _forward_ server, in which case it can be easily hijacked and redirected to all sorts of nefarious ends.
+
+{+### Serving Images from S3 +}
+{+*Added 2015-08-06 10:25:09*+}
+{+I&#39;ve used Flickr&#39;s lovely embedded iframes to serve most of the images on this site, but lately, I&#39;ve been frustrated with how slowly it loads. On some of the image heavy pages on my [motorcycle](/projects/motorcycle/) project, it&#39;s very noticeable. I don&#39;t think the slideshow format works well for this site, anyhow, so I wanted to look into how to do my image hosting with `s3`[^s3]. I didn&#39;t want to change my own development habits, though, so I turned to my `.htaccess` file, which my host, [ASmallOrange](https://asmallorange.com/), respects, even though I&#39;m in a super-cheap shared VPS with very limited shell access.+}
+
+{+```apache+}
+{+RewriteCond %{REQUEST_FILENAME} \.jpg$ +}
+{+RewriteRule ^.*/media/img/(.*\.jpg)$ https://s3.amazonaws.com/Shackman/samjacoby.com/$1+}
+{+```+}
+
+{+That&#39;s it! In the `fabfile.py` that I use to manage the deployment of this website, I also added the following:+}
+
+{+```bash+}
+{+local(&#34;aws s3 sync --delete --exclude &#39;.DS_Store&#39; --acl=&#39;public-read&#39; --size-only deploy/media/img/ s3://Shackman/samjacoby.com/&#34;)+}
+{+```+}
+
+{+The `aws` utility is provided by Amazon—and while the sync function is not as clever as rsync, it works well enough for my purposes.+}
+
+
+
+{% spaceless %}
+[^service]: Granted, this isn&#39;t ASO&#39;s problem. They&#39;ve been absolutely wonderful. I have never interacted with a company--not in tech, not anywhere, with more respnsive customer service. I don&#39;t think I&#39;ve had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the privilege.
+[^X40]: At any rate, after realizing that it would be a royal pain-in-the-ass to have mod_wsgi compiled against python3, while having some virtualenvs that were still using Django 1.3 &amp; Python 2.6 and so on...absolute misery.
+[^option]: There are surely some clever ways around this, perhaps using RewriteRule and permanent redirects. A quick scan shows that this is indeed the case, the [[P] flag](http://httpd.apache.org/docs/current/rewrite/flags.html#flag_p) passes requests through to mod_proxy.
+{+[^s3]: Granted, the entire site is static, so it could all be served from s3, but whatever.+}
+{% endspaceless %}
+{% endblock %}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-06-02 19:42:11">2015-06-02 19:42:11</time>: <span class="message"> Various tweaks.
+</span> <a class="link" href="#ecb0bb8e7e8a0ac43f9fe423eeab47d49c192fe1" id="ecb0bb8e7e8a0ac43f9fe423eeab47d49c192fe1">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/ecb0bb8e7e8a0ac43f9fe423eeab47d49c192fe1">ecb0bb8e7e8a0ac43f9fe423eeab47d49c192fe1</a> on GitHub.</pre>
+    <pre class="message">Various tweaks.
+</pre>
+    <pre class="diff">## To those who have much, yet more.
+
+{% mark excerpt %}
+Over the past few days, I&#39;ve been playing around with [Amazon Web Services (AWS)](http://aws.amazon.com). Now, I&#39;ve been a spectacularly satisfied customer of [A Small Orange](http://asmallorange.com) for years,  but I&#39;ve been lately frustrated by the limitations of shared hosting. As I play around with different application platforms (Rails, Django, NodeJS), as part of my continuing professional-development-program, its clear that I need a bit more than 250MB of space and a restricted [-shell.{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;) }}-]{+shell.[^service]+}
+{% endmark %}
+
+So, over this weekend, I migrated my sites over to play around with the twelve-months free access provided for AWS micro-instances, that is, tiny cheap servers. It&#39;s been reasonably enlightening. I&#39;ve built up a couple of `Arch Linux` images, my preferred distribution, and played with getting environments spinning up for some [applications]( {{ content_url(&#34;/projects/monotype-app.html&#34;)}} ) that haven&#39;t seen the light of day in some time.
+@@ -31,11 +31,11 @@ Nevertheless, ever the modern man,  I am a pragmatist--and even if I won&#39;t remai
+At the moment I&#39;ve got two micro-instances running--one is serving the static pages, the other, a little [typography training app]({{ content_url(&#34;/projects/monotype-app.html/&#34;) }}) I wrote a few years ago. That won&#39;t last long, because you only get one instance free--but I&#39;ll switch the nameservers back to `A Small Orange` soon, while continuing to serve the dynamic content from AWS.
+
+## Reverse Proxies
+Now, I&#39;ve long heard preached that fine practice--the prudent splitting of dynamic and static content. That makes plenty of sense, really. Or plenty of sense if I ever had much content to serve. In practice, though, It&#39;s not something I&#39;ve ever needed. As someone who has only ever placed things online from some reptilian instinct to share, I have never had any problems with server performance--to say the least. For some time, I ran my personal website from an [-[X40]({{ content_url(&#34;/posts/arscons.html&#34;) }}). Didn&#39;t break a sweat. {{ macros.render_footnote(&#34;X40&#34;, &#34;2&#34;) }}-]{+X40.[^X40]+}
+
+There are a million-and-one ingenious ways to do this and I don&#39;t understand half of them. All I wanted was a nice, static server that put pages that I made on the internet, and two, have another server throw up some of the dynamic content. That way, I could have one clean server--where I actually knew what was going on--and pass off all of the messy stuff to other computers that had whatever intricate combination of python and everything else that was necessary.
+
+Enter reverse proxies--which are exactly what they sound like. When you ask for something from a server, it scurries of to yet _another_ server, and fetched it from there, passing it through itself and onward to you. So you never know that what you asked for came from some other place. And the proxying server doesn&#39;t have to worry itself about whatever complex things you asked for, fobbing you off on some other machine (in my case, the correct AWS instance). Reverse proxies are what really pushed me to AWS, ultimately, as they&#39;re not allowed in the shared hosting environment of [-AWS.{{ macros.render_footnote(&#34;option&#34;, &#34;3&#34;) }}.-]{+AWS.[^option]+}
+
+At any rate, they&#39;re dead simple. These are what mine look like.
+
+@@ -47,9 +47,9 @@ Exciting stuff, eh? Never done anything easier. Now, I&#39;m not doing any of the fa
+
+
+{% spaceless %}
+[-{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;, &#34;Granted,-]{+[^service]: Granted,+} this isn&#39;t ASO&#39;s problem. They&#39;ve been absolutely wonderful. I have never interacted with a company--not in tech, not anywhere, with more respnsive customer service. I don&#39;t think I&#39;ve had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the [-privilege.&#34;) }}-]
+[-{{ macros.render_footnote(&#34;X40&#34;, &#34;2&#34;, &#34;At-]{+privilege.+}
+{+[^X40]: At+} any rate, after realizing that it would be a royal pain-in-the-ass to have mod_wsgi compiled against python3, while having some virtualenvs that were still using Django 1.3 &amp; Python 2.6 and so on...absolute [-misery.&#34;)}} -]
+[-{{ macros.render_footnote(&#34;option&#34;, &#34;3&#34;, &#34;There-]{+misery.+}
+{+[^option]: There+} are surely some clever ways around this, perhaps using RewriteRule and permanent redirects. A quick scan shows that this is indeed the case, the [[P] flag](http://httpd.apache.org/docs/current/rewrite/flags.html#flag_p) passes requests through to [-mod_proxy.&#34;) }}-]{+mod_proxy.+}
+{% endspaceless %}
+{% endblock %}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-03-02 21:47:19">2015-03-02 21:47:19</time>: <span class="message"> Updating layout for new blocks.
+</span> <a class="link" href="#3a8c3faf3cf2ac8144b1050f4c387551018b567b" id="3a8c3faf3cf2ac8144b1050f4c387551018b567b">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3a8c3faf3cf2ac8144b1050f4c387551018b567b">3a8c3faf3cf2ac8144b1050f4c387551018b567b</a> on GitHub.</pre>
+    <pre class="message">Updating layout for new blocks.
+</pre>
+    <pre class="diff">- website
+track: True
+---
+{+{% block post %}+}
+_In which my adventures in migrating some small-websites over to Amazon&#39;s vaunted services are discussed._
+
+## To those who have much, yet more.
+@@ -50,4 +51,5 @@ Exciting stuff, eh? Never done anything easier. Now, I&#39;m not doing any of the fa
+{{ macros.render_footnote(&#34;X40&#34;, &#34;2&#34;, &#34;At any rate, after realizing that it would be a royal pain-in-the-ass to have mod_wsgi compiled against python3, while having some virtualenvs that were still using Django 1.3 &amp; Python 2.6 and so on...absolute misery.&#34;)}}
+{{ macros.render_footnote(&#34;option&#34;, &#34;3&#34;, &#34;There are surely some clever ways around this, perhaps using RewriteRule and permanent redirects. A quick scan shows that this is indeed the case, the [[P] flag](http://httpd.apache.org/docs/current/rewrite/flags.html#flag_p) passes requests through to mod_proxy.&#34;) }}
+{% endspaceless %}
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-02-16 14:28:44">2015-02-16 14:28:44</time>: <span class="message"> Adding excerpts to all posts, basically.
+</span> <a class="link" href="#07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57" id="07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57</a> on GitHub.</pre>
+    <pre class="message">Adding excerpts to all posts, basically.
+</pre>
+    <pre class="diff">## To those who have much, yet more.
+
+{+{% mark excerpt %}+}
+Over the past few days, I&#39;ve been playing around with [Amazon Web Services (AWS)](http://aws.amazon.com). Now, I&#39;ve been a spectacularly satisfied customer of [A Small Orange](http://asmallorange.com) for years,  but I&#39;ve been lately frustrated by the limitations of shared hosting. As I play around with different application platforms (Rails, Django, NodeJS), as part of my continuing professional-development-program, its clear that I need a bit more than 250MB of space and a restricted shell.{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;) }}
+{+{% endmark %}+}
+
+So, over this weekend, I migrated my sites over to play around with the twelve-months free access provided for AWS micro-instances, that is, tiny cheap servers. It&#39;s been reasonably enlightening. I&#39;ve built up a couple of `Arch Linux` images, my preferred distribution, and played with getting environments spinning up for some [applications]( {{ content_url(&#34;/projects/monotype-app.html&#34;)}} ) that haven&#39;t seen the light of day in some time.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-29 18:51:12">2013-01-29 18:51:12</time>: <span class="message"> Capatilizing and ironicizing.
+</span> <a class="link" href="#dac435e0445d160129dad0bf25e724eb208001bd" id="dac435e0445d160129dad0bf25e724eb208001bd">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/dac435e0445d160129dad0bf25e724eb208001bd">dac435e0445d160129dad0bf25e724eb208001bd</a> on GitHub.</pre>
+    <pre class="message">Capatilizing and ironicizing.
+</pre>
+    <pre class="diff">## To those who have much, yet more.
+
+Over the past few days, I&#39;ve been playing around with [Amazon Web Services (AWS)](http://aws.amazon.com). Now, I&#39;ve been a spectacularly satisfied customer of [A Small Orange](http://asmallorange.com) for years,  but I&#39;ve been lately frustrated by the limitations of shared hosting. As I play around with different application platforms [-(rails, django), and work on developing this site,-]{+(Rails, Django, NodeJS), as part of my continuing professional-development-program,+} its clear that I need a bit more than 250MB of space and a restricted shell.{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;) }}
+
+So, over this weekend, I migrated my sites over to play around with the twelve-months free access provided for AWS micro-instances, that is, tiny cheap servers. It&#39;s been reasonably enlightening. I&#39;ve built up a couple of `Arch Linux` images, my preferred distribution, and played with getting environments spinning up for some [applications]( {{ content_url(&#34;/projects/monotype-app.html&#34;)}} ) that haven&#39;t seen the light of day in some time.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-29 18:40:51">2013-01-29 18:40:51</time>: <span class="message"> Start displaying .git tracking information
+</span> <a class="link" href="#cfa46ecb8a0244c3a1d4650cff13dc9294381b44" id="cfa46ecb8a0244c3a1d4650cff13dc9294381b44">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/cfa46ecb8a0244c3a1d4650cff13dc9294381b44">cfa46ecb8a0244c3a1d4650cff13dc9294381b44</a> on GitHub.</pre>
+    <pre class="message">Start displaying .git tracking information
+</pre>
+    <pre class="diff">- amazon
+- ec2
+- website
+{+track: True+}
+---
+_In which my adventures in migrating some small-websites over to Amazon&#39;s vaunted services are discussed._</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-20 01:14:45">2012-12-20 01:14:45</time>: <span class="message"> New words, adding footnote spacing.
+</span> <a class="link" href="#573d3e2528615765e4137e2bc270cf763a6d65b3" id="573d3e2528615765e4137e2bc270cf763a6d65b3">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/573d3e2528615765e4137e2bc270cf763a6d65b3">573d3e2528615765e4137e2bc270cf763a6d65b3</a> on GitHub.</pre>
+    <pre class="message">New words, adding footnote spacing.
+</pre>
+    <pre class="diff">{% spaceless %}
+{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;, &#34;Granted, this isn&#39;t ASO&#39;s problem. They&#39;ve been absolutely wonderful. I have never interacted with a company--not in tech, not anywhere, with more respnsive customer service. I don&#39;t think I&#39;ve had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the privilege.&#34;) }}
+{{ macros.render_footnote(&#34;X40&#34;, &#34;2&#34;, &#34;At any rate, after realizing that it would be a royal pain-in-the-ass to have mod_wsgi compiled against python3, while having some virtualenvs that were still using Django 1.3 &amp; Python 2.6 and so on...absolute misery.&#34;)}}
+{{ macros.render_footnote(&#34;option&#34;, &#34;3&#34;, &#34;There are surely some clever ways around this, perhaps using RewriteRule and permanent redirects. [-I&#39;m concerned what-]{+A quick scan shows+} that [-experience looks like from-]{+this is indeed+} the [-client, however. Haven&#39;t tried.&#34;)-]{+case, the [[P] flag](http://httpd.apache.org/docs/current/rewrite/flags.html#flag_p) passes requests through to mod_proxy.&#34;)+} }}
+{% endspaceless %}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-17 02:07:23">2012-12-17 02:07:23</time>: <span class="message"> Yarbs.
+</span> <a class="link" href="#0f38dd5b6195c60bf2325cbcd2f59f88ebde1502" id="0f38dd5b6195c60bf2325cbcd2f59f88ebde1502">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/0f38dd5b6195c60bf2325cbcd2f59f88ebde1502">0f38dd5b6195c60bf2325cbcd2f59f88ebde1502</a> on GitHub.</pre>
+    <pre class="message">Yarbs.
+</pre>
+    <pre class="diff">Exciting stuff, eh? Never done anything easier. Now, I&#39;m not doing any of the fancy load-balancing or the various bells and whistles that real people probably do, but it&#39;s been a pleasant introduction. The Apache docs give the rather stern warning: make sure you don&#39;t inadvertently turn your server into a _forward_ server, in which case it can be easily hijacked and redirected to all sorts of nefarious ends.
+
+
+{+{% spaceless %}+}
+{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;, &#34;Granted, this isn&#39;t ASO&#39;s problem. They&#39;ve been absolutely wonderful. I have never interacted with a company--not in tech, not anywhere, with more respnsive customer service. I don&#39;t think I&#39;ve had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the privilege.&#34;) }}
+{{ macros.render_footnote(&#34;X40&#34;, &#34;2&#34;, &#34;At any rate, after realizing that it would be a royal pain-in-the-ass to have mod_wsgi compiled against python3, while having some virtualenvs that were still using Django 1.3 &amp; Python 2.6 and so on...absolute misery.&#34;)}}
+{{ macros.render_footnote(&#34;option&#34;, &#34;3&#34;, &#34;There are surely some clever ways around this, perhaps using RewriteRule and permanent redirects. I&#39;m concerned what that experience looks like from the client, however. Haven&#39;t tried.&#34;) }}
+{+{% endspaceless %}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-17 02:04:16">2012-12-17 02:04:16</time>: <span class="message"> Yarb.
+</span> <a class="link" href="#650878d1a7b5aae8bf229466462d03015b368b0f" id="650878d1a7b5aae8bf229466462d03015b368b0f">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/650878d1a7b5aae8bf229466462d03015b368b0f">650878d1a7b5aae8bf229466462d03015b368b0f</a> on GitHub.</pre>
+    <pre class="message">Yarb.
+</pre>
+    <pre class="diff">- ec2
+- website
+---
+[-## To that have much, yet more. -]
+[-Over the past few days, I&#39;ve been playing around with Amazon Web Services [AWS](http://aws.amazon.com). Now, I&#39;ve been a spectacularly satisfied customer of [A Small Orange](http://asmallorange.com) for years,  but I&#39;ve been lately frustrated by the limitations of shared hosting. As I play around with different application platforms (rails, django), and work on developing this site, its clear that I need a bit more than 250MB of space and a restricted shell{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;) }}.-]{+_In which my adventures in migrating some small-websites over to Amazon&#39;s vaunted services are discussed._+}
+
+{+## To those who have much, yet more. +}
+
+{+Over the past few days, I&#39;ve been playing around with [Amazon Web Services (AWS)](http://aws.amazon.com). Now, I&#39;ve been a spectacularly satisfied customer of [A Small Orange](http://asmallorange.com) for years,  but I&#39;ve been lately frustrated by the limitations of shared hosting. As I play around with different application platforms (rails, django), and work on developing this site, its clear that I need a bit more than 250MB of space and a restricted shell.{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;) }}+}
+
+So, over this weekend, I migrated my sites over to play around with the twelve-months free access provided for AWS [-`micro-instances`.-]{+micro-instances, that is, tiny cheap servers.+} It&#39;s been reasonably enlightening. I&#39;ve built up a couple of `Arch Linux` images, my preferred distribution, and played with getting environments spinning up for some [-[applications]({{ content_url(&#34;/projects/monotype-app.html&#34;) }})-]{+[applications]( {{ content_url(&#34;/projects/monotype-app.html&#34;)}} )+} that haven&#39;t seen the light of day in some time.
+
+## To Cloud. Or not to Cloud?
+
+Some part of me--or well, most of me--dislikes the cloud. Yes, it&#39;s convenient. Yes, Amazon, Rackspace, and all the rest do a damn-good job of things. Yes, it&#39;s the future. Virtual machines are great, make sense, are cheap, effecient, and all the rest. In some way, though, it&#39;s equal parts exciting and depressing--there is something lost and something gained, when you spin up an instance from yet-another `dashboard`.
+[-I&#39;ve always found something striking about that bit of magic that comes with connecting a run-down beige box to an ethernet port in the corner of a room, configuring its permissions, and having it flash its small payload across the waves. This _cloud_, for all the hoopla--is just better word offsite refridgerated storage with 24-hour access. Convenient, sure. But it performs the same calculation as gmail, which trades you convenience for freedom. As much as `AWS` is convenient, it&#39;s also inherently less-free.  -]
+
+{+I&#39;ve always found something striking about that bit of magic that comes with connecting a run-down beige box to an ethernet port in the corner of a room, configuring its permissions, and having it flash its small payload across the waves. This _cloud_, for all the hoopla--is just better word off-site refrigerated storage with 24-hour access. Convenient, sure. But like gmail, you&#39;re trading convenience for freedom. As much as `AWS` is convenient, it&#39;s also inherently less-free. Amazon&#39;s got your stuff.+}
+
+Nevertheless, {+ever the modern man,+}  I am a pragmatist--and even if I won&#39;t remain with [-them-]{+Amazon+} forever, I thought I should start figuring out how some their systems work. And what can I say? Right now, I have an insanely-fast, scalable, reliable, customizable server, with root access. I can&#39;t really complain.
+
+At the moment I&#39;ve got two micro-instances running--one is serving the static pages, the other, a little [typography training app]({{ [-content_url(&#34;/projects/monotype-app.html/&#34;)) }}-]{+content_url(&#34;/projects/monotype-app.html/&#34;) }})+} I wrote a few years ago. That won&#39;t last long, because you only get one instance free--but I&#39;ll switch the nameservers back to `A Small Orange` soon, while continuing to serve the dynamic content from AWS.
+
+## Reverse Proxies
+Now, I&#39;ve long heard preached that fine practice--the prudent splitting of dynamic and static content. That makes plenty of sense, really. Or plenty of sense if I ever had much content to serve. In practice, though, It&#39;s not something I&#39;ve ever needed. As someone who has only ever placed things online from some reptilian instinct to share, I have never had any problems with server performance--to say the least. For some time, I ran my personal website from an [-{{-]{+[X40]({{+} content_url(&#34;/posts/arscons.html&#34;) [-}}.-]{+}}).+} Didn&#39;t break a sweat. {{ macros.render_footnote(&#34;X40&#34;, &#34;2&#34;) }}
+
+{+There are a million-and-one ingenious ways to do this and I don&#39;t understand half of them. All I wanted was a nice, static server that put pages that I made on the internet, and two, have another server throw up some of the dynamic content. That way, I could have one clean server--where I actually knew what was going on--and pass off all of the messy stuff to other computers that had whatever intricate combination of python and everything else that was necessary.+}
+
+{+Enter reverse proxies--which are exactly what they sound like. When you ask for something from a server, it scurries of to yet _another_ server, and fetched it from there, passing it through itself and onward to you. So you never know that what you asked for came from some other place. And the proxying server doesn&#39;t have to worry itself about whatever complex things you asked for, fobbing you off on some other machine (in my case, the correct AWS instance). Reverse proxies are what really pushed me to AWS, ultimately, as they&#39;re not allowed in the shared hosting environment of AWS.{{ macros.render_footnote(&#34;option&#34;, &#34;3&#34;) }}. +}
+
+{+At any rate, they&#39;re dead simple. These are what mine look like. +}
+
+{+`ProxyPass /apps/monotype/ http://ec2-109-21-77-32.compute-1.amazonaws.com/monotype/` +}
+
+{+`ProxyPassReverse /apps/monotype/ http://ec2-109-21-77-32.compute-1.amazonaws.com/monotype/`+}
+
+{+Exciting stuff, eh? Never done anything easier. Now, I&#39;m not doing any of the fancy load-balancing or the various bells and whistles that real people probably do, but it&#39;s been a pleasant introduction. The Apache docs give the rather stern warning: make sure you don&#39;t inadvertently turn your server into a _forward_ server, in which case it can be easily hijacked and redirected to all sorts of nefarious ends.+}
+
+[-There are a million-and-one ingenious ways to do this and I don&#39;t understand half of them. All I wanted was a nice, static server that put pages that I made on the internet, and two, have another set of instances  -]
+
+{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;, &#34;Granted, this isn&#39;t ASO&#39;s problem. They&#39;ve been absolutely wonderful. I have never interacted with a company--not in tech, not anywhere, with more respnsive customer service. I don&#39;t think I&#39;ve had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the privilege.&#34;) }}
+{{ macros.render_footnote(&#34;X40&#34;, &#34;2&#34;, &#34;At any rate, after realizing that it would be a royal pain-in-the-ass to have [-`mod_wsgi`-]{+mod_wsgi+} compiled against [-`python3`,-]{+python3,+} while having some virtualenvs that were still using Django 1.3 &amp; Python 2.6 and so on...absolute misery.&#34;)}}
+{+{{ macros.render_footnote(&#34;option&#34;, &#34;3&#34;, &#34;There are surely some clever ways around this, perhaps using RewriteRule and permanent redirects. I&#39;m concerned what that experience looks like from the client, however. Haven&#39;t tried.&#34;) }}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-17 01:01:31">2012-12-17 01:01:31</time>: <span class="message"> Yo.
+</span> <a class="link" href="#d157311baf072e2a88f8c5b51b6c833621fd4e3f" id="d157311baf072e2a88f8c5b51b6c833621fd4e3f">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/d157311baf072e2a88f8c5b51b6c833621fd4e3f">d157311baf072e2a88f8c5b51b6c833621fd4e3f</a> on GitHub.</pre>
+    <pre class="message">Yo.
+</pre>
+    <pre class="diff">## To that have much, yet more.
+Over the past few days, I&#39;ve been playing around with Amazon Web Services [AWS](http://aws.amazon.com). Now, I&#39;ve been a spectacularly satisfied customer of [A Small Orange](http://asmallorange.com) for years,  but I&#39;ve been lately frustrated by the limitations of shared hosting. As I play around with different application platforms (rails, django), and work on developing this site, its clear that I need a bit more than 250MB of space and a restricted shell{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;) }}.
+
+So, over this weekend, I migrated my sites over to play around with the twelve-months free access provided for AWS `micro-instances`. It&#39;s been reasonably enlightening. I&#39;ve built up a couple of `Arch Linux` images, my preferred distribution, and played with getting environments spinning up for some [-[applications]({{content_url(&#34;/projects/monotype-app.html&#34;)}})-]{+[applications]({{ content_url(&#34;/projects/monotype-app.html&#34;) }})+} that haven&#39;t seen the light of day in some time.
+
+## To Cloud. Or not to Cloud?
+
+Some part of me--or well, most of me--dislikes the cloud. Yes, it&#39;s convenient. Yes, Amazon, Rackspace, and all the rest do a damn-good job of things. Yes, it&#39;s the future. Virtual machines are great, make sense, are cheap, effecient, and all the rest. In some way, though, it&#39;s equal parts exciting and depressing--there is something lost and something gained, when you spin up an instance from yet-another `dashboard`.
+I&#39;ve always found something striking about that bit of magic that comes with connecting a run-down beige box to an ethernet port in the corner of a room, configuring its permissions, and having it flash its small payload across the waves. This _cloud_, for all the hoopla--is just better word [-for _having-your stuff-elsewhere_.-]{+offsite refridgerated storage with 24-hour access.+} Convenient, sure. But it performs the same calculation as [-`gmail`,-]{+gmail,+} which trades you convenience for freedom. As much as `AWS` is convenient, it&#39;s also inherently less-free.
+
+Nevertheless, I am a pragmatist--and even if I won&#39;t remain with them forever, I thought I should start figuring out how some their systems work. And what can I say? Right now, I have an insanely-fast, scalable, reliable, customizable server, with root access. I can&#39;t really complain.
+
+At the moment I&#39;ve got two micro-instances running--one is serving the static pages, the other, a little [typography training app]({{ [-content_url(&#34;/projects/monotype-app.html/&#34;)-]{+content_url(&#34;/projects/monotype-app.html/&#34;))+} }} I wrote a few years ago. That won&#39;t last long, because you only get one instance free--but I&#39;ll switch the nameservers back to `A Small Orange` soon, while continuing to serve the dynamic content from AWS.
+
+## Reverse Proxies
+Now, I&#39;ve long heard preached that fine practice--the prudent splitting of dynamic and static content. That makes plenty of sense, really. Or plenty of sense if I ever had much content to serve. In practice, though, It&#39;s not something I&#39;ve ever needed. As someone who has only ever placed things online from some reptilian instinct to share, I have never had any problems with server performance--to say the least. For some time, I ran my personal website from an {{ content_url(&#34;/posts/arscons.html&#34;) }}. Didn&#39;t break a sweat. {{ macros.render_footnote(&#34;X40&#34;, &#34;2&#34;) }}
+
+There are a million-and-one ingenious ways to do this and I don&#39;t understand half of them. All I wanted was a nice, static server that put pages that I made on the internet, and two, have another set of instances
+
+{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;, &#34;Granted, this isn&#39;t ASO&#39;s problem. They&#39;ve been absolutely wonderful. I have never interacted with a company--not in tech, not anywhere, with more respnsive customer service. I don&#39;t think I&#39;ve had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the [-privilege.&#34;-]{+privilege.&#34;)+} }}
+{{ macros.render_footnote(&#34;X40&#34;, &#34;2&#34;, &#34;At any rate, after realizing that it would be a royal pain-in-the-ass to have `mod_wsgi` compiled against `python3`, while having some virtualenvs that were still using Django 1.3 &amp; Python 2.6 and so on...absolute misery.&#34;)}}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-16 23:27:40">2012-12-16 23:27:40</time>: <span class="message"> Moving along, son.
+</span> <a class="link" href="#c10e3b634f3c104352905531cb4f5ccbd571dc8c" id="c10e3b634f3c104352905531cb4f5ccbd571dc8c">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/c10e3b634f3c104352905531cb4f5ccbd571dc8c">c10e3b634f3c104352905531cb4f5ccbd571dc8c</a> on GitHub.</pre>
+    <pre class="message">Moving along, son.
+</pre>
+    <pre class="diff">- amazon
+- ec2
+- website
+[-exclude: True-]
+---
+{+## To that have much, yet more.+}
+Over the past few days, I&#39;ve been playing around with [-[Amazon-]{+Amazon+} Web [-Services](http://aws.amazon.com) [AWS].-]{+Services [AWS](http://aws.amazon.com). Now,+} I&#39;ve been a spectacularly satisfied customer of [A Small [-Orange](http://asmallorange.com),-]{+Orange](http://asmallorange.com) for years,+}  but [-have-]{+I&#39;ve+} been lately frustrated by {+the limitations of+} shared [-hosting (though they provide a nice restriced `shell`), and have recently migrated my sites over to-]{+hosting. As I+} play around with [-the twelve-months free access provided for `microinstances`.-]{+different application platforms (rails, django), and work on developing this site, its clear that I need a bit more than 250MB of space and a restricted shell{{ macros.render_footnote(&#34;service&#34;, &#34;1&#34;) }}.+}
+
+{+So, over this weekend, I migrated my sites over to play around with the twelve-months free access provided for AWS `micro-instances`. It&#39;s been reasonably enlightening. I&#39;ve built up a couple of `Arch Linux` images, my preferred distribution, and played with getting environments spinning up for some [applications]({{content_url(&#34;/projects/monotype-app.html&#34;)}}) that haven&#39;t seen the light of day in some time.+}
+
+{+## To Cloud. Or not to Cloud?+}
+
+Some part of me--or well, most of [-me--inherently dislikes this-]{+me--dislikes the+} cloud. [-There-]{+Yes, it&#39;s convenient. Yes, Amazon, Rackspace, and all the rest do a damn-good job of things. Yes, it&#39;s the future. Virtual machines are great, make sense, are cheap, effecient, and all the rest. In some way, though, it&#39;s equal parts exciting and depressing--there+} is something {+lost and something gained, when you spin up an instance from yet-another `dashboard`.  +}
+{+I&#39;ve always found something+} striking about {+that bit of magic that comes with+} connecting a run-down beige box to an ethernet port in the corner of a [-room-]{+room, configuring its permissions,+} and having it flash its small payload across the waves. This _cloud_, for all the hoopla--is just better word for _having-your stuff-elsewhere_. Convenient, sure. But it performs the same calculation as `gmail`, which trades you convenience for freedom. As much as `AWS` is convenient, it&#39;s also inherently less-free.
+
+Nevertheless, I am a pragmatist--and even if I won&#39;t remain with them forever, I thought I should start figuring out how some their systems work. And what can I say? Right now, I have an insanely-fast, scalable, reliable, customizable server, with root access. I can&#39;t really complain.
+
+At the moment I&#39;ve got two micro-instances running--one is serving the static pages, the other, a little [typography training app]({{ content_url(&#34;/projects/monotype-app.html/&#34;) }} I wrote a few years ago. That won&#39;t last long, because you only get one instance free--but I&#39;ll switch the nameservers back to `A Small Orange` soon, while continuing to serve the dynamic content from AWS.
+
+## Reverse Proxies
+Now, I&#39;ve long heard preached that fine practice--the prudent splitting of dynamic and static content. That makes plenty of sense, really. Or plenty of sense if I ever had much content to serve. In practice, though, It&#39;s not something I&#39;ve ever needed. As someone who has only ever placed things online from some reptilian instinct to share, I have never had any problems with server performance--to say the least. For some time, I ran my personal website from an {{ content_url(&#34;/posts/arscons.html&#34;) }}. Didn&#39;t break a sweat. {{ macros.render_footnote(&#34;X40&#34;, [-&#34;1&#34;)-]{+&#34;2&#34;)+} }}
+
+There are a million-and-one ingenious ways to do this and I don&#39;t understand half of them. All I wanted was a nice, static server that put pages that I made on the internet, and two, have another set of instances
+
+{{ [-macros.render_footnote(&#34;X40&#34;,-]{+macros.render_footnote(&#34;service&#34;,+} &#34;1&#34;, {+&#34;Granted, this isn&#39;t ASO&#39;s problem. They&#39;ve been absolutely wonderful. I have never interacted with a company--not in tech, not anywhere, with more respnsive customer service. I don&#39;t think I&#39;ve had a ticket go unresponded to for more than fifteen minutes. And I pay $25-a-year for the privilege.&#34; }}+}
+{+{{ macros.render_footnote(&#34;X40&#34;, &#34;2&#34;,+} &#34;At any rate, after realizing that it would be a royal pain-in-the-ass to have `mod_wsgi` compiled against `python3`, while having some virtualenvs that were still using Django 1.3 &amp; Python 2.6 and so on...absolute misery.&#34;)}}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-16 22:43:18">2012-12-16 22:43:18</time>: <span class="message"> Various tweaks and achievements.
+</span> <a class="link" href="#0ce1450778c3a099367e7b915b19bf1f04591eda" id="0ce1450778c3a099367e7b915b19bf1f04591eda">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/0ce1450778c3a099367e7b915b19bf1f04591eda">0ce1450778c3a099367e7b915b19bf1f04591eda</a> on GitHub.</pre>
+    <pre class="message">Various tweaks and achievements.
+</pre>
+    <pre class="diff">---
+title: Amazon EC2 {+Microinstances+}
+summary: Succumbing to the siren song of the cloud.
+date: 2012-12-09 19:36:01
+keywords: amazon, ec2, system administration, web hosting
+@@ -9,4 +9,18 @@ tags:
+- website
+exclude: True
+---
+Over the past few days, I&#39;ve been playing around with [Amazon Web [-Services](http://aws.amazon.com).-]{+Services](http://aws.amazon.com) [AWS]. I&#39;ve been a spectacularly satisfied customer of [A Small Orange](http://asmallorange.com), but have been lately frustrated by shared hosting (though they provide a nice restriced `shell`), and have recently migrated my sites over to play around with the twelve-months free access provided for `microinstances`.  +}
+
+{+Some part of me--or well, most of me--inherently dislikes this cloud. There is something striking about connecting a run-down beige box to an ethernet port in the corner of a room and having it flash its small payload across the waves. This _cloud_, for all the hoopla--is just better word for _having-your stuff-elsewhere_. Convenient, sure. But it performs the same calculation as `gmail`, which trades you convenience for freedom.+} As [-happy-]{+much+} as {+`AWS` is convenient, it&#39;s also inherently less-free.  +}
+
+{+Nevertheless, I am a pragmatist--and even if I won&#39;t remain with them forever, I thought I should start figuring out how some their systems work. And what can I say? Right now, I have an insanely-fast, scalable, reliable, customizable server, with root access. I can&#39;t really complain.  +}
+
+{+At the moment+} I&#39;ve [-been-]{+got two micro-instances running--one is serving the static pages, the other, a little [typography training app]({{ content_url(&#34;/projects/monotype-app.html/&#34;) }} I wrote a few years ago. That won&#39;t last long, because you only get one instance free--but I&#39;ll switch the nameservers back to `A Small Orange` soon, while continuing to serve the dynamic content from AWS. +}
+
+{+## Reverse Proxies+}
+{+Now, I&#39;ve long heard preached that fine practice--the prudent splitting of dynamic and static content. That makes plenty of sense, really. Or plenty of sense if I ever had much content to serve. In practice, though, It&#39;s not something I&#39;ve ever needed. As someone who has only ever placed things online from some reptilian instinct to share, I have never had any problems+} with {+server performance--to say the least. For some time, I ran+} my [-current web-host--[A Small Orange](http://asmallorange.com)-]{+personal website from an {{ content_url(&#34;/posts/arscons.html&#34;) }}. Didn&#39;t break a sweat. {{ macros.render_footnote(&#34;X40&#34;, &#34;1&#34;) }}+}
+
+{+There are a million-and-one ingenious ways to do this and I don&#39;t understand half of them. All I wanted was a nice, static server that put pages that I made on the internet, and two, have another set of instances  +}
+
+
+{+{{ macros.render_footnote(&#34;X40&#34;, &#34;1&#34;, &#34;At any rate, after realizing that it would be a royal pain-in-the-ass to have `mod_wsgi` compiled against `python3`, while having some virtualenvs that were still using Django 1.3 &amp; Python 2.6 and so on...absolute misery.&#34;)}}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-10 15:41:13">2012-12-10 15:41:13</time>: <span class="message"> Exclude these for now.
+</span> <a class="link" href="#4204a93bcc35d5b8ab63132184e029f408949434" id="4204a93bcc35d5b8ab63132184e029f408949434">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/4204a93bcc35d5b8ab63132184e029f408949434">4204a93bcc35d5b8ab63132184e029f408949434</a> on GitHub.</pre>
+    <pre class="message">Exclude these for now.
+</pre>
+    <pre class="diff">- amazon
+- ec2
+- website
+{+exclude: True+}
+---
+Over the past few days, I&#39;ve been playing around with [Amazon Web Services](http://aws.amazon.com). As happy as I&#39;ve been with my current web-host--[A Small Orange](http://asmallorange.com)</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-09 19:43:52">2012-12-09 19:43:52</time>: <span class="message"> These are not really live, yet.
+</span> <a class="link" href="#c874c158f7c22a7e51f0b3ad5a7bae9b463736a0" id="c874c158f7c22a7e51f0b3ad5a7bae9b463736a0">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/c874c158f7c22a7e51f0b3ad5a7bae9b463736a0">c874c158f7c22a7e51f0b3ad5a7bae9b463736a0</a> on GitHub.</pre>
+    <pre class="message">These are not really live, yet.
+</pre>
+    <pre class="diff">@@ -0,0 +1,11 @@
+{+---+}
+{+title: Amazon EC2+}
+{+summary: Succumbing to the siren song of the cloud.+}
+{+date: 2012-12-09 19:36:01+}
+{+keywords: amazon, ec2, system administration, web hosting+}
+{+tags:+}
+{+    - amazon+}
+{+    - ec2+}
+{+    - website+}
+{+---+}
+{+Over the past few days, I&#39;ve been playing around with [Amazon Web Services](http://aws.amazon.com). As happy as I&#39;ve been with my current web-host--[A Small Orange](http://asmallorange.com)+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

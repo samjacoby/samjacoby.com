@@ -1,0 +1,342 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | Hidden Layers</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">Hidden Layers</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2012-11-15 18:37:09" pubdate>2012-11-15 18:37:09</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2015-03-02 21:47:19" pubdate>2015-03-02 21:47:19</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p><em>The journey continues. This is part of my work as a research assistant in the <a href="http://hlt.media.mit.edu">High-Low Tech</a> group at the <span class="caps">MIT</span> Media&nbsp;Lab.</em></p>
+<p>This is the design that I drew the board up from. Looks pretty good, right? Well, I was happy: lot&#8217;s of complicated little parts, colors&#8212;enough for me to feel like I was doing my&nbsp;job.  </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8233965024/" title="Screen shot 2012-11-30 at 6.55.07 PM by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8062/8233965024_7826261394.jpg" width="500" height="445" alt="Screen shot 2012-11-30 at 6.55.07 PM"></a> 
+    <figcaption><p>An&nbsp;electro-rainbow.</p></figcaption>
+</figure>
+
+<p>I sent off the gerber files, and had another board made by the good men and women of <span class="caps">AP</span> Circuits. They did bang-up job, naturally. I was walking around the lab with them, and Mark said, &#8220;That from <span class="caps">AP</span> Circuits?&#8221; You can spot one of these gems from across the room&#8212;it&#8217;s in the fancy-pants solder mask, apparently. Whatever the reason, you can spot one of these gems from across the room: circuit bling. I happily toasted it&nbsp;up.  </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8233964610/" title="IMG_2281 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8340/8233964610_036da21ae3.jpg" width="375" height="500" alt="IMG_2281"></a> 
+    <figcaption><p>That&#8217;s 246&nbsp;&#8451;  </p></figcaption>
+</figure>
+
+<p>The finished board, bristling with muxes and PGAs and all the rest. Looks pretty&nbsp;good. </p>
+<figure class="with-caption">
+    <a href="http://www.flickr.com/photos/samjacoby/8232901503/" title="IMG_2299 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8350/8232901503_68b725bb1b.jpg" width="500" height="375" alt="IMG_2299"></a> 
+    <figcaption><p>StoryClip = TapClip =&nbsp;?</p></figcaption>
+</figure>
+
+<p>Now, some of the savvier among you may note that there are substantial errors in this circuit. To you, I tip my hat. I was&nbsp;oblivious.</p>
+<p>At the moment, our hero is plugging the board into his computer, ready to bask in the radiance of its green, power&nbsp;<span class="caps">LED</span>.</p>
+<p>Nothing. Poke around a bit. Nothing. Pull out the multimeter. Could there be a bridge in thin traces of the mini-<span class="caps">USB</span> connectior? No. 5V streaming in. That looks good. But, hmm, streaming out? Ah&#8230;well, not so much. And then I see it. None of the grounds are connected. Only one half of my circuits are&nbsp;routed.  </p>
+<p>Here&#8217;s the story. It&#8217;s not so grand. At some point in the development process, I did something bad. To simplify my design, I used a ground plane&#8212;a single sheet of copper that the ground of all of the traces plugged into. After &#8220;pouring&#8221; the ground (kind&#8217;ve like the fill tool in paint, or something), the screen was looking a little crowded. I turned off its display. Great. In so doing, though, I also turned off the airwires<sup><a id="airwires-mark" href="#airwires-note">1</a></sup>
+ that it came with. Naturally, I then promptly forgot I did any such thing and proceeded on my merry way. Getting the board made and all the&nbsp;rest.  </p>
+<p>It turns out, though, the job wasn&#8217;t really done. The pouring algorithm had done its job, sure&#8212;but it had left a number of sections for me, it&#8217;s human-companion to resolve. The groundplane needed a number of additional airwires that I never added back in. My circuits, then, were a series of orphans, plugged into nothing but themselves! I needed <em>17</em> additional wires. I was&nbsp;crushed. </p>
+<p>At any rate, lesson learned. Don&#8217;t switch off views and think you&#8217;ve solved any problems. You&nbsp;haven&#8217;t.  </p>
+<div id="airwires-note" class="footnote">1. <p>Airwires are just a wire that you&#8217;re supposed to solder on later, so it&#8217;s displayed as a single line in Eagle. That&#8217;s all well and good and sometimes a well-placed airwire can take care of a number of problems&#8212;but they&#8217;re difficult and tedious to solder, and really, if you&#8217;re having a custom-board made, you should take care not to have&nbsp;any.</p><a class="footnote-note-number" href="#airwires-mark">↩</a></div>    </section>
+    <footer>
+    <section class="tags">
+
+<h4>Related&nbsp;posts:</h4>
+<ul>
+<li><a href="/projects/storyclip">Drawing the&nbsp;Electric</a></li>
+<li><a href="/projects/wheels-and-sliders">Sliders <span class="amp">&amp;</span>&nbsp;Wheels</a></li>
+<li><a href="/posts/2012/9/8/en-masse">TapClip&nbsp;v.2</a></li>
+<li><a href="/posts/2012/8/29/paperclip">PaperClip</a></li>
+<li><a href="/posts/2012/8/22/touch-tiny-under">Touch Tiny&nbsp;v.1</a></li>
+<li><a href="/projects/tapclip">TapClip</a></li>
+</ul></section>
+    <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2015-03-02 21:47:19">2015-03-02 21:47:19</time>: <span class="message"> Updating layout for new blocks.
+</span> <a class="link" href="#3a8c3faf3cf2ac8144b1050f4c387551018b567b" id="3a8c3faf3cf2ac8144b1050f4c387551018b567b">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3a8c3faf3cf2ac8144b1050f4c387551018b567b">3a8c3faf3cf2ac8144b1050f4c387551018b567b</a> on GitHub.</pre>
+    <pre class="message">Updating layout for new blocks.
+</pre>
+    <pre class="diff">- SenseClip
+thumbnail: hidden-layers-1.jpg
+---
+{+{% block post %}+}
+{% mark excerpt %}
+_The journey continues. This is part of my work as a research assistant in the [High-Low Tech](http://hlt.media.mit.edu) group at the MIT Media Lab._
+
+@@ -35,9 +36,5 @@ It turns out, though, the job wasn&#39;t really done. The pouring algorithm had done
+At any rate, lesson learned. Don&#39;t switch off views and think you&#39;ve solved any problems. You haven&#39;t.
+
+{{ macros.render_footnote(&#34;airwires&#34;, &#34;1&#34;, &#34;Airwires are just a wire that you&#39;re supposed to solder on later, so it&#39;s displayed as a single line in Eagle. That&#39;s all well and good and sometimes a well-placed airwire can take care of a number of problems--but they&#39;re difficult and tedious to solder, and really, if you&#39;re having a custom-board made, you should take care not to have any.&#34;)}}
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-02-16 14:28:44">2015-02-16 14:28:44</time>: <span class="message"> Adding excerpts to all posts, basically.
+</span> <a class="link" href="#07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57" id="07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57</a> on GitHub.</pre>
+    <pre class="message">Adding excerpts to all posts, basically.
+</pre>
+    <pre class="diff">- SenseClip
+thumbnail: hidden-layers-1.jpg
+---
+{+{% mark excerpt %}+}
+_The journey continues. This is part of my work as a research assistant in the [High-Low Tech](http://hlt.media.mit.edu) group at the MIT Media Lab._
+
+This is the design that I drew the board up from. Looks pretty good, right? Well, I was happy: lot&#39;s of complicated little parts, colors--enough for me to feel like I was doing my job.
+{+{% endmark %}+}
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8233965024/&#34; title=&#34;Screen shot 2012-11-30 at 6.55.07 PM by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8062/8233965024_7826261394.jpg&#34; width=&#34;500&#34; height=&#34;445&#34; alt=&#34;Screen shot 2012-11-30 at 6.55.07 PM&#34;&gt;&lt;/a&gt;&#39;, &#34;An electro-rainbow.&#34;) }}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2014-06-22 17:18:19">2014-06-22 17:18:19</time>: <span class="message"> I must have been on drugs.
+</span> <a class="link" href="#e2c5926e08b4740bf2b34e6e5fbff6960e8cd39e" id="e2c5926e08b4740bf2b34e6e5fbff6960e8cd39e">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/e2c5926e08b4740bf2b34e6e5fbff6960e8cd39e">e2c5926e08b4740bf2b34e6e5fbff6960e8cd39e</a> on GitHub.</pre>
+    <pre class="message">I must have been on drugs.
+</pre>
+    <pre class="diff">The finished board, bristling with muxes and PGAs and all the rest. Looks pretty good.
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8232901503/&#34; title=&#34;IMG_2299 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8350/8232901503_68b725bb1b.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_2299&#34;&gt;&lt;/a&gt;&#39;, &#34;StoryClip = TapClip = ?&#34;)}}
+Now, some of the savvier among you may note that there are substantial errors in this circuit. To you, I tip my hat. [-But such a realiziation is still ahead of me. The train rushes forward, splitting the night. The misthrown switch is still miles ahead in the darkness, its discovery yet to come.-]{+I was oblivious.+}
+
+At the moment, our hero is plugging the board into his computer, ready to bask in the[-mild-] radiance of its green, power LED.
+
+Nothing. Poke around a bit. Nothing. Pull out the multimeter. Could there be a bridge in thin traces of the mini-USB connectior? No. 5V streaming in. That looks good. But, hmm, streaming out? Ah...well, not so much. And then I see it. None of the grounds are connected. Only one half of my circuits are routed.
+
+@@ -30,12 +30,8 @@ Here&#39;s the story. It&#39;s not so grand. At some point in the development process, I
+
+It turns out, though, the job wasn&#39;t really done. The pouring algorithm had done its job, sure--but it had left a number of sections for me, it&#39;s human-companion to resolve. The groundplane needed a number of additional airwires that I never added back in. My circuits, then, were a series of orphans, plugged into nothing but themselves! I needed _17_ additional wires. I was crushed.
+
+[-This is what happened to me, albeit, on a kind of tiny, bemused scale: shock, grief, denial, self-doubt, irritation, annoyance &amp;amp;c. The stages of the technical oversight.  -]
+
+At any rate, lesson learned. Don&#39;t switch off views and think you&#39;ve solved any problems. You haven&#39;t.
+
+[-And so ends this mild saga of workplace-challenges. -]
+
+{{ macros.render_footnote(&#34;airwires&#34;, &#34;1&#34;, &#34;Airwires are just a wire that you&#39;re supposed to solder on later, so it&#39;s displayed as a single line in Eagle. That&#39;s all well and good and sometimes a well-placed airwire can take care of a number of problems--but they&#39;re difficult and tedious to solder, and really, if you&#39;re having a custom-board made, you should take care not to have any.&#34;)}}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-29 18:40:51">2013-01-29 18:40:51</time>: <span class="message"> Start displaying .git tracking information
+</span> <a class="link" href="#cfa46ecb8a0244c3a1d4650cff13dc9294381b44" id="cfa46ecb8a0244c3a1d4650cff13dc9294381b44">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/cfa46ecb8a0244c3a1d4650cff13dc9294381b44">cfa46ecb8a0244c3a1d4650cff13dc9294381b44</a> on GitHub.</pre>
+    <pre class="message">Start displaying .git tracking information
+</pre>
+    <pre class="diff">title: Hidden Layers
+summary: In which I am screwed by layers in Eagle.
+date: 2012-11-15 18:37:09
+{+track: True+}
+tags:
+- SenseClip
+thumbnail: hidden-layers-1.jpg</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-11 23:24:25">2012-12-11 23:24:25</time>: <span class="message"> Keeping track of the generalities of the mentals.
+</span> <a class="link" href="#db1fd991b3ea34429d47856c77e32ede5c8a3569" id="db1fd991b3ea34429d47856c77e32ede5c8a3569">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/db1fd991b3ea34429d47856c77e32ede5c8a3569">db1fd991b3ea34429d47856c77e32ede5c8a3569</a> on GitHub.</pre>
+    <pre class="message">Keeping track of the generalities of the mentals.
+</pre>
+    <pre class="diff">date: 2012-11-15 18:37:09
+tags:
+- SenseClip
+{+thumbnail: hidden-layers-1.jpg+}
+---
+_The journey continues. This is part of my work as a research assistant in the [High-Low Tech](http://hlt.media.mit.edu) group at the MIT Media Lab._</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-10 15:41:13">2012-12-10 15:41:13</time>: <span class="message"> Exclude these for now.
+</span> <a class="link" href="#4204a93bcc35d5b8ab63132184e029f408949434" id="4204a93bcc35d5b8ab63132184e029f408949434">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/4204a93bcc35d5b8ab63132184e029f408949434">4204a93bcc35d5b8ab63132184e029f408949434</a> on GitHub.</pre>
+    <pre class="message">Exclude these for now.
+</pre>
+    <pre class="diff">Nothing. Poke around a bit. Nothing. Pull out the multimeter. Could there be a bridge in thin traces of the mini-USB connectior? No. 5V streaming in. That looks good. But, hmm, streaming out? Ah...well, not so much. And then I see it. None of the grounds are connected. Only one half of my circuits are routed.
+
+Here&#39;s the story. It&#39;s not so grand. At some point in the development process, I did something bad. To simplify my design, I used a ground plane--a single sheet of copper that the ground of all of the traces plugged into. After &#34;pouring&#34; the ground (kind&#39;ve like the fill tool in paint, or something), the screen was looking a little crowded. I turned off its display. Great. In so doing, though, I also turned off the airwires{{ [-macros.renderfootnote(&#34;footnote-fail-1&#34;,-]{+macros.render_footnote(&#34;airwires&#34;,+} &#34;1&#34;)}} that it came with. Naturally, I then promptly forgot I did any such thing and proceeded on my merry way. Getting the board made and all the rest.
+
+It turns out, though, the job wasn&#39;t really done. The pouring algorithm had done its job, sure--but it had left a number of sections for me, it&#39;s human-companion to resolve. The groundplane needed a number of additional airwires that I never added back in. My circuits, then, were a series of orphans, plugged into nothing but themselves! I needed _17_ additional wires. I was crushed.
+
+@@ -34,4 +34,10 @@ At any rate, lesson learned. Don&#39;t switch off views and think you&#39;ve solved any
+
+And so ends this mild saga of workplace-challenges.
+
+{+{{ macros.render_footnote(&#34;airwires&#34;, &#34;1&#34;, &#34;Airwires are just a wire that you&#39;re supposed to solder on later, so it&#39;s displayed as a single line in Eagle. That&#39;s all well and good and sometimes a well-placed airwire can take care of a number of problems--but they&#39;re difficult and tedious to solder, and really, if you&#39;re having a custom-board made, you should take care not to have any.&#34;)}}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-07 23:27:35">2012-12-07 23:27:35</time>: <span class="message"> Tweaks, home.
+</span> <a class="link" href="#2ed01935bceee5b6442dcecff2aa7fcc7d0dc68b" id="2ed01935bceee5b6442dcecff2aa7fcc7d0dc68b">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/2ed01935bceee5b6442dcecff2aa7fcc7d0dc68b">2ed01935bceee5b6442dcecff2aa7fcc7d0dc68b</a> on GitHub.</pre>
+    <pre class="message">Tweaks, home.
+</pre>
+    <pre class="diff">The finished board, bristling with muxes and PGAs and all the rest. Looks pretty good.
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8232901503/&#34; title=&#34;IMG_2299 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8350/8232901503_68b725bb1b.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_2299&#34;&gt;&lt;/a&gt;&#39;, [-&#34;&#34;)}}-]{+&#34;StoryClip = TapClip = ?&#34;)}}+}
+Now, some of the savvier among you may note that there are substantial errors in this circuit. To you, I tip my hat. But such a realiziation is still ahead of me. The train rushes forward, splitting the night. The misthrown switch is still miles ahead in the darkness, its discovery yet to come.
+
+At the moment, our hero is plugging the board into his computer, ready to bask in the mild radiance of its green, power LED.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-07 14:45:18">2012-12-07 14:45:18</time>: <span class="message"> Tweaked.
+</span> <a class="link" href="#a96c7ec2058f07bdbb5a5449d91c4bd05e5ebe1d" id="a96c7ec2058f07bdbb5a5449d91c4bd05e5ebe1d">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/a96c7ec2058f07bdbb5a5449d91c4bd05e5ebe1d">a96c7ec2058f07bdbb5a5449d91c4bd05e5ebe1d</a> on GitHub.</pre>
+    <pre class="message">Tweaked.
+</pre>
+    <pre class="diff">{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8233965024/&#34; title=&#34;Screen shot 2012-11-30 at 6.55.07 PM by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8062/8233965024_7826261394.jpg&#34; width=&#34;500&#34; height=&#34;445&#34; alt=&#34;Screen shot 2012-11-30 at 6.55.07 PM&#34;&gt;&lt;/a&gt;&#39;, &#34;An electro-rainbow.&#34;) }}
+
+[-So naturally,-]I sent off the gerber files, and had another board made by the good men and women of AP Circuits. They did bang-up job, naturally. I was walking around the lab with them, and Mark said, &#34;That from AP Circuits?&#34; You can spot one of these gems from across the room--it&#39;s in the fancy-pants solder mask, apparently. Whatever the reason, you can spot one of these gems from across the room: circuit bling. I happily toasted it up.
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8233964610/&#34; title=&#34;IMG_2281 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8340/8233964610_036da21ae3.jpg&#34; width=&#34;375&#34; height=&#34;500&#34; alt=&#34;IMG_2281&#34;&gt;&lt;/a&gt;&#39;, &#34;That&#39;s 246 &amp;#8451;  &#34;)}}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-12-02 16:00:59">2012-12-02 16:00:59</time>: <span class="message"> Yo.
+</span> <a class="link" href="#1aa554b4ee6451d701a7cf6df69e08609a63bc90" id="1aa554b4ee6451d701a7cf6df69e08609a63bc90">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/1aa554b4ee6451d701a7cf6df69e08609a63bc90">1aa554b4ee6451d701a7cf6df69e08609a63bc90</a> on GitHub.</pre>
+    <pre class="message">Yo.
+</pre>
+    <pre class="diff">---
+title: Hidden Layers
+summary: In which I [-learn to treat my tools with wary respect.-]{+am screwed by layers in Eagle.+}
+date: 2012-11-15 18:37:09
+tags:
+- SenseClip
+@@ -18,9 +18,11 @@ So naturally, I sent off the gerber files, and had another board made by the goo
+The finished board, bristling with muxes and PGAs and all the rest. Looks pretty good.
+
+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8232901503/&#34; title=&#34;IMG_2299 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8350/8232901503_68b725bb1b.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_2299&#34;&gt;&lt;/a&gt;&#39;, &#34;&#34;)}}
+Now, some of the savvier among you may note that there are substantial errors in this circuit. To you, I [-say, I care not--for I forge ahead like-]{+tip my hat. But such+} a {+realiziation is still ahead of me. The+} train [-in-]{+rushes forward, splitting+} the night. [-At any rate, that discovery is yet to come. At the moment, our hero-]{+The misthrown switch+} is [-plugging the board into his computer, ready to bask-]{+still miles ahead+} in the [-mild radiance of-]{+darkness,+} its [-green, power LED.-]{+discovery yet to come.+}
+
+{+At the moment, our hero is plugging the board into his computer, ready to bask in the mild radiance of its green, power LED.+}
+
+Nothing. Poke around a bit. Nothing. Pull out the multimeter. {+Could there be a bridge in thin traces of the mini-USB connectior? No.+} 5V streaming in. [-But-]{+That looks good. But, hmm,+} streaming out? Ah...well, not so much. And then I see it. {+None of the grounds are connected. Only one half of my circuits are routed.+}
+
+Here&#39;s the story. It&#39;s not so grand. At some point in the development process, I did something bad. To simplify my design, I used a ground plane--a single sheet of copper that the ground of all of the traces plugged into. After &#34;pouring&#34; the ground (kind&#39;ve like the fill tool in paint, or something), the screen was looking a little crowded. I turned off its display. Great. In so doing, though, I also turned off the airwires{{ macros.renderfootnote(&#34;footnote-fail-1&#34;, &#34;1&#34;)}} that it came with. Naturally, I then promptly forgot I did any such thing and proceeded on my merry way. Getting the board made and all the rest.
+
+@@ -28,9 +30,8 @@ It turns out, though, the job wasn&#39;t really done. The pouring algorithm had done
+
+This is what happened to me, albeit, on a kind of tiny, bemused scale: shock, grief, denial, self-doubt, irritation, annoyance &amp;amp;c. The stages of the technical oversight.
+
+{+At any rate, lesson learned. Don&#39;t switch off views and think you&#39;ve solved any problems. You haven&#39;t.+}
+
+[-At any rate, lesson learned. Don&#39;t switch off views and think you&#39;ve solved the problems they showed. You haven&#39;t.-]And so ends this mild saga [-in-]{+of+} workplace-challenges.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2012-11-30 22:35:16">2012-11-30 22:35:16</time>: <span class="message"> Push it, boy.
+</span> <a class="link" href="#7f5b3eaad64482b59cf45d74a76d598efd156bda" id="7f5b3eaad64482b59cf45d74a76d598efd156bda">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/7f5b3eaad64482b59cf45d74a76d598efd156bda">7f5b3eaad64482b59cf45d74a76d598efd156bda</a> on GitHub.</pre>
+    <pre class="message">Push it, boy.
+</pre>
+    <pre class="diff">@@ -0,0 +1,36 @@
+{+---+}
+{+title: Hidden Layers+}
+{+summary: In which I learn to treat my tools with wary respect.  +}
+{+date: 2012-11-15 18:37:09+}
+{+tags:+}
+{+    - SenseClip+}
+{+---+}
+{+_The journey continues. This is part of my work as a research assistant in the [High-Low Tech](http://hlt.media.mit.edu) group at the MIT Media Lab._+}
+
+{+This is the design that I drew the board up from. Looks pretty good, right? Well, I was happy: lot&#39;s of complicated little parts, colors--enough for me to feel like I was doing my job.  +}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8233965024/&#34; title=&#34;Screen shot 2012-11-30 at 6.55.07 PM by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8062/8233965024_7826261394.jpg&#34; width=&#34;500&#34; height=&#34;445&#34; alt=&#34;Screen shot 2012-11-30 at 6.55.07 PM&#34;&gt;&lt;/a&gt;&#39;, &#34;An electro-rainbow.&#34;) }}+}
+
+{+So naturally, I sent off the gerber files, and had another board made by the good men and women of AP Circuits. They did bang-up job, naturally. I was walking around the lab with them, and Mark said, &#34;That from AP Circuits?&#34; You can spot one of these gems from across the room--it&#39;s in the fancy-pants solder mask, apparently. Whatever the reason, you can spot one of these gems from across the room: circuit bling. I happily toasted it up.  +}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8233964610/&#34; title=&#34;IMG_2281 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8340/8233964610_036da21ae3.jpg&#34; width=&#34;375&#34; height=&#34;500&#34; alt=&#34;IMG_2281&#34;&gt;&lt;/a&gt;&#39;, &#34;That&#39;s 246 &amp;#8451;  &#34;)}}+}
+
+{+The finished board, bristling with muxes and PGAs and all the rest. Looks pretty good. +}
+
+{+{{ macros.render_figure(&#39;&lt;a href=&#34;http://www.flickr.com/photos/samjacoby/8232901503/&#34; title=&#34;IMG_2299 by s_jacoby, on Flickr&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8350/8232901503_68b725bb1b.jpg&#34; width=&#34;500&#34; height=&#34;375&#34; alt=&#34;IMG_2299&#34;&gt;&lt;/a&gt;&#39;, &#34;&#34;)}}+}
+{+Now, some of the savvier among you may note that there are substantial errors in this circuit. To you, I say, I care not--for I forge ahead like a train in the night. At any rate, that discovery is yet to come. At the moment, our hero is plugging the board into his computer, ready to bask in the mild radiance of its green, power LED.+}
+
+{+Nothing. Poke around a bit. Nothing. Pull out the multimeter. 5V streaming in. But streaming out? Ah...well, not so much. And then I see it. +}
+
+{+Here&#39;s the story. It&#39;s not so grand. At some point in the development process, I did something bad. To simplify my design, I used a ground plane--a single sheet of copper that the ground of all of the traces plugged into. After &#34;pouring&#34; the ground (kind&#39;ve like the fill tool in paint, or something), the screen was looking a little crowded. I turned off its display. Great. In so doing, though, I also turned off the airwires{{ macros.renderfootnote(&#34;footnote-fail-1&#34;, &#34;1&#34;)}} that it came with. Naturally, I then promptly forgot I did any such thing and proceeded on my merry way. Getting the board made and all the rest.  +}
+
+{+It turns out, though, the job wasn&#39;t really done. The pouring algorithm had done its job, sure--but it had left a number of sections for me, it&#39;s human-companion to resolve. The groundplane needed a number of additional airwires that I never added back in. My circuits, then, were a series of orphans, plugged into nothing but themselves! I needed _17_ additional wires. I was crushed. +}
+
+{+This is what happened to me, albeit, on a kind of tiny, bemused scale: shock, grief, denial, self-doubt, irritation, annoyance &amp;amp;c. The stages of the technical oversight.  +}
+
+
+{+At any rate, lesson learned. Don&#39;t switch off views and think you&#39;ve solved the problems they showed. You haven&#39;t. +}
+
+{+And so ends this mild saga in workplace-challenges.+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

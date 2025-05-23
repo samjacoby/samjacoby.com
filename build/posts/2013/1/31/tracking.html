@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sam Jacoby | Tracking Changes</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="keywords" content="mit, high-low tech, shackman press, lettepress, printing, coding, programming, sam jacoby">
+                <meta name="author" content="Neocaridina heteropoda">
+        <meta name="email" content="sam@shackmanpress.com">
+
+
+                
+        <link rel="stylesheet" href="/media/css/GGS.css">
+        <link rel="stylesheet" href="/media/css/syntax.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+        <style>
+        
+                </style>
+        <link href="feed.xml" type="application/atom+xml" rel="alternate" title="Sam Jacoby | Explorer | Feed">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script src="/media/js/jquery.timeago.js" type="text/javascript"></script>
+        <script src="/media/js/site.js" type="text/javascript"></script>
+        <script type="text/javascript" src="//use.typekit.net/emq4jse.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+                <script type="text/javascript" src="/media/js/app.js"></script>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+        </script>
+        <![endif]-->
+    </head>
+    <body lang="en">
+        <header>
+            <div>
+                <h1><a href="/">Sam Jacoby</a></h1>
+                 
+            </div>
+                                    <nav>
+    
+<div class="wrapper"><h2><a class="selected"href="/posts/">Posts</a></h2></div><div class="wrapper"><h2><a href="/projects/">Projects</a></h2></div><div class="wrapper"><h2><a href="/printing/">Printing</a></h2></div>
+    </nav>
+        </header>
+        <article  id="twoway"> 
+            <article class="post">
+    <header>
+        <h2 class="title">Tracking Changes</h2> 
+                        <p class="datetime">
+        Posted <time class="timeago" datetime="2013-01-31 14:56:39" pubdate>2013-01-31 14:56:39</time>. 
+
+        <span class="updated">[Last updated <time class="timeago" datetime="2015-03-02 21:47:19" pubdate>2015-03-02 21:47:19</time>. 
+]</span>
+        </p>
+            </header>
+    <section>
+        <p>Inspired by <a href="https://twitter.com/jsvine">@jsvine&#8217;s</a> experiments in version-control at <a href="http://drafts.jsvine.com">drafts.jsvine.com</a>, I thought I&#8217;d expose some of the bones that tick beneath my <a href="http://samjacoby.com/posts/2012/8/21/hello-world/">site</a>. I run these pages through the <a href="http://hyde.github.com">Hyde</a> static-site generator&#8212;<a href="https://github.com/mojombo/jekyll">Jekyll&#8217;s</a> underloved Pythonic-cousin&#8212;which despite being a little complex for the job, I&nbsp;like. </p>
+<p>I mostly use <a href="http://github.com">git</a><sup><a id="github-1-mark" href="#github-1-note">†</a></sup>
+ as a glorified save button, not a collaborative tool (on this site at least)&#8212;so all I needed to do was expose my changesets (already online on <a href="http://https://github.com/samjacoby/samjacoby.com/">GitHub</a>).</p>
+<p>I slapped together a small plugin that parses the logs of the repo that backs the site, and renders them on the page per-file in a reasonably-digestible manner. It would&#8217;ve made more sense to be using mercurial (which is written in Python), but alas, GitHub is too damn&nbsp;good. </p>
+<p>At any rate, you&#8217;ll now see a &#8216;Change History&#8217; on the bottom of each page I&#8217;ve worked on&#8212;and if you&#8217;re so inclined, can thumb-through my misspellings, fudged-dates, and all the rest.&nbsp;Tantalizing.</p>
+<p>The plug-in, itself, is <a href="https://github.com/samjacoby/hyde/commit/a92073bb46775499e1d510c2c71009ddd8101218">here</a> in a not-very-palatable form. Pretty minimal, but you get the idea. The syntax-highlighting is a smidgen of&nbsp;jQuery. </p>
+<div id="github-1-note" class="footnote">†. <p>My sister pointed out that <em>git</em> looks suspiciously-like a typo for <em>get</em>. It is not. Git is a popular piece of software that allows you to keep track of all of the edits you make on text files and easily collaborate and share your changes with others. While originally intended for software development, it&#8217;s finding uses in a number of&nbsp;projects.</p><a class="footnote-note-number" href="#github-1-mark">↩</a></div>    </section>
+    <footer>
+        <h3>Change History<a class="sup" href="/posts/2013/1/31/tracking">(?)</a></h3>
+<section id="commit-log">
+<h4><time class="timeago" datetime="2015-03-02 21:47:19">2015-03-02 21:47:19</time>: <span class="message"> Updating layout for new blocks.
+</span> <a class="link" href="#3a8c3faf3cf2ac8144b1050f4c387551018b567b" id="3a8c3faf3cf2ac8144b1050f4c387551018b567b">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/3a8c3faf3cf2ac8144b1050f4c387551018b567b">3a8c3faf3cf2ac8144b1050f4c387551018b567b</a> on GitHub.</pre>
+    <pre class="message">Updating layout for new blocks.
+</pre>
+    <pre class="diff">summary: Because nothing happens all at once.
+date: 2013-01-31 14:56:39
+---
+{+{% block post %}+}
+{% mark excerpt %}
+Inspired by [@jsvine&#39;s](https://twitter.com/jsvine) experiments in version-control at [drafts.jsvine.com](http://drafts.jsvine.com), I thought I&#39;d expose some of the bones that tick beneath my [site](http://samjacoby.com/posts/2012/8/21/hello-world/). I run these pages through the [Hyde](http://hyde.github.com) static-site generator--[Jekyll&#39;s](https://github.com/mojombo/jekyll) underloved Pythonic-cousin--which despite being a little complex for the job, I like.
+{% endmark %}
+@@ -16,3 +17,4 @@ At any rate, you&#39;ll now see a &#39;Change History&#39; on the bottom of each page I&#39;ve w
+The plug-in, itself, is [here](https://github.com/samjacoby/hyde/commit/a92073bb46775499e1d510c2c71009ddd8101218) in a not-very-palatable form. Pretty minimal, but you get the idea. The syntax-highlighting is a smidgen of jQuery.
+
+{{ macros.render_footnote(&#34;github-1&#34;, &#34;†&#34;, &#34;My sister pointed out that _git_ looks suspiciously-like a typo for _get_. It is not. Git is a popular piece of software that allows you to keep track of all of the edits you make on text files and easily collaborate and share your changes with others. While originally intended for software development, it&#39;s finding uses in a number of projects.&#34;)}}
+{+{% endblock %}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2015-02-16 14:28:44">2015-02-16 14:28:44</time>: <span class="message"> Adding excerpts to all posts, basically.
+</span> <a class="link" href="#07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57" id="07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57">07a57fe3ebb846616f1ae7d0aa3cfbc0f1920d57</a> on GitHub.</pre>
+    <pre class="message">Adding excerpts to all posts, basically.
+</pre>
+    <pre class="diff">summary: Because nothing happens all at once.
+date: 2013-01-31 14:56:39
+---
+{+{% mark excerpt %}+}
+Inspired by [@jsvine&#39;s](https://twitter.com/jsvine) experiments in version-control at [drafts.jsvine.com](http://drafts.jsvine.com), I thought I&#39;d expose some of the bones that tick beneath my [site](http://samjacoby.com/posts/2012/8/21/hello-world/). I run these pages through the [Hyde](http://hyde.github.com) static-site generator--[Jekyll&#39;s](https://github.com/mojombo/jekyll) underloved Pythonic-cousin--which despite being a little complex for the job, I like.
+{+{% endmark %}+}
+
+I mostly use [git](http://github.com){{ macros.render_footnote(&#34;github-1&#34;, &#34;†&#34;) }} as a glorified save button, not a collaborative tool (on this site at least)--so all I needed to do was expose my changesets (already online on [GitHub](http://https://github.com/samjacoby/samjacoby.com/)).</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-04-10 10:37:28">2013-04-10 10:37:28</time>: <span class="message"> Just some tweaks. Adding (?) to tracking.
+</span> <a class="link" href="#c5ca1d768138928e0cd6c67194451d873ad663c9" id="c5ca1d768138928e0cd6c67194451d873ad663c9">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/c5ca1d768138928e0cd6c67194451d873ad663c9">c5ca1d768138928e0cd6c67194451d873ad663c9</a> on GitHub.</pre>
+    <pre class="message">Just some tweaks. Adding (?) to tracking.
+</pre>
+    <pre class="diff">---
+Inspired by [@jsvine&#39;s](https://twitter.com/jsvine) experiments in version-control at [drafts.jsvine.com](http://drafts.jsvine.com), I thought I&#39;d expose some of the bones that tick beneath my [site](http://samjacoby.com/posts/2012/8/21/hello-world/). I run these pages through the [Hyde](http://hyde.github.com) static-site generator--[Jekyll&#39;s](https://github.com/mojombo/jekyll) underloved Pythonic-cousin--which despite being a little complex for the job, I like.
+
+I mostly use [git](http://github.com){{ macros.render_footnote(&#34;github-1&#34;, &#34;†&#34;) }} as a glorified save button, not a collaborative tool (on this site at least)--so all I needed to do was expose my changesets (already online on [-[GitHub]](http://https://github.com/samjacoby/samjacoby.com/)).-]{+[GitHub](http://https://github.com/samjacoby/samjacoby.com/)).+}
+
+I slapped together a small plugin that parses the logs of the repo that backs the site, and renders them on the page per-file in a reasonably-digestible manner. It would&#39;ve made more sense to be using mercurial (which is written in Python), but alas, GitHub is too damn good.
+
+@@ -13,4 +13,4 @@ At any rate, you&#39;ll now see a &#39;Change History&#39; on the bottom of each page I&#39;ve w
+
+The plug-in, itself, is [here](https://github.com/samjacoby/hyde/commit/a92073bb46775499e1d510c2c71009ddd8101218) in a not-very-palatable form. Pretty minimal, but you get the idea. The syntax-highlighting is a smidgen of jQuery.
+
+{{ macros.render_footnote(&#34;github-1&#34;, &#34;†&#34;, &#34;My sister pointed out that _git_ looks suspiciously-like a typo for [-_get_, so it&#39;s worth mentioning that git-]{+_get_. It is not. Git+} is a popular piece of software that allows you to keep track of all of the edits you make on text files and easily collaborate and share your changes with [-others.&#34;)}}-]{+others. While originally intended for software development, it&#39;s finding uses in a number of projects.&#34;)}}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-02-01 12:52:39">2013-02-01 12:52:39</time>: <span class="message"> A clarification for Sarah.
+</span> <a class="link" href="#0d9c168a4dba090b23791f2aef551a00b8390b52" id="0d9c168a4dba090b23791f2aef551a00b8390b52">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/0d9c168a4dba090b23791f2aef551a00b8390b52">0d9c168a4dba090b23791f2aef551a00b8390b52</a> on GitHub.</pre>
+    <pre class="message">A clarification for Sarah.
+</pre>
+    <pre class="diff">---
+Inspired by [@jsvine&#39;s](https://twitter.com/jsvine) experiments in version-control at [drafts.jsvine.com](http://drafts.jsvine.com), I thought I&#39;d expose some of the bones that tick beneath my [site](http://samjacoby.com/posts/2012/8/21/hello-world/). I run these pages through the [Hyde](http://hyde.github.com) static-site generator--[Jekyll&#39;s](https://github.com/mojombo/jekyll) underloved Pythonic-cousin--which despite being a little complex for the job, I like.
+
+I mostly use [-git-]{+[git](http://github.com){{ macros.render_footnote(&#34;github-1&#34;, &#34;†&#34;) }}+} as a glorified save button, not a collaborative tool (on this site at least)--so all I needed to do was expose my changesets (already online on [-[GitHub](http://https://github.com/samjacoby/samjacoby.com/)).-]{+[GitHub]](http://https://github.com/samjacoby/samjacoby.com/)).+}
+
+I slapped together a small plugin that parses the logs of the repo that backs the site, and renders them on the page per-file in a reasonably-digestible manner. It would&#39;ve made more sense to be using mercurial (which is written in Python), but alas, GitHub is too damn good.
+
+At any rate, you&#39;ll now see a &#39;Change History&#39; on the bottom of each page I&#39;ve worked on--and if you&#39;re so inclined, can thumb-through my misspellings, fudged-dates, and all the rest. Tantalizing.
+
+The plug-in, itself, is [here](https://github.com/samjacoby/hyde/commit/a92073bb46775499e1d510c2c71009ddd8101218) in a not-very-palatable form. Pretty minimal, but you get the idea. The syntax-highlighting is a smidgen of jQuery.
+
+{+{{ macros.render_footnote(&#34;github-1&#34;, &#34;†&#34;, &#34;My sister pointed out that _git_ looks suspiciously-like a typo for _get_, so it&#39;s worth mentioning that git is a popular piece of software that allows you to keep track of all of the edits you make on text files and easily collaborate and share your changes with others.&#34;)}}+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-31 17:12:15">2013-01-31 17:12:15</time>: <span class="message"> Fix minor typo &#34;us&#34; -&gt; &#34;use&#34;.
+</span> <a class="link" href="#f5aa1721e2f5640faf548a14056e5bd52571c334" id="f5aa1721e2f5640faf548a14056e5bd52571c334">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/f5aa1721e2f5640faf548a14056e5bd52571c334">f5aa1721e2f5640faf548a14056e5bd52571c334</a> on GitHub.</pre>
+    <pre class="message">Fix minor typo &#34;us&#34; -&gt; &#34;use&#34;.
+</pre>
+    <pre class="diff">---
+Inspired by [@jsvine&#39;s](https://twitter.com/jsvine) experiments in version-control at [drafts.jsvine.com](http://drafts.jsvine.com), I thought I&#39;d expose some of the bones that tick beneath my [site](http://samjacoby.com/posts/2012/8/21/hello-world/). I run these pages through the [Hyde](http://hyde.github.com) static-site generator--[Jekyll&#39;s](https://github.com/mojombo/jekyll) underloved Pythonic-cousin--which despite being a little complex for the job, I like.
+
+I mostly [-us-]{+use+} git as a glorified save button, not a collaborative tool (on this site at least)--so all I needed to do was expose my changesets (already online on [GitHub](http://https://github.com/samjacoby/samjacoby.com/)).
+
+I slapped together a small plugin that parses the logs of the repo that backs the site, and renders them on the page per-file in a reasonably-digestible manner. It would&#39;ve made more sense to be using mercurial (which is written in Python), but alas, GitHub is too damn good.</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-31 17:02:35">2013-01-31 17:02:35</time>: <span class="message"> Adding and revising so I sound smarter.
+</span> <a class="link" href="#df390c9e8431e591c942ccfd5e757422a70983b6" id="df390c9e8431e591c942ccfd5e757422a70983b6">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/df390c9e8431e591c942ccfd5e757422a70983b6">df390c9e8431e591c942ccfd5e757422a70983b6</a> on GitHub.</pre>
+    <pre class="message">Adding and revising so I sound smarter.
+</pre>
+    <pre class="diff">summary: Because nothing happens all at once.
+date: 2013-01-31 14:56:39
+---
+Inspired by [@jsvine&#39;s](https://twitter.com/jsvine) experiments in version-control at [drafts.jsvine.com](http://drafts.jsvine.com), I thought I&#39;d expose some of the bones that tick beneath [-this-]{+my+} [site](http://samjacoby.com/posts/2012/8/21/hello-world/). I [-put-together-]{+run these pages through the [Hyde](http://hyde.github.com) static-site generator--[Jekyll&#39;s](https://github.com/mojombo/jekyll) underloved Pythonic-cousin--which despite being a little complex for the job, I like. +}
+
+{+I mostly us git as a glorified save button, not a collaborative tool (on this site at least)--so all I needed to do was expose my changesets (already online on [GitHub](http://https://github.com/samjacoby/samjacoby.com/)).+}
+
+{+I slapped together+} a small plugin that parses the [-git repositories-]{+logs of the repo+} that [-have been backing this site for awhile,-]{+backs the site,+} and [-throws-]{+renders+} them[-up-] on the [-page. You&#39;ll-]{+page per-file in a reasonably-digestible manner. It would&#39;ve made more sense to be using mercurial (which is written in Python), but alas, GitHub is too damn good. +}
+
+{+At any rate, you&#39;ll+} now see a [-`Change History` towards-]{+&#39;Change History&#39; on+} the bottom of [-every-]{+each+} page I&#39;ve worked [-on. This one&#39;s got it.-]{+on--and if you&#39;re so inclined, can thumb-through my misspellings, fudged-dates, and all the rest. Tantalizing.+}
+
+{+The plug-in, itself, is [here](https://github.com/samjacoby/hyde/commit/a92073bb46775499e1d510c2c71009ddd8101218) in a not-very-palatable form. Pretty minimal, but you get the idea. The syntax-highlighting is a smidgen of jQuery.+}</pre>
+<hr>
+</div>
+<h4><time class="timeago" datetime="2013-01-31 16:19:55">2013-01-31 16:19:55</time>: <span class="message"> Adding post on Git tracking.
+</span> <a class="link" href="#cd6f5902d3168e860d22af3046541be39c70b966" id="cd6f5902d3168e860d22af3046541be39c70b966">&raquo;</a> </h4> 
+<div class="changeset">
+    <pre class="hash">Find <a href="https://github.com/samjacoby/samjacoby.com/commit/cd6f5902d3168e860d22af3046541be39c70b966">cd6f5902d3168e860d22af3046541be39c70b966</a> on GitHub.</pre>
+    <pre class="message">Adding post on Git tracking.
+</pre>
+    <pre class="diff">@@ -0,0 +1,6 @@
+{+---+}
+{+title: Tracking Changes +}
+{+summary: Because nothing happens all at once. +}
+{+date: 2013-01-31 14:56:39+}
+{+---+}
+{+Inspired by [@jsvine&#39;s](https://twitter.com/jsvine) experiments in version-control at [drafts.jsvine.com](http://drafts.jsvine.com), I thought I&#39;d expose some of the bones that tick beneath this [site](http://samjacoby.com/posts/2012/8/21/hello-world/). I put-together a small plugin that parses the git repositories that have been backing this site for awhile, and throws them up on the page. You&#39;ll now see a `Change History` towards the bottom of every page I&#39;ve worked on. This one&#39;s got it.+}</pre>
+<hr>
+</div>
+</section>
+    </footer>
+ </article>
+        </article>
+        <footer id="colophon">
+            <div class="inner">
+            </div>
+        </footer>
+
+                <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34337252-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>        <script>hljs.initHighlightingOnLoad();</script>
+                    </body>
+</html>

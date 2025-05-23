@@ -1,0 +1,32 @@
+---
+title: Paper Sensors
+summary: "Experiments in conductive ink: strain gauges & accelerometers." 
+date: 2012-5-04 19:19:10
+thumbnail: sensors-1.jpg 
+track: True
+---
+The idea, here, was to recreate some basic MEMS sensors using paper & conductive ink. 
+
+The raw materials. A bit of silver ink--this stuff, from [Conductive Compounds](http://conductivecompounds.com), a mysterious organization up in New Hampshire--a brush, and a laser-cut stencil. I designed the circuit in Eagle, though that was just for my own amusement.
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/7195054272/" title="DSC_0047 by s_jacoby, on Flickr"><img src="http://farm8.staticflickr.com/7093/7195054272_cd1f697de5.jpg" width="500" height="333" alt="DSC_0047"></a>', "The modern scientist.")}}
+Of course, the "right" way to do it, is to screen-print it, but I am lazy. Dabbed on a bit through the stencil, which I'd tacked down with some spray adhesive. 
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/7195055646/" title="DSC_0067 by s_jacoby, on Flickr"><img src="http://farm8.staticflickr.com/7079/7195055646_3aa5ff5b99.jpg" width="500" height="333" alt="DSC_0067"></a>', "Worked about half-the-time.")}}
+
+### Strain Gauge
+This design is based on the work of the [George Whitesides Lab](http://en.wikipedia.org/wiki/George_M._Whitesides), who have done a lot of fine work in paper electronics. Actually, they've done most of the work in paper electronics. Pretty good stuff. 
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/7195061592/" title="DSC_0133 by s_jacoby, on Flickr"><img src="http://farm8.staticflickr.com/7240/7195061592_7814160473.jpg" width="500" height="333" alt="DSC_0133"></a>', "Strain gauge, from [Paper-based piezoresistive MEMS sensors, Liu et al.](http://science.utep.edu/li/images/PDFs/2011%20paper%20mems%20loc.pdf)")}}
+The black stripe is carbon-based ink, which has a far higher resistivity than the silver stuff, and changes resistivity dramatically when flexed. The components are attached with conductive epoxy, which works pretty well. You can speed the drying process along by throwing it in a toaster--you can see the baked lines on this guy. I left it in too long. Worked fine. When cured, the ink goes down to something like 0.3Ω/cm. Not bad.   
+
+This is an early test of just the paper gauge. It seems a little lagged, but I think that's just because I did a bad job syncing the videos--and because of the latency inherent in the flex of the paper.
+{{ macros.render_figure('<iframe src="http://player.vimeo.com/video/54917926?badge=0" width="500" height="281" frameborder="1" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>', '<a href="http://vimeo.com/54917926">Paper Strain Gauge.</a>')}}
+This package just has four op-amps, each boosting up the signal to a different level. The blue blocks are adjustable potentiometers, to equalize the legs of the [Wheatstone Bridge](http://en.wikipedia.org/wiki/Wheatstone_bridge), making the gauge damn sensitive.  
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/7195059934/" title="DSC_0120 by s_jacoby, on Flickr"><img src="http://farm6.staticflickr.com/5155/7195059934_aa410efe80.jpg" width="500" height="333" alt="DSC_0120"></a>', "Op-amp at the heart of the strain-gauge, doing some fine work.")}}
+
+### Paper Accelerometer
+The accelerometer works on a totally different principle, and a lot of the fanciness isn't embedded on the page--though there is a transimpedance amplifier, in there, which converts the voltage on one plate into current, allowing for the flexing of the little paper tab to be picked up.  
+
+It's a pretty crude accelerometer and works pretty well when you blow on it too. No word on durability. I'd guess, not very. 
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/7195067476/" title="DSC_0242 by s_jacoby, on Flickr"><img src="http://farm9.staticflickr.com/8149/7195067476_53f7b06897.jpg" width="500" height="333" alt="DSC_0242"></a>', "Accelerometer. Or anemometer, for that matter.")}}
+This is what the scope picks up on the other side. The square is wave is being sent out of a microcontroller (an Arduino)--and you can see the inverted signal coming through on the opposing plate. By shaking the accelerometer, the voltage of the induced signal changes--it's larger when the two plates are closer. A current is only induced when the voltage is _changing_, though, which is why there are only spikes when the square wave is changing. That gives you a crude metric of motion--hence, the _accelerometer_. I wouldn't say it's all that reliable or repeatable, though.  
+{{ macros.render_figure('<a href="http://www.flickr.com/photos/samjacoby/7195065918/" title="DSC_0193 by s_jacoby, on Flickr"><img src="http://farm8.staticflickr.com/7100/7195065918_b428d221b5.jpg" width="500" height="333" alt="DSC_0193"></a>', "Scope. First row is the transmission wave. Second is the induced (post-amplification) voltage.") }}
+Thanks to the ever-generous [BDM](http://bdm.cc) for helping make this happen.
